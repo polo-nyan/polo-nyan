@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Marc Schneider</h1>
-<h3 align="center">I am a self tought hobby programmer from Germany</h3>
+<h3 align="center">I am a self taught hobby programmer from Germany</h3>
 
 <p align="left">
 </p>
