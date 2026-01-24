@@ -1,0 +1,183 @@
+{
+  "totalRepos": 88,
+  "publicRepos": 6,
+  "privateRepos": 82,
+  "personalRepos": 17,
+  "orgRepos": 70,
+  "personalPublic": 2,
+  "personalPrivate": 15,
+  "orgPublic": 4,
+  "orgPrivate": 66,
+  "totalStars": 0,
+  "totalForks": 0,
+  "totalWatchers": 0,
+  "totalOpenIssues": 31,
+  "totalSizeMB": "1151.3",
+  "languages": [
+    {
+      "name": "PHP",
+      "bytes": 11923664,
+      "percentage": "37.3",
+      "repos": 31,
+      "color": "#4F5D95"
+    },
+    {
+      "name": "HTML",
+      "bytes": 3617436,
+      "percentage": "11.3",
+      "repos": 32,
+      "color": "#e34c26"
+    },
+    {
+      "name": "JavaScript",
+      "bytes": 3591103,
+      "percentage": "11.2",
+      "repos": 32,
+      "color": "#f1e05a"
+    },
+    {
+      "name": "C#",
+      "bytes": 2992102,
+      "percentage": "9.4",
+      "repos": 27,
+      "color": "#178600"
+    },
+    {
+      "name": "TypeScript",
+      "bytes": 2890748,
+      "percentage": "9.0",
+      "repos": 8,
+      "color": "#3178c6"
+    },
+    {
+      "name": "Go",
+      "bytes": 1199641,
+      "percentage": "3.8",
+      "repos": 2,
+      "color": "#00ADD8"
+    },
+    {
+      "name": "CSS",
+      "bytes": 1182868,
+      "percentage": "3.7",
+      "repos": 28,
+      "color": "#563d7c"
+    },
+    {
+      "name": "Shell",
+      "bytes": 997235,
+      "percentage": "3.1",
+      "repos": 38,
+      "color": "#89e051"
+    },
+    {
+      "name": "Svelte",
+      "bytes": 785050,
+      "percentage": "2.5",
+      "repos": 1,
+      "color": "#858585"
+    },
+    {
+      "name": "Python",
+      "bytes": 748798,
+      "percentage": "2.3",
+      "repos": 7,
+      "color": "#3572A5"
+    }
+  ],
+  "topLanguage": "PHP",
+  "totalCommits": 580,
+  "avgCommitsPerRepo": "20.0",
+  "medianCommits": 9,
+  "recentCommits": 41,
+  "avgRepoAge": "0.9",
+  "estimatedTotalFiles": 12848,
+  "avgFilesPerRepo": 146,
+  "estimatedTotalLines": 3506272,
+  "avgLinesPerRepo": 39844,
+  "avgLinesPerFile": 274,
+  "archivedRepos": 0,
+  "activeRepos": 88,
+  "forkedRepos": 1,
+  "originalRepos": 87,
+  "reposByYear": {
+    "2020": 1,
+    "2021": 6,
+    "2022": 5,
+    "2023": 4,
+    "2024": 8,
+    "2025": 29,
+    "2026": 35
+  },
+  "licenses": {
+    "GPL-3.0": 1
+  },
+  "oldestPublicRepo": {
+    "name": "polo-nyan",
+    "date": "2022-06-29"
+  },
+  "newestPublicRepo": {
+    "name": "Twitch-Channel-Points-Miner-v2.1",
+    "date": "2026-04-10"
+  },
+  "topStarred": [
+    {
+      "name": "polo-nyan",
+      "stars": 0,
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "description": "Config files for my GitHub profile."
+    },
+    {
+      "name": "Twitch-Channel-Points-Miner-v2.1",
+      "stars": 0,
+      "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
+      "description": "[NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo."
+    },
+    {
+      "name": "common-ressources",
+      "stars": 0,
+      "url": "https://github.com/smol-kitten/common-ressources",
+      "description": "Ressources i might or might not need more often"
+    },
+    {
+      "name": "honeypot-urls",
+      "stars": 0,
+      "url": "https://github.com/smol-kitten/honeypot-urls",
+      "description": "A list of often scanned urls and malicious files. Can be used to block bad actors."
+    },
+    {
+      "name": "MinecraftThroughTime",
+      "stars": 0,
+      "url": "https://github.com/smol-kitten/MinecraftThroughTime",
+      "description": "Tool to change MC Versions at specific dates from a profile"
+    }
+  ],
+  "recentlyUpdated": [
+    {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-06-11"
+    },
+    {
+      "name": "web-core",
+      "url": "https://github.com/smol-kitten/web-core",
+      "pushedAt": "2026-06-05"
+    },
+    {
+      "name": "common-ressources",
+      "url": "https://github.com/smol-kitten/common-ressources",
+      "pushedAt": "2026-05-30"
+    },
+    {
+      "name": "Twitch-Channel-Points-Miner-v2.1",
+      "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
+      "pushedAt": "2026-05-23"
+    },
+    {
+      "name": "MinecraftThroughTime",
+      "url": "https://github.com/smol-kitten/MinecraftThroughTime",
+      "pushedAt": "2026-03-14"
+    }
+  ],
+  "updatedAt": "2026-06-12"
+}
