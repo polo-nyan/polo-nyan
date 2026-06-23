@@ -62,7 +62,7 @@ fun_fact: Cat lover 🐱
 
 ## 📊 GitHub Statistics
 
-<!-- STATS-START -->
+<!-- STATS:START -->
 
 <div align="center">
 
@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **88** | **0** | **0** | **PHP** | **1151.3 MB** |
+| **89** | **0** | **0** | **PHP** | **1173.3 MB** |
 
 </div>
 
@@ -84,7 +84,7 @@ fun_fact: Cat lover 🐱
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#22c55e", "pie2": "#f59e0b", "pie3": "#3b82f6", "pie4": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title Repository Visibility
-    "🌐 Public" : 6
+    "🌐 Public" : 7
     "🔒 Private" : 82
 ```
 
@@ -98,7 +98,7 @@ pie showData
 
 | Type | Count |
 |:-----|------:|
-| 🌐 Public | 6 |
+| 🌐 Public | 7 |
 | 🔒 Private | 82 |
 
 </td>
@@ -108,8 +108,8 @@ pie showData
 
 | Type | Public | Private |
 |:-----|-------:|--------:|
-| Personal | 2 | 15 |
-| Organization | 4 | 66 |
+| Personal | 2 | 14 |
+| Organization | 5 | 67 |
 
 </td>
 <td align="center">
@@ -118,10 +118,10 @@ pie showData
 
 | Type | Count |
 |:-----|------:|
-| ✅ Active | 88 |
+| ✅ Active | 89 |
 | 📦 Archived | 0 |
 | 🔀 Original | 87 |
-| 🍴 Forked | 1 |
+| 🍴 Forked | 2 |
 
 </td>
 </tr>
@@ -141,9 +141,9 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total Commits | **580** |
-| Avg per Repo | **20.0** |
-| Median | **9** |
+| Total Commits | **768** |
+| Avg per Repo | **25.6** |
+| Median | **12** |
 
 </td>
 <td align="center">
@@ -152,10 +152,10 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Est. Files | **~12848** |
-| Est. Lines | **~3506272** |
-| Avg Files/Repo | **146** |
-| Avg Lines/File | **274** |
+| Est. Files | **~13706** |
+| Est. Lines | **~6068020** |
+| Avg Files/Repo | **154** |
+| Avg Lines/File | **442** |
 
 </td>
 <td align="center">
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **41** |
+| Push Events (30d) | **42** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -183,12 +183,12 @@ pie showData
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#8b5cf6", "pie2": "#f59e0b", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f43f5e", "pie6": "#3b82f6", "pie7": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title Code Distribution by Language
-    "PHP" : 37.3
-    "HTML" : 11.3
-    "JavaScript" : 11.2
-    "C#" : 9.4
-    "TypeScript" : 9.0
-    "Go" : 3.8
+    "PHP" : 37.0
+    "JavaScript" : 10.0
+    "C#" : 9.9
+    "HTML" : 9.9
+    "TypeScript" : 8.9
+    "CSS" : 3.8
 ```
 
 </div>
@@ -198,16 +198,16 @@ pie showData
 
 | Language | Percentage | Repositories |
 |:---------|:----------:|:------------:|
-| PHP | 37.3% | 31 |
-| HTML | 11.3% | 32 |
-| JavaScript | 11.2% | 32 |
-| C# | 9.4% | 27 |
-| TypeScript | 9.0% | 8 |
-| Go | 3.8% | 2 |
-| CSS | 3.7% | 28 |
-| Shell | 3.1% | 38 |
-| Svelte | 2.5% | 1 |
-| Python | 2.3% | 7 |
+| PHP | 37.0% | 31 |
+| JavaScript | 10.0% | 33 |
+| C# | 9.9% | 27 |
+| HTML | 9.9% | 33 |
+| TypeScript | 8.9% | 8 |
+| CSS | 3.8% | 29 |
+| Lua | 3.7% | 5 |
+| Shell | 3.3% | 41 |
+| Go | 2.9% | 2 |
+| Python | 2.5% | 10 |
 
 </details>
 
@@ -215,17 +215,27 @@ pie showData
 
 ### ⭐ Notable Public Projects
 
+- [**polo-nyan**](https://github.com/polo-nyan/polo-nyan)
+  > Config files for my GitHub profile.
+- [**Twitch-Channel-Points-Miner-v2.1**](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1)
+  > [NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo.
+- [**common-ressources**](https://github.com/smol-kitten/common-ressources)
+  > Ressources i might or might not need more often
+- [**honeypot-urls**](https://github.com/smol-kitten/honeypot-urls)
+  > A list of often scanned urls and malicious files. Can be used to block bad actors.
+- [**MinecraftThroughTime**](https://github.com/smol-kitten/MinecraftThroughTime)
+  > Tool to change MC Versions at specific dates from a profile
 
 <details>
 <summary><b>🔄 Recently Updated (Public)</b></summary>
 
 | Repository | Last Updated |
 |:-----------|:------------:|
-| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-06-11 |
-| [web-core](https://github.com/smol-kitten/web-core) | 2026-06-05 |
-| [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-05-30 |
-| [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-05-23 |
-| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | 2026-03-14 |
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-06-23 |
+| [MinedMap](https://github.com/smol-kitten/MinedMap) | 2026-06-23 |
+| [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-06-23 |
+| [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | 2026-06-23 |
+| [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-06-23 |
 
 </details>
 
@@ -240,7 +250,7 @@ pie showData
 xychart-beta
     title "Repos Created Per Year"
     x-axis ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]
-    bar [1, 6, 5, 4, 8, 29, 35]
+    bar [1, 6, 5, 4, 8, 29, 36]
 ```
 
 </div>
@@ -269,6 +279,21 @@ mindmap
 ```
 
 </div>
+
+---
+
+<div align="center">
+
+| 📊 Quick Stats | |
+|:---|:---|
+| 📁 Total Repos | **89** (7 public, 82 private) |
+| 💾 Code Volume | **1173.3 MB** across 87 projects |
+| 💻 Top Language | **PHP** |
+| 📅 Last Updated | **2026-06-23** |
+
+</div>
+
+<!-- STATS:END -->
 
 ---
 
@@ -308,16 +333,7 @@ mindmap
 
 <div align="center">
 
-| 📊 Quick Stats | |
-|:---|:---|
-| 📁 Total Repos | **88** (6 public, 82 private) |
-| 💾 Code Volume | **1151.3 MB** across 87 projects |
-| 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-06-12** |
-
-<br>
-
-<sub>🤖 Auto-generated daily via GitHub Actions on self-hosted runner</sub>
+<sub>🤖 Auto-generated daily via GitHub Actions on a self-hosted runner</sub>
 <br>
 <sub>🔒 Private project names are never exposed</sub>
 
@@ -326,4 +342,3 @@ mindmap
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,19,24,30&height=100&section=footer" width="100%"/>
 
 </div>
-<!-- STATS-END -->
