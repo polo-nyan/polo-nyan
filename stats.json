@@ -11,7 +11,7 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 504,
+  "totalOpenIssues": 502,
   "totalSizeMB": "1173.3",
   "languages": [
     {
@@ -89,7 +89,7 @@
   "totalCommits": 768,
   "avgCommitsPerRepo": "25.6",
   "medianCommits": 12,
-  "recentCommits": 42,
+  "recentCommits": 43,
   "avgRepoAge": "0.9",
   "estimatedTotalFiles": 13706,
   "avgFilesPerRepo": 154,
@@ -180,5 +180,86 @@
       "pushedAt": "2026-06-23"
     }
   ],
+  "ai": {
+    "enabled": true,
+    "totalAICommits": 91,
+    "totalCoauthorMentions": 152,
+    "scannedCommits": 1332,
+    "assistRate": "6.8",
+    "topFamily": "Opus",
+    "topModel": "Opus 4.8",
+    "familyOrder": [
+      "Opus",
+      "Claude",
+      "Sonnet",
+      "Other AI"
+    ],
+    "families": [
+      {
+        "family": "Opus",
+        "count": 73
+      },
+      {
+        "family": "Claude",
+        "count": 67
+      },
+      {
+        "family": "Sonnet",
+        "count": 10
+      },
+      {
+        "family": "Other AI",
+        "count": 2
+      }
+    ],
+    "topModels": [
+      {
+        "model": "Opus 4.8",
+        "count": 73
+      },
+      {
+        "model": "Claude",
+        "count": 67
+      },
+      {
+        "model": "Sonnet 4.6",
+        "count": 10
+      },
+      {
+        "model": "Copilot",
+        "count": 1
+      },
+      {
+        "model": "GitHub Copilot",
+        "count": 1
+      }
+    ],
+    "monthly": [
+      {
+        "month": "2026-01",
+        "total": 1,
+        "families": {
+          "Other AI": 1
+        }
+      },
+      {
+        "month": "2026-05",
+        "total": 7,
+        "families": {
+          "Sonnet": 6,
+          "Other AI": 1
+        }
+      },
+      {
+        "month": "2026-06",
+        "total": 83,
+        "families": {
+          "Claude": 67,
+          "Opus": 42,
+          "Sonnet": 4
+        }
+      }
+    ]
+  },
   "updatedAt": "2026-06-23"
 }

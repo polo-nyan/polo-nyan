@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **42** |
+| Push Events (30d) | **43** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -208,6 +208,95 @@ pie showData
 | Shell | 3.3% | 41 |
 | Go | 2.9% | 2 |
 | Python | 2.5% | 10 |
+
+</details>
+
+---
+
+### 🤖 AI Pair-Programming
+
+Derived from `Co-authored-by:` trailers on my commits — which Anthropic
+model families and models actually helped write the code, and how that
+usage trends over time.
+
+<div align="center">
+
+| 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
+|:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
+| **91** / 1332 | **6.8%** | **Opus** | **Opus 4.8** | **152** |
+
+</div>
+
+<div align="center">
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
+pie showData
+    title AI Co-Authorship by Model Family
+    "Opus" : 73
+    "Claude" : 67
+    "Sonnet" : 10
+    "Other AI" : 2
+```
+
+</div>
+
+<div align="center">
+
+```mermaid
+%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #a78bfa"}}}}%%
+xychart-beta
+    title "AI-Assisted Commits Per Month"
+    x-axis ["2026-01", "2026-05", "2026-06"]
+    y-axis "Commits"
+    bar [1, 7, 83]
+    line [1, 7, 83]
+```
+
+</div>
+
+<details>
+<summary><b>📈 Model-family usage over time</b></summary>
+
+> Series order (by total volume): **Opus · Claude · Sonnet · Other AI**
+
+<div align="center">
+
+```mermaid
+%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #8b5cf6, #06b6d4, #22c55e, #f59e0b, #ec4899"}}}}%%
+xychart-beta
+    title "Commits Per Month by Model Family"
+    x-axis ["2026-01", "2026-05", "2026-06"]
+    y-axis "Commits"
+    line [0, 0, 42]
+    line [0, 0, 67]
+    line [0, 6, 4]
+    line [1, 1, 0]
+```
+
+</div>
+
+</details>
+
+<details>
+<summary><b>🧠 Detailed model breakdown</b></summary>
+
+| Model | Co-Author Credits |
+|:------|------------------:|
+| Opus 4.8 | 73 |
+| Claude | 67 |
+| Sonnet 4.6 | 10 |
+| Copilot | 1 |
+| GitHub Copilot | 1 |
+
+**By family**
+
+| Family | Credits |
+|:-------|--------:|
+| Opus | 73 |
+| Claude | 67 |
+| Sonnet | 10 |
+| Other AI | 2 |
 
 </details>
 
