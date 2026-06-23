@@ -264,6 +264,132 @@ else
     } >> "$SECTION"
   fi
 
+  # --- AI pair-programming usage ----------------------------------------
+  AI_ENABLED="$(jq -r '.ai.enabled // false' "$STATS_JSON" 2>/dev/null || echo false)"
+  AI_FAM_COUNT="$(jq -r '(.ai.families // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
+  if [ "$AI_ENABLED" = "true" ] && [ "${AI_FAM_COUNT:-0}" -gt 0 ]; then
+    AI_COMMITS="$(stat_get '.ai.totalAICommits' '0')"
+    AI_MENTIONS="$(stat_get '.ai.totalCoauthorMentions' '0')"
+    AI_SCANNED="$(stat_get '.ai.scannedCommits' '0')"
+    AI_RATE="$(stat_get '.ai.assistRate' '0')"
+    AI_TOP_FAMILY="$(stat_get '.ai.topFamily' 'Unknown')"
+    AI_TOP_MODEL="$(stat_get '.ai.topModel' 'Unknown')"
+    {
+      echo '### 🤖 AI Pair-Programming'
+      echo ''
+      echo 'Derived from `Co-authored-by:` trailers on my commits — which Anthropic'
+      echo 'model families and models actually helped write the code, and how that'
+      echo 'usage trends over time.'
+      echo ''
+      echo '<div align="center">'
+      echo ''
+      echo '| 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |'
+      echo '|:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|'
+      echo "| **${AI_COMMITS}** / ${AI_SCANNED} | **${AI_RATE}%** | **${AI_TOP_FAMILY}** | **${AI_TOP_MODEL}** | **${AI_MENTIONS}** |"
+      echo ''
+      echo '</div>'
+      echo ''
+    } >> "$SECTION"
+
+    # Pie: distribution by model family.
+    {
+      echo '<div align="center">'
+      echo ''
+      echo '```mermaid'
+      echo '%%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%'
+      echo 'pie showData'
+      echo '    title AI Co-Authorship by Model Family'
+      jq -r '(.ai.families // [])[] | "    \"\(.family)\" : \(.count)"' "$STATS_JSON" 2>/dev/null || true
+      echo '```'
+      echo ''
+      echo '</div>'
+      echo ''
+    } >> "$SECTION"
+
+    # Bar + trend line: AI-assisted commits per month (last 12 months).
+    AI_MONTH_COUNT="$(jq -r '(.ai.monthly // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
+    if [ "${AI_MONTH_COUNT:-0}" -gt 1 ]; then
+      {
+        echo '<div align="center">'
+        echo ''
+        echo '```mermaid'
+        echo '%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #a78bfa"}}}}%%'
+        echo 'xychart-beta'
+        echo '    title "AI-Assisted Commits Per Month"'
+        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
+               | "    x-axis [" + ([$m[].month | "\"\(.)\""] | join(", ")) + "]"' \
+          "$STATS_JSON" 2>/dev/null || true
+        echo '    y-axis "Commits"'
+        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
+               | "    bar [" + ([$m[].total | tostring] | join(", ")) + "]"' \
+          "$STATS_JSON" 2>/dev/null || true
+        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
+               | "    line [" + ([$m[].total | tostring] | join(", ")) + "]"' \
+          "$STATS_JSON" 2>/dev/null || true
+        echo '```'
+        echo ''
+        echo '</div>'
+        echo ''
+      } >> "$SECTION"
+    fi
+
+    # Per-family trend over time (multi-line), shown when >1 family is present.
+    if [ "${AI_FAM_COUNT:-0}" -gt 1 ] && [ "${AI_MONTH_COUNT:-0}" -gt 1 ]; then
+      FAM_ORDER_CSV="$(jq -r '(.ai.familyOrder // []) | join(" · ")' "$STATS_JSON" 2>/dev/null || true)"
+      {
+        echo '<details>'
+        echo '<summary><b>📈 Model-family usage over time</b></summary>'
+        echo ''
+        echo "> Series order (by total volume): **${FAM_ORDER_CSV}**"
+        echo ''
+        echo '<div align="center">'
+        echo ''
+        echo '```mermaid'
+        echo '%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #8b5cf6, #06b6d4, #22c55e, #f59e0b, #ec4899"}}}}%%'
+        echo 'xychart-beta'
+        echo '    title "Commits Per Month by Model Family"'
+        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
+               | "    x-axis [" + ([$m[].month | "\"\(.)\""] | join(", ")) + "]"' \
+          "$STATS_JSON" 2>/dev/null || true
+        echo '    y-axis "Commits"'
+        # One line series per family, in familyOrder, zero-filled per month.
+        jq -r '(.ai.familyOrder // [])[]' "$STATS_JSON" 2>/dev/null | while IFS= read -r fam; do
+          [ -z "$fam" ] && continue
+          jq -r --arg fam "$fam" '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
+                 | "    line [" + ([$m[] | ((.families[$fam] // 0) | tostring)] | join(", ")) + "]"' \
+            "$STATS_JSON" 2>/dev/null || true
+        done
+        echo '```'
+        echo ''
+        echo '</div>'
+        echo ''
+        echo '</details>'
+        echo ''
+      } >> "$SECTION"
+    fi
+
+    # Detailed model breakdown table.
+    {
+      echo '<details>'
+      echo '<summary><b>🧠 Detailed model breakdown</b></summary>'
+      echo ''
+      echo '| Model | Co-Author Credits |'
+      echo '|:------|------------------:|'
+      jq -r '(.ai.topModels // [])[] | "| \(.model) | \(.count) |"' "$STATS_JSON" 2>/dev/null || true
+      echo ''
+      echo '**By family**'
+      echo ''
+      echo '| Family | Credits |'
+      echo '|:-------|--------:|'
+      jq -r '(.ai.families // [])[] | "| \(.family) | \(.count) |"' "$STATS_JSON" 2>/dev/null || true
+      echo ''
+      echo '</details>'
+      echo ''
+      echo '---'
+      echo ''
+    } >> "$SECTION"
+  fi
+
   # --- Notable public projects ------------------------------------------
   TOP_COUNT="$(jq -r '[(.topStarred // [])[] | select(.stars > 0)] | length' "$STATS_JSON" 2>/dev/null || echo 0)"
   ALL_TOP_COUNT="$(jq -r '(.topStarred // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"

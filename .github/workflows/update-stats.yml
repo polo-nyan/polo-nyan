@@ -1,8 +1,10 @@
 # Auto-update GitHub Profile README from live GitHub API data.
 #
 # The job fetches comprehensive repo/language/commit stats for `polo-nyan`
-# (and the `smol-kitten` org) into stats.json, then assembles README.md from a
-# template via scripts/build-readme.sh. Only the region between the
+# (and the `smol-kitten` org) into stats.json — including AI pair-programming
+# usage parsed from `Co-authored-by:` trailers (which Anthropic model families
+# and models assisted, and how that trends over time) — then assembles
+# README.md from a template via scripts/build-readme.sh. Only the region between the
 # <!-- STATS:START --> / <!-- STATS:END --> markers is regenerated, so any
 # hand-written content in README.md is preserved. The job only commits when
 # there is an actual diff.
@@ -265,6 +267,121 @@ jobs:
             const recentlyUpdated = [...allRepos].filter(r => !r.private)
               .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5);
 
+            // --- AI pair-programming usage (Co-authored-by trailers) ------------
+            // Scan commit messages authored by `owner` for AI co-author trailers
+            // (e.g. "Co-authored-by: Claude Opus 4.8 (1M context) <noreply@anthropic.com>")
+            // and aggregate by model family and by month so the README can show
+            // which models/families are used and how usage trends over time.
+            console.log('🤖 Scanning commits for AI co-author trailers...');
+
+            // Anthropic model families, ordered specific -> generic. First match wins.
+            const AI_FAMILIES = ['Opus', 'Sonnet', 'Haiku', 'Fable'];
+
+            // Classify a single Co-authored-by entry into { isAI, family, model }.
+            const classifyCoauthor = (name, email) => {
+              const n = (name || '').trim();
+              const e = (email || '').toLowerCase();
+              const hay = (n + ' ' + e).toLowerCase();
+              const isAnthropicEmail = /@(.*\.)?anthropic\.com$/.test(e);
+              const isClaudeDomain = /@(.*\.)?claude\./.test(e) || e.includes('claude.goes.moe');
+              const looksClaude = /\b(claude|anthropic|opus|sonnet|haiku|fable)\b/i.test(hay);
+              if (!isAnthropicEmail && !isClaudeDomain && !looksClaude) {
+                // Recognise other common AI assistants, bucketed under "Other AI".
+                if (/\b(copilot|chatgpt|openai|gpt-?\d|cursor|codeium|gemini|devin|codex|tabnine|aider)\b/i.test(hay)) {
+                  return { isAI: true, family: 'Other AI', model: n || 'AI assistant' };
+                }
+                return { isAI: false };
+              }
+              let family = 'Claude';
+              for (const f of AI_FAMILIES) {
+                if (new RegExp('\\b' + f + '\\b', 'i').test(hay)) { family = f; break; }
+              }
+              // Clean model label: drop parentheticals + a leading "Claude".
+              let model = n.replace(/\(.*?\)/g, ' ').replace(/\s+/g, ' ').trim();
+              const modelNoClaude = model.replace(/^claude\s+/i, '').trim();
+              if (family === 'Claude') model = 'Claude';
+              else model = modelNoClaude || ('Claude ' + family);
+              return { isAI: true, family, model };
+            };
+
+            // Matches trailer lines like "Co-authored-by: Name <email>" anywhere in a message.
+            const COAUTHOR_RE = /^[ \t]*co-authored-by:[ \t]*(.+?)[ \t]*<([^>]*)>[ \t]*$/gim;
+
+            const aiByFamily = {};
+            const aiByModel = {};
+            const aiByMonth = {};        // 'YYYY-MM' -> { total, families: { fam: n } }
+            let aiCommits = 0;           // commits with >= 1 AI co-author
+            let aiCoauthorMentions = 0;  // total AI trailer lines
+            let scannedCommits = 0;      // total commits scanned (for assist rate)
+
+            // Most-recently-pushed repos first; cap the scan to respect rate limits.
+            const reposForAI = [...allRepos]
+              .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+              .slice(0, 50);
+            const MAX_PAGES = 5; // up to 500 commits per repo
+
+            for (const repo of reposForAI) {
+              for (let page = 1; page <= MAX_PAGES; page++) {
+                const commits = await safe(`commits ${repo.full_name} p${page}`, async () => {
+                  const { data } = await github.rest.repos.listCommits({
+                    owner: repo.owner.login, repo: repo.name, author: owner, per_page: 100, page
+                  });
+                  return data;
+                }, []);
+                if (!commits || commits.length === 0) break;
+                for (const c of commits) {
+                  scannedCommits++;
+                  const msg = c.commit?.message || '';
+                  COAUTHOR_RE.lastIndex = 0;
+                  const famsThisCommit = new Set();
+                  let m;
+                  while ((m = COAUTHOR_RE.exec(msg)) !== null) {
+                    const info = classifyCoauthor(m[1], m[2]);
+                    if (!info.isAI) continue;
+                    aiCoauthorMentions++;
+                    aiByFamily[info.family] = (aiByFamily[info.family] || 0) + 1;
+                    aiByModel[info.model] = (aiByModel[info.model] || 0) + 1;
+                    famsThisCommit.add(info.family);
+                  }
+                  if (famsThisCommit.size > 0) {
+                    aiCommits++;
+                    const d = c.commit?.author?.date || c.commit?.committer?.date;
+                    if (d) {
+                      const month = d.slice(0, 7); // YYYY-MM
+                      if (!aiByMonth[month]) aiByMonth[month] = { total: 0, families: {} };
+                      aiByMonth[month].total++;
+                      for (const fam of famsThisCommit) {
+                        aiByMonth[month].families[fam] = (aiByMonth[month].families[fam] || 0) + 1;
+                      }
+                    }
+                  }
+                }
+                if (commits.length < 100) break;
+              }
+            }
+
+            const aiFamilyDist = Object.entries(aiByFamily)
+              .sort((a, b) => b[1] - a[1]).map(([family, count]) => ({ family, count }));
+            const aiTopModels = Object.entries(aiByModel)
+              .sort((a, b) => b[1] - a[1]).slice(0, 12).map(([model, count]) => ({ model, count }));
+            const aiMonthly = Object.keys(aiByMonth).sort()
+              .map(month => ({ month, total: aiByMonth[month].total, families: aiByMonth[month].families }));
+
+            const aiStats = {
+              enabled: aiCommits > 0,
+              totalAICommits: aiCommits,
+              totalCoauthorMentions: aiCoauthorMentions,
+              scannedCommits,
+              assistRate: scannedCommits ? ((aiCommits / scannedCommits) * 100).toFixed(1) : '0',
+              topFamily: aiFamilyDist[0]?.family || null,
+              topModel: aiTopModels[0]?.model || null,
+              familyOrder: aiFamilyDist.map(f => f.family),
+              families: aiFamilyDist,
+              topModels: aiTopModels,
+              monthly: aiMonthly
+            };
+            console.log(`🤖 AI usage: ${aiCommits}/${scannedCommits} commits assisted across ${aiFamilyDist.length} families.`);
+
             // Never abort on zero repos: still write a valid stats.json so the
             // README script can render a graceful placeholder.
             if (totalRepos === 0) {
@@ -293,6 +410,7 @@ jobs:
               })(),
               topStarred: topStarred.map(r => ({ name: r.name, stars: r.stargazers_count, url: r.html_url, description: r.description || '' })),
               recentlyUpdated: recentlyUpdated.map(r => ({ name: r.name, url: r.html_url, pushedAt: r.pushed_at?.split('T')[0] })),
+              ai: aiStats,
               updatedAt: new Date().toISOString().split('T')[0]
             };
 
