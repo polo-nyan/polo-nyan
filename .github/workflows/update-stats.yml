@@ -1,23 +1,23 @@
-# Auto-update GitHub Profile Stats using API data
-# Generates custom SVG cards and updates README with comprehensive stats
+# Auto-update GitHub Profile README from live GitHub API data.
+#
+# The job fetches comprehensive repo/language/commit stats for `polo-nyan`
+# (and the `smol-kitten` org) into stats.json, then assembles README.md from a
+# template via scripts/build-readme.sh. Only the region between the
+# <!-- STATS:START --> / <!-- STATS:END --> markers is regenerated, so any
+# hand-written content in README.md is preserved. The job only commits when
+# there is an actual diff.
 #
 # === TOKEN SETUP FOR SELF-HOSTED RUNNERS ===
-# Since self-hosted runners (especially Docker containers) may not have
-# access to repository secrets, you have several options:
+# Self-hosted runners (especially Docker containers) may not have access to
+# repository secrets, so the token is resolved in this order:
 #
-# OPTION 1: Token file (recommended for Docker)
-#   Create a file at /run/secrets/gh_stats_token or ~/.gh_stats_token
-#   containing just the token string (no newline at end)
-#   For Docker: Mount the secret file into the container
+#   1. Token file:  /run/secrets/gh_stats_token, ~/.gh_stats_token, /etc/gh_stats_token
+#   2. Env var:     GH_STATS_TOKEN
+#   3. Secret:      PAT_TOKEN  (repository/org secret)
+#   4. Fallback:    GITHUB_TOKEN (public data only)
 #
-# OPTION 2: Environment variable
-#   Set GH_STATS_TOKEN env var (may not work in all Docker setups)
-#
-# OPTION 3: Repository secret (if you have access)
-#   Create PAT_TOKEN secret in repository settings
-#
-# The token needs 'repo' scope for private repository access.
-# Fallback: Uses GITHUB_TOKEN (public repos only) if no PAT is available.
+# A token with the 'repo' scope is required to include private repositories.
+# Without it the run still succeeds and degrades gracefully to public data.
 
 name: Update Profile Stats
 
@@ -30,9 +30,15 @@ on:
     branches: [main, master]
     paths:
       - '.github/workflows/update-stats.yml'
+      - 'scripts/**'
 
 permissions:
   contents: write
+
+# Avoid overlapping runs racing on the same branch / commit.
+concurrency:
+  group: update-profile-stats
+  cancel-in-progress: false
 
 jobs:
   update-stats:
@@ -40,874 +46,288 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Load token from file (Docker support)
+
+      - name: Resolve token (file / env / secret -> GITHUB_TOKEN fallback)
         id: token
         run: |
-          # Try multiple locations for the token file
+          set -euo pipefail
+          # 1) Token file (best for Docker secret mounts).
           TOKEN=""
           for TOKEN_FILE in "/run/secrets/gh_stats_token" "$HOME/.gh_stats_token" "/etc/gh_stats_token"; do
             if [ -f "$TOKEN_FILE" ]; then
-              TOKEN=$(cat "$TOKEN_FILE" | tr -d '\n\r')
+              TOKEN="$(tr -d '\n\r' < "$TOKEN_FILE")"
               echo "✅ Found token file at $TOKEN_FILE"
               break
             fi
           done
-          
-          # Fall back to environment variable
-          if [ -z "$TOKEN" ] && [ -n "$GH_STATS_TOKEN" ]; then
+          # 2) Environment variable.
+          if [ -z "$TOKEN" ] && [ -n "${GH_STATS_TOKEN:-}" ]; then
             TOKEN="$GH_STATS_TOKEN"
             echo "✅ Using GH_STATS_TOKEN environment variable"
           fi
-          
           if [ -n "$TOKEN" ]; then
-            echo "FILE_TOKEN=$TOKEN" >> $GITHUB_OUTPUT
             echo "::add-mask::$TOKEN"
+            echo "FILE_TOKEN=$TOKEN" >> "$GITHUB_OUTPUT"
           else
-            echo "⚠️ No token file or env var found, will use default GITHUB_TOKEN"
+            echo "ℹ️  No token file or env var found; will use PAT_TOKEN secret or GITHUB_TOKEN fallback."
           fi
-      
-      - name: Fetch Comprehensive GitHub Stats
+
+      - name: Fetch comprehensive GitHub stats
         id: stats
+        continue-on-error: true
         uses: actions/github-script@v7
-        env:
-          FILE_TOKEN: ${{ steps.token.outputs.FILE_TOKEN }}
-          SECRET_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
           github-token: ${{ steps.token.outputs.FILE_TOKEN || secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
             const owner = 'polo-nyan';
             const org = 'smol-kitten';
-            
+
+            // Wrap any API call so a single failure never aborts the whole run.
+            const safe = async (label, fn, fallback) => {
+              try { return await fn(); }
+              catch (e) { console.log(`⚠️  ${label} failed: ${e.message}`); return fallback; }
+            };
+
             let userRepos = [];
             let hasPrivateAccess = false;
-            
-            // Check token scopes first
-            try {
+
+            // Check token scopes (informational only).
+            await safe('scope check', async () => {
               const { headers } = await github.request('GET /user');
               const scopes = headers['x-oauth-scopes'] || 'none';
               console.log(`🔑 Token scopes: ${scopes}`);
               if (!scopes.includes('repo')) {
-                console.log('⚠️ WARNING: Token does not have "repo" scope!');
-                console.log('   Private repos require a token with full "repo" scope');
-                console.log('   Current scopes only allow public repo access');
+                console.log('⚠️  Token lacks "repo" scope; private repos will be omitted.');
               }
-            } catch (e) {
-              console.log('Could not check token scopes: ' + e.message);
-            }
-            
-            // Try to fetch with authenticated user endpoint (requires PAT with repo scope)
+            });
+
+            // Try authenticated user repos (needs PAT w/ repo scope), else public-only.
             try {
-              console.log('🔍 Attempting to fetch all repos (including private)...');
+              console.log('🔍 Fetching repos (including private if permitted)...');
               let page = 1;
               while (true) {
                 const { data: repos } = await github.rest.repos.listForAuthenticatedUser({
-                  per_page: 100,
-                  page: page,
-                  affiliation: 'owner,organization_member',
-                  visibility: 'all'
+                  per_page: 100, page, affiliation: 'owner,organization_member', visibility: 'all'
                 });
                 if (repos.length === 0) break;
                 userRepos = userRepos.concat(repos);
                 page++;
               }
-              
-              // Check if we actually got private repos
               const privateCount = userRepos.filter(r => r.private).length;
               if (privateCount > 0) {
                 hasPrivateAccess = true;
-                console.log(`✅ PAT working - fetched ${userRepos.length} repos (${privateCount} private)`);
+                console.log(`✅ Fetched ${userRepos.length} repos (${privateCount} private)`);
               } else {
-                console.log(`⚠️ Fetched ${userRepos.length} repos but none are private`);
-                console.log('   This usually means the token lacks "repo" scope');
-                console.log('   Create a new token at: https://github.com/settings/tokens');
-                console.log('   Required scope: "repo" (Full control of private repositories)');
+                console.log(`⚠️  Fetched ${userRepos.length} repos but none private (token likely lacks "repo").`);
               }
             } catch (e) {
-              // Fallback to public-only endpoints (works with GITHUB_TOKEN)
-              console.log('⚠️ No PAT available, falling back to public repos only...');
-              console.log('   Error: ' + e.message);
-              console.log('   To include private repos, set GH_STATS_TOKEN env var on your runner');
-              
+              console.log('⚠️  Falling back to public repos only: ' + e.message);
+              userRepos = [];
               let page = 1;
               while (true) {
-                const { data: repos } = await github.rest.repos.listForUser({
-                  username: owner,
-                  per_page: 100,
-                  page: page,
-                  type: 'owner'
-                });
-                if (repos.length === 0) break;
+                const { data: repos } = await safe('listForUser', () =>
+                  github.rest.repos.listForUser({ username: owner, per_page: 100, page, type: 'owner' }),
+                  { data: [] });
+                if (!repos || repos.length === 0) break;
                 userRepos = userRepos.concat(repos);
                 page++;
               }
               console.log(`Found ${userRepos.length} public repos for ${owner}`);
             }
-            
-            // Fetch org repos
-            let page = 1;
-            try {
+
+            // Org repos (deduplicated).
+            await safe('listForOrg', async () => {
+              let page = 1;
               while (true) {
                 const { data: repos } = await github.rest.repos.listForOrg({
-                  org: org,
-                  per_page: 100,
-                  page: page,
-                  type: hasPrivateAccess ? 'all' : 'public'
+                  org, per_page: 100, page, type: hasPrivateAccess ? 'all' : 'public'
                 });
                 if (repos.length === 0) break;
-                // Only add repos not already in the list
                 for (const repo of repos) {
-                  if (!userRepos.find(r => r.full_name === repo.full_name)) {
-                    userRepos.push(repo);
-                  }
+                  if (!userRepos.find(r => r.full_name === repo.full_name)) userRepos.push(repo);
                 }
                 page++;
               }
               console.log(`Total repos after org fetch: ${userRepos.length}`);
-            } catch (e) {
-              console.log('Could not fetch org repos: ' + e.message);
-            }
-            
-            // Separate personal and org repos
+            });
+
             const personalRepos = userRepos.filter(r => r.owner.login === owner);
             const orgRepos = userRepos.filter(r => r.owner.login === org);
-            
-            // Combine all repos (deduplicated)
             const allRepos = userRepos;
-            
-            // Count basic stats
+
             const totalRepos = allRepos.length;
             const publicRepos = allRepos.filter(r => !r.private).length;
             const privateRepos = allRepos.filter(r => r.private).length;
-            const totalStars = allRepos.reduce((sum, r) => sum + r.stargazers_count, 0);
-            const totalForks = allRepos.reduce((sum, r) => sum + r.forks_count, 0);
-            const totalWatchers = allRepos.reduce((sum, r) => sum + r.watchers_count, 0);
-            const totalOpenIssues = allRepos.reduce((sum, r) => sum + r.open_issues_count, 0);
-            
-            // Count languages across all repos
-            const langBytes = {};
-            const langRepoCount = {};
-            
-            console.log('🔍 Fetching language data for repos...');
-            
+            const totalStars = allRepos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+            const totalForks = allRepos.reduce((s, r) => s + (r.forks_count || 0), 0);
+            const totalWatchers = allRepos.reduce((s, r) => s + (r.watchers_count || 0), 0);
+            const totalOpenIssues = allRepos.reduce((s, r) => s + (r.open_issues_count || 0), 0);
+
+            // Languages (per-repo call is guarded individually).
+            const langBytes = {}, langRepoCount = {};
+            console.log('🔍 Fetching language data...');
             for (const repo of allRepos) {
-              try {
-                const { data: langs } = await github.rest.repos.listLanguages({
-                  owner: repo.owner.login,
-                  repo: repo.name
-                });
-                for (const [lang, bytes] of Object.entries(langs)) {
-                  langBytes[lang] = (langBytes[lang] || 0) + bytes;
-                  langRepoCount[lang] = (langRepoCount[lang] || 0) + 1;
-                }
-              } catch (e) {
-                console.log(`Could not fetch languages for ${repo.full_name}`);
+              const langs = await safe(`languages ${repo.full_name}`, async () => {
+                const { data } = await github.rest.repos.listLanguages({ owner: repo.owner.login, repo: repo.name });
+                return data;
+              }, {});
+              for (const [lang, bytes] of Object.entries(langs || {})) {
+                langBytes[lang] = (langBytes[lang] || 0) + bytes;
+                langRepoCount[lang] = (langRepoCount[lang] || 0) + 1;
               }
             }
-            
-            // Sort languages by bytes
-            const sortedLangs = Object.entries(langBytes)
-              .sort((a, b) => b[1] - a[1])
-              .slice(0, 10);
-            
-            const totalBytes = Object.values(langBytes).reduce((a, b) => a + b, 0);
-            
-            // Create language distribution with colors
+            const sortedLangs = Object.entries(langBytes).sort((a, b) => b[1] - a[1]).slice(0, 10);
+            const totalBytes = Object.values(langBytes).reduce((a, b) => a + b, 0) || 1;
             const langColors = {
-              'C#': '#178600',
-              'PHP': '#4F5D95',
-              'JavaScript': '#f1e05a',
-              'TypeScript': '#3178c6',
-              'Python': '#3572A5',
-              'HTML': '#e34c26',
-              'CSS': '#563d7c',
-              'Shell': '#89e051',
-              'Lua': '#000080',
-              'Java': '#b07219',
-              'C++': '#f34b7d',
-              'C': '#555555',
-              'Go': '#00ADD8',
-              'Rust': '#dea584',
-              'Vue': '#41b883',
-              'Ruby': '#701516',
-              'Dockerfile': '#384d54',
-              'PowerShell': '#012456',
-              'Makefile': '#427819',
-              'Batchfile': '#C1F12E'
+              'C#': '#178600', 'PHP': '#4F5D95', 'JavaScript': '#f1e05a', 'TypeScript': '#3178c6',
+              'Python': '#3572A5', 'HTML': '#e34c26', 'CSS': '#563d7c', 'Shell': '#89e051',
+              'Lua': '#000080', 'Java': '#b07219', 'C++': '#f34b7d', 'C': '#555555', 'Go': '#00ADD8',
+              'Rust': '#dea584', 'Vue': '#41b883', 'Ruby': '#701516', 'Dockerfile': '#384d54',
+              'PowerShell': '#012456', 'Makefile': '#427819', 'Batchfile': '#C1F12E'
             };
-            
             const langDistribution = sortedLangs.map(([lang, bytes]) => ({
-              name: lang,
-              bytes: bytes,
+              name: lang, bytes,
               percentage: ((bytes / totalBytes) * 100).toFixed(1),
-              repos: langRepoCount[lang],
-              color: langColors[lang] || '#858585'
+              repos: langRepoCount[lang], color: langColors[lang] || '#858585'
             }));
-            
-            // Get commit activity with better counting
-            let commitCounts = [];
+
+            // Commit counts (guarded, capped at 30 repos).
             console.log('🔍 Fetching commit counts...');
-            
+            const commitCounts = [];
             for (const repo of allRepos.slice(0, 30)) {
-              try {
-                // Get contributor stats which includes commit counts
-                const { data: contributors } = await github.rest.repos.listContributors({
-                  owner: repo.owner.login,
-                  repo: repo.name,
-                  per_page: 100
-                });
-                
-                // Find the owner's contributions
-                const ownerContrib = contributors.find(c => c.login === owner);
-                if (ownerContrib) {
-                  commitCounts.push({ repo: repo.name, commits: ownerContrib.contributions });
-                }
-              } catch (e) {
-                // Skip repos we can't access
-              }
+              const contributors = await safe(`contributors ${repo.full_name}`, async () => {
+                const { data } = await github.rest.repos.listContributors({ owner: repo.owner.login, repo: repo.name, per_page: 100 });
+                return data;
+              }, []);
+              const mine = (contributors || []).find(c => c.login === owner);
+              if (mine) commitCounts.push({ repo: repo.name, commits: mine.contributions });
             }
-            
-            // Calculate commit statistics
-            const totalCommits = commitCounts.reduce((sum, r) => sum + r.commits, 0);
-            const avgCommitsPerRepo = commitCounts.length > 0 
-              ? (totalCommits / commitCounts.length).toFixed(1) 
-              : '0';
-            
-            // Calculate median
-            const sortedCommits = commitCounts.map(r => r.commits).sort((a, b) => a - b);
+            const totalCommits = commitCounts.reduce((s, r) => s + r.commits, 0);
+            const avgCommitsPerRepo = commitCounts.length ? (totalCommits / commitCounts.length).toFixed(1) : '0';
+            const sc = commitCounts.map(r => r.commits).sort((a, b) => a - b);
             let medianCommits = 0;
-            if (sortedCommits.length > 0) {
-              const mid = Math.floor(sortedCommits.length / 2);
-              medianCommits = sortedCommits.length % 2 !== 0
-                ? sortedCommits[mid]
-                : Math.round((sortedCommits[mid - 1] + sortedCommits[mid]) / 2);
+            if (sc.length) {
+              const mid = Math.floor(sc.length / 2);
+              medianCommits = sc.length % 2 ? sc[mid] : Math.round((sc[mid - 1] + sc[mid]) / 2);
             }
-            
-            console.log(`📊 Commits: total=${totalCommits}, avg=${avgCommitsPerRepo}, median=${medianCommits}`);
-            
-            // Get recent activity
+
+            // Recent push events (30d window via event feed).
             let recentCommits = 0;
-            const thirtyDaysAgo = new Date();
-            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-            
-            try {
-              const { data: events } = await github.rest.activity.listEventsForAuthenticatedUser({
-                username: owner,
-                per_page: 100
-              });
+            await safe('events', async () => {
+              const { data: events } = await github.rest.activity.listEventsForAuthenticatedUser({ username: owner, per_page: 100 });
               recentCommits = events.filter(e => e.type === 'PushEvent').length;
-            } catch (e) {
-              console.log('Could not fetch events');
-            }
-            
-            // Calculate repo age stats (all repos for stats, but no names exposed)
-            const repoAges = allRepos.map(r => {
-              const created = new Date(r.created_at);
-              const now = new Date();
-              return Math.floor((now - created) / (1000 * 60 * 60 * 24 * 365));
             });
-            const avgRepoAge = allRepos.length > 0 
-              ? (repoAges.reduce((a, b) => a + b, 0) / repoAges.length).toFixed(1)
-              : '0';
-            
-            // Get most starred repos (PUBLIC ONLY - never expose private repo names!)
-            const topStarred = [...allRepos]
-              .filter(r => !r.private)
-              .sort((a, b) => b.stargazers_count - a.stargazers_count)
-              .slice(0, 5);
-            
-            // Calculate additional stats
-            const totalSize = allRepos.reduce((sum, r) => sum + (r.size || 0), 0);
+
+            const repoAges = allRepos.map(r => Math.floor((Date.now() - new Date(r.created_at)) / (1000*60*60*24*365)));
+            const avgRepoAge = allRepos.length ? (repoAges.reduce((a, b) => a + b, 0) / allRepos.length).toFixed(1) : '0';
+
+            const topStarred = [...allRepos].filter(r => !r.private)
+              .sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 5);
+
+            const totalSize = allRepos.reduce((s, r) => s + (r.size || 0), 0);
             const totalSizeMB = (totalSize / 1024).toFixed(1);
-            
-            // Fetch file counts and estimate lines for each repo
-            let totalFiles = 0;
-            let totalLines = 0;
-            let reposWithStats = 0;
-            
-            console.log('📜 Fetching file/line statistics...');
-            
+
+            // File/line estimates (guarded, capped at 20 repos).
+            console.log('📜 Estimating file/line statistics...');
+            let totalFiles = 0, totalLines = 0, reposWithStats = 0;
             for (const repo of allRepos.slice(0, 20)) {
-              try {
-                // Get the default branch tree recursively
-                const { data: repoData } = await github.rest.repos.get({
-                  owner: repo.owner.login,
-                  repo: repo.name
-                });
-                
+              const ok = await safe(`tree ${repo.full_name}`, async () => {
+                const { data: repoData } = await github.rest.repos.get({ owner: repo.owner.login, repo: repo.name });
                 const { data: tree } = await github.rest.git.getTree({
-                  owner: repo.owner.login,
-                  repo: repo.name,
-                  tree_sha: repoData.default_branch,
-                  recursive: 'true'
+                  owner: repo.owner.login, repo: repo.name, tree_sha: repoData.default_branch, recursive: 'true'
                 });
-                
-                // Count files (blobs only, exclude directories)
-                const files = tree.tree.filter(t => t.type === 'blob');
-                const fileCount = files.length;
-                totalFiles += fileCount;
-                
-                // Estimate lines based on size (rough: ~25 bytes per line average for code)
-                const repoLines = Math.round(repo.size * 1024 / 25);
-                totalLines += repoLines;
-                reposWithStats++;
-                
-              } catch (e) {
-                // Skip repos we can't access
-              }
+                return tree;
+              }, null);
+              if (!ok) continue;
+              totalFiles += ok.tree.filter(t => t.type === 'blob').length;
+              totalLines += Math.round((repo.size || 0) * 1024 / 25);
+              reposWithStats++;
             }
-            
-            // Calculate averages
-            const avgFilesPerRepo = reposWithStats > 0 ? Math.round(totalFiles / reposWithStats) : 0;
-            const avgLinesPerRepo = reposWithStats > 0 ? Math.round(totalLines / reposWithStats) : 0;
-            const avgLinesPerFile = totalFiles > 0 ? Math.round(totalLines / totalFiles) : 0;
-            
-            // Extrapolate to all repos
+            const avgFilesPerRepo = reposWithStats ? Math.round(totalFiles / reposWithStats) : 0;
+            const avgLinesPerRepo = reposWithStats ? Math.round(totalLines / reposWithStats) : 0;
+            const avgLinesPerFile = totalFiles ? Math.round(totalLines / totalFiles) : 0;
             const estimatedTotalFiles = Math.round(avgFilesPerRepo * allRepos.length);
             const estimatedTotalLines = Math.round(avgLinesPerRepo * allRepos.length);
-            
-            console.log(`📜 Files: ~${estimatedTotalFiles} total, ${avgFilesPerRepo} avg/repo`);
-            console.log(`📜 Lines: ~${estimatedTotalLines} total, ${avgLinesPerRepo} avg/repo, ${avgLinesPerFile} avg/file`);
-            
-            // Count repos by year created
+
             const reposByYear = {};
-            allRepos.forEach(r => {
-              const year = new Date(r.created_at).getFullYear();
-              reposByYear[year] = (reposByYear[year] || 0) + 1;
-            });
-            
-            // Get license distribution (public repos only)
+            allRepos.forEach(r => { const y = new Date(r.created_at).getFullYear(); reposByYear[y] = (reposByYear[y] || 0) + 1; });
+
             const licenses = {};
             allRepos.filter(r => !r.private && r.license).forEach(r => {
-              const lic = r.license.spdx_id || 'Other';
-              licenses[lic] = (licenses[lic] || 0) + 1;
+              const lic = r.license.spdx_id || 'Other'; licenses[lic] = (licenses[lic] || 0) + 1;
             });
-            
-            // Count archived vs active
+
             const archivedRepos = allRepos.filter(r => r.archived).length;
             const activeRepos = allRepos.filter(r => !r.archived).length;
-            
-            // Count forked repos
             const forkedRepos = allRepos.filter(r => r.fork).length;
             const originalRepos = allRepos.filter(r => !r.fork).length;
-            
-            // Get repos with most recent activity (public only for display)
-            const recentlyUpdated = [...allRepos]
-              .filter(r => !r.private)
-              .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
-              .slice(0, 5);
-            
-            // Output all stats (only expose public repo names)
+
+            const recentlyUpdated = [...allRepos].filter(r => !r.private)
+              .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5);
+
+            // Never abort on zero repos: still write a valid stats.json so the
+            // README script can render a graceful placeholder.
+            if (totalRepos === 0) {
+              console.log('⚠️  No repos fetched (token/permissions?). Writing minimal stats.json.');
+            }
+
             const stats = {
-              totalRepos,
-              publicRepos,
-              privateRepos,
-              personalRepos: personalRepos.length,
-              orgRepos: orgRepos.length,
+              totalRepos, publicRepos, privateRepos,
+              personalRepos: personalRepos.length, orgRepos: orgRepos.length,
               personalPublic: personalRepos.filter(r => !r.private).length,
               personalPrivate: personalRepos.filter(r => r.private).length,
               orgPublic: orgRepos.filter(r => !r.private).length,
               orgPrivate: orgRepos.filter(r => r.private).length,
-              totalStars,
-              totalForks,
-              totalWatchers,
-              totalOpenIssues,
-              totalSizeMB,
-              languages: langDistribution,
-              topLanguage: sortedLangs[0]?.[0] || 'Unknown',
-              totalCommits,
-              avgCommitsPerRepo,
-              medianCommits,
-              recentCommits,
-              avgRepoAge,
-              estimatedTotalFiles,
-              avgFilesPerRepo,
-              estimatedTotalLines,
-              avgLinesPerRepo,
-              avgLinesPerFile,
-              archivedRepos,
-              activeRepos,
-              forkedRepos,
-              originalRepos,
-              reposByYear,
-              licenses,
-              // Only expose public repo info
+              totalStars, totalForks, totalWatchers, totalOpenIssues, totalSizeMB,
+              languages: langDistribution, topLanguage: sortedLangs[0]?.[0] || 'Unknown',
+              totalCommits, avgCommitsPerRepo, medianCommits, recentCommits, avgRepoAge,
+              estimatedTotalFiles, avgFilesPerRepo, estimatedTotalLines, avgLinesPerRepo, avgLinesPerFile,
+              archivedRepos, activeRepos, forkedRepos, originalRepos, reposByYear, licenses,
               oldestPublicRepo: (() => {
-                const oldest = allRepos.filter(r => !r.private).reduce((o, r) => 
-                  !o || new Date(r.created_at) < new Date(o.created_at) ? r : o, null);
-                return oldest ? { name: oldest.name, date: oldest.created_at?.split('T')[0] } : null;
+                const o = allRepos.filter(r => !r.private).reduce((o, r) => !o || new Date(r.created_at) < new Date(o.created_at) ? r : o, null);
+                return o ? { name: o.name, date: o.created_at?.split('T')[0] } : null;
               })(),
               newestPublicRepo: (() => {
-                const newest = allRepos.filter(r => !r.private).reduce((n, r) => 
-                  !n || new Date(r.created_at) > new Date(n.created_at) ? r : n, null);
-                return newest ? { name: newest.name, date: newest.created_at?.split('T')[0] } : null;
+                const n = allRepos.filter(r => !r.private).reduce((n, r) => !n || new Date(r.created_at) > new Date(n.created_at) ? r : n, null);
+                return n ? { name: n.name, date: n.created_at?.split('T')[0] } : null;
               })(),
               topStarred: topStarred.map(r => ({ name: r.name, stars: r.stargazers_count, url: r.html_url, description: r.description || '' })),
               recentlyUpdated: recentlyUpdated.map(r => ({ name: r.name, url: r.html_url, pushedAt: r.pushed_at?.split('T')[0] })),
               updatedAt: new Date().toISOString().split('T')[0]
             };
-            
-            const fs = require('fs');
-            fs.writeFileSync('stats.json', JSON.stringify(stats, null, 2));
-            
-            console.log('📊 Stats collected:', stats);
-            
-            // Set outputs
-            core.setOutput('stats', JSON.stringify(stats));
-      
-      - name: Generate README
+
+            require('fs').writeFileSync('stats.json', JSON.stringify(stats, null, 2) + '\n');
+            console.log(`📊 Wrote stats.json (repos=${totalRepos}, langs=${langDistribution.length}).`);
+
+      - name: Assemble README from stats
         run: |
-          cat > README.md << 'EOF'
-          <div align="center">
-          
-          <!-- Header Banner -->
-          <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,19,24,30&height=180&section=header&text=Marc&fontSize=70&fontColor=fff&animation=fadeIn&fontAlignY=35&desc=Self-taught%20Hobby%20Developer&descSize=20&descAlignY=55" width="100%"/>
-          
-          <br>
-          
-          [![GitHub](https://img.shields.io/badge/polo--nyan-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/polo-nyan)
-          [![Location](https://img.shields.io/badge/Germany-🇩🇪-black?style=for-the-badge)](https://github.com/polo-nyan)
-          [![Profile Views](https://komarev.com/ghpvc/?username=polo-nyan&color=blueviolet&style=for-the-badge&label=Views)](https://github.com/polo-nyan)
-          
-          </div>
-          
-          ## 👋 About Me
-          
-          ```yaml
-          name: ╲⧹ ⎛⎝ Marc ⎠⎞⧸╱
-          location: Germany 🇩🇪
-          role: Self-taught Hobby Developer
-          interests:
-            - Backend Development
-            - DevOps & Automation
-            - Game Development
-            - Machine Learning
-          currently_learning: [ML/AI, IoT]
-          fun_fact: Cat lover 🐱
-          ```
-          
-          ---
-          
-          ## 🛠️ Tech Stack
-          
-          <div align="center">
-          
-          ### 💪 Primary
-          
-          ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
-          ![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-          ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-          ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
-          ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-          ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-          
-          ### 🔧 Also Using
-          
-          ![Unity](https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white)
-          ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-          ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-          ![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
-          ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-          ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
-          ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-          ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-          ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-          ![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
-          ![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-          ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
-          
-          </div>
-          
-          ---
-          
-          ## 📊 GitHub Statistics
-          
-          <!-- STATS-START -->
-          EOF
-          
-          # Read stats from JSON
-          STATS=$(cat stats.json)
-          
-          TOTAL_REPOS=$(echo "$STATS" | jq -r '.totalRepos')
-          PUBLIC_REPOS=$(echo "$STATS" | jq -r '.publicRepos')
-          PRIVATE_REPOS=$(echo "$STATS" | jq -r '.privateRepos')
-          PERSONAL_REPOS=$(echo "$STATS" | jq -r '.personalRepos')
-          ORG_REPOS=$(echo "$STATS" | jq -r '.orgRepos')
-          PERSONAL_PUBLIC=$(echo "$STATS" | jq -r '.personalPublic')
-          PERSONAL_PRIVATE=$(echo "$STATS" | jq -r '.personalPrivate')
-          ORG_PUBLIC=$(echo "$STATS" | jq -r '.orgPublic')
-          ORG_PRIVATE=$(echo "$STATS" | jq -r '.orgPrivate')
-          TOTAL_STARS=$(echo "$STATS" | jq -r '.totalStars')
-          TOTAL_FORKS=$(echo "$STATS" | jq -r '.totalForks')
-          TOP_LANG=$(echo "$STATS" | jq -r '.topLanguage')
-          RECENT_COMMITS=$(echo "$STATS" | jq -r '.recentCommits')
-          UPDATED_AT=$(echo "$STATS" | jq -r '.updatedAt')
-          TOTAL_SIZE_MB=$(echo "$STATS" | jq -r '.totalSizeMB')
-          ARCHIVED_REPOS=$(echo "$STATS" | jq -r '.archivedRepos')
-          ACTIVE_REPOS=$(echo "$STATS" | jq -r '.activeRepos')
-          ORIGINAL_REPOS=$(echo "$STATS" | jq -r '.originalRepos')
-          FORKED_REPOS=$(echo "$STATS" | jq -r '.forkedRepos')
-          TOTAL_COMMITS=$(echo "$STATS" | jq -r '.totalCommits')
-          AVG_COMMITS=$(echo "$STATS" | jq -r '.avgCommitsPerRepo')
-          MEDIAN_COMMITS=$(echo "$STATS" | jq -r '.medianCommits')
-          ESTIMATED_FILES=$(echo "$STATS" | jq -r '.estimatedTotalFiles')
-          AVG_FILES=$(echo "$STATS" | jq -r '.avgFilesPerRepo')
-          ESTIMATED_LINES=$(echo "$STATS" | jq -r '.estimatedTotalLines')
-          AVG_LINES_REPO=$(echo "$STATS" | jq -r '.avgLinesPerRepo')
-          AVG_LINES_FILE=$(echo "$STATS" | jq -r '.avgLinesPerFile')
-          AVG_REPO_AGE=$(echo "$STATS" | jq -r '.avgRepoAge')
-          
-          cat >> README.md << EOF
-          
-          <div align="center">
-          
-          ### 📈 Overview
-          
-          | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
-          |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-          | **${TOTAL_REPOS}** | **${TOTAL_STARS}** | **${TOTAL_FORKS}** | **${TOP_LANG}** | **${TOTAL_SIZE_MB} MB** |
-          
-          </div>
-          
-          ---
-          
-          ### 📁 Repository Distribution
-          
-          <div align="center">
-          
-          \`\`\`mermaid
-          %%{init: {"theme": "base", "themeVariables": { "pie1": "#22c55e", "pie2": "#f59e0b", "pie3": "#3b82f6", "pie4": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
-          pie showData
-              title Repository Visibility
-              "🌐 Public" : ${PUBLIC_REPOS}
-              "🔒 Private" : ${PRIVATE_REPOS}
-          \`\`\`
-          
-          </div>
-          
-          <table align="center">
-          <tr>
-          <td align="center">
-          
-          **📊 By Visibility**
-          
-          | Type | Count |
-          |:-----|------:|
-          | 🌐 Public | ${PUBLIC_REPOS} |
-          | 🔒 Private | ${PRIVATE_REPOS} |
-          
-          </td>
-          <td align="center">
-          
-          **👤 By Owner**
-          
-          | Type | Public | Private |
-          |:-----|-------:|--------:|
-          | Personal | ${PERSONAL_PUBLIC} | ${PERSONAL_PRIVATE} |
-          | Organization | ${ORG_PUBLIC} | ${ORG_PRIVATE} |
-          
-          </td>
-          <td align="center">
-          
-          **📋 By Status**
-          
-          | Type | Count |
-          |:-----|------:|
-          | ✅ Active | ${ACTIVE_REPOS} |
-          | 📦 Archived | ${ARCHIVED_REPOS} |
-          | 🔀 Original | ${ORIGINAL_REPOS} |
-          | 🍴 Forked | ${FORKED_REPOS} |
-          
-          </td>
-          </tr>
-          </table>
-          
-          ---
-          
-          ### 🔥 Activity & Commits
-          
-          <div align="center">
-          
-          <table>
-          <tr>
-          <td align="center">
-          
-          **📝 Commit Stats**
-          
-          | Metric | Value |
-          |:-------|------:|
-          | Total Commits | **${TOTAL_COMMITS}** |
-          | Avg per Repo | **${AVG_COMMITS}** |
-          | Median | **${MEDIAN_COMMITS}** |
-          
-          </td>
-          <td align="center">
-          
-          **📜 Codebase Size**
-          
-          | Metric | Value |
-          |:-------|------:|
-          | Est. Files | **~${ESTIMATED_FILES}** |
-          | Est. Lines | **~${ESTIMATED_LINES}** |
-          | Avg Files/Repo | **${AVG_FILES}** |
-          | Avg Lines/File | **${AVG_LINES_FILE}** |
-          
-          </td>
-          <td align="center">
-          
-          **📅 Activity**
-          
-          | Metric | Value |
-          |:-------|------:|
-          | Push Events (30d) | **${RECENT_COMMITS}** |
-          | Avg Repo Age | **${AVG_REPO_AGE} years** |
-          
-          </td>
-          </tr>
-          </table>
-          
-          </div>
-          
-          ---
-          
-          ### 💻 Languages by Code Volume
-          
-          EOF
-          
-          # Generate Mermaid pie chart for top 6 languages
-          echo '<div align="center">' >> README.md
-          echo '' >> README.md
-          echo '```mermaid' >> README.md
-          echo '%%{init: {"theme": "base", "themeVariables": { "pie1": "#8b5cf6", "pie2": "#f59e0b", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f43f5e", "pie6": "#3b82f6", "pie7": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%' >> README.md
-          echo 'pie showData' >> README.md
-          echo '    title Code Distribution by Language' >> README.md
-          
-          echo "$STATS" | jq -c '.languages[:6][]' | while read -r lang; do
-            NAME=$(echo "$lang" | jq -r '.name')
-            PCT=$(echo "$lang" | jq -r '.percentage')
-            echo "    \"${NAME}\" : ${PCT}" >> README.md
-          done
-          
-          echo '```' >> README.md
-          echo '' >> README.md
-          echo '</div>' >> README.md
-          echo '' >> README.md
-          
-          # Generate detailed language table
-          echo '<details>' >> README.md
-          echo '<summary><b>📋 Detailed Language Breakdown</b></summary>' >> README.md
-          echo '' >> README.md
-          echo '| Language | Percentage | Repositories |' >> README.md
-          echo '|:---------|:----------:|:------------:|' >> README.md
-          
-          echo "$STATS" | jq -c '.languages[]' | while read -r lang; do
-            NAME=$(echo "$lang" | jq -r '.name')
-            PCT=$(echo "$lang" | jq -r '.percentage')
-            REPOS=$(echo "$lang" | jq -r '.repos')
-            echo "| ${NAME} | ${PCT}% | ${REPOS} |" >> README.md
-          done
-          
-          echo '' >> README.md
-          echo '</details>' >> README.md
-          
-          # Add top repositories section (PUBLIC ONLY - never expose private repo names)
-          echo '' >> README.md
-          echo '---' >> README.md
-          echo '' >> README.md
-          echo '### ⭐ Notable Public Projects' >> README.md
-          echo '' >> README.md
-          
-          HAS_STARRED=false
-          echo "$STATS" | jq -c '.topStarred[]' | while read -r repo; do
-            NAME=$(echo "$repo" | jq -r '.name')
-            STARS=$(echo "$repo" | jq -r '.stars')
-            URL=$(echo "$repo" | jq -r '.url')
-            DESC=$(echo "$repo" | jq -r '.description')
-            
-            if [ "$STARS" -gt 0 ]; then
-              echo "- [**${NAME}**](${URL}) - ⭐ ${STARS}" >> README.md
-              if [ -n "$DESC" ] && [ "$DESC" != "null" ] && [ "$DESC" != "" ]; then
-                echo "  > ${DESC}" >> README.md
-              fi
-              HAS_STARRED=true
-            fi
-          done
-          
-          # Add recently updated section (PUBLIC ONLY)
-          echo '' >> README.md
-          echo '<details>' >> README.md
-          echo '<summary><b>🔄 Recently Updated (Public)</b></summary>' >> README.md
-          echo '' >> README.md
-          echo '| Repository | Last Updated |' >> README.md
-          echo '|:-----------|:------------:|' >> README.md
-          
-          echo "$STATS" | jq -c '.recentlyUpdated[:5][]' | while read -r repo; do
-            NAME=$(echo "$repo" | jq -r '.name')
-            URL=$(echo "$repo" | jq -r '.url')
-            PUSHED=$(echo "$repo" | jq -r '.pushedAt')
-            echo "| [${NAME}](${URL}) | ${PUSHED} |" >> README.md
-          done
-          
-          echo '' >> README.md
-          echo '</details>' >> README.md
-          
-          # Add Repository Timeline Mermaid Chart
-          echo '' >> README.md
-          echo '---' >> README.md
-          echo '' >> README.md
-          echo '### 📅 Repository Creation Timeline' >> README.md
-          echo '' >> README.md
-          echo '<div align="center">' >> README.md
-          echo '' >> README.md
-          echo '```mermaid' >> README.md
-          cat >> README.md << 'MERMAID'
-          %%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#a78bfa"}}}}%%
-          xychart-beta
-              title "Repos Created Per Year"
-          MERMAID
-          echo -n '    x-axis [' >> README.md
-          
-          # Get years and counts
-          YEARS=$(echo "$STATS" | jq -r '.reposByYear | keys | sort | .[]')
-          FIRST=true
-          for YEAR in $YEARS; do
-            if [ "$FIRST" = true ]; then
-              echo -n "\"$YEAR\"" >> README.md
-              FIRST=false
-            else
-              echo -n ", \"$YEAR\"" >> README.md
-            fi
-          done
-          echo ']' >> README.md
-          
-          echo -n '    bar [' >> README.md
-          FIRST=true
-          for YEAR in $YEARS; do
-            COUNT=$(echo "$STATS" | jq -r ".reposByYear[\"$YEAR\"]")
-            if [ "$FIRST" = true ]; then
-              echo -n "$COUNT" >> README.md
-              FIRST=false
-            else
-              echo -n ", $COUNT" >> README.md
-            fi
-          done
-          echo ']' >> README.md
-          
-          echo '```' >> README.md
-          echo '' >> README.md
-          echo '</div>' >> README.md
-          
-          # Add coding activity visualization
-          echo '' >> README.md
-          echo '---' >> README.md
-          echo '' >> README.md
-          echo '### 🎯 Development Focus' >> README.md
-          echo '' >> README.md
-          echo '<div align="center">' >> README.md
-          echo '' >> README.md
-          echo '```mermaid' >> README.md
-          echo '%%{init: {"theme": "base", "themeVariables": { "primaryColor": "#6366f1", "primaryTextColor": "#ffffff", "primaryBorderColor": "#818cf8", "lineColor": "#a5b4fc", "secondaryColor": "#8b5cf6", "tertiaryColor": "#a78bfa" }}}%%' >> README.md
-          echo 'mindmap' >> README.md
-          echo '  root((🚀 My Projects))' >> README.md
-          echo '    🖥️ Backend' >> README.md
-          echo '      PHP' >> README.md
-          echo '      C# .NET' >> README.md
-          echo '      REST APIs' >> README.md
-          echo '    ⚙️ DevOps' >> README.md
-          echo '      Docker' >> README.md
-          echo '      Linux' >> README.md
-          echo '      CI/CD' >> README.md
-          echo '      Python' >> README.md
-          echo '      ML/AI' >> README.md
-          echo '      IoT' >> README.md
-          echo '```' >> README.md
-          echo '' >> README.md
-          echo '</div>' >> README.md
-          
-          cat >> README.md << EOF
-          
-          ---
-          
-          ## 🔗 Connect
-          
-          <div align="center">
-          
-          [![GitHub](https://img.shields.io/badge/GitHub-polo--nyan-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/polo-nyan)
-          [![Organization](https://img.shields.io/badge/Org-smol--kitten-ff69b4?style=for-the-badge&logo=github&logoColor=white)](https://github.com/smol-kitten)
-          
-          </div>
-          
-          ---
-          
-          <details>
-          <summary><b>📋 Note on Profile Status</b></summary>
-          
-          <br>
-          
-          > **⚠️ Contingency Notice**
-          >
-          > This GitHub profile is actively maintained using a self-hosted GitHub Actions runner.
-          > In case of any of the following situations:
-          > - Self-hosted runner costs
-          > - Technical issues with the automation pipeline
-          > - Changes to GitHub's API or policies
-          >
-          > This profile may transition to become an **inactive mirror** of a private
-          > [Gitea](https://gitea.io) instance where active development continues.
-          >
-          > If you notice the stats haven't updated in a while, development is likely
-          > continuing on the private instance. Feel free to reach out!
-          
-          </details>
-          
-          ---
-          
-          <div align="center">
-          
-          | 📊 Quick Stats | |
-          |:---|:---|
-          | 📁 Total Repos | **${TOTAL_REPOS}** (${PUBLIC_REPOS} public, ${PRIVATE_REPOS} private) |
-          | 💾 Code Volume | **${TOTAL_SIZE_MB} MB** across ${ORIGINAL_REPOS} projects |
-          | 💻 Top Language | **${TOP_LANG}** |
-          | 📅 Last Updated | **${UPDATED_AT}** |
-          
-          <br>
-          
-          <sub>🤖 Auto-generated daily via GitHub Actions on self-hosted runner</sub>
-          <br>
-          <sub>🔒 Private project names are never exposed</sub>
-          
-          <br><br>
-          
-          <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,19,24,30&height=100&section=footer" width="100%"/>
-          
-          </div>
-          <!-- STATS-END -->
-          EOF
-          
-          echo "README generated successfully!"
-      
-      - name: Commit and Push (Amend to avoid commit spam)
+          set -euo pipefail
+          if ! command -v jq >/dev/null 2>&1; then
+            echo "❌ jq is required on the runner but was not found." >&2
+            exit 1
+          fi
+          chmod +x scripts/build-readme.sh
+          # The script is self-bootstrapping: it creates README.md from the
+          # template if missing, and only rewrites the STATS:START..END region.
+          ./scripts/build-readme.sh
+
+      - name: Commit and push (only on real diff)
         run: |
+          set -euo pipefail
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
+
+          # Stage only the generated artifacts.
           git add README.md stats.json
-          
-          if ! git diff --staged --quiet; then
-            # Check if last commit was a stats update
-            LAST_COMMIT_MSG=$(git log -1 --pretty=%s 2>/dev/null || echo "")
-            
-            if [[ "$LAST_COMMIT_MSG" == *"Auto-update profile stats"* ]]; then
-              # Amend the previous stats commit to avoid spam
-              git commit --amend --no-edit -m "📊 Auto-update profile stats $(date +%Y-%m-%d)"
-              git push --force-with-lease
-              echo "Amended previous stats commit"
-            else
-              # First stats commit or after manual commits
-              git commit -m "📊 Auto-update profile stats $(date +%Y-%m-%d)"
-              git push
-              echo "Created new stats commit"
-            fi
-          else
-            echo "No changes to commit"
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
           fi
+
+          git commit -m "chore: auto-update profile stats $(date -u +%Y-%m-%d)"
+
+          # Rebase on top of any concurrent changes, then push normally.
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "✅ Pushed updated profile stats."
