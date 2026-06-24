@@ -11,48 +11,48 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 502,
-  "totalSizeMB": "1173.3",
+  "totalOpenIssues": 485,
+  "totalSizeMB": "1172.3",
   "languages": [
     {
       "name": "PHP",
-      "bytes": 12185652,
-      "percentage": "37.0",
+      "bytes": 12377101,
+      "percentage": "37.3",
       "repos": 31,
       "color": "#4F5D95"
     },
     {
       "name": "JavaScript",
-      "bytes": 3278899,
-      "percentage": "10.0",
+      "bytes": 3287733,
+      "percentage": "9.9",
       "repos": 33,
       "color": "#f1e05a"
     },
     {
-      "name": "C#",
-      "bytes": 3259950,
-      "percentage": "9.9",
-      "repos": 27,
-      "color": "#178600"
-    },
-    {
       "name": "HTML",
-      "bytes": 3248356,
+      "bytes": 3272222,
       "percentage": "9.9",
       "repos": 33,
       "color": "#e34c26"
     },
     {
+      "name": "C#",
+      "bytes": 3260357,
+      "percentage": "9.8",
+      "repos": 27,
+      "color": "#178600"
+    },
+    {
       "name": "TypeScript",
       "bytes": 2934927,
-      "percentage": "8.9",
+      "percentage": "8.8",
       "repos": 8,
       "color": "#3178c6"
     },
     {
       "name": "CSS",
       "bytes": 1242451,
-      "percentage": "3.8",
+      "percentage": "3.7",
       "repos": 29,
       "color": "#563d7c"
     },
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 768,
-  "avgCommitsPerRepo": "25.6",
+  "totalCommits": 801,
+  "avgCommitsPerRepo": "26.7",
   "medianCommits": 12,
-  "recentCommits": 43,
+  "recentCommits": 24,
   "avgRepoAge": "0.9",
-  "estimatedTotalFiles": 13706,
-  "avgFilesPerRepo": 154,
-  "estimatedTotalLines": 6068020,
-  "avgLinesPerRepo": 68180,
-  "avgLinesPerFile": 442,
+  "estimatedTotalFiles": 13884,
+  "avgFilesPerRepo": 156,
+  "estimatedTotalLines": 5935321,
+  "avgLinesPerRepo": 66689,
+  "avgLinesPerFile": 426,
   "archivedRepos": 0,
   "activeRepos": 89,
   "forkedRepos": 2,
@@ -155,6 +155,11 @@
   ],
   "recentlyUpdated": [
     {
+      "name": "common-ressources",
+      "url": "https://github.com/smol-kitten/common-ressources",
+      "pushedAt": "2026-06-23"
+    },
+    {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
       "pushedAt": "2026-06-23"
@@ -162,11 +167,6 @@
     {
       "name": "MinedMap",
       "url": "https://github.com/smol-kitten/MinedMap",
-      "pushedAt": "2026-06-23"
-    },
-    {
-      "name": "common-ressources",
-      "url": "https://github.com/smol-kitten/common-ressources",
       "pushedAt": "2026-06-23"
     },
     {
@@ -182,10 +182,10 @@
   ],
   "ai": {
     "enabled": true,
-    "totalAICommits": 91,
-    "totalCoauthorMentions": 152,
-    "scannedCommits": 1332,
-    "assistRate": "6.8",
+    "totalAICommits": 124,
+    "totalCoauthorMentions": 222,
+    "scannedCommits": 1402,
+    "assistRate": "8.8",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -197,11 +197,11 @@
     "families": [
       {
         "family": "Opus",
-        "count": 73
+        "count": 110
       },
       {
         "family": "Claude",
-        "count": 67
+        "count": 100
       },
       {
         "family": "Sonnet",
@@ -215,11 +215,11 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 73
+        "count": 110
       },
       {
         "model": "Claude",
-        "count": 67
+        "count": 100
       },
       {
         "model": "Sonnet 4.6",
@@ -252,14 +252,14 @@
       },
       {
         "month": "2026-06",
-        "total": 83,
+        "total": 116,
         "families": {
-          "Claude": 67,
-          "Opus": 42,
+          "Claude": 100,
+          "Opus": 75,
           "Sonnet": 4
         }
       }
     ]
   },
-  "updatedAt": "2026-06-23"
+  "updatedAt": "2026-06-24"
 }

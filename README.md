@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **89** | **0** | **0** | **PHP** | **1173.3 MB** |
+| **89** | **0** | **0** | **PHP** | **1172.3 MB** |
 
 </div>
 
@@ -141,8 +141,8 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total Commits | **768** |
-| Avg per Repo | **25.6** |
+| Total Commits | **801** |
+| Avg per Repo | **26.7** |
 | Median | **12** |
 
 </td>
@@ -152,10 +152,10 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Est. Files | **~13706** |
-| Est. Lines | **~6068020** |
-| Avg Files/Repo | **154** |
-| Avg Lines/File | **442** |
+| Est. Files | **~13884** |
+| Est. Lines | **~5935321** |
+| Avg Files/Repo | **156** |
+| Avg Lines/File | **426** |
 
 </td>
 <td align="center">
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **43** |
+| Push Events (30d) | **24** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -183,12 +183,12 @@ pie showData
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#8b5cf6", "pie2": "#f59e0b", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f43f5e", "pie6": "#3b82f6", "pie7": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title Code Distribution by Language
-    "PHP" : 37.0
-    "JavaScript" : 10.0
-    "C#" : 9.9
+    "PHP" : 37.3
+    "JavaScript" : 9.9
     "HTML" : 9.9
-    "TypeScript" : 8.9
-    "CSS" : 3.8
+    "C#" : 9.8
+    "TypeScript" : 8.8
+    "CSS" : 3.7
 ```
 
 </div>
@@ -198,12 +198,12 @@ pie showData
 
 | Language | Percentage | Repositories |
 |:---------|:----------:|:------------:|
-| PHP | 37.0% | 31 |
-| JavaScript | 10.0% | 33 |
-| C# | 9.9% | 27 |
+| PHP | 37.3% | 31 |
+| JavaScript | 9.9% | 33 |
 | HTML | 9.9% | 33 |
-| TypeScript | 8.9% | 8 |
-| CSS | 3.8% | 29 |
+| C# | 9.8% | 27 |
+| TypeScript | 8.8% | 8 |
+| CSS | 3.7% | 29 |
 | Lua | 3.7% | 5 |
 | Shell | 3.3% | 41 |
 | Go | 2.9% | 2 |
@@ -223,7 +223,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **91** / 1332 | **6.8%** | **Opus** | **Opus 4.8** | **152** |
+| **124** / 1402 | **8.8%** | **Opus** | **Opus 4.8** | **222** |
 
 </div>
 
@@ -233,8 +233,8 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 73
-    "Claude" : 67
+    "Opus" : 110
+    "Claude" : 100
     "Sonnet" : 10
     "Other AI" : 2
 ```
@@ -249,8 +249,8 @@ xychart-beta
     title "AI-Assisted Commits Per Month"
     x-axis ["2026-01", "2026-05", "2026-06"]
     y-axis "Commits"
-    bar [1, 7, 83]
-    line [1, 7, 83]
+    bar [1, 7, 116]
+    line [1, 7, 116]
 ```
 
 </div>
@@ -268,8 +268,8 @@ xychart-beta
     title "Commits Per Month by Model Family"
     x-axis ["2026-01", "2026-05", "2026-06"]
     y-axis "Commits"
-    line [0, 0, 42]
-    line [0, 0, 67]
+    line [0, 0, 75]
+    line [0, 0, 100]
     line [0, 6, 4]
     line [1, 1, 0]
 ```
@@ -283,8 +283,8 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 73 |
-| Claude | 67 |
+| Opus 4.8 | 110 |
+| Claude | 100 |
 | Sonnet 4.6 | 10 |
 | Copilot | 1 |
 | GitHub Copilot | 1 |
@@ -293,8 +293,8 @@ xychart-beta
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 73 |
-| Claude | 67 |
+| Opus | 110 |
+| Claude | 100 |
 | Sonnet | 10 |
 | Other AI | 2 |
 
@@ -320,9 +320,9 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
+| [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-06-23 |
 | [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-06-23 |
 | [MinedMap](https://github.com/smol-kitten/MinedMap) | 2026-06-23 |
-| [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-06-23 |
 | [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | 2026-06-23 |
 | [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-06-23 |
 
@@ -376,9 +376,9 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **89** (7 public, 82 private) |
-| 💾 Code Volume | **1173.3 MB** across 87 projects |
+| 💾 Code Volume | **1172.3 MB** across 87 projects |
 | 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-06-23** |
+| 📅 Last Updated | **2026-06-24** |
 
 </div>
 
