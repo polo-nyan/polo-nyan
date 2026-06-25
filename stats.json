@@ -11,40 +11,40 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 485,
-  "totalSizeMB": "1172.3",
+  "totalOpenIssues": 465,
+  "totalSizeMB": "1174.8",
   "languages": [
     {
       "name": "PHP",
-      "bytes": 12377101,
+      "bytes": 12484693,
       "percentage": "37.3",
       "repos": 31,
       "color": "#4F5D95"
     },
     {
-      "name": "JavaScript",
-      "bytes": 3287733,
-      "percentage": "9.9",
-      "repos": 33,
-      "color": "#f1e05a"
-    },
-    {
       "name": "HTML",
-      "bytes": 3272222,
+      "bytes": 3319703,
       "percentage": "9.9",
       "repos": 33,
       "color": "#e34c26"
     },
     {
-      "name": "C#",
-      "bytes": 3260357,
+      "name": "JavaScript",
+      "bytes": 3292836,
       "percentage": "9.8",
+      "repos": 33,
+      "color": "#f1e05a"
+    },
+    {
+      "name": "C#",
+      "bytes": 3260365,
+      "percentage": "9.7",
       "repos": 27,
       "color": "#178600"
     },
     {
       "name": "TypeScript",
-      "bytes": 2934927,
+      "bytes": 2939714,
       "percentage": "8.8",
       "repos": 8,
       "color": "#3178c6"
@@ -65,15 +65,15 @@
     },
     {
       "name": "Shell",
-      "bytes": 1081112,
-      "percentage": "3.3",
+      "bytes": 1085403,
+      "percentage": "3.2",
       "repos": 41,
       "color": "#89e051"
     },
     {
       "name": "Go",
-      "bytes": 951873,
-      "percentage": "2.9",
+      "bytes": 1024013,
+      "percentage": "3.1",
       "repos": 2,
       "color": "#00ADD8"
     },
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 801,
-  "avgCommitsPerRepo": "26.7",
+  "totalCommits": 848,
+  "avgCommitsPerRepo": "28.3",
   "medianCommits": 12,
-  "recentCommits": 24,
+  "recentCommits": 26,
   "avgRepoAge": "0.9",
-  "estimatedTotalFiles": 13884,
-  "avgFilesPerRepo": 156,
-  "estimatedTotalLines": 5935321,
-  "avgLinesPerRepo": 66689,
-  "avgLinesPerFile": 426,
+  "estimatedTotalFiles": 14151,
+  "avgFilesPerRepo": 159,
+  "estimatedTotalLines": 6411382,
+  "avgLinesPerRepo": 72038,
+  "avgLinesPerFile": 452,
   "archivedRepos": 0,
   "activeRepos": 89,
   "forkedRepos": 2,
@@ -157,51 +157,51 @@
     {
       "name": "common-ressources",
       "url": "https://github.com/smol-kitten/common-ressources",
-      "pushedAt": "2026-06-23"
-    },
-    {
-      "name": "polo-nyan",
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-06-23"
-    },
-    {
-      "name": "MinedMap",
-      "url": "https://github.com/smol-kitten/MinedMap",
-      "pushedAt": "2026-06-23"
-    },
-    {
-      "name": "honeypot-urls",
-      "url": "https://github.com/smol-kitten/honeypot-urls",
-      "pushedAt": "2026-06-23"
+      "pushedAt": "2026-06-25"
     },
     {
       "name": "Twitch-Channel-Points-Miner-v2.1",
       "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
-      "pushedAt": "2026-06-23"
+      "pushedAt": "2026-06-24"
+    },
+    {
+      "name": "web-core",
+      "url": "https://github.com/smol-kitten/web-core",
+      "pushedAt": "2026-06-24"
+    },
+    {
+      "name": "MinedMap",
+      "url": "https://github.com/smol-kitten/MinedMap",
+      "pushedAt": "2026-06-24"
+    },
+    {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-06-24"
     }
   ],
   "ai": {
     "enabled": true,
-    "totalAICommits": 124,
-    "totalCoauthorMentions": 222,
-    "scannedCommits": 1402,
-    "assistRate": "8.8",
-    "topFamily": "Opus",
-    "topModel": "Opus 4.8",
+    "totalAICommits": 188,
+    "totalCoauthorMentions": 319,
+    "scannedCommits": 1500,
+    "assistRate": "12.5",
+    "topFamily": "Claude",
+    "topModel": "Claude",
     "familyOrder": [
-      "Opus",
       "Claude",
+      "Opus",
       "Sonnet",
       "Other AI"
     ],
     "families": [
       {
-        "family": "Opus",
-        "count": 110
+        "family": "Claude",
+        "count": 165
       },
       {
-        "family": "Claude",
-        "count": 100
+        "family": "Opus",
+        "count": 142
       },
       {
         "family": "Sonnet",
@@ -214,12 +214,12 @@
     ],
     "topModels": [
       {
-        "model": "Opus 4.8",
-        "count": 110
+        "model": "Claude",
+        "count": 165
       },
       {
-        "model": "Claude",
-        "count": 100
+        "model": "Opus 4.8",
+        "count": 142
       },
       {
         "model": "Sonnet 4.6",
@@ -252,14 +252,14 @@
       },
       {
         "month": "2026-06",
-        "total": 116,
+        "total": 180,
         "families": {
-          "Claude": 100,
-          "Opus": 75,
+          "Claude": 165,
+          "Opus": 107,
           "Sonnet": 4
         }
       }
     ]
   },
-  "updatedAt": "2026-06-24"
+  "updatedAt": "2026-06-25"
 }
