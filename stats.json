@@ -11,40 +11,40 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 465,
-  "totalSizeMB": "1174.8",
+  "totalOpenIssues": 454,
+  "totalSizeMB": "1175.1",
   "languages": [
     {
       "name": "PHP",
-      "bytes": 12484693,
-      "percentage": "37.3",
+      "bytes": 12627306,
+      "percentage": "37.5",
       "repos": 31,
       "color": "#4F5D95"
     },
     {
       "name": "HTML",
-      "bytes": 3319703,
+      "bytes": 3327429,
       "percentage": "9.9",
       "repos": 33,
       "color": "#e34c26"
     },
     {
       "name": "JavaScript",
-      "bytes": 3292836,
+      "bytes": 3293842,
       "percentage": "9.8",
       "repos": 33,
       "color": "#f1e05a"
     },
     {
       "name": "C#",
-      "bytes": 3260365,
+      "bytes": 3265837,
       "percentage": "9.7",
       "repos": 27,
       "color": "#178600"
     },
     {
       "name": "TypeScript",
-      "bytes": 2939714,
+      "bytes": 2956537,
       "percentage": "8.8",
       "repos": 8,
       "color": "#3178c6"
@@ -59,43 +59,43 @@
     {
       "name": "Lua",
       "bytes": 1227117,
-      "percentage": "3.7",
+      "percentage": "3.6",
       "repos": 5,
       "color": "#000080"
     },
     {
       "name": "Shell",
-      "bytes": 1085403,
+      "bytes": 1091621,
       "percentage": "3.2",
       "repos": 41,
       "color": "#89e051"
     },
     {
       "name": "Go",
-      "bytes": 1024013,
-      "percentage": "3.1",
+      "bytes": 1025300,
+      "percentage": "3.0",
       "repos": 2,
       "color": "#00ADD8"
     },
     {
       "name": "Python",
-      "bytes": 821200,
-      "percentage": "2.5",
+      "bytes": 865231,
+      "percentage": "2.6",
       "repos": 10,
       "color": "#3572A5"
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 848,
-  "avgCommitsPerRepo": "28.3",
+  "totalCommits": 885,
+  "avgCommitsPerRepo": "29.5",
   "medianCommits": 12,
-  "recentCommits": 26,
+  "recentCommits": 27,
   "avgRepoAge": "0.9",
-  "estimatedTotalFiles": 14151,
-  "avgFilesPerRepo": 159,
-  "estimatedTotalLines": 6411382,
-  "avgLinesPerRepo": 72038,
-  "avgLinesPerFile": 452,
+  "estimatedTotalFiles": 14329,
+  "avgFilesPerRepo": 161,
+  "estimatedTotalLines": 6451165,
+  "avgLinesPerRepo": 72485,
+  "avgLinesPerFile": 451,
   "archivedRepos": 0,
   "activeRepos": 89,
   "forkedRepos": 2,
@@ -155,6 +155,11 @@
   ],
   "recentlyUpdated": [
     {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-06-25"
+    },
+    {
       "name": "common-ressources",
       "url": "https://github.com/smol-kitten/common-ressources",
       "pushedAt": "2026-06-25"
@@ -173,19 +178,14 @@
       "name": "MinedMap",
       "url": "https://github.com/smol-kitten/MinedMap",
       "pushedAt": "2026-06-24"
-    },
-    {
-      "name": "polo-nyan",
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-06-24"
     }
   ],
   "ai": {
     "enabled": true,
-    "totalAICommits": 188,
-    "totalCoauthorMentions": 319,
-    "scannedCommits": 1500,
-    "assistRate": "12.5",
+    "totalAICommits": 229,
+    "totalCoauthorMentions": 389,
+    "scannedCommits": 1527,
+    "assistRate": "15.0",
     "topFamily": "Claude",
     "topModel": "Claude",
     "familyOrder": [
@@ -197,11 +197,11 @@
     "families": [
       {
         "family": "Claude",
-        "count": 165
+        "count": 208
       },
       {
         "family": "Opus",
-        "count": 142
+        "count": 169
       },
       {
         "family": "Sonnet",
@@ -215,22 +215,22 @@
     "topModels": [
       {
         "model": "Claude",
-        "count": 165
+        "count": 208
       },
       {
         "model": "Opus 4.8",
-        "count": 142
+        "count": 169
       },
       {
         "model": "Sonnet 4.6",
         "count": 10
       },
       {
-        "model": "Copilot",
+        "model": "GitHub Copilot",
         "count": 1
       },
       {
-        "model": "GitHub Copilot",
+        "model": "Copilot",
         "count": 1
       }
     ],
@@ -252,14 +252,14 @@
       },
       {
         "month": "2026-06",
-        "total": 180,
+        "total": 221,
         "families": {
-          "Claude": 165,
-          "Opus": 107,
+          "Claude": 206,
+          "Opus": 134,
           "Sonnet": 4
         }
       }
     ]
   },
-  "updatedAt": "2026-06-25"
+  "updatedAt": "2026-06-26"
 }
