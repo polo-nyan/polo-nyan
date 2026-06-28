@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **89** | **0** | **0** | **PHP** | **1173.5 MB** |
+| **0** | **0** | **0** | **Unknown** | **0.0 MB** |
 
 </div>
 
@@ -84,8 +84,8 @@ fun_fact: Cat lover 🐱
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#22c55e", "pie2": "#f59e0b", "pie3": "#3b82f6", "pie4": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title Repository Visibility
-    "🌐 Public" : 7
-    "🔒 Private" : 82
+    "🌐 Public" : 0
+    "🔒 Private" : 0
 ```
 
 </div>
@@ -98,8 +98,8 @@ pie showData
 
 | Type | Count |
 |:-----|------:|
-| 🌐 Public | 7 |
-| 🔒 Private | 82 |
+| 🌐 Public | 0 |
+| 🔒 Private | 0 |
 
 </td>
 <td align="center">
@@ -108,8 +108,8 @@ pie showData
 
 | Type | Public | Private |
 |:-----|-------:|--------:|
-| Personal | 2 | 12 |
-| Organization | 5 | 69 |
+| Personal | 0 | 0 |
+| Organization | 0 | 0 |
 
 </td>
 <td align="center">
@@ -118,10 +118,10 @@ pie showData
 
 | Type | Count |
 |:-----|------:|
-| ✅ Active | 89 |
+| ✅ Active | 0 |
 | 📦 Archived | 0 |
-| 🔀 Original | 87 |
-| 🍴 Forked | 2 |
+| 🔀 Original | 0 |
+| 🍴 Forked | 0 |
 
 </td>
 </tr>
@@ -141,9 +141,9 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total Commits | **903** |
-| Avg per Repo | **30.1** |
-| Median | **13** |
+| Total Commits | **0** |
+| Avg per Repo | **0** |
+| Median | **0** |
 
 </td>
 <td align="center">
@@ -152,10 +152,10 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Est. Files | **~14329** |
-| Est. Lines | **~6473771** |
-| Avg Files/Repo | **161** |
-| Avg Lines/File | **452** |
+| Est. Files | **~0** |
+| Est. Lines | **~0** |
+| Avg Files/Repo | **0** |
+| Avg Lines/File | **0** |
 
 </td>
 <td align="center">
@@ -164,182 +164,12 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **30** |
-| Avg Repo Age | **0.9 years** |
+| Push Events (30d) | **0** |
+| Avg Repo Age | **0 years** |
 
 </td>
 </tr>
 </table>
-
-</div>
-
----
-
-### 💻 Languages by Code Volume
-
-<div align="center">
-
-```mermaid
-%%{init: {"theme": "base", "themeVariables": { "pie1": "#8b5cf6", "pie2": "#f59e0b", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f43f5e", "pie6": "#3b82f6", "pie7": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
-pie showData
-    title Code Distribution by Language
-    "PHP" : 37.8
-    "HTML" : 9.8
-    "JavaScript" : 9.8
-    "C#" : 9.7
-    "TypeScript" : 8.7
-    "CSS" : 3.7
-```
-
-</div>
-
-<details>
-<summary><b>📋 Detailed Language Breakdown</b></summary>
-
-| Language | Percentage | Repositories |
-|:---------|:----------:|:------------:|
-| PHP | 37.8% | 31 |
-| HTML | 9.8% | 33 |
-| JavaScript | 9.8% | 33 |
-| C# | 9.7% | 27 |
-| TypeScript | 8.7% | 8 |
-| CSS | 3.7% | 29 |
-| Lua | 3.6% | 5 |
-| Shell | 3.2% | 41 |
-| Go | 3.0% | 2 |
-| Python | 2.6% | 10 |
-
-</details>
-
----
-
-### 🤖 AI Pair-Programming
-
-Derived from `Co-authored-by:` trailers on my commits — which Anthropic
-model families and models actually helped write the code, and how that
-usage trends over time.
-
-<div align="center">
-
-| 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
-|:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **211** / 1733 | **12.2%** | **Claude** | **Claude** | **366** |
-
-</div>
-
-<div align="center">
-
-```mermaid
-%%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
-pie showData
-    title AI Co-Authorship by Model Family
-    "Claude" : 208
-    "Opus" : 153
-    "Sonnet" : 4
-    "Other AI" : 1
-```
-
-</div>
-
-<div align="center">
-
-```mermaid
-%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #a78bfa"}}}}%%
-xychart-beta
-    title "AI-Assisted Commits Per Month"
-    x-axis ["2026-01", "2026-05", "2026-06"]
-    y-axis "Commits"
-    bar [1, 1, 209]
-    line [1, 1, 209]
-```
-
-</div>
-
-<details>
-<summary><b>📈 Model-family usage over time</b></summary>
-
-> Series order (by total volume): **Claude · Opus · Sonnet · Other AI**
-
-<div align="center">
-
-```mermaid
-%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #8b5cf6, #06b6d4, #22c55e, #f59e0b, #ec4899"}}}}%%
-xychart-beta
-    title "Commits Per Month by Model Family"
-    x-axis ["2026-01", "2026-05", "2026-06"]
-    y-axis "Commits"
-    line [0, 0, 206]
-    line [0, 0, 128]
-    line [0, 1, 1]
-    line [1, 0, 0]
-```
-
-</div>
-
-</details>
-
-<details>
-<summary><b>🧠 Detailed model breakdown</b></summary>
-
-| Model | Co-Author Credits |
-|:------|------------------:|
-| Claude | 208 |
-| Opus 4.8 | 153 |
-| Sonnet 4.6 | 4 |
-| GitHub Copilot | 1 |
-
-**By family**
-
-| Family | Credits |
-|:-------|--------:|
-| Claude | 208 |
-| Opus | 153 |
-| Sonnet | 4 |
-| Other AI | 1 |
-
-</details>
-
----
-
-### ⭐ Notable Public Projects
-
-- [**polo-nyan**](https://github.com/polo-nyan/polo-nyan)
-  > Config files for my GitHub profile.
-- [**Twitch-Channel-Points-Miner-v2.1**](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1)
-  > [NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo.
-- [**common-ressources**](https://github.com/smol-kitten/common-ressources)
-  > Ressources i might or might not need more often
-- [**honeypot-urls**](https://github.com/smol-kitten/honeypot-urls)
-  > A list of often scanned urls and malicious files. Can be used to block bad actors.
-- [**MinecraftThroughTime**](https://github.com/smol-kitten/MinecraftThroughTime)
-  > Tool to change MC Versions at specific dates from a profile
-
-<details>
-<summary><b>🔄 Recently Updated (Public)</b></summary>
-
-| Repository | Last Updated |
-|:-----------|:------------:|
-| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | 2026-06-26 |
-| [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | 2026-06-26 |
-| [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-06-26 |
-| [MinedMap](https://github.com/smol-kitten/MinedMap) | 2026-06-26 |
-| [web-core](https://github.com/smol-kitten/web-core) | 2026-06-26 |
-
-</details>
-
----
-
-### 📅 Repository Creation Timeline
-
-<div align="center">
-
-```mermaid
-%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#a78bfa"}}}}%%
-xychart-beta
-    title "Repos Created Per Year"
-    x-axis ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]
-    bar [1, 6, 5, 4, 8, 29, 36]
-```
 
 </div>
 
@@ -374,10 +204,10 @@ mindmap
 
 | 📊 Quick Stats | |
 |:---|:---|
-| 📁 Total Repos | **89** (7 public, 82 private) |
-| 💾 Code Volume | **1173.5 MB** across 87 projects |
-| 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-06-27** |
+| 📁 Total Repos | **0** (0 public, 0 private) |
+| 💾 Code Volume | **0.0 MB** across 0 projects |
+| 💻 Top Language | **Unknown** |
+| 📅 Last Updated | **2026-06-28** |
 
 </div>
 

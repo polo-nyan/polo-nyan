@@ -1,260 +1,52 @@
 {
-  "totalRepos": 89,
-  "publicRepos": 7,
-  "privateRepos": 82,
-  "personalRepos": 14,
-  "orgRepos": 74,
-  "personalPublic": 2,
-  "personalPrivate": 12,
-  "orgPublic": 5,
-  "orgPrivate": 69,
+  "totalRepos": 0,
+  "publicRepos": 0,
+  "privateRepos": 0,
+  "personalRepos": 0,
+  "orgRepos": 0,
+  "personalPublic": 0,
+  "personalPrivate": 0,
+  "orgPublic": 0,
+  "orgPrivate": 0,
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 121,
-  "totalSizeMB": "1173.5",
-  "languages": [
-    {
-      "name": "PHP",
-      "bytes": 12802073,
-      "percentage": "37.8",
-      "repos": 31,
-      "color": "#4F5D95"
-    },
-    {
-      "name": "HTML",
-      "bytes": 3302483,
-      "percentage": "9.8",
-      "repos": 33,
-      "color": "#e34c26"
-    },
-    {
-      "name": "JavaScript",
-      "bytes": 3299131,
-      "percentage": "9.8",
-      "repos": 33,
-      "color": "#f1e05a"
-    },
-    {
-      "name": "C#",
-      "bytes": 3265837,
-      "percentage": "9.7",
-      "repos": 27,
-      "color": "#178600"
-    },
-    {
-      "name": "TypeScript",
-      "bytes": 2956537,
-      "percentage": "8.7",
-      "repos": 8,
-      "color": "#3178c6"
-    },
-    {
-      "name": "CSS",
-      "bytes": 1242451,
-      "percentage": "3.7",
-      "repos": 29,
-      "color": "#563d7c"
-    },
-    {
-      "name": "Lua",
-      "bytes": 1227117,
-      "percentage": "3.6",
-      "repos": 5,
-      "color": "#000080"
-    },
-    {
-      "name": "Shell",
-      "bytes": 1091643,
-      "percentage": "3.2",
-      "repos": 41,
-      "color": "#89e051"
-    },
-    {
-      "name": "Go",
-      "bytes": 1025300,
-      "percentage": "3.0",
-      "repos": 2,
-      "color": "#00ADD8"
-    },
-    {
-      "name": "Python",
-      "bytes": 870828,
-      "percentage": "2.6",
-      "repos": 10,
-      "color": "#3572A5"
-    }
-  ],
-  "topLanguage": "PHP",
-  "totalCommits": 903,
-  "avgCommitsPerRepo": "30.1",
-  "medianCommits": 13,
-  "recentCommits": 30,
-  "avgRepoAge": "0.9",
-  "estimatedTotalFiles": 14329,
-  "avgFilesPerRepo": 161,
-  "estimatedTotalLines": 6473771,
-  "avgLinesPerRepo": 72739,
-  "avgLinesPerFile": 452,
+  "totalOpenIssues": 0,
+  "totalSizeMB": "0.0",
+  "languages": [],
+  "topLanguage": "Unknown",
+  "totalCommits": 0,
+  "avgCommitsPerRepo": "0",
+  "medianCommits": 0,
+  "recentCommits": 0,
+  "avgRepoAge": "0",
+  "estimatedTotalFiles": 0,
+  "avgFilesPerRepo": 0,
+  "estimatedTotalLines": 0,
+  "avgLinesPerRepo": 0,
+  "avgLinesPerFile": 0,
   "archivedRepos": 0,
-  "activeRepos": 89,
-  "forkedRepos": 2,
-  "originalRepos": 87,
-  "reposByYear": {
-    "2020": 1,
-    "2021": 6,
-    "2022": 5,
-    "2023": 4,
-    "2024": 8,
-    "2025": 29,
-    "2026": 36
-  },
-  "licenses": {
-    "GPL-3.0": 1,
-    "MIT": 1
-  },
-  "oldestPublicRepo": {
-    "name": "polo-nyan",
-    "date": "2022-06-29"
-  },
-  "newestPublicRepo": {
-    "name": "MinedMap",
-    "date": "2026-06-15"
-  },
-  "topStarred": [
-    {
-      "name": "polo-nyan",
-      "stars": 0,
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "description": "Config files for my GitHub profile."
-    },
-    {
-      "name": "Twitch-Channel-Points-Miner-v2.1",
-      "stars": 0,
-      "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
-      "description": "[NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo."
-    },
-    {
-      "name": "common-ressources",
-      "stars": 0,
-      "url": "https://github.com/smol-kitten/common-ressources",
-      "description": "Ressources i might or might not need more often"
-    },
-    {
-      "name": "honeypot-urls",
-      "stars": 0,
-      "url": "https://github.com/smol-kitten/honeypot-urls",
-      "description": "A list of often scanned urls and malicious files. Can be used to block bad actors."
-    },
-    {
-      "name": "MinecraftThroughTime",
-      "stars": 0,
-      "url": "https://github.com/smol-kitten/MinecraftThroughTime",
-      "description": "Tool to change MC Versions at specific dates from a profile"
-    }
-  ],
-  "recentlyUpdated": [
-    {
-      "name": "MinecraftThroughTime",
-      "url": "https://github.com/smol-kitten/MinecraftThroughTime",
-      "pushedAt": "2026-06-26"
-    },
-    {
-      "name": "honeypot-urls",
-      "url": "https://github.com/smol-kitten/honeypot-urls",
-      "pushedAt": "2026-06-26"
-    },
-    {
-      "name": "common-ressources",
-      "url": "https://github.com/smol-kitten/common-ressources",
-      "pushedAt": "2026-06-26"
-    },
-    {
-      "name": "MinedMap",
-      "url": "https://github.com/smol-kitten/MinedMap",
-      "pushedAt": "2026-06-26"
-    },
-    {
-      "name": "web-core",
-      "url": "https://github.com/smol-kitten/web-core",
-      "pushedAt": "2026-06-26"
-    }
-  ],
+  "activeRepos": 0,
+  "forkedRepos": 0,
+  "originalRepos": 0,
+  "reposByYear": {},
+  "licenses": {},
+  "oldestPublicRepo": null,
+  "newestPublicRepo": null,
+  "topStarred": [],
+  "recentlyUpdated": [],
   "ai": {
-    "enabled": true,
-    "totalAICommits": 211,
-    "totalCoauthorMentions": 366,
-    "scannedCommits": 1733,
-    "assistRate": "12.2",
-    "topFamily": "Claude",
-    "topModel": "Claude",
-    "familyOrder": [
-      "Claude",
-      "Opus",
-      "Sonnet",
-      "Other AI"
-    ],
-    "families": [
-      {
-        "family": "Claude",
-        "count": 208
-      },
-      {
-        "family": "Opus",
-        "count": 153
-      },
-      {
-        "family": "Sonnet",
-        "count": 4
-      },
-      {
-        "family": "Other AI",
-        "count": 1
-      }
-    ],
-    "topModels": [
-      {
-        "model": "Claude",
-        "count": 208
-      },
-      {
-        "model": "Opus 4.8",
-        "count": 153
-      },
-      {
-        "model": "Sonnet 4.6",
-        "count": 4
-      },
-      {
-        "model": "GitHub Copilot",
-        "count": 1
-      }
-    ],
-    "monthly": [
-      {
-        "month": "2026-01",
-        "total": 1,
-        "families": {
-          "Other AI": 1
-        }
-      },
-      {
-        "month": "2026-05",
-        "total": 1,
-        "families": {
-          "Sonnet": 1
-        }
-      },
-      {
-        "month": "2026-06",
-        "total": 209,
-        "families": {
-          "Claude": 206,
-          "Opus": 128,
-          "Sonnet": 1
-        }
-      }
-    ]
+    "enabled": false,
+    "totalAICommits": 0,
+    "totalCoauthorMentions": 0,
+    "scannedCommits": 0,
+    "assistRate": "0",
+    "topFamily": null,
+    "topModel": null,
+    "familyOrder": [],
+    "families": [],
+    "topModels": [],
+    "monthly": []
   },
-  "updatedAt": "2026-06-27"
+  "updatedAt": "2026-06-28"
 }
