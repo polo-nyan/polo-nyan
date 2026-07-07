@@ -1,52 +1,283 @@
 {
-  "totalRepos": 0,
-  "publicRepos": 0,
-  "privateRepos": 0,
-  "personalRepos": 0,
-  "orgRepos": 0,
-  "personalPublic": 0,
-  "personalPrivate": 0,
-  "orgPublic": 0,
-  "orgPrivate": 0,
+  "totalRepos": 94,
+  "publicRepos": 8,
+  "privateRepos": 86,
+  "personalRepos": 16,
+  "orgRepos": 77,
+  "personalPublic": 3,
+  "personalPrivate": 13,
+  "orgPublic": 5,
+  "orgPrivate": 72,
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 0,
-  "totalSizeMB": "0.0",
-  "languages": [],
-  "topLanguage": "Unknown",
-  "totalCommits": 0,
-  "avgCommitsPerRepo": "0",
-  "medianCommits": 0,
-  "recentCommits": 0,
-  "avgRepoAge": "0",
-  "estimatedTotalFiles": 0,
-  "avgFilesPerRepo": 0,
-  "estimatedTotalLines": 0,
-  "avgLinesPerRepo": 0,
-  "avgLinesPerFile": 0,
+  "totalOpenIssues": 340,
+  "totalSizeMB": "1249.1",
+  "languages": [
+    {
+      "name": "PHP",
+      "bytes": 13304602,
+      "percentage": "29.2",
+      "repos": 32,
+      "color": "#4F5D95"
+    },
+    {
+      "name": "HTML",
+      "bytes": 10158220,
+      "percentage": "22.3",
+      "repos": 34,
+      "color": "#e34c26"
+    },
+    {
+      "name": "C#",
+      "bytes": 6273034,
+      "percentage": "13.8",
+      "repos": 30,
+      "color": "#178600"
+    },
+    {
+      "name": "JavaScript",
+      "bytes": 3377483,
+      "percentage": "7.4",
+      "repos": 34,
+      "color": "#f1e05a"
+    },
+    {
+      "name": "TypeScript",
+      "bytes": 2957249,
+      "percentage": "6.5",
+      "repos": 8,
+      "color": "#3178c6"
+    },
+    {
+      "name": "Python",
+      "bytes": 1994173,
+      "percentage": "4.4",
+      "repos": 12,
+      "color": "#3572A5"
+    },
+    {
+      "name": "CSS",
+      "bytes": 1286186,
+      "percentage": "2.8",
+      "repos": 30,
+      "color": "#563d7c"
+    },
+    {
+      "name": "Lua",
+      "bytes": 1227117,
+      "percentage": "2.7",
+      "repos": 5,
+      "color": "#000080"
+    },
+    {
+      "name": "Shell",
+      "bytes": 1140496,
+      "percentage": "2.5",
+      "repos": 44,
+      "color": "#89e051"
+    },
+    {
+      "name": "Go",
+      "bytes": 1030564,
+      "percentage": "2.3",
+      "repos": 2,
+      "color": "#00ADD8"
+    }
+  ],
+  "topLanguage": "PHP",
+  "totalCommits": 1064,
+  "avgCommitsPerRepo": "36.7",
+  "medianCommits": 14,
+  "recentCommits": 23,
+  "avgRepoAge": "1.0",
+  "estimatedTotalFiles": 18894,
+  "avgFilesPerRepo": 201,
+  "estimatedTotalLines": 20308512,
+  "avgLinesPerRepo": 216048,
+  "avgLinesPerFile": 1078,
   "archivedRepos": 0,
-  "activeRepos": 0,
-  "forkedRepos": 0,
-  "originalRepos": 0,
-  "reposByYear": {},
-  "licenses": {},
-  "oldestPublicRepo": null,
-  "newestPublicRepo": null,
-  "topStarred": [],
-  "recentlyUpdated": [],
-  "ai": {
-    "enabled": false,
-    "totalAICommits": 0,
-    "totalCoauthorMentions": 0,
-    "scannedCommits": 0,
-    "assistRate": "0",
-    "topFamily": null,
-    "topModel": null,
-    "familyOrder": [],
-    "families": [],
-    "topModels": [],
-    "monthly": []
+  "activeRepos": 94,
+  "forkedRepos": 3,
+  "originalRepos": 91,
+  "reposByYear": {
+    "2020": 1,
+    "2021": 6,
+    "2022": 5,
+    "2023": 4,
+    "2024": 8,
+    "2025": 29,
+    "2026": 41
   },
-  "updatedAt": "2026-06-28"
+  "licenses": {
+    "MIT": 2,
+    "GPL-3.0": 1
+  },
+  "oldestPublicRepo": {
+    "name": "polo-nyan",
+    "date": "2022-06-29"
+  },
+  "newestPublicRepo": {
+    "name": "S1API",
+    "date": "2026-07-06"
+  },
+  "topStarred": [
+    {
+      "name": "polo-nyan",
+      "stars": 0,
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "description": "Config files for my GitHub profile."
+    },
+    {
+      "name": "S1API",
+      "stars": 0,
+      "url": "https://github.com/polo-nyan/S1API",
+      "description": ""
+    },
+    {
+      "name": "Twitch-Channel-Points-Miner-v2.1",
+      "stars": 0,
+      "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
+      "description": "[NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo."
+    },
+    {
+      "name": "common-ressources",
+      "stars": 0,
+      "url": "https://github.com/smol-kitten/common-ressources",
+      "description": "Ressources i might or might not need more often"
+    },
+    {
+      "name": "honeypot-urls",
+      "stars": 0,
+      "url": "https://github.com/smol-kitten/honeypot-urls",
+      "description": "A list of often scanned urls and malicious files. Can be used to block bad actors."
+    }
+  ],
+  "recentlyUpdated": [
+    {
+      "name": "S1API",
+      "url": "https://github.com/polo-nyan/S1API",
+      "pushedAt": "2026-07-06"
+    },
+    {
+      "name": "MinecraftThroughTime",
+      "url": "https://github.com/smol-kitten/MinecraftThroughTime",
+      "pushedAt": "2026-07-03"
+    },
+    {
+      "name": "common-ressources",
+      "url": "https://github.com/smol-kitten/common-ressources",
+      "pushedAt": "2026-07-02"
+    },
+    {
+      "name": "honeypot-urls",
+      "url": "https://github.com/smol-kitten/honeypot-urls",
+      "pushedAt": "2026-07-01"
+    },
+    {
+      "name": "MinedMap",
+      "url": "https://github.com/smol-kitten/MinedMap",
+      "pushedAt": "2026-06-28"
+    }
+  ],
+  "ai": {
+    "enabled": true,
+    "totalAICommits": 480,
+    "totalCoauthorMentions": 831,
+    "scannedCommits": 2109,
+    "assistRate": "22.8",
+    "topFamily": "Opus",
+    "topModel": "Opus 4.8",
+    "familyOrder": [
+      "Opus",
+      "Claude",
+      "Fable",
+      "Sonnet",
+      "Other AI"
+    ],
+    "families": [
+      {
+        "family": "Opus",
+        "count": 479
+      },
+      {
+        "family": "Claude",
+        "count": 323
+      },
+      {
+        "family": "Fable",
+        "count": 18
+      },
+      {
+        "family": "Sonnet",
+        "count": 9
+      },
+      {
+        "family": "Other AI",
+        "count": 2
+      }
+    ],
+    "topModels": [
+      {
+        "model": "Opus 4.8",
+        "count": 479
+      },
+      {
+        "model": "Claude",
+        "count": 323
+      },
+      {
+        "model": "Fable 5",
+        "count": 18
+      },
+      {
+        "model": "Sonnet 4.6",
+        "count": 9
+      },
+      {
+        "model": "Copilot",
+        "count": 1
+      },
+      {
+        "model": "GitHub Copilot",
+        "count": 1
+      }
+    ],
+    "monthly": [
+      {
+        "month": "2026-01",
+        "total": 1,
+        "families": {
+          "Other AI": 1
+        }
+      },
+      {
+        "month": "2026-05",
+        "total": 6,
+        "families": {
+          "Sonnet": 5,
+          "Other AI": 1
+        }
+      },
+      {
+        "month": "2026-06",
+        "total": 272,
+        "families": {
+          "Claude": 261,
+          "Opus": 188,
+          "Sonnet": 4
+        }
+      },
+      {
+        "month": "2026-07",
+        "total": 201,
+        "families": {
+          "Claude": 60,
+          "Opus": 183,
+          "Fable": 18
+        }
+      }
+    ]
+  },
+  "updatedAt": "2026-07-07"
 }
