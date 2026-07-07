@@ -382,10 +382,21 @@ jobs:
             };
             console.log(`🤖 AI usage: ${aiCommits}/${scannedCommits} commits assisted across ${aiFamilyDist.length} families.`);
 
-            // Never abort on zero repos: still write a valid stats.json so the
-            // README script can render a graceful placeholder.
-            if (totalRepos === 0) {
-              console.log('⚠️  No repos fetched (token/permissions?). Writing minimal stats.json.');
+            // Guard: a degraded or empty fetch (transient API failure, expired
+            // token, GITHUB_TOKEN fallback that owns no repos) must NEVER
+            // overwrite good stats with zeros. Preserve the last-good stats.json
+            // and skip the write/commit instead of clobbering it — otherwise one
+            // bad run freezes the profile README at all-zeros until the next
+            // healthy run, which may be weeks away on a flaky self-hosted runner.
+            {
+              let prevTotal = 0;
+              try {
+                prevTotal = (JSON.parse(require('fs').readFileSync('stats.json', 'utf8')).totalRepos) || 0;
+              } catch (e) { /* no prior stats.json yet */ }
+              if (totalRepos === 0 || (prevTotal >= 10 && totalRepos < prevTotal * 0.5)) {
+                console.log(`⚠️  Degraded fetch: got ${totalRepos} repos vs last-good ${prevTotal}. Preserving existing stats.json (no overwrite, no commit).`);
+                return;
+              }
             }
 
             const stats = {
