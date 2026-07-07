@@ -155,7 +155,7 @@ pie showData
 | Est. Files | **~18894** |
 | Est. Lines | **~20308512** |
 | Avg Files/Repo | **201** |
-| Avg Lines/File | **1078** |
+| Avg Lines/File | **1076** |
 
 </td>
 <td align="center">
@@ -164,12 +164,59 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **23** |
+| Push Events (30d) | **25** |
 | Avg Repo Age | **1.0 years** |
 
 </td>
 </tr>
 </table>
+
+</div>
+
+---
+
+### ⚡ Developer Activity
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center">
+
+**🔥 Contributions** <sub>(past 12 months, incl. private)</sub>
+
+| Metric | Value |
+|:-------|------:|
+| Total | **3636** |
+| Current Streak | **7 days** |
+| Longest Streak | **19 days** |
+| Active Days | **159** |
+| Last 30d / 90d | **1867** / **2015** |
+| Busiest Day | **274** <sub>(2026-06-23)</sub> |
+
+</td>
+<td align="center">
+
+**🔀 Pull Requests** <sub>(all-time)</sub>
+
+| Metric | Value |
+|:-------|------:|
+| Opened | **987** |
+| Merged | **963** |
+| Merge Rate | **97.6%** |
+
+**🕒 Cadence**
+
+| Metric | Value |
+|:-------|------:|
+| Busiest Day | **Wed** |
+| Busiest Hour | **22:00 UTC** |
+
+</td>
+</tr>
+</table>
+
+🔧 **CI/CD health** — 97% of recent repos run GitHub Actions · **77.2%** run success over 395 sampled runs
 
 </div>
 
@@ -223,7 +270,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **480** / 2109 | **22.8%** | **Opus** | **Opus 4.8** | **831** |
+| **483** / 2093 | **23.1%** | **Opus** | **Opus 4.8** | **840** |
 
 </div>
 
@@ -233,8 +280,8 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 479
-    "Claude" : 323
+    "Opus" : 485
+    "Claude" : 326
     "Fable" : 18
     "Sonnet" : 9
     "Other AI" : 2
@@ -250,8 +297,8 @@ xychart-beta
     title "AI-Assisted Commits Per Month"
     x-axis ["2026-01", "2026-05", "2026-06", "2026-07"]
     y-axis "Commits"
-    bar [1, 6, 272, 201]
-    line [1, 6, 272, 201]
+    bar [1, 6, 273, 203]
+    line [1, 6, 273, 203]
 ```
 
 </div>
@@ -269,8 +316,8 @@ xychart-beta
     title "Commits Per Month by Model Family"
     x-axis ["2026-01", "2026-05", "2026-06", "2026-07"]
     y-axis "Commits"
-    line [0, 0, 188, 183]
-    line [0, 0, 261, 60]
+    line [0, 0, 190, 185]
+    line [0, 0, 262, 62]
     line [0, 0, 0, 18]
     line [0, 5, 4, 0]
     line [1, 1, 0, 0]
@@ -285,8 +332,8 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 479 |
-| Claude | 323 |
+| Opus 4.8 | 485 |
+| Claude | 326 |
 | Fable 5 | 18 |
 | Sonnet 4.6 | 9 |
 | Copilot | 1 |
@@ -296,8 +343,8 @@ xychart-beta
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 479 |
-| Claude | 323 |
+| Opus | 485 |
+| Claude | 326 |
 | Fable | 18 |
 | Sonnet | 9 |
 | Other AI | 2 |
@@ -323,11 +370,11 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-07-07 |
 | [S1API](https://github.com/polo-nyan/S1API) | 2026-07-06 |
 | [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | 2026-07-03 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-07-02 |
 | [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | 2026-07-01 |
-| [MinedMap](https://github.com/smol-kitten/MinedMap) | 2026-06-28 |
 
 </details>
 

@@ -233,6 +233,82 @@ else
     echo ''
   } >> "$SECTION"
 
+  # --- Developer Activity ------------------------------------------------
+  HAS_ACTIVITY="$(jq -r 'if (.activity != null) then "1" else "0" end' "$STATS_JSON" 2>/dev/null || echo 0)"
+  if [ "${HAS_ACTIVITY}" = "1" ]; then
+    ACT_WINDOW="$(stat_get '.activity.window' 'past 12 months')"
+    ACT_TOTAL="$(stat_get '.activity.totalContributions' '0')"
+    ACT_CUR="$(stat_get '.activity.currentStreakDays' '0')"
+    ACT_LONG="$(stat_get '.activity.longestStreakDays' '0')"
+    ACT_30="$(stat_get '.activity.last30d' '0')"
+    ACT_90="$(stat_get '.activity.last90d' '0')"
+    ACT_ACTIVE="$(stat_get '.activity.activeDays' '0')"
+    ACT_BUSY_DATE="$(stat_get '.activity.busiestDay.date' '—')"
+    ACT_BUSY_COUNT="$(stat_get '.activity.busiestDay.count' '0')"
+    PR_OPENED="$(stat_get '.prsAllTime.opened' '0')"
+    PR_MERGED="$(stat_get '.prsAllTime.merged' '0')"
+    PR_RATE="$(stat_get '.prsAllTime.mergeRate' '0')"
+    CP_HOUR="$(stat_get '.commitPatterns.topHour' '')"
+    CP_WEEKDAY="$(stat_get '.commitPatterns.topWeekday' '')"
+    CI_WFPCT="$(stat_get '.ci.workflowsPct' '')"
+    CI_SUCCESS="$(stat_get '.ci.successRate' '')"
+    CI_RUNS="$(stat_get '.ci.runsSampled' '0')"
+    {
+      echo '### ⚡ Developer Activity'
+      echo ''
+      echo '<div align="center">'
+      echo ''
+      echo '<table>'
+      echo '<tr>'
+      echo '<td align="center">'
+      echo ''
+      echo "**🔥 Contributions** <sub>(${ACT_WINDOW}, incl. private)</sub>"
+      echo ''
+      echo '| Metric | Value |'
+      echo '|:-------|------:|'
+      echo "| Total | **${ACT_TOTAL}** |"
+      echo "| Current Streak | **${ACT_CUR} days** |"
+      echo "| Longest Streak | **${ACT_LONG} days** |"
+      echo "| Active Days | **${ACT_ACTIVE}** |"
+      echo "| Last 30d / 90d | **${ACT_30}** / **${ACT_90}** |"
+      echo "| Busiest Day | **${ACT_BUSY_COUNT}** <sub>(${ACT_BUSY_DATE})</sub> |"
+      echo ''
+      echo '</td>'
+      echo '<td align="center">'
+      echo ''
+      echo '**🔀 Pull Requests** <sub>(all-time)</sub>'
+      echo ''
+      echo '| Metric | Value |'
+      echo '|:-------|------:|'
+      echo "| Opened | **${PR_OPENED}** |"
+      echo "| Merged | **${PR_MERGED}** |"
+      echo "| Merge Rate | **${PR_RATE}%** |"
+      echo ''
+      # Commit cadence + CI health only render when data is present.
+      if [ -n "${CP_HOUR}" ] || [ -n "${CP_WEEKDAY}" ]; then
+        echo '**🕒 Cadence**'
+        echo ''
+        echo '| Metric | Value |'
+        echo '|:-------|------:|'
+        [ -n "${CP_WEEKDAY}" ] && echo "| Busiest Day | **${CP_WEEKDAY}** |"
+        [ -n "${CP_HOUR}" ] && echo "| Busiest Hour | **${CP_HOUR}:00 UTC** |"
+        echo ''
+      fi
+      echo '</td>'
+      echo '</tr>'
+      echo '</table>'
+      echo ''
+      if [ -n "${CI_SUCCESS}" ] && [ "${CI_RUNS}" != "0" ]; then
+        echo "🔧 **CI/CD health** — ${CI_WFPCT}% of recent repos run GitHub Actions · **${CI_SUCCESS}%** run success over ${CI_RUNS} sampled runs"
+        echo ''
+      fi
+      echo '</div>'
+      echo ''
+      echo '---'
+      echo ''
+    } >> "$SECTION"
+  fi
+
   # --- Languages ---------------------------------------------------------
   LANG_COUNT="$(jq -r '(.languages // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
   if [ "${LANG_COUNT:-0}" -gt 0 ]; then

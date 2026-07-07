@@ -11,7 +11,7 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 340,
+  "totalOpenIssues": 342,
   "totalSizeMB": "1249.1",
   "languages": [
     {
@@ -89,13 +89,13 @@
   "totalCommits": 1064,
   "avgCommitsPerRepo": "36.7",
   "medianCommits": 14,
-  "recentCommits": 23,
+  "recentCommits": 25,
   "avgRepoAge": "1.0",
   "estimatedTotalFiles": 18894,
   "avgFilesPerRepo": 201,
   "estimatedTotalLines": 20308512,
   "avgLinesPerRepo": 216048,
-  "avgLinesPerFile": 1078,
+  "avgLinesPerFile": 1076,
   "archivedRepos": 0,
   "activeRepos": 94,
   "forkedRepos": 3,
@@ -155,6 +155,11 @@
   ],
   "recentlyUpdated": [
     {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-07-07"
+    },
+    {
       "name": "S1API",
       "url": "https://github.com/polo-nyan/S1API",
       "pushedAt": "2026-07-06"
@@ -173,19 +178,79 @@
       "name": "honeypot-urls",
       "url": "https://github.com/smol-kitten/honeypot-urls",
       "pushedAt": "2026-07-01"
-    },
-    {
-      "name": "MinedMap",
-      "url": "https://github.com/smol-kitten/MinedMap",
-      "pushedAt": "2026-06-28"
     }
   ],
+  "activity": {
+    "window": "past 12 months",
+    "totalContributions": 3636,
+    "currentStreakDays": 7,
+    "longestStreakDays": 19,
+    "last30d": 1867,
+    "last90d": 2015,
+    "activeDays": 159,
+    "busiestDay": {
+      "date": "2026-06-23",
+      "count": 274
+    }
+  },
+  "prsAllTime": {
+    "opened": 987,
+    "merged": 963,
+    "mergeRate": "97.6"
+  },
+  "commitPatterns": {
+    "byHour": [
+      46,
+      105,
+      44,
+      30,
+      46,
+      74,
+      37,
+      35,
+      60,
+      29,
+      57,
+      52,
+      107,
+      45,
+      72,
+      143,
+      71,
+      64,
+      92,
+      81,
+      120,
+      111,
+      523,
+      49
+    ],
+    "byWeekday": [
+      349,
+      217,
+      216,
+      362,
+      315,
+      341,
+      293
+    ],
+    "topHour": 22,
+    "topWeekday": "Wed",
+    "sampleSize": 2093
+  },
+  "ci": {
+    "reposScanned": 30,
+    "reposWithWorkflows": 29,
+    "workflowsPct": "97",
+    "runsSampled": 395,
+    "successRate": "77.2"
+  },
   "ai": {
     "enabled": true,
-    "totalAICommits": 480,
-    "totalCoauthorMentions": 831,
-    "scannedCommits": 2109,
-    "assistRate": "22.8",
+    "totalAICommits": 483,
+    "totalCoauthorMentions": 840,
+    "scannedCommits": 2093,
+    "assistRate": "23.1",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -198,11 +263,11 @@
     "families": [
       {
         "family": "Opus",
-        "count": 479
+        "count": 485
       },
       {
         "family": "Claude",
-        "count": 323
+        "count": 326
       },
       {
         "family": "Fable",
@@ -220,11 +285,11 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 479
+        "count": 485
       },
       {
         "model": "Claude",
-        "count": 323
+        "count": 326
       },
       {
         "model": "Fable 5",
@@ -261,19 +326,19 @@
       },
       {
         "month": "2026-06",
-        "total": 272,
+        "total": 273,
         "families": {
-          "Claude": 261,
-          "Opus": 188,
+          "Claude": 262,
+          "Opus": 190,
           "Sonnet": 4
         }
       },
       {
         "month": "2026-07",
-        "total": 201,
+        "total": 203,
         "families": {
-          "Claude": 60,
-          "Opus": 183,
+          "Claude": 62,
+          "Opus": 185,
           "Fable": 18
         }
       }
