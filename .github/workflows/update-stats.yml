@@ -165,6 +165,13 @@ jobs:
             const totalWatchers = allRepos.reduce((s, r) => s + (r.watchers_count || 0), 0);
             const totalOpenIssues = allRepos.reduce((s, r) => s + (r.open_issues_count || 0), 0);
 
+            // Early guard: an empty fetch means the API/token failed. Bail before
+            // doing expensive per-repo work, and (below) preserve last-good stats.
+            if (totalRepos === 0) {
+              console.log('⚠️  Empty fetch (0 repos) — token/permissions failure. Preserving existing stats.json (no overwrite).');
+              return;
+            }
+
             // Languages (per-repo call is guarded individually).
             const langBytes = {}, langRepoCount = {};
             console.log('🔍 Fetching language data...');
@@ -320,6 +327,10 @@ jobs:
               .slice(0, 50);
             const MAX_PAGES = 5; // up to 500 commits per repo
 
+            // Commit-time patterns (aggregate, no repo names): when do I commit?
+            const hourBuckets = new Array(24).fill(0);   // UTC hour 0-23
+            const weekdayBuckets = new Array(7).fill(0); // 0=Sun .. 6=Sat
+
             for (const repo of reposForAI) {
               for (let page = 1; page <= MAX_PAGES; page++) {
                 const commits = await safe(`commits ${repo.full_name} p${page}`, async () => {
@@ -331,6 +342,11 @@ jobs:
                 if (!commits || commits.length === 0) break;
                 for (const c of commits) {
                   scannedCommits++;
+                  const cdate = c.commit?.author?.date || c.commit?.committer?.date;
+                  if (cdate) {
+                    const dt = new Date(cdate);
+                    if (!isNaN(dt)) { hourBuckets[dt.getUTCHours()]++; weekdayBuckets[dt.getUTCDay()]++; }
+                  }
                   const msg = c.commit?.message || '';
                   COAUTHOR_RE.lastIndex = 0;
                   const famsThisCommit = new Set();
@@ -382,10 +398,120 @@ jobs:
             };
             console.log(`🤖 AI usage: ${aiCommits}/${scannedCommits} commits assisted across ${aiFamilyDist.length} families.`);
 
-            // Never abort on zero repos: still write a valid stats.json so the
-            // README script can render a graceful placeholder.
-            if (totalRepos === 0) {
-              console.log('⚠️  No repos fetched (token/permissions?). Writing minimal stats.json.');
+            // --- Commit-time patterns (derived from the scan above) --------------
+            const WEEKDAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const maxHour = Math.max(...hourBuckets);
+            const maxWeekday = Math.max(...weekdayBuckets);
+            const commitPatterns = {
+              byHour: hourBuckets,
+              byWeekday: weekdayBuckets,
+              topHour: maxHour > 0 ? hourBuckets.indexOf(maxHour) : null,
+              topWeekday: maxWeekday > 0 ? WEEKDAY_NAMES[weekdayBuckets.indexOf(maxWeekday)] : null,
+              sampleSize: scannedCommits,
+            };
+
+            // --- Developer activity via GraphQL contributionsCollection ----------
+            // Private-inclusive for the authenticated viewer. All aggregate counts
+            // and dates — no repo names are surfaced.
+            let activity = null, prsAllTime = null;
+            await safe('graphql contributions', async () => {
+              const q = `query {
+                viewer {
+                  mergedPRs: pullRequests(states: MERGED) { totalCount }
+                  openedPRs: pullRequests { totalCount }
+                  contributionsCollection {
+                    totalCommitContributions
+                    totalPullRequestContributions
+                    totalPullRequestReviewContributions
+                    totalIssueContributions
+                    restrictedContributionsCount
+                    contributionCalendar {
+                      totalContributions
+                      weeks { contributionDays { date contributionCount } }
+                    }
+                  }
+                }
+              }`;
+              const r = await github.graphql(q);
+              const cc = r.viewer.contributionsCollection;
+              const days = cc.contributionCalendar.weeks
+                .flatMap(w => w.contributionDays)
+                .sort((a, b) => (a.date < b.date ? -1 : 1));
+              const sumLast = n => days.slice(-n).reduce((s, d) => s + d.contributionCount, 0);
+              // Current streak: count back from the most recent day; a trailing
+              // zero (today, not done yet) doesn't break the streak.
+              let cur = 0;
+              for (let i = days.length - 1; i >= 0; i--) {
+                if (days[i].contributionCount > 0) cur++;
+                else if (i === days.length - 1) continue;
+                else break;
+              }
+              let lon = 0, run = 0;
+              for (const d of days) { if (d.contributionCount > 0) { run++; if (run > lon) lon = run; } else run = 0; }
+              const busiest = days.reduce((m, d) => (d.contributionCount > (m ? m.count : -1) ? { date: d.date, count: d.contributionCount } : m), null);
+              // NOTE: the per-type totals (totalCommitContributions etc.) are
+              // PUBLIC-ONLY and would contradict the private-inclusive calendar
+              // totals below, so we intentionally surface only the calendar-
+              // derived, self-consistent metrics + all-time PRs.
+              activity = {
+                window: 'past 12 months',
+                totalContributions: cc.contributionCalendar.totalContributions,
+                currentStreakDays: cur,
+                longestStreakDays: lon,
+                last30d: sumLast(30),
+                last90d: sumLast(90),
+                activeDays: days.filter(d => d.contributionCount > 0).length,
+                busiestDay: busiest,
+              };
+              const merged = r.viewer.mergedPRs.totalCount;
+              const opened = r.viewer.openedPRs.totalCount;
+              prsAllTime = { opened, merged, mergeRate: opened ? ((merged / opened) * 100).toFixed(1) : '0' };
+            });
+
+            // --- CI/CD health (aggregate; capped to recent repos) ----------------
+            console.log('⚙️  Sampling CI/CD health...');
+            let ciReposScanned = 0, ciReposWithWf = 0, ciRunsSampled = 0, ciRunsSuccess = 0;
+            const ciRepos = [...allRepos]
+              .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+              .slice(0, 30);
+            for (const repo of ciRepos) {
+              ciReposScanned++;
+              const wf = await safe(`workflows ${repo.full_name}`, async () => {
+                const { data } = await github.rest.actions.listRepoWorkflows({ owner: repo.owner.login, repo: repo.name });
+                return data;
+              }, null);
+              if (!wf || !wf.total_count) continue;
+              ciReposWithWf++;
+              const runs = await safe(`runs ${repo.full_name}`, async () => {
+                const { data } = await github.rest.actions.listWorkflowRunsForRepo({ owner: repo.owner.login, repo: repo.name, per_page: 15, status: 'completed' });
+                return data;
+              }, null);
+              for (const wr of (runs?.workflow_runs || [])) { ciRunsSampled++; if (wr.conclusion === 'success') ciRunsSuccess++; }
+            }
+            const ci = {
+              reposScanned: ciReposScanned,
+              reposWithWorkflows: ciReposWithWf,
+              workflowsPct: ciReposScanned ? Math.round((ciReposWithWf / ciReposScanned) * 100).toString() : '0',
+              runsSampled: ciRunsSampled,
+              successRate: ciRunsSampled ? ((ciRunsSuccess / ciRunsSampled) * 100).toFixed(1) : '0',
+            };
+            console.log(`⚙️  CI: ${ciReposWithWf}/${ciReposScanned} repos with workflows, ${ci.successRate}% success over ${ciRunsSampled} runs.`);
+
+            // Guard: a degraded or empty fetch (transient API failure, expired
+            // token, GITHUB_TOKEN fallback that owns no repos) must NEVER
+            // overwrite good stats with zeros. Preserve the last-good stats.json
+            // and skip the write/commit instead of clobbering it — otherwise one
+            // bad run freezes the profile README at all-zeros until the next
+            // healthy run, which may be weeks away on a flaky self-hosted runner.
+            {
+              let prevTotal = 0;
+              try {
+                prevTotal = (JSON.parse(require('fs').readFileSync('stats.json', 'utf8')).totalRepos) || 0;
+              } catch (e) { /* no prior stats.json yet */ }
+              if (totalRepos === 0 || (prevTotal >= 10 && totalRepos < prevTotal * 0.5)) {
+                console.log(`⚠️  Degraded fetch: got ${totalRepos} repos vs last-good ${prevTotal}. Preserving existing stats.json (no overwrite, no commit).`);
+                return;
+              }
             }
 
             const stats = {
@@ -410,6 +536,7 @@ jobs:
               })(),
               topStarred: topStarred.map(r => ({ name: r.name, stars: r.stargazers_count, url: r.html_url, description: r.description || '' })),
               recentlyUpdated: recentlyUpdated.map(r => ({ name: r.name, url: r.html_url, pushedAt: r.pushed_at?.split('T')[0] })),
+              activity, prsAllTime, commitPatterns, ci,
               ai: aiStats,
               updatedAt: new Date().toISOString().split('T')[0]
             };
