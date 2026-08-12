@@ -306,7 +306,7 @@ jobs:
               // Clean model label: drop parentheticals + a leading "Claude".
               let model = n.replace(/\(.*?\)/g, ' ').replace(/\s+/g, ' ').trim();
               const modelNoClaude = model.replace(/^claude\s+/i, '').trim();
-              if (family === 'Claude') model = 'Claude';
+              if (family === 'Claude') model = 'Claude (unspecified)';
               else model = modelNoClaude || ('Claude ' + family);
               return { isAI: true, family, model };
             };
@@ -349,16 +349,33 @@ jobs:
                   }
                   const msg = c.commit?.message || '';
                   COAUTHOR_RE.lastIndex = 0;
+                  // Collect the DISTINCT families/models credited on THIS commit.
+                  // Counting per-commit (not per trailer line) keeps the tallies
+                  // consistent with the commit-based headline and stops squash-
+                  // merges / rebases — which stack several identical Co-Authored-By
+                  // lines into one message — from inflating a model's count above
+                  // the number of commits it actually assisted.
                   const famsThisCommit = new Set();
+                  const modelsThisCommit = new Set();
                   let m;
                   while ((m = COAUTHOR_RE.exec(msg)) !== null) {
                     const info = classifyCoauthor(m[1], m[2]);
                     if (!info.isAI) continue;
-                    aiCoauthorMentions++;
-                    aiByFamily[info.family] = (aiByFamily[info.family] || 0) + 1;
-                    aiByModel[info.model] = (aiByModel[info.model] || 0) + 1;
+                    aiCoauthorMentions++;   // raw trailer credits (may exceed commits)
                     famsThisCommit.add(info.family);
+                    modelsThisCommit.add(info.model);
                   }
+                  // When a specific model (Opus/Sonnet/Haiku/Fable) is credited on
+                  // the same commit, drop the generic "Claude" bucket — otherwise
+                  // machine-identity trailers (e.g. root@claude.goes.moe, added
+                  // alongside the real model's trailer) double-count the commit as
+                  // both the model AND an unattributed "Claude".
+                  if ([...famsThisCommit].some(f => AI_FAMILIES.includes(f))) {
+                    famsThisCommit.delete('Claude');
+                    modelsThisCommit.delete('Claude (unspecified)');
+                  }
+                  for (const fam of famsThisCommit) aiByFamily[fam] = (aiByFamily[fam] || 0) + 1;
+                  for (const mod of modelsThisCommit) aiByModel[mod] = (aiByModel[mod] || 0) + 1;
                   if (famsThisCommit.size > 0) {
                     aiCommits++;
                     const d = c.commit?.author?.date || c.commit?.committer?.date;
