@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **117** | **0** | **0** | **PHP** | **1398.5 MB** |
+| **117** | **0** | **0** | **PHP** | **1398.6 MB** |
 
 </div>
 
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 83% of recent repos run GitHub Actions · **70.9%** run success over 361 sampled runs
+🔧 **CI/CD health** — 87% of recent repos run GitHub Actions · **69.7%** run success over 376 sampled runs
 
 </div>
 
@@ -270,7 +270,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **1262** / 2559 | **49.3%** | **Opus** | **Opus 4.8** | **2080** |
+| **1260** / 2541 | **49.6%** | **Opus** | **Opus 4.8** | **2084** |
 
 </div>
 
@@ -280,8 +280,8 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 1511
-    "Claude" : 525
+    "Opus" : 1513
+    "Claude" : 527
     "Fable" : 29
     "Sonnet" : 13
     "Other AI" : 2
@@ -297,8 +297,8 @@ xychart-beta
     title "AI-Assisted Commits Per Month"
     x-axis ["2026-01", "2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    bar [1, 7, 265, 830, 159]
-    line [1, 7, 265, 830, 159]
+    bar [1, 7, 266, 827, 159]
+    line [1, 7, 266, 827, 159]
 ```
 
 </div>
@@ -316,8 +316,8 @@ xychart-beta
     title "Commits Per Month by Model Family"
     x-axis ["2026-01", "2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    line [0, 0, 186, 799, 159]
-    line [0, 0, 257, 244, 0]
+    line [0, 0, 188, 796, 159]
+    line [0, 0, 258, 245, 0]
     line [0, 0, 0, 29, 0]
     line [0, 6, 5, 0, 0]
     line [1, 1, 0, 0, 0]
@@ -332,8 +332,8 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 1511 |
-| Claude | 525 |
+| Opus 4.8 | 1513 |
+| Claude | 527 |
 | Fable 5 | 29 |
 | Sonnet 4.6 | 13 |
 | Copilot | 1 |
@@ -343,8 +343,8 @@ xychart-beta
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 1511 |
-| Claude | 525 |
+| Opus | 1513 |
+| Claude | 527 |
 | Fable | 29 |
 | Sonnet | 13 |
 | Other AI | 2 |
@@ -370,11 +370,11 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-12 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | 2026-08-11 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-08-06 |
 | [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-08-04 |
 | [web-core](https://github.com/smol-kitten/web-core) | 2026-08-03 |
-| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-07-30 |
 
 </details>
 
@@ -426,7 +426,7 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **117** (10 public, 107 private) |
-| 💾 Code Volume | **1398.5 MB** across 114 projects |
+| 💾 Code Volume | **1398.6 MB** across 114 projects |
 | 💻 Top Language | **PHP** |
 | 📅 Last Updated | **2026-08-12** |
 
