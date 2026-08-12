@@ -153,7 +153,7 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~15678** |
-| Est. Lines | **~19659510** |
+| Est. Lines | **~19661031** |
 | Avg Files/Repo | **134** |
 | Avg Lines/File | **1256** |
 
@@ -187,11 +187,11 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total | **6770** |
+| Total | **6772** |
 | Current Streak | **43 days** |
 | Longest Streak | **43 days** |
 | Active Days | **181** |
-| Last 30d / 90d | **2336** / **5265** |
+| Last 30d / 90d | **2338** / **5267** |
 | Busiest Day | **350** <sub>(2026-07-20)</sub> |
 
 </td>
@@ -201,8 +201,8 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Opened | **2454** |
-| Merged | **2400** |
+| Opened | **2455** |
+| Merged | **2401** |
 | Merge Rate | **97.8%** |
 
 **🕒 Cadence**
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 87% of recent repos run GitHub Actions · **69.7%** run success over 376 sampled runs
+🔧 **CI/CD health** — 87% of recent repos run GitHub Actions · **72.1%** run success over 376 sampled runs
 
 </div>
 
@@ -270,7 +270,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **1260** / 2541 | **49.6%** | **Opus** | **Opus 4.8** | **2084** |
+| **1261** / 2542 | **49.6%** | **Opus** | **Opus 4.8** | **2085** |
 
 </div>
 
@@ -280,10 +280,10 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 1513
-    "Claude" : 527
+    "Opus" : 1144
+    "Claude" : 75
     "Fable" : 29
-    "Sonnet" : 13
+    "Sonnet" : 11
     "Other AI" : 2
 ```
 
@@ -297,8 +297,8 @@ xychart-beta
     title "AI-Assisted Commits Per Month"
     x-axis ["2026-01", "2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    bar [1, 7, 266, 827, 159]
-    line [1, 7, 266, 827, 159]
+    bar [1, 7, 266, 827, 160]
+    line [1, 7, 266, 827, 160]
 ```
 
 </div>
@@ -316,8 +316,8 @@ xychart-beta
     title "Commits Per Month by Model Family"
     x-axis ["2026-01", "2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    line [0, 0, 188, 796, 159]
-    line [0, 0, 258, 245, 0]
+    line [0, 0, 188, 796, 160]
+    line [0, 0, 73, 2, 0]
     line [0, 0, 0, 29, 0]
     line [0, 6, 5, 0, 0]
     line [1, 1, 0, 0, 0]
@@ -332,10 +332,10 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 1513 |
-| Claude | 527 |
+| Opus 4.8 | 1144 |
+| Claude (unspecified) | 75 |
 | Fable 5 | 29 |
-| Sonnet 4.6 | 13 |
+| Sonnet 4.6 | 11 |
 | Copilot | 1 |
 | GitHub Copilot | 1 |
 
@@ -343,10 +343,10 @@ xychart-beta
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 1513 |
-| Claude | 527 |
+| Opus | 1144 |
+| Claude | 75 |
 | Fable | 29 |
-| Sonnet | 13 |
+| Sonnet | 11 |
 | Other AI | 2 |
 
 </details>

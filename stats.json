@@ -93,8 +93,8 @@
   "avgRepoAge": "0.9",
   "estimatedTotalFiles": 15678,
   "avgFilesPerRepo": 134,
-  "estimatedTotalLines": 19659510,
-  "avgLinesPerRepo": 168030,
+  "estimatedTotalLines": 19661031,
+  "avgLinesPerRepo": 168043,
   "avgLinesPerFile": 1256,
   "archivedRepos": 2,
   "activeRepos": 115,
@@ -182,11 +182,11 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 6770,
+    "totalContributions": 6772,
     "currentStreakDays": 43,
     "longestStreakDays": 43,
-    "last30d": 2336,
-    "last90d": 5265,
+    "last30d": 2338,
+    "last90d": 5267,
     "activeDays": 181,
     "busiestDay": {
       "date": "2026-07-20",
@@ -194,8 +194,8 @@
     }
   },
   "prsAllTime": {
-    "opened": 2454,
-    "merged": 2400,
+    "opened": 2455,
+    "merged": 2401,
     "mergeRate": "97.8"
   },
   "commitPatterns": {
@@ -206,7 +206,7 @@
       25,
       114,
       139,
-      119,
+      120,
       85,
       150,
       154,
@@ -229,27 +229,27 @@
       302,
       390,
       342,
-      464,
+      465,
       310,
       358,
       375
     ],
     "topHour": 12,
     "topWeekday": "Wed",
-    "sampleSize": 2541
+    "sampleSize": 2542
   },
   "ci": {
     "reposScanned": 30,
     "reposWithWorkflows": 26,
     "workflowsPct": "87",
     "runsSampled": 376,
-    "successRate": "69.7"
+    "successRate": "72.1"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 1260,
-    "totalCoauthorMentions": 2084,
-    "scannedCommits": 2541,
+    "totalAICommits": 1261,
+    "totalCoauthorMentions": 2085,
+    "scannedCommits": 2542,
     "assistRate": "49.6",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
@@ -263,11 +263,11 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1513
+        "count": 1144
       },
       {
         "family": "Claude",
-        "count": 527
+        "count": 75
       },
       {
         "family": "Fable",
@@ -275,7 +275,7 @@
       },
       {
         "family": "Sonnet",
-        "count": 13
+        "count": 11
       },
       {
         "family": "Other AI",
@@ -285,11 +285,11 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1513
+        "count": 1144
       },
       {
-        "model": "Claude",
-        "count": 527
+        "model": "Claude (unspecified)",
+        "count": 75
       },
       {
         "model": "Fable 5",
@@ -297,7 +297,7 @@
       },
       {
         "model": "Sonnet 4.6",
-        "count": 13
+        "count": 11
       },
       {
         "model": "Copilot",
@@ -328,8 +328,8 @@
         "month": "2026-06",
         "total": 266,
         "families": {
-          "Claude": 258,
           "Opus": 188,
+          "Claude": 73,
           "Sonnet": 5
         }
       },
@@ -338,15 +338,15 @@
         "total": 827,
         "families": {
           "Opus": 796,
-          "Claude": 245,
+          "Claude": 2,
           "Fable": 29
         }
       },
       {
         "month": "2026-08",
-        "total": 159,
+        "total": 160,
         "families": {
-          "Opus": 159
+          "Opus": 160
         }
       }
     ]
