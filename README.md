@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **117** | **0** | **0** | **PHP** | **1399.2 MB** |
+| **117** | **0** | **0** | **PHP** | **1399.7 MB** |
 
 </div>
 
@@ -141,8 +141,8 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total Commits | **890** |
-| Avg per Repo | **29.7** |
+| Total Commits | **895** |
+| Avg per Repo | **29.8** |
 | Median | **15** |
 
 </td>
@@ -153,9 +153,9 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~15678** |
-| Est. Lines | **~19800378** |
+| Est. Lines | **~19893393** |
 | Avg Files/Repo | **134** |
-| Avg Lines/File | **1260** |
+| Avg Lines/File | **1266** |
 
 </td>
 <td align="center">
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **37** |
+| Push Events (30d) | **47** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -187,11 +187,11 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total | **6890** |
+| Total | **6906** |
 | Current Streak | **45 days** |
 | Longest Streak | **45 days** |
 | Active Days | **183** |
-| Last 30d / 90d | **2096** / **5385** |
+| Last 30d / 90d | **2058** / **5382** |
 | Busiest Day | **350** <sub>(2026-07-20)</sub> |
 
 </td>
@@ -201,9 +201,9 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Opened | **2507** |
-| Merged | **2440** |
-| Merge Rate | **97.3%** |
+| Opened | **2514** |
+| Merged | **2444** |
+| Merge Rate | **97.2%** |
 
 **🕒 Cadence**
 
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 97% of recent repos run GitHub Actions · **72.6%** run success over 383 sampled runs
+🔧 **CI/CD health** — 97% of recent repos run GitHub Actions · **72.1%** run success over 383 sampled runs
 
 </div>
 
@@ -270,7 +270,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **1179** / 2291 | **51.5%** | **Opus** | **Opus 4.8** | **1689** |
+| **1181** / 2297 | **51.4%** | **Opus** | **Opus 4.8** | **1691** |
 
 </div>
 
@@ -280,7 +280,7 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 1104
+    "Opus" : 1106
     "Claude" : 37
     "Fable" : 26
     "Sonnet" : 11
@@ -297,8 +297,8 @@ xychart-beta
     title "AI-Assisted Commits Per Month"
     x-axis ["2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    bar [7, 97, 905, 170]
-    line [7, 97, 905, 170]
+    bar [7, 97, 905, 172]
+    line [7, 97, 905, 172]
 ```
 
 </div>
@@ -316,7 +316,7 @@ xychart-beta
     title "Commits Per Month by Model Family"
     x-axis ["2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    line [0, 58, 876, 170]
+    line [0, 58, 876, 172]
     line [0, 34, 3, 0]
     line [0, 0, 26, 0]
     line [6, 5, 0, 0]
@@ -332,7 +332,7 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 1104 |
+| Opus 4.8 | 1106 |
 | Claude (unspecified) | 37 |
 | Fable 5 | 26 |
 | Sonnet 4.6 | 11 |
@@ -342,7 +342,7 @@ xychart-beta
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 1104 |
+| Opus | 1106 |
 | Claude | 37 |
 | Fable | 26 |
 | Sonnet | 11 |
@@ -369,11 +369,11 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-14 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-08-13 |
 | [web-core](https://github.com/smol-kitten/web-core) | 2026-08-12 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | 2026-08-12 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | 2026-08-12 |
-| [S1API](https://github.com/polo-nyan/S1API) | 2026-08-12 |
 
 </details>
 
@@ -425,9 +425,9 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **117** (10 public, 107 private) |
-| 💾 Code Volume | **1399.2 MB** across 114 projects |
+| 💾 Code Volume | **1399.7 MB** across 114 projects |
 | 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-08-14** |
+| 📅 Last Updated | **2026-08-15** |
 
 </div>
 
