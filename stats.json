@@ -11,26 +11,26 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 111,
-  "totalSizeMB": "1400.0",
+  "totalOpenIssues": 115,
+  "totalSizeMB": "1412.3",
   "languages": [
     {
       "name": "PHP",
       "bytes": 15288617,
-      "percentage": "25.4",
+      "percentage": "25.3",
       "repos": 37,
       "color": "#4F5D95"
     },
     {
       "name": "HTML",
-      "bytes": 10625564,
+      "bytes": 10627241,
       "percentage": "17.6",
       "repos": 43,
       "color": "#e34c26"
     },
     {
       "name": "C#",
-      "bytes": 10113957,
+      "bytes": 10176926,
       "percentage": "16.8",
       "repos": 32,
       "color": "#178600"
@@ -43,6 +43,13 @@
       "color": "#3572A5"
     },
     {
+      "name": "JavaScript",
+      "bytes": 4576775,
+      "percentage": "7.6",
+      "repos": 43,
+      "color": "#f1e05a"
+    },
+    {
       "name": "TypeScript",
       "bytes": 4525870,
       "percentage": "7.5",
@@ -50,22 +57,15 @@
       "color": "#3178c6"
     },
     {
-      "name": "JavaScript",
-      "bytes": 4442911,
-      "percentage": "7.4",
-      "repos": 43,
-      "color": "#f1e05a"
-    },
-    {
       "name": "CSS",
-      "bytes": 1529464,
+      "bytes": 1531526,
       "percentage": "2.5",
       "repos": 39,
       "color": "#563d7c"
     },
     {
       "name": "Shell",
-      "bytes": 1308584,
+      "bytes": 1312928,
       "percentage": "2.2",
       "repos": 57,
       "color": "#89e051"
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 897,
-  "avgCommitsPerRepo": "29.9",
-  "medianCommits": 15,
-  "recentCommits": 32,
+  "totalCommits": 900,
+  "avgCommitsPerRepo": "30.0",
+  "medianCommits": 16,
+  "recentCommits": 21,
   "avgRepoAge": "0.9",
-  "estimatedTotalFiles": 15678,
-  "avgFilesPerRepo": 134,
-  "estimatedTotalLines": 19925568,
-  "avgLinesPerRepo": 170304,
-  "avgLinesPerFile": 1267,
+  "estimatedTotalFiles": 15795,
+  "avgFilesPerRepo": 135,
+  "estimatedTotalLines": 19929078,
+  "avgLinesPerRepo": 170334,
+  "avgLinesPerFile": 1265,
   "archivedRepos": 2,
   "activeRepos": 115,
   "forkedRepos": 3,
@@ -157,7 +157,7 @@
     {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-08-15"
+      "pushedAt": "2026-08-16"
     },
     {
       "name": "common-ressources",
@@ -182,33 +182,33 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 6917,
-    "currentStreakDays": 47,
-    "longestStreakDays": 47,
-    "last30d": 2064,
-    "last90d": 5393,
-    "activeDays": 180,
+    "totalContributions": 6948,
+    "currentStreakDays": 48,
+    "longestStreakDays": 48,
+    "last30d": 1779,
+    "last90d": 5441,
+    "activeDays": 181,
     "busiestDay": {
       "date": "2026-07-20",
       "count": 350
     }
   },
   "prsAllTime": {
-    "opened": 2522,
-    "merged": 2445,
-    "mergeRate": "96.9"
+    "opened": 2547,
+    "merged": 2466,
+    "mergeRate": "96.8"
   },
   "commitPatterns": {
     "byHour": [
-      62,
+      71,
       41,
       29,
       20,
       111,
-      150,
-      146,
+      152,
+      148,
       111,
-      186,
+      188,
       147,
       177,
       173,
@@ -223,11 +223,11 @@
       123,
       146,
       93,
-      43
+      51
     ],
     "byWeekday": [
-      330,
-      415,
+      340,
+      428,
       399,
       497,
       349,
@@ -236,21 +236,21 @@
     ],
     "topHour": 8,
     "topWeekday": "Wed",
-    "sampleSize": 2663
+    "sampleSize": 2686
   },
   "ci": {
     "reposScanned": 30,
     "reposWithWorkflows": 28,
     "workflowsPct": "93",
     "runsSampled": 393,
-    "successRate": "74.3"
+    "successRate": "75.6"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 1398,
-    "totalCoauthorMentions": 2121,
-    "scannedCommits": 2663,
-    "assistRate": "52.5",
+    "totalAICommits": 1420,
+    "totalCoauthorMentions": 2180,
+    "scannedCommits": 2686,
+    "assistRate": "52.9",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -263,7 +263,7 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1299
+        "count": 1321
       },
       {
         "family": "Claude",
@@ -285,7 +285,7 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1299
+        "count": 1321
       },
       {
         "model": "Claude (unspecified)",
@@ -333,12 +333,12 @@
       },
       {
         "month": "2026-08",
-        "total": 173,
+        "total": 195,
         "families": {
-          "Opus": 173
+          "Opus": 195
         }
       }
     ]
   },
-  "updatedAt": "2026-08-16"
+  "updatedAt": "2026-08-17"
 }
