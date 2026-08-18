@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **117** | **0** | **0** | **PHP** | **1412.3 MB** |
+| **117** | **0** | **0** | **PHP** | **1417.0 MB** |
 
 </div>
 
@@ -141,8 +141,8 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total Commits | **900** |
-| Avg per Repo | **30.0** |
+| Total Commits | **921** |
+| Avg per Repo | **30.7** |
 | Median | **16** |
 
 </td>
@@ -153,7 +153,7 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~15795** |
-| Est. Lines | **~19929078** |
+| Est. Lines | **~20025252** |
 | Avg Files/Repo | **135** |
 | Avg Lines/File | **1265** |
 
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **21** |
+| Push Events (30d) | **27** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -187,11 +187,11 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total | **6948** |
-| Current Streak | **48 days** |
-| Longest Streak | **48 days** |
-| Active Days | **181** |
-| Last 30d / 90d | **1779** / **5441** |
+| Total | **7045** |
+| Current Streak | **49 days** |
+| Longest Streak | **49 days** |
+| Active Days | **182** |
+| Last 30d / 90d | **1831** / **5536** |
 | Busiest Day | **350** <sub>(2026-07-20)</sub> |
 
 </td>
@@ -201,22 +201,22 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Opened | **2547** |
-| Merged | **2466** |
-| Merge Rate | **96.8%** |
+| Opened | **2583** |
+| Merged | **2529** |
+| Merge Rate | **97.9%** |
 
 **🕒 Cadence**
 
 | Metric | Value |
 |:-------|------:|
 | Busiest Day | **Wed** |
-| Busiest Hour | **8:00 UTC** |
+| Busiest Hour | **15:00 UTC** |
 
 </td>
 </tr>
 </table>
 
-🔧 **CI/CD health** — 93% of recent repos run GitHub Actions · **75.6%** run success over 393 sampled runs
+🔧 **CI/CD health** — 100% of recent repos run GitHub Actions · **71.7%** run success over 434 sampled runs
 
 </div>
 
@@ -231,11 +231,11 @@ pie showData
 pie showData
     title Code Distribution by Language
     "PHP" : 25.3
-    "HTML" : 17.6
+    "HTML" : 17.5
     "C#" : 16.8
-    "Python" : 10.9
-    "JavaScript" : 7.6
-    "TypeScript" : 7.5
+    "Python" : 11.0
+    "JavaScript" : 7.7
+    "TypeScript" : 7.4
 ```
 
 </div>
@@ -246,11 +246,11 @@ pie showData
 | Language | Percentage | Repositories |
 |:---------|:----------:|:------------:|
 | PHP | 25.3% | 37 |
-| HTML | 17.6% | 43 |
+| HTML | 17.5% | 43 |
 | C# | 16.8% | 32 |
-| Python | 10.9% | 26 |
-| JavaScript | 7.6% | 43 |
-| TypeScript | 7.5% | 12 |
+| Python | 11.0% | 27 |
+| JavaScript | 7.7% | 43 |
+| TypeScript | 7.4% | 12 |
 | CSS | 2.5% | 39 |
 | Shell | 2.2% | 57 |
 | Lua | 2.0% | 5 |
@@ -270,7 +270,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **1420** / 2686 | **52.9%** | **Opus** | **Opus 4.8** | **2180** |
+| **1223** / 2697 | **45.3%** | **Opus** | **Opus 4.8** | **2040** |
 
 </div>
 
@@ -280,11 +280,11 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 1321
-    "Claude" : 58
-    "Fable" : 29
-    "Sonnet" : 11
-    "Other AI" : 1
+    "Opus" : 1130
+    "Claude" : 63
+    "Fable" : 18
+    "Sonnet" : 10
+    "Other AI" : 2
 ```
 
 </div>
@@ -295,10 +295,10 @@ pie showData
 %%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #a78bfa"}}}}%%
 xychart-beta
     title "AI-Assisted Commits Per Month"
-    x-axis ["2026-05", "2026-06", "2026-07", "2026-08"]
+    x-axis ["2026-01", "2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    bar [7, 268, 950, 195]
-    line [7, 268, 950, 195]
+    bar [1, 7, 278, 744, 193]
+    line [1, 7, 278, 744, 193]
 ```
 
 </div>
@@ -314,13 +314,13 @@ xychart-beta
 %%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #8b5cf6, #06b6d4, #22c55e, #f59e0b, #ec4899"}}}}%%
 xychart-beta
     title "Commits Per Month by Model Family"
-    x-axis ["2026-05", "2026-06", "2026-07", "2026-08"]
+    x-axis ["2026-01", "2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    line [0, 208, 918, 195]
-    line [0, 55, 3, 0]
-    line [0, 0, 29, 0]
-    line [6, 5, 0, 0]
-    line [1, 0, 0, 0]
+    line [0, 0, 214, 725, 191]
+    line [0, 0, 60, 1, 2]
+    line [0, 0, 0, 18, 0]
+    line [0, 6, 4, 0, 0]
+    line [1, 1, 0, 0, 0]
 ```
 
 </div>
@@ -332,21 +332,22 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 1321 |
-| Claude (unspecified) | 58 |
-| Fable 5 | 29 |
-| Sonnet 4.6 | 11 |
+| Opus 4.8 | 1130 |
+| Claude (unspecified) | 63 |
+| Fable 5 | 18 |
+| Sonnet 4.6 | 10 |
 | Copilot | 1 |
+| GitHub Copilot | 1 |
 
 **By family**
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 1321 |
-| Claude | 58 |
-| Fable | 29 |
-| Sonnet | 11 |
-| Other AI | 1 |
+| Opus | 1130 |
+| Claude | 63 |
+| Fable | 18 |
+| Sonnet | 10 |
+| Other AI | 2 |
 
 </details>
 
@@ -369,11 +370,11 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
-| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-16 |
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-18 |
+| [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-08-17 |
+| [web-core](https://github.com/smol-kitten/web-core) | 2026-08-17 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-08-13 |
-| [web-core](https://github.com/smol-kitten/web-core) | 2026-08-12 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | 2026-08-12 |
-| [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | 2026-08-12 |
 
 </details>
 
@@ -425,9 +426,9 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **117** (10 public, 107 private) |
-| 💾 Code Volume | **1412.3 MB** across 114 projects |
+| 💾 Code Volume | **1417.0 MB** across 114 projects |
 | 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-08-17** |
+| 📅 Last Updated | **2026-08-18** |
 
 </div>
 
