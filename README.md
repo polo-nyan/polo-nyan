@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **117** | **0** | **0** | **PHP** | **1456.2 MB** |
+| **117** | **0** | **0** | **PHP** | **1453.9 MB** |
 
 </div>
 
@@ -153,9 +153,9 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~15912** |
-| Est. Lines | **~29322072** |
+| Est. Lines | **~28859337** |
 | Avg Files/Repo | **136** |
-| Avg Lines/File | **1839** |
+| Avg Lines/File | **1810** |
 
 </td>
 <td align="center">
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **66** |
+| Push Events (30d) | **68** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -191,7 +191,7 @@ pie showData
 | Current Streak | **0 days** |
 | Longest Streak | **50 days** |
 | Active Days | **183** |
-| Last 30d / 90d | **1209** / **5581** |
+| Last 30d / 90d | **1060** / **5572** |
 | Busiest Day | **350** <sub>(2026-07-20)</sub> |
 
 </td>
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 100% of recent repos run GitHub Actions · **82.9%** run success over 450 sampled runs
+🔧 **CI/CD health** — 100% of recent repos run GitHub Actions · **84.4%** run success over 450 sampled runs
 
 </div>
 
@@ -370,7 +370,7 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
-| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-20 |
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-21 |
 | [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-08-17 |
 | [web-core](https://github.com/smol-kitten/web-core) | 2026-08-17 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-08-13 |
@@ -426,9 +426,9 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **117** (10 public, 107 private) |
-| 💾 Code Volume | **1456.2 MB** across 114 projects |
+| 💾 Code Volume | **1453.9 MB** across 114 projects |
 | 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-08-21** |
+| 📅 Last Updated | **2026-08-22** |
 
 </div>
 

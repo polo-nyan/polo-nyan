@@ -11,8 +11,8 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 28,
-  "totalSizeMB": "1456.2",
+  "totalOpenIssues": 30,
+  "totalSizeMB": "1453.9",
   "languages": [
     {
       "name": "PHP",
@@ -89,13 +89,13 @@
   "totalCommits": 942,
   "avgCommitsPerRepo": "31.4",
   "medianCommits": 16,
-  "recentCommits": 66,
+  "recentCommits": 68,
   "avgRepoAge": "0.9",
   "estimatedTotalFiles": 15912,
   "avgFilesPerRepo": 136,
-  "estimatedTotalLines": 29322072,
-  "avgLinesPerRepo": 250616,
-  "avgLinesPerFile": 1839,
+  "estimatedTotalLines": 28859337,
+  "avgLinesPerRepo": 246661,
+  "avgLinesPerFile": 1810,
   "archivedRepos": 2,
   "activeRepos": 115,
   "forkedRepos": 3,
@@ -157,7 +157,7 @@
     {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-08-20"
+      "pushedAt": "2026-08-21"
     },
     {
       "name": "Twitch-Channel-Points-Miner-v2.1",
@@ -185,8 +185,8 @@
     "totalContributions": 7110,
     "currentStreakDays": 0,
     "longestStreakDays": 50,
-    "last30d": 1209,
-    "last90d": 5581,
+    "last30d": 1060,
+    "last90d": 5572,
     "activeDays": 183,
     "busiestDay": {
       "date": "2026-07-20",
@@ -243,7 +243,7 @@
     "reposWithWorkflows": 30,
     "workflowsPct": "100",
     "runsSampled": 450,
-    "successRate": "82.9"
+    "successRate": "84.4"
   },
   "ai": {
     "enabled": true,
@@ -330,8 +330,8 @@
         "month": "2026-07",
         "total": 680,
         "families": {
-          "Fable": 14,
           "Opus": 662,
+          "Fable": 14,
           "Claude": 4
         }
       },
@@ -346,5 +346,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-21"
+  "updatedAt": "2026-08-22"
 }
