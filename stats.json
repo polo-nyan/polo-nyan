@@ -11,12 +11,12 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 30,
-  "totalSizeMB": "1453.9",
+  "totalOpenIssues": 34,
+  "totalSizeMB": "1453.7",
   "languages": [
     {
       "name": "PHP",
-      "bytes": 15407599,
+      "bytes": 15443252,
       "percentage": "25.2",
       "repos": 37,
       "color": "#4F5D95"
@@ -37,15 +37,15 @@
     },
     {
       "name": "Python",
-      "bytes": 6686577,
-      "percentage": "10.9",
+      "bytes": 6731773,
+      "percentage": "11.0",
       "repos": 27,
       "color": "#3572A5"
     },
     {
       "name": "JavaScript",
       "bytes": 4994915,
-      "percentage": "8.2",
+      "percentage": "8.1",
       "repos": 43,
       "color": "#f1e05a"
     },
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 942,
-  "avgCommitsPerRepo": "31.4",
+  "totalCommits": 945,
+  "avgCommitsPerRepo": "31.5",
   "medianCommits": 16,
-  "recentCommits": 68,
+  "recentCommits": 53,
   "avgRepoAge": "0.9",
   "estimatedTotalFiles": 15912,
   "avgFilesPerRepo": 136,
-  "estimatedTotalLines": 28859337,
-  "avgLinesPerRepo": 246661,
-  "avgLinesPerFile": 1810,
+  "estimatedTotalLines": 28762812,
+  "avgLinesPerRepo": 245836,
+  "avgLinesPerFile": 1802,
   "archivedRepos": 2,
   "activeRepos": 115,
   "forkedRepos": 3,
@@ -155,14 +155,14 @@
   ],
   "recentlyUpdated": [
     {
-      "name": "polo-nyan",
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-08-21"
-    },
-    {
       "name": "Twitch-Channel-Points-Miner-v2.1",
       "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
-      "pushedAt": "2026-08-17"
+      "pushedAt": "2026-08-22"
+    },
+    {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-08-22"
     },
     {
       "name": "web-core",
@@ -182,75 +182,75 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 7110,
-    "currentStreakDays": 0,
+    "totalContributions": 7125,
+    "currentStreakDays": 2,
     "longestStreakDays": 50,
-    "last30d": 1060,
-    "last90d": 5572,
-    "activeDays": 183,
+    "last30d": 1009,
+    "last90d": 5587,
+    "activeDays": 182,
     "busiestDay": {
       "date": "2026-07-20",
       "count": 350
     }
   },
   "prsAllTime": {
-    "opened": 2612,
-    "merged": 2565,
-    "mergeRate": "98.2"
+    "opened": 2621,
+    "merged": 2572,
+    "mergeRate": "98.1"
   },
   "commitPatterns": {
     "byHour": [
-      72,
-      53,
+      76,
+      52,
       29,
       15,
-      87,
-      140,
-      126,
-      103,
-      163,
-      167,
-      169,
-      174,
-      156,
-      119,
-      104,
-      161,
+      91,
+      149,
+      133,
+      109,
+      193,
+      171,
+      190,
+      184,
+      162,
+      130,
+      112,
+      179,
+      84,
       81,
-      70,
       104,
-      93,
-      127,
-      123,
-      88,
-      53
+      101,
+      144,
+      134,
+      96,
+      56
     ],
     "byWeekday": [
-      305,
-      456,
-      390,
-      507,
-      357,
-      246,
-      316
+      350,
+      465,
+      393,
+      534,
+      380,
+      282,
+      371
     ],
-    "topHour": 11,
+    "topHour": 8,
     "topWeekday": "Wed",
-    "sampleSize": 2577
+    "sampleSize": 2775
   },
   "ci": {
     "reposScanned": 30,
-    "reposWithWorkflows": 30,
-    "workflowsPct": "100",
-    "runsSampled": 450,
-    "successRate": "84.4"
+    "reposWithWorkflows": 29,
+    "workflowsPct": "97",
+    "runsSampled": 435,
+    "successRate": "85.1"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 1186,
-    "totalCoauthorMentions": 1955,
-    "scannedCommits": 2577,
-    "assistRate": "46.0",
+    "totalAICommits": 1367,
+    "totalCoauthorMentions": 2260,
+    "scannedCommits": 2775,
+    "assistRate": "49.3",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -263,15 +263,15 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1081
+        "count": 1241
       },
       {
         "family": "Claude",
-        "count": 79
+        "count": 85
       },
       {
         "family": "Fable",
-        "count": 15
+        "count": 30
       },
       {
         "family": "Sonnet",
@@ -285,15 +285,15 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1080
+        "count": 1240
       },
       {
         "model": "Claude (unspecified)",
-        "count": 79
+        "count": 85
       },
       {
         "model": "Fable 5",
-        "count": 15
+        "count": 30
       },
       {
         "model": "Sonnet 4.6",
@@ -319,32 +319,32 @@
       },
       {
         "month": "2026-06",
-        "total": 289,
+        "total": 294,
         "families": {
-          "Claude": 73,
-          "Opus": 212,
-          "Sonnet": 4
+          "Opus": 216,
+          "Sonnet": 4,
+          "Claude": 74
         }
       },
       {
         "month": "2026-07",
-        "total": 680,
+        "total": 845,
         "families": {
-          "Opus": 662,
-          "Fable": 14,
-          "Claude": 4
+          "Opus": 812,
+          "Claude": 4,
+          "Fable": 29
         }
       },
       {
         "month": "2026-08",
-        "total": 210,
+        "total": 221,
         "families": {
-          "Opus": 207,
-          "Fable": 1,
-          "Claude": 2
+          "Opus": 213,
+          "Claude": 7,
+          "Fable": 1
         }
       }
     ]
   },
-  "updatedAt": "2026-08-22"
+  "updatedAt": "2026-08-23"
 }
