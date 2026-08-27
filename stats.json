@@ -1,58 +1,58 @@
 {
-  "totalRepos": 121,
+  "totalRepos": 122,
   "publicRepos": 10,
-  "privateRepos": 111,
-  "personalRepos": 30,
+  "privateRepos": 112,
+  "personalRepos": 31,
   "orgRepos": 89,
   "personalPublic": 3,
-  "personalPrivate": 27,
+  "personalPrivate": 28,
   "orgPublic": 6,
   "orgPrivate": 83,
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 41,
-  "totalSizeMB": "1488.7",
+  "totalOpenIssues": 51,
+  "totalSizeMB": "1489.9",
   "languages": [
     {
       "name": "PHP",
       "bytes": 15463161,
-      "percentage": "24.7",
+      "percentage": "24.6",
       "repos": 37,
       "color": "#4F5D95"
     },
     {
       "name": "HTML",
       "bytes": 10651386,
-      "percentage": "17.0",
+      "percentage": "16.9",
       "repos": 44,
       "color": "#e34c26"
     },
     {
       "name": "C#",
       "bytes": 10493649,
-      "percentage": "16.8",
+      "percentage": "16.7",
       "repos": 33,
       "color": "#178600"
     },
     {
       "name": "Python",
-      "bytes": 7563775,
-      "percentage": "12.1",
-      "repos": 30,
+      "bytes": 7927778,
+      "percentage": "12.6",
+      "repos": 31,
       "color": "#3572A5"
     },
     {
       "name": "JavaScript",
       "bytes": 5043078,
-      "percentage": "8.1",
+      "percentage": "8.0",
       "repos": 44,
       "color": "#f1e05a"
     },
     {
       "name": "TypeScript",
       "bytes": 4553688,
-      "percentage": "7.3",
+      "percentage": "7.2",
       "repos": 12,
       "color": "#3178c6"
     },
@@ -86,20 +86,20 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 988,
-  "avgCommitsPerRepo": "34.1",
-  "medianCommits": 15,
-  "recentCommits": 41,
-  "avgRepoAge": "0.9",
-  "estimatedTotalFiles": 14762,
-  "avgFilesPerRepo": 122,
-  "estimatedTotalLines": 29402879,
-  "avgLinesPerRepo": 242999,
-  "avgLinesPerFile": 1989,
+  "totalCommits": 1047,
+  "avgCommitsPerRepo": "34.9",
+  "medianCommits": 14,
+  "recentCommits": 63,
+  "avgRepoAge": "0.8",
+  "estimatedTotalFiles": 15250,
+  "avgFilesPerRepo": 125,
+  "estimatedTotalLines": 30032984,
+  "avgLinesPerRepo": 246172,
+  "avgLinesPerFile": 1968,
   "archivedRepos": 2,
-  "activeRepos": 119,
+  "activeRepos": 120,
   "forkedRepos": 3,
-  "originalRepos": 118,
+  "originalRepos": 119,
   "reposByYear": {
     "2020": 1,
     "2021": 6,
@@ -107,7 +107,7 @@
     "2023": 4,
     "2024": 8,
     "2025": 29,
-    "2026": 68
+    "2026": 69
   },
   "licenses": {
     "MIT": 6,
@@ -155,14 +155,14 @@
   ],
   "recentlyUpdated": [
     {
-      "name": "polo-nyan",
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-08-25"
-    },
-    {
       "name": "pawkit-docgen",
       "url": "https://github.com/smol-kitten/pawkit-docgen",
-      "pushedAt": "2026-08-24"
+      "pushedAt": "2026-08-26"
+    },
+    {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-08-26"
     },
     {
       "name": "Twitch-Channel-Points-Miner-v2.1",
@@ -182,11 +182,11 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 7434,
+    "totalContributions": 7528,
     "currentStreakDays": 5,
     "longestStreakDays": 50,
-    "last30d": 1297,
-    "last90d": 5909,
+    "last30d": 1360,
+    "last90d": 5992,
     "activeDays": 185,
     "busiestDay": {
       "date": "2026-07-20",
@@ -194,45 +194,45 @@
     }
   },
   "prsAllTime": {
-    "opened": 2748,
-    "merged": 2681,
-    "mergeRate": "97.6"
+    "opened": 2768,
+    "merged": 2700,
+    "mergeRate": "97.5"
   },
   "commitPatterns": {
     "byHour": [
-      73,
-      45,
-      30,
-      17,
-      89,
-      160,
-      136,
-      105,
-      178,
-      171,
-      201,
-      168,
-      171,
-      142,
-      118,
-      179,
-      83,
       70,
-      98,
-      95,
-      133,
-      139,
-      102,
-      55
+      41,
+      29,
+      17,
+      88,
+      157,
+      136,
+      109,
+      177,
+      169,
+      204,
+      173,
+      181,
+      140,
+      111,
+      177,
+      84,
+      75,
+      100,
+      96,
+      136,
+      134,
+      100,
+      54
     ],
     "byWeekday": [
-      313,
-      474,
-      356,
-      540,
-      375,
-      344,
-      356
+      311,
+      468,
+      370,
+      561,
+      366,
+      328,
+      354
     ],
     "topHour": 10,
     "topWeekday": "Wed",
@@ -240,17 +240,17 @@
   },
   "ci": {
     "reposScanned": 30,
-    "reposWithWorkflows": 29,
-    "workflowsPct": "97",
-    "runsSampled": 414,
-    "successRate": "80.4"
+    "reposWithWorkflows": 28,
+    "workflowsPct": "93",
+    "runsSampled": 393,
+    "successRate": "79.9"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 1468,
-    "totalCoauthorMentions": 2332,
+    "totalAICommits": 1487,
+    "totalCoauthorMentions": 2326,
     "scannedCommits": 2758,
-    "assistRate": "53.2",
+    "assistRate": "53.9",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -263,11 +263,11 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1248
+        "count": 1224
       },
       {
         "family": "Claude",
-        "count": 180
+        "count": 223
       },
       {
         "family": "Fable",
@@ -285,11 +285,11 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1247
+        "count": 1223
       },
       {
         "model": "Claude (unspecified)",
-        "count": 180
+        "count": 223
       },
       {
         "model": "Fable 5",
@@ -319,31 +319,31 @@
       },
       {
         "month": "2026-06",
-        "total": 263,
+        "total": 247,
         "families": {
+          "Claude": 53,
           "Opus": 190,
-          "Claude": 69,
           "Sonnet": 4
         }
       },
       {
         "month": "2026-07",
-        "total": 817,
+        "total": 792,
         "families": {
-          "Opus": 786,
           "Fable": 29,
+          "Opus": 761,
           "Claude": 2
         }
       },
       {
         "month": "2026-08",
-        "total": 381,
+        "total": 441,
         "families": {
-          "Claude": 109,
-          "Opus": 272
+          "Claude": 168,
+          "Opus": 273
         }
       }
     ]
   },
-  "updatedAt": "2026-08-26"
+  "updatedAt": "2026-08-27"
 }
