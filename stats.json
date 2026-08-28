@@ -11,8 +11,8 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 51,
-  "totalSizeMB": "1489.9",
+  "totalOpenIssues": 49,
+  "totalSizeMB": "1490.6",
   "languages": [
     {
       "name": "PHP",
@@ -37,7 +37,7 @@
     },
     {
       "name": "Python",
-      "bytes": 7927778,
+      "bytes": 7935359,
       "percentage": "12.6",
       "repos": 31,
       "color": "#3572A5"
@@ -86,15 +86,15 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1047,
-  "avgCommitsPerRepo": "34.9",
+  "totalCommits": 1051,
+  "avgCommitsPerRepo": "35.0",
   "medianCommits": 14,
-  "recentCommits": 63,
-  "avgRepoAge": "0.8",
+  "recentCommits": 80,
+  "avgRepoAge": "0.9",
   "estimatedTotalFiles": 15250,
   "avgFilesPerRepo": 125,
-  "estimatedTotalLines": 30032984,
-  "avgLinesPerRepo": 246172,
+  "estimatedTotalLines": 30034204,
+  "avgLinesPerRepo": 246182,
   "avgLinesPerFile": 1968,
   "archivedRepos": 2,
   "activeRepos": 120,
@@ -155,13 +155,13 @@
   ],
   "recentlyUpdated": [
     {
-      "name": "pawkit-docgen",
-      "url": "https://github.com/smol-kitten/pawkit-docgen",
-      "pushedAt": "2026-08-26"
-    },
-    {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-08-27"
+    },
+    {
+      "name": "pawkit-docgen",
+      "url": "https://github.com/smol-kitten/pawkit-docgen",
       "pushedAt": "2026-08-26"
     },
     {
@@ -182,75 +182,75 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 7528,
-    "currentStreakDays": 5,
+    "totalContributions": 7536,
+    "currentStreakDays": 6,
     "longestStreakDays": 50,
-    "last30d": 1360,
-    "last90d": 5992,
-    "activeDays": 185,
+    "last30d": 1334,
+    "last90d": 5994,
+    "activeDays": 186,
     "busiestDay": {
       "date": "2026-07-20",
       "count": 350
     }
   },
   "prsAllTime": {
-    "opened": 2768,
-    "merged": 2700,
+    "opened": 2772,
+    "merged": 2704,
     "mergeRate": "97.5"
   },
   "commitPatterns": {
     "byHour": [
-      70,
-      41,
+      71,
+      44,
       29,
       17,
-      88,
+      86,
       157,
-      136,
+      138,
       109,
+      183,
+      170,
+      207,
       177,
-      169,
-      204,
-      173,
-      181,
-      140,
-      111,
+      183,
+      149,
+      120,
       177,
-      84,
-      75,
-      100,
-      96,
-      136,
-      134,
-      100,
-      54
+      86,
+      76,
+      101,
+      99,
+      141,
+      144,
+      101,
+      56
     ],
     "byWeekday": [
       311,
-      468,
-      370,
-      561,
-      366,
-      328,
-      354
+      473,
+      371,
+      587,
+      378,
+      346,
+      355
     ],
     "topHour": 10,
     "topWeekday": "Wed",
-    "sampleSize": 2758
+    "sampleSize": 2821
   },
   "ci": {
     "reposScanned": 30,
     "reposWithWorkflows": 28,
     "workflowsPct": "93",
     "runsSampled": 393,
-    "successRate": "79.9"
+    "successRate": "81.7"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 1487,
-    "totalCoauthorMentions": 2326,
-    "scannedCommits": 2758,
-    "assistRate": "53.9",
+    "totalAICommits": 1533,
+    "totalCoauthorMentions": 2395,
+    "scannedCommits": 2821,
+    "assistRate": "54.3",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -263,11 +263,11 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1224
+        "count": 1254
       },
       {
         "family": "Claude",
-        "count": 223
+        "count": 239
       },
       {
         "family": "Fable",
@@ -285,11 +285,11 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1223
+        "count": 1253
       },
       {
         "model": "Claude (unspecified)",
-        "count": 223
+        "count": 239
       },
       {
         "model": "Fable 5",
@@ -319,31 +319,31 @@
       },
       {
         "month": "2026-06",
-        "total": 247,
+        "total": 260,
         "families": {
-          "Claude": 53,
+          "Claude": 66,
           "Opus": 190,
           "Sonnet": 4
         }
       },
       {
         "month": "2026-07",
-        "total": 792,
+        "total": 822,
         "families": {
+          "Opus": 792,
           "Fable": 29,
-          "Opus": 761,
-          "Claude": 2
+          "Claude": 1
         }
       },
       {
         "month": "2026-08",
-        "total": 441,
+        "total": 444,
         "families": {
-          "Claude": 168,
-          "Opus": 273
+          "Claude": 172,
+          "Opus": 272
         }
       }
     ]
   },
-  "updatedAt": "2026-08-27"
+  "updatedAt": "2026-08-28"
 }
