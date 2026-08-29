@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **122** | **0** | **0** | **PHP** | **1490.6 MB** |
+| **122** | **0** | **0** | **PHP** | **1490.8 MB** |
 
 </div>
 
@@ -153,9 +153,9 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~15250** |
-| Est. Lines | **~30034204** |
+| Est. Lines | **~30065436** |
 | Avg Files/Repo | **125** |
-| Avg Lines/File | **1968** |
+| Avg Lines/File | **1970** |
 
 </td>
 <td align="center">
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **80** |
+| Push Events (30d) | **84** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -188,10 +188,10 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Total | **7536** |
-| Current Streak | **6 days** |
+| Current Streak | **0 days** |
 | Longest Streak | **50 days** |
 | Active Days | **186** |
-| Last 30d / 90d | **1334** / **5994** |
+| Last 30d / 90d | **1242** / **5990** |
 | Busiest Day | **350** <sub>(2026-07-20)</sub> |
 
 </td>
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 93% of recent repos run GitHub Actions · **81.7%** run success over 393 sampled runs
+🔧 **CI/CD health** — 93% of recent repos run GitHub Actions · **80.2%** run success over 393 sampled runs
 
 </div>
 
@@ -370,7 +370,7 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
-| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-27 |
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-28 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | 2026-08-26 |
 | [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-08-22 |
 | [web-core](https://github.com/smol-kitten/web-core) | 2026-08-17 |
@@ -426,9 +426,9 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **122** (10 public, 112 private) |
-| 💾 Code Volume | **1490.6 MB** across 119 projects |
+| 💾 Code Volume | **1490.8 MB** across 119 projects |
 | 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-08-28** |
+| 📅 Last Updated | **2026-08-29** |
 
 </div>
 
