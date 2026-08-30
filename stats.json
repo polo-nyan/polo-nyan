@@ -11,8 +11,8 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 49,
-  "totalSizeMB": "1490.8",
+  "totalOpenIssues": 51,
+  "totalSizeMB": "1489.1",
   "languages": [
     {
       "name": "PHP",
@@ -86,15 +86,15 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1051,
-  "avgCommitsPerRepo": "35.0",
+  "totalCommits": 1053,
+  "avgCommitsPerRepo": "35.1",
   "medianCommits": 14,
-  "recentCommits": 84,
+  "recentCommits": 93,
   "avgRepoAge": "0.9",
   "estimatedTotalFiles": 15250,
   "avgFilesPerRepo": 125,
-  "estimatedTotalLines": 30065436,
-  "avgLinesPerRepo": 246438,
+  "estimatedTotalLines": 30106184,
+  "avgLinesPerRepo": 246772,
   "avgLinesPerFile": 1970,
   "archivedRepos": 2,
   "activeRepos": 120,
@@ -157,7 +157,7 @@
     {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-08-28"
+      "pushedAt": "2026-08-29"
     },
     {
       "name": "pawkit-docgen",
@@ -182,19 +182,19 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 7536,
-    "currentStreakDays": 0,
+    "totalContributions": 7539,
+    "currentStreakDays": 1,
     "longestStreakDays": 50,
-    "last30d": 1242,
-    "last90d": 5990,
-    "activeDays": 186,
+    "last30d": 1170,
+    "last90d": 5993,
+    "activeDays": 184,
     "busiestDay": {
       "date": "2026-07-20",
       "count": 350
     }
   },
   "prsAllTime": {
-    "opened": 2772,
+    "opened": 2773,
     "merged": 2704,
     "mergeRate": "97.5"
   },
@@ -240,10 +240,10 @@
   },
   "ci": {
     "reposScanned": 30,
-    "reposWithWorkflows": 28,
-    "workflowsPct": "93",
-    "runsSampled": 393,
-    "successRate": "80.2"
+    "reposWithWorkflows": 27,
+    "workflowsPct": "90",
+    "runsSampled": 378,
+    "successRate": "78.8"
   },
   "ai": {
     "enabled": true,
@@ -345,5 +345,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-08-30"
 }

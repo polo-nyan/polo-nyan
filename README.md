@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **122** | **0** | **0** | **PHP** | **1490.8 MB** |
+| **122** | **0** | **0** | **PHP** | **1489.1 MB** |
 
 </div>
 
@@ -141,8 +141,8 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total Commits | **1051** |
-| Avg per Repo | **35.0** |
+| Total Commits | **1053** |
+| Avg per Repo | **35.1** |
 | Median | **14** |
 
 </td>
@@ -153,7 +153,7 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~15250** |
-| Est. Lines | **~30065436** |
+| Est. Lines | **~30106184** |
 | Avg Files/Repo | **125** |
 | Avg Lines/File | **1970** |
 
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **84** |
+| Push Events (30d) | **93** |
 | Avg Repo Age | **0.9 years** |
 
 </td>
@@ -187,11 +187,11 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total | **7536** |
-| Current Streak | **0 days** |
+| Total | **7539** |
+| Current Streak | **1 days** |
 | Longest Streak | **50 days** |
-| Active Days | **186** |
-| Last 30d / 90d | **1242** / **5990** |
+| Active Days | **184** |
+| Last 30d / 90d | **1170** / **5993** |
 | Busiest Day | **350** <sub>(2026-07-20)</sub> |
 
 </td>
@@ -201,7 +201,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Opened | **2772** |
+| Opened | **2773** |
 | Merged | **2704** |
 | Merge Rate | **97.5%** |
 
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 93% of recent repos run GitHub Actions · **80.2%** run success over 393 sampled runs
+🔧 **CI/CD health** — 90% of recent repos run GitHub Actions · **78.8%** run success over 378 sampled runs
 
 </div>
 
@@ -370,7 +370,7 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
-| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-28 |
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-29 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | 2026-08-26 |
 | [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-08-22 |
 | [web-core](https://github.com/smol-kitten/web-core) | 2026-08-17 |
@@ -426,9 +426,9 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **122** (10 public, 112 private) |
-| 💾 Code Volume | **1490.8 MB** across 119 projects |
+| 💾 Code Volume | **1489.1 MB** across 119 projects |
 | 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-08-29** |
+| 📅 Last Updated | **2026-08-30** |
 
 </div>
 
