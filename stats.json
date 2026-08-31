@@ -11,8 +11,8 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 51,
-  "totalSizeMB": "1489.1",
+  "totalOpenIssues": 52,
+  "totalSizeMB": "1489.2",
   "languages": [
     {
       "name": "PHP",
@@ -86,15 +86,15 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1053,
-  "avgCommitsPerRepo": "35.1",
+  "totalCommits": 1056,
+  "avgCommitsPerRepo": "35.2",
   "medianCommits": 14,
-  "recentCommits": 93,
+  "recentCommits": 84,
   "avgRepoAge": "0.9",
   "estimatedTotalFiles": 15250,
   "avgFilesPerRepo": 125,
-  "estimatedTotalLines": 30106184,
-  "avgLinesPerRepo": 246772,
+  "estimatedTotalLines": 30133878,
+  "avgLinesPerRepo": 246999,
   "avgLinesPerFile": 1970,
   "archivedRepos": 2,
   "activeRepos": 120,
@@ -157,7 +157,7 @@
     {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-08-29"
+      "pushedAt": "2026-08-30"
     },
     {
       "name": "pawkit-docgen",
@@ -182,75 +182,75 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 7539,
-    "currentStreakDays": 1,
+    "totalContributions": 7521,
+    "currentStreakDays": 2,
     "longestStreakDays": 50,
-    "last30d": 1170,
-    "last90d": 5993,
-    "activeDays": 184,
+    "last30d": 1157,
+    "last90d": 5998,
+    "activeDays": 185,
     "busiestDay": {
       "date": "2026-07-20",
       "count": 350
     }
   },
   "prsAllTime": {
-    "opened": 2773,
-    "merged": 2704,
-    "mergeRate": "97.5"
+    "opened": 2776,
+    "merged": 2705,
+    "mergeRate": "97.4"
   },
   "commitPatterns": {
     "byHour": [
-      71,
-      44,
+      70,
+      43,
       29,
       17,
-      86,
-      157,
-      138,
-      109,
-      183,
+      87,
+      156,
+      142,
+      110,
+      186,
       170,
-      207,
-      177,
-      183,
-      149,
+      206,
+      180,
+      187,
+      150,
       120,
-      177,
+      178,
       86,
       76,
-      101,
+      102,
       99,
-      141,
       144,
-      101,
+      145,
+      100,
       56
     ],
     "byWeekday": [
-      311,
-      473,
-      371,
-      587,
-      378,
+      315,
+      483,
+      373,
+      590,
+      377,
       346,
       355
     ],
     "topHour": 10,
     "topWeekday": "Wed",
-    "sampleSize": 2821
+    "sampleSize": 2839
   },
   "ci": {
     "reposScanned": 30,
     "reposWithWorkflows": 27,
     "workflowsPct": "90",
     "runsSampled": 378,
-    "successRate": "78.8"
+    "successRate": "80.2"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 1533,
-    "totalCoauthorMentions": 2395,
-    "scannedCommits": 2821,
-    "assistRate": "54.3",
+    "totalAICommits": 1535,
+    "totalCoauthorMentions": 2398,
+    "scannedCommits": 2839,
+    "assistRate": "54.1",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -263,11 +263,11 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1254
+        "count": 1255
       },
       {
         "family": "Claude",
-        "count": 239
+        "count": 240
       },
       {
         "family": "Fable",
@@ -285,11 +285,11 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1253
+        "count": 1254
       },
       {
         "model": "Claude (unspecified)",
-        "count": 239
+        "count": 240
       },
       {
         "model": "Fable 5",
@@ -319,10 +319,10 @@
       },
       {
         "month": "2026-06",
-        "total": 260,
+        "total": 262,
         "families": {
           "Claude": 66,
-          "Opus": 190,
+          "Opus": 192,
           "Sonnet": 4
         }
       },
@@ -339,11 +339,11 @@
         "month": "2026-08",
         "total": 444,
         "families": {
-          "Opus": 272,
-          "Claude": 172
+          "Opus": 271,
+          "Claude": 173
         }
       }
     ]
   },
-  "updatedAt": "2026-08-30"
+  "updatedAt": "2026-08-31"
 }
