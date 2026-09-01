@@ -70,7 +70,7 @@ fun_fact: Cat lover 🐱
 
 | 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |
 |:---------------:|:-------:|:--------:|:---------------:|:-------------:|
-| **122** | **0** | **0** | **PHP** | **1489.2 MB** |
+| **122** | **0** | **0** | **PHP** | **1489.5 MB** |
 
 </div>
 
@@ -153,9 +153,9 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~15250** |
-| Est. Lines | **~30133878** |
+| Est. Lines | **~30151080** |
 | Avg Files/Repo | **125** |
-| Avg Lines/File | **1970** |
+| Avg Lines/File | **1971** |
 
 </td>
 <td align="center">
@@ -188,10 +188,10 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Total | **7521** |
-| Current Streak | **2 days** |
+| Current Streak | **0 days** |
 | Longest Streak | **50 days** |
 | Active Days | **185** |
-| Last 30d / 90d | **1157** / **5998** |
+| Last 30d / 90d | **1138** / **5994** |
 | Busiest Day | **350** <sub>(2026-07-20)</sub> |
 
 </td>
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 90% of recent repos run GitHub Actions · **80.2%** run success over 378 sampled runs
+🔧 **CI/CD health** — 93% of recent repos run GitHub Actions · **80.8%** run success over 416 sampled runs
 
 </div>
 
@@ -270,7 +270,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **1535** / 2839 | **54.1%** | **Opus** | **Opus 4.8** | **2398** |
+| **1373** / 2725 | **50.4%** | **Opus** | **Opus 4.8** | **2116** |
 
 </div>
 
@@ -280,9 +280,9 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 1255
-    "Claude" : 240
-    "Fable" : 29
+    "Opus" : 1107
+    "Claude" : 241
+    "Fable" : 14
     "Sonnet" : 10
     "Other AI" : 1
 ```
@@ -297,8 +297,8 @@ xychart-beta
     title "AI-Assisted Commits Per Month"
     x-axis ["2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    bar [7, 262, 822, 444]
-    line [7, 262, 822, 444]
+    bar [7, 259, 663, 444]
+    line [7, 259, 663, 444]
 ```
 
 </div>
@@ -316,9 +316,9 @@ xychart-beta
     title "Commits Per Month by Model Family"
     x-axis ["2026-05", "2026-06", "2026-07", "2026-08"]
     y-axis "Commits"
-    line [0, 192, 792, 271]
-    line [0, 66, 1, 173]
-    line [0, 0, 29, 0]
+    line [0, 188, 648, 271]
+    line [0, 67, 1, 173]
+    line [0, 0, 14, 0]
     line [6, 4, 0, 0]
     line [1, 0, 0, 0]
 ```
@@ -332,9 +332,9 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 1254 |
-| Claude (unspecified) | 240 |
-| Fable 5 | 29 |
+| Opus 4.8 | 1106 |
+| Claude (unspecified) | 241 |
+| Fable 5 | 14 |
 | Sonnet 4.6 | 10 |
 | Copilot | 1 |
 | Opus 5 | 1 |
@@ -343,9 +343,9 @@ xychart-beta
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 1255 |
-| Claude | 240 |
-| Fable | 29 |
+| Opus | 1107 |
+| Claude | 241 |
+| Fable | 14 |
 | Sonnet | 10 |
 | Other AI | 1 |
 
@@ -370,10 +370,10 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
-| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-30 |
+| [web-core](https://github.com/smol-kitten/web-core) | 2026-08-31 |
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-08-31 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | 2026-08-26 |
 | [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-08-22 |
-| [web-core](https://github.com/smol-kitten/web-core) | 2026-08-17 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-08-13 |
 
 </details>
@@ -426,9 +426,9 @@ mindmap
 | 📊 Quick Stats | |
 |:---|:---|
 | 📁 Total Repos | **122** (10 public, 112 private) |
-| 💾 Code Volume | **1489.2 MB** across 119 projects |
+| 💾 Code Volume | **1489.5 MB** across 119 projects |
 | 💻 Top Language | **PHP** |
-| 📅 Last Updated | **2026-08-31** |
+| 📅 Last Updated | **2026-09-01** |
 
 </div>
 
