@@ -141,8 +141,8 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total Commits | **1489** |
-| Avg per Repo | **51.3** |
+| Total Commits | **1492** |
+| Avg per Repo | **51.4** |
 | Median | **20** |
 
 </td>
@@ -153,9 +153,9 @@ pie showData
 | Metric | Value |
 |:-------|------:|
 | Est. Files | **~24616** |
-| Est. Lines | **~38904840** |
+| Est. Lines | **~38909464** |
 | Avg Files/Repo | **181** |
-| Avg Lines/File | **1580** |
+| Avg Lines/File | **1581** |
 
 </td>
 <td align="center">
@@ -164,7 +164,7 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Push Events (30d) | **43** |
+| Push Events (30d) | **66** |
 | Avg Repo Age | **0.8 years** |
 
 </td>
@@ -187,11 +187,11 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Total | **9646** |
+| Total | **9654** |
 | Current Streak | **2 days** |
 | Longest Streak | **50 days** |
 | Active Days | **210** |
-| Last 30d / 90d | **2101** / **6419** |
+| Last 30d / 90d | **2109** / **6427** |
 | Busiest Day | **453** <sub>(2026-09-23)</sub> |
 
 </td>
@@ -201,8 +201,8 @@ pie showData
 
 | Metric | Value |
 |:-------|------:|
-| Opened | **3762** |
-| Merged | **3633** |
+| Opened | **3766** |
+| Merged | **3637** |
 | Merge Rate | **96.6%** |
 
 **🕒 Cadence**
@@ -216,7 +216,7 @@ pie showData
 </tr>
 </table>
 
-🔧 **CI/CD health** — 100% of recent repos run GitHub Actions · **75.5%** run success over 445 sampled runs
+🔧 **CI/CD health** — 100% of recent repos run GitHub Actions · **75.6%** run success over 443 sampled runs
 
 </div>
 
@@ -270,7 +270,7 @@ usage trends over time.
 
 | 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |
 |:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|
-| **1611** / 2668 | **60.4%** | **Opus** | **Opus 4.8** | **6936** |
+| **1497** / 2525 | **59.3%** | **Opus** | **Opus 4.8** | **6780** |
 
 </div>
 
@@ -280,10 +280,10 @@ usage trends over time.
 %%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%
 pie showData
     title AI Co-Authorship by Model Family
-    "Opus" : 1326
-    "Claude" : 247
+    "Opus" : 1208
+    "Claude" : 250
     "Fable" : 27
-    "Sonnet" : 10
+    "Sonnet" : 11
     "Other AI" : 1
 ```
 
@@ -297,8 +297,8 @@ xychart-beta
     title "AI-Assisted Commits Per Month"
     x-axis ["2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"]
     y-axis "Commits"
-    bar [7, 54, 738, 305, 503, 4]
-    line [7, 54, 738, 305, 503, 4]
+    bar [7, 60, 703, 309, 411, 7]
+    line [7, 60, 703, 309, 411, 7]
 ```
 
 </div>
@@ -316,10 +316,10 @@ xychart-beta
     title "Commits Per Month by Model Family"
     x-axis ["2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"]
     y-axis "Commits"
-    line [0, 33, 720, 220, 349, 4]
-    line [0, 17, 3, 84, 143, 0]
+    line [0, 38, 686, 222, 256, 6]
+    line [0, 17, 2, 86, 144, 1]
     line [0, 0, 15, 1, 11, 0]
-    line [6, 4, 0, 0, 0, 0]
+    line [6, 5, 0, 0, 0, 0]
     line [1, 0, 0, 0, 0, 0]
 ```
 
@@ -332,23 +332,23 @@ xychart-beta
 
 | Model | Co-Author Credits |
 |:------|------------------:|
-| Opus 4.8 | 1032 |
-| Claude (unspecified) | 247 |
-| Opus 5.5 | 213 |
-| Opus 5 | 81 |
+| Opus 4.8 | 1010 |
+| Claude (unspecified) | 250 |
+| Opus 5.5 | 118 |
+| Opus 5 | 80 |
 | Fable 5 | 16 |
+| Sonnet 4.6 | 11 |
 | Fable 5.1 | 11 |
-| Sonnet 4.6 | 10 |
 | Copilot | 1 |
 
 **By family**
 
 | Family | Credits |
 |:-------|--------:|
-| Opus | 1326 |
-| Claude | 247 |
+| Opus | 1208 |
+| Claude | 250 |
 | Fable | 27 |
-| Sonnet | 10 |
+| Sonnet | 11 |
 | Other AI | 1 |
 
 </details>
@@ -372,11 +372,11 @@ xychart-beta
 
 | Repository | Last Updated |
 |:-----------|:------------:|
+| [polo-nyan](https://github.com/polo-nyan/polo-nyan) | 2026-10-01 |
+| [common-ressources](https://github.com/smol-kitten/common-ressources) | 2026-10-01 |
 | [Twitch-Channel-Points-Miner-v2.1](https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1) | 2026-10-01 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | 2026-09-30 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | 2026-09-30 |
-| [S1API](https://github.com/polo-nyan/S1API) | 2026-09-30 |
-| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | 2026-09-30 |
 
 </details>
 
