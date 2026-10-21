@@ -1,16 +1,21 @@
 #!/usr/bin/env bash
 #
-# build-readme.sh — assemble the GitHub profile README from stats.json.
+# build-readme.sh — render the GitHub profile README from the template + stats.json.
 #
-# Design goals:
-#   * Idempotent & self-bootstrapping: if README.md (or the generated region)
-#     is missing, it is created from scripts/templates/README.template.md.
-#     Hand-written content outside the markers is always preserved; only the
-#     region between STATS:START and STATS:END is rewritten.
-#   * Resilient: a missing/empty/invalid stats.json or a missing individual
-#     field never aborts the run — sane defaults are used and the section is
-#     skipped instead of producing broken Markdown.
-#   * Minimal deps: bash + jq only.
+#   README.md = scripts/templates/README.template.md with every
+#   `<!-- GEN:<name> -->` line replaced by the generated block `<name>`.
+#
+# Properties:
+#   * Deterministic and idempotent: the same template + stats.json always
+#     produce the same README.md, no matter what README.md contained before.
+#     README.md is therefore a build artifact; edit the template instead.
+#   * Fails loudly: a missing/invalid stats.json, a missing required field,
+#     an unknown placeholder or an empty render all exit non-zero and leave
+#     the existing README.md untouched.
+#   * No mermaid, no external image services, no inline colours: everything
+#     is plain GFM (tables, <details>, unicode bars) so it reads the same in
+#     GitHub's light and dark themes.
+#   * Minimal deps: bash 4+, jq, awk.
 #
 # Usage:
 #   scripts/build-readme.sh [STATS_JSON] [README] [TEMPLATE]
@@ -18,14 +23,8 @@
 #   STATS_JSON = stats.json
 #   README     = README.md
 #   TEMPLATE   = scripts/templates/README.template.md
-#
-# Exit status is 0 on success. The script writes README.md in place; the
-# caller (workflow) is responsible for deciding whether to commit a diff.
 
 set -euo pipefail
-
-START_MARKER='<!-- STATS:START -->'
-END_MARKER='<!-- STATS:END -->'
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
@@ -34,615 +33,264 @@ STATS_JSON="${1:-${REPO_ROOT}/stats.json}"
 README="${2:-${REPO_ROOT}/README.md}"
 TEMPLATE="${3:-${SCRIPT_DIR}/templates/README.template.md}"
 
-log() { printf '%s\n' "$*" >&2; }
+# The profile repo itself is never a "project"; it is filtered out of lists.
+SELF_REPO="${SELF_REPO:-polo-nyan}"
+BAR_WIDTH=12
 
-require_jq() {
-  if ! command -v jq >/dev/null 2>&1; then
-    log "❌ jq is required but not installed."
-    exit 1
+log()  { printf '%s\n' "$*" >&2; }
+die()  { log "❌ $*"; exit 1; }
+
+# ---------------------------------------------------------------------------
+# 1. Validate inputs. Anything wrong here is a real problem; do not paper over.
+# ---------------------------------------------------------------------------
+command -v jq  >/dev/null 2>&1 || die "jq is required but not installed."
+command -v awk >/dev/null 2>&1 || die "awk is required but not installed."
+[ -f "$TEMPLATE" ]   || die "template not found: $TEMPLATE"
+[ -s "$STATS_JSON" ] || die "stats.json missing or empty: $STATS_JSON"
+jq empty "$STATS_JSON" >/dev/null 2>&1 || die "stats.json is not valid JSON: $STATS_JSON"
+
+# Required fields: the README cannot be meaningful without them.
+for key in totalRepos publicRepos privateRepos languages updatedAt activity prsAllTime; do
+  jq -e --arg k "$key" 'has($k) and .[$k] != null' "$STATS_JSON" >/dev/null 2>&1 \
+    || die "stats.json is missing required field '$key'"
+done
+jq -e '.totalRepos > 0' "$STATS_JSON" >/dev/null 2>&1 \
+  || die "stats.json reports 0 repositories; refusing to render an empty profile"
+jq -e '(.languages | length) > 0' "$STATS_JSON" >/dev/null 2>&1 \
+  || die "stats.json has no language data"
+
+# ---------------------------------------------------------------------------
+# 2. Helpers.
+# ---------------------------------------------------------------------------
+
+# Read a scalar; empty/null -> default.
+sget() {
+  local path="$1" default="${2:-}" val
+  val="$(jq -r "${path} // empty" "$STATS_JSON")"
+  if [ -z "$val" ] || [ "$val" = "null" ]; then printf '%s' "$default"; else printf '%s' "$val"; fi
+}
+
+# Thousands separator for integers or decimals: 11898 -> 11,898 ; 1651.8 -> 1,651.8
+num() {
+  local s="$1" int frac="" out=""
+  case "$s" in *.*) int="${s%%.*}"; frac=".${s#*.}";; *) int="$s";; esac
+  [[ "$int" =~ ^-?[0-9]+$ ]] || { printf '%s' "$s"; return; }
+  while [ ${#int} -gt 3 ]; do out=",${int: -3}${out}"; int="${int:0:${#int}-3}"; done
+  printf '%s%s%s' "$int" "$out" "$frac"
+}
+
+# bar VALUE MAX -> "█████░░░░░░░" (BAR_WIDTH cells, proportional to VALUE/MAX).
+bar() {
+  awk -v v="$1" -v m="$2" -v w="$BAR_WIDTH" 'BEGIN {
+    n = (m > 0) ? int(v * w / m + 0.5) : 0;
+    if (n > w) n = w; if (v > 0 && n < 1) n = 1;
+    s = ""; for (i = 0; i < n; i++) s = s "█"; for (; i < w; i++) s = s "░";
+    printf "%s", s }'
+}
+
+# spark "1 5 9 ..." -> "▁▂▃▅▇█" scaled to the series maximum.
+spark() {
+  awk 'BEGIN { split("▁ ▂ ▃ ▄ ▅ ▆ ▇ █", lv, " ") }
+       { m = 0; for (i = 1; i <= NF; i++) if ($i > m) m = $i;
+         for (i = 1; i <= NF; i++) { k = (m > 0) ? int($i * 7 / m + 0.5) + 1 : 1; printf "%s", lv[k] } }' <<<"$1"
+}
+
+# ---------------------------------------------------------------------------
+# 3. Generators. Each prints one Markdown block to stdout.
+# ---------------------------------------------------------------------------
+
+# Recently pushed public repos (forks, archived repos and the profile repo
+# itself are excluded; the hand-picked "Current projects" table covers the rest).
+gen_recent() {
+  local rows
+  rows="$(jq -r --arg self "$SELF_REPO" '
+    (.recentlyUpdated // [])
+    | map(select(.name != $self and ((.fork // false) | not) and ((.archived // false) | not)))
+    | .[:6][]
+    | "| [\(.name)](\(.url)) | \(.description // "" | gsub("\\|"; "\\|") | if length > 90 then .[:87] + "…" else . end) | \(.language // "—") | \(.pushedAt) |"' \
+    "$STATS_JSON")"
+  [ -n "$rows" ] || { log "⚠️  no public repos left after filtering; skipping 'recent' block"; return 0; }
+  cat <<EOF
+<details>
+<summary>Recently pushed public repos</summary>
+
+| Repository | Description | Language | Last push |
+|:--|:--|:--|:--|
+${rows}
+
+</details>
+EOF
+}
+
+# Headline numbers: only the ones that mean something.
+gen_numbers() {
+  local total public priv contrib active_days merged opened rate ci_rate ci_runs
+  total="$(sget .totalRepos 0)"; public="$(sget .publicRepos 0)"; priv="$(sget .privateRepos 0)"
+  contrib="$(sget .activity.totalContributions 0)"; active_days="$(sget .activity.activeDays 0)"
+  merged="$(sget .prsAllTime.merged 0)"; opened="$(sget .prsAllTime.opened 0)"; rate="$(sget .prsAllTime.mergeRate 0)"
+  ci_rate="$(sget .ci.successRate '')"; ci_runs="$(sget .ci.runsSampled 0)"
+  local ci_cell="—"
+  if [ -n "$ci_rate" ] && [ "$ci_runs" != "0" ]; then ci_cell="**${ci_rate}%** <sub>of $(num "$ci_runs") runs</sub>"; fi
+  cat <<EOF
+| Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
+|:--:|:--:|:--:|:--:|:--:|
+| **$(num "$total")** <sub>${public} public · $(num "$priv") private</sub> | **$(num "$contrib")** | **${active_days}** | **$(num "$merged")** <sub>of $(num "$opened") · ${rate}%</sub> | ${ci_cell} |
+EOF
+}
+
+# Languages by code volume: top 6 as bars, full list collapsed.
+gen_languages() {
+  local max rows all
+  max="$(jq -r '[.languages[].percentage | tonumber] | max' "$STATS_JSON")"
+  rows="$(jq -r '.languages[:6][] | "\(.name)\t\(.percentage)\t\(.repos)"' "$STATS_JSON" \
+    | while IFS=$'\t' read -r name pct repos; do
+        printf '| %s | `%s` | %s%% | %s |\n' "$name" "$(bar "$pct" "$max")" "$pct" "$repos"
+      done)"
+  all="$(jq -r '.languages[6:][] | "| \(.name) | \(.percentage)% | \(.repos) |"' "$STATS_JSON")"
+  cat <<EOF
+**Languages** <sub>by bytes across all repos, incl. private</sub>
+
+| Language | | Share | Repos |
+|:--|:--|--:|--:|
+${rows}
+EOF
+  if [ -n "$all" ]; then
+    cat <<EOF
+
+<details>
+<summary>All languages</summary>
+
+| Language | Share | Repos |
+|:--|--:|--:|
+${all}
+
+</details>
+EOF
   fi
 }
 
-# Read a scalar from stats.json with a fallback. Never aborts.
-stat_get() {
-  local path="$1" default="${2:-}"
-  local val
-  val="$(jq -r "${path} // empty" "$STATS_JSON" 2>/dev/null || true)"
-  if [ -z "$val" ] || [ "$val" = "null" ]; then
-    printf '%s' "$default"
-  else
-    printf '%s' "$val"
+# Activity details: streaks, PR flow, cadence sparkline, repos per year.
+gen_activity() {
+  local cur longest busy_date busy_count d30 d90 window
+  window="$(sget .activity.window 'past 12 months')"
+  cur="$(sget .activity.currentStreakDays 0)"; longest="$(sget .activity.longestStreakDays 0)"
+  busy_date="$(sget .activity.busiestDay.date '—')"; busy_count="$(sget .activity.busiestDay.count 0)"
+  d30="$(sget .activity.last30d 0)"; d90="$(sget .activity.last90d 0)"
+  local hours weekday top_hour sample
+  hours="$(jq -r '(.commitPatterns.byHour // []) | map(tostring) | join(" ")' "$STATS_JSON")"
+  weekday="$(sget .commitPatterns.topWeekday '')"; top_hour="$(sget .commitPatterns.topHour '')"
+  sample="$(sget .commitPatterns.sampleSize 0)"
+  local years ymax
+  ymax="$(jq -r '[(.reposByYear // {})[]] | max // 0' "$STATS_JSON")"
+  years="$(jq -r '(.reposByYear // {}) | to_entries | sort_by(.key)[] | "\(.key)\t\(.value)"' "$STATS_JSON" \
+    | while IFS=$'\t' read -r y n; do printf '| %s | `%s` | %s |\n' "$y" "$(bar "$n" "$ymax")" "$n"; done)"
+
+  cat <<EOF
+<details>
+<summary>Activity details</summary>
+
+| Contributions <sub>${window}, incl. private</sub> | |
+|:--|--:|
+| Last 30 / 90 days | **$(num "$d30")** / **$(num "$d90")** |
+| Current streak | **${cur} days** |
+| Longest streak | **${longest} days** |
+| Busiest day | **$(num "$busy_count")** <sub>${busy_date}</sub> |
+EOF
+  if [ -n "$hours" ]; then
+    cat <<EOF
+
+**Commit clock** <sub>UTC, ${sample} sampled commits · busiest: ${weekday} around ${top_hour}:00</sub>
+
+\`\`\`
+00h $(spark "$hours") 23h
+\`\`\`
+EOF
   fi
+  if [ -n "$years" ]; then
+    cat <<EOF
+
+**Repositories created per year**
+
+| Year | | Repos |
+|:--|:--|--:|
+${years}
+EOF
+  fi
+  cat <<EOF
+
+</details>
+EOF
 }
 
-require_jq
+# AI pair-programming: derived from Co-authored-by trailers. Headline rate +
+# monthly trend; family split collapsed. Per-version model tables are not shown.
+gen_ai() {
+  local enabled; enabled="$(sget .ai.enabled false)"
+  [ "$enabled" = "true" ] || return 0
+  local commits scanned rate months mmax fams
+  commits="$(sget .ai.totalAICommits 0)"; scanned="$(sget .ai.scannedCommits 0)"; rate="$(sget .ai.assistRate 0)"
+  mmax="$(jq -r '[(.ai.monthly // [])[].total] | max // 0' "$STATS_JSON")"
+  months="$(jq -r '(.ai.monthly // []) | .[-6:][] | "\(.month)\t\(.total)"' "$STATS_JSON" \
+    | while IFS=$'\t' read -r m n; do printf '| %s | `%s` | %s |\n' "$m" "$(bar "$n" "$mmax")" "$(num "$n")"; done)"
+  fams="$(jq -r '(.ai.families // [])[] | "| \(.family) | \(.count) |"' "$STATS_JSON")"
+  cat <<EOF
+<details>
+<summary>AI pair-programming — <b>${rate}%</b> of $(num "$scanned") recent commits carry an AI co-author trailer</summary>
+
+Derived from \`Co-authored-by:\` trailers on my commits: **$(num "$commits")** of $(num "$scanned") scanned commits were written with an AI assistant in the loop.
+EOF
+  if [ -n "$months" ]; then
+    cat <<EOF
+
+| Month | | AI-assisted commits |
+|:--|:--|--:|
+${months}
+EOF
+  fi
+  if [ -n "$fams" ]; then
+    cat <<EOF
+
+| Co-author family | Credits |
+|:--|--:|
+${fams}
+EOF
+  fi
+  cat <<EOF
+
+</details>
+EOF
+}
+
+gen_updated() {
+  printf '<sub>Last updated %s.</sub>\n' "$(sget .updatedAt "$(date -u +%Y-%m-%d)")"
+}
 
 # ---------------------------------------------------------------------------
-# 1. Validate stats.json. If it is missing or invalid we still (re)assemble the
-#    README so the structure/markers exist, but emit a minimal placeholder.
-# ---------------------------------------------------------------------------
-STATS_OK=1
-if [ ! -s "$STATS_JSON" ]; then
-  log "⚠️  stats.json missing or empty ($STATS_JSON); generating placeholder section."
-  STATS_OK=0
-elif ! jq empty "$STATS_JSON" >/dev/null 2>&1; then
-  log "⚠️  stats.json is not valid JSON; generating placeholder section."
-  STATS_OK=0
-fi
-
-# ---------------------------------------------------------------------------
-# 2. Build the generated section into a temp file.
-# ---------------------------------------------------------------------------
-SECTION="$(mktemp)"
-trap 'rm -f "$SECTION" "${SECTION}.body" 2>/dev/null || true' EXIT
-
-if [ "$STATS_OK" -eq 0 ]; then
-  {
-    echo ''
-    echo '> _Stats are being collected. They will appear here after the next successful workflow run._'
-    echo ''
-  } >> "$SECTION"
-else
-  UPDATED_AT="$(stat_get '.updatedAt' "$(date -u +%Y-%m-%d)")"
-  TOTAL_REPOS="$(stat_get '.totalRepos' '0')"
-  PUBLIC_REPOS="$(stat_get '.publicRepos' '0')"
-  PRIVATE_REPOS="$(stat_get '.privateRepos' '0')"
-  PERSONAL_PUBLIC="$(stat_get '.personalPublic' '0')"
-  PERSONAL_PRIVATE="$(stat_get '.personalPrivate' '0')"
-  ORG_PUBLIC="$(stat_get '.orgPublic' '0')"
-  ORG_PRIVATE="$(stat_get '.orgPrivate' '0')"
-  TOTAL_STARS="$(stat_get '.totalStars' '0')"
-  TOTAL_FORKS="$(stat_get '.totalForks' '0')"
-  TOP_LANG="$(stat_get '.topLanguage' 'Unknown')"
-  RECENT_COMMITS="$(stat_get '.recentCommits' '0')"
-  TOTAL_SIZE_MB="$(stat_get '.totalSizeMB' '0')"
-  ARCHIVED_REPOS="$(stat_get '.archivedRepos' '0')"
-  ACTIVE_REPOS="$(stat_get '.activeRepos' '0')"
-  ORIGINAL_REPOS="$(stat_get '.originalRepos' '0')"
-  FORKED_REPOS="$(stat_get '.forkedRepos' '0')"
-  TOTAL_COMMITS="$(stat_get '.totalCommits' '0')"
-  AVG_COMMITS="$(stat_get '.avgCommitsPerRepo' '0')"
-  MEDIAN_COMMITS="$(stat_get '.medianCommits' '0')"
-  ESTIMATED_FILES="$(stat_get '.estimatedTotalFiles' '0')"
-  AVG_FILES="$(stat_get '.avgFilesPerRepo' '0')"
-  ESTIMATED_LINES="$(stat_get '.estimatedTotalLines' '0')"
-  AVG_LINES_FILE="$(stat_get '.avgLinesPerFile' '0')"
-  AVG_REPO_AGE="$(stat_get '.avgRepoAge' '0')"
-
-  # --- Overview ----------------------------------------------------------
-  {
-    echo ''
-    echo '<div align="center">'
-    echo ''
-    echo '### 📈 Overview'
-    echo ''
-    echo '| 📁 Repositories | ⭐ Stars | 🍴 Forks | 💻 Top Language | 📦 Total Size |'
-    echo '|:---------------:|:-------:|:--------:|:---------------:|:-------------:|'
-    echo "| **${TOTAL_REPOS}** | **${TOTAL_STARS}** | **${TOTAL_FORKS}** | **${TOP_LANG}** | **${TOTAL_SIZE_MB} MB** |"
-    echo ''
-    echo '</div>'
-    echo ''
-    echo '---'
-    echo ''
-  } >> "$SECTION"
-
-  # --- Repository distribution ------------------------------------------
-  {
-    echo '### 📁 Repository Distribution'
-    echo ''
-    echo '<div align="center">'
-    echo ''
-    echo '```mermaid'
-    echo '%%{init: {"theme": "base", "themeVariables": { "pie1": "#22c55e", "pie2": "#f59e0b", "pie3": "#3b82f6", "pie4": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%'
-    echo 'pie showData'
-    echo '    title Repository Visibility'
-    echo "    \"🌐 Public\" : ${PUBLIC_REPOS}"
-    echo "    \"🔒 Private\" : ${PRIVATE_REPOS}"
-    echo '```'
-    echo ''
-    echo '</div>'
-    echo ''
-    echo '<table align="center">'
-    echo '<tr>'
-    echo '<td align="center">'
-    echo ''
-    echo '**📊 By Visibility**'
-    echo ''
-    echo '| Type | Count |'
-    echo '|:-----|------:|'
-    echo "| 🌐 Public | ${PUBLIC_REPOS} |"
-    echo "| 🔒 Private | ${PRIVATE_REPOS} |"
-    echo ''
-    echo '</td>'
-    echo '<td align="center">'
-    echo ''
-    echo '**👤 By Owner**'
-    echo ''
-    echo '| Type | Public | Private |'
-    echo '|:-----|-------:|--------:|'
-    echo "| Personal | ${PERSONAL_PUBLIC} | ${PERSONAL_PRIVATE} |"
-    echo "| Organization | ${ORG_PUBLIC} | ${ORG_PRIVATE} |"
-    echo ''
-    echo '</td>'
-    echo '<td align="center">'
-    echo ''
-    echo '**📋 By Status**'
-    echo ''
-    echo '| Type | Count |'
-    echo '|:-----|------:|'
-    echo "| ✅ Active | ${ACTIVE_REPOS} |"
-    echo "| 📦 Archived | ${ARCHIVED_REPOS} |"
-    echo "| 🔀 Original | ${ORIGINAL_REPOS} |"
-    echo "| 🍴 Forked | ${FORKED_REPOS} |"
-    echo ''
-    echo '</td>'
-    echo '</tr>'
-    echo '</table>'
-    echo ''
-    echo '---'
-    echo ''
-  } >> "$SECTION"
-
-  # --- Activity & commits -----------------------------------------------
-  {
-    echo '### 🔥 Activity & Commits'
-    echo ''
-    echo '<div align="center">'
-    echo ''
-    echo '<table>'
-    echo '<tr>'
-    echo '<td align="center">'
-    echo ''
-    echo '**📝 Commit Stats**'
-    echo ''
-    echo '| Metric | Value |'
-    echo '|:-------|------:|'
-    echo "| Total Commits | **${TOTAL_COMMITS}** |"
-    echo "| Avg per Repo | **${AVG_COMMITS}** |"
-    echo "| Median | **${MEDIAN_COMMITS}** |"
-    echo ''
-    echo '</td>'
-    echo '<td align="center">'
-    echo ''
-    echo '**📜 Codebase Size**'
-    echo ''
-    echo '| Metric | Value |'
-    echo '|:-------|------:|'
-    echo "| Est. Files | **~${ESTIMATED_FILES}** |"
-    echo "| Est. Lines | **~${ESTIMATED_LINES}** |"
-    echo "| Avg Files/Repo | **${AVG_FILES}** |"
-    echo "| Avg Lines/File | **${AVG_LINES_FILE}** |"
-    echo ''
-    echo '</td>'
-    echo '<td align="center">'
-    echo ''
-    echo '**📅 Activity**'
-    echo ''
-    echo '| Metric | Value |'
-    echo '|:-------|------:|'
-    echo "| Push Events (30d) | **${RECENT_COMMITS}** |"
-    echo "| Avg Repo Age | **${AVG_REPO_AGE} years** |"
-    echo ''
-    echo '</td>'
-    echo '</tr>'
-    echo '</table>'
-    echo ''
-    echo '</div>'
-    echo ''
-    echo '---'
-    echo ''
-  } >> "$SECTION"
-
-  # --- Developer Activity ------------------------------------------------
-  HAS_ACTIVITY="$(jq -r 'if (.activity != null) then "1" else "0" end' "$STATS_JSON" 2>/dev/null || echo 0)"
-  if [ "${HAS_ACTIVITY}" = "1" ]; then
-    ACT_WINDOW="$(stat_get '.activity.window' 'past 12 months')"
-    ACT_TOTAL="$(stat_get '.activity.totalContributions' '0')"
-    ACT_CUR="$(stat_get '.activity.currentStreakDays' '0')"
-    ACT_LONG="$(stat_get '.activity.longestStreakDays' '0')"
-    ACT_30="$(stat_get '.activity.last30d' '0')"
-    ACT_90="$(stat_get '.activity.last90d' '0')"
-    ACT_ACTIVE="$(stat_get '.activity.activeDays' '0')"
-    ACT_BUSY_DATE="$(stat_get '.activity.busiestDay.date' '—')"
-    ACT_BUSY_COUNT="$(stat_get '.activity.busiestDay.count' '0')"
-    PR_OPENED="$(stat_get '.prsAllTime.opened' '0')"
-    PR_MERGED="$(stat_get '.prsAllTime.merged' '0')"
-    PR_RATE="$(stat_get '.prsAllTime.mergeRate' '0')"
-    CP_HOUR="$(stat_get '.commitPatterns.topHour' '')"
-    CP_WEEKDAY="$(stat_get '.commitPatterns.topWeekday' '')"
-    CI_WFPCT="$(stat_get '.ci.workflowsPct' '')"
-    CI_SUCCESS="$(stat_get '.ci.successRate' '')"
-    CI_RUNS="$(stat_get '.ci.runsSampled' '0')"
-    {
-      echo '### ⚡ Developer Activity'
-      echo ''
-      echo '<div align="center">'
-      echo ''
-      echo '<table>'
-      echo '<tr>'
-      echo '<td align="center">'
-      echo ''
-      echo "**🔥 Contributions** <sub>(${ACT_WINDOW}, incl. private)</sub>"
-      echo ''
-      echo '| Metric | Value |'
-      echo '|:-------|------:|'
-      echo "| Total | **${ACT_TOTAL}** |"
-      echo "| Current Streak | **${ACT_CUR} days** |"
-      echo "| Longest Streak | **${ACT_LONG} days** |"
-      echo "| Active Days | **${ACT_ACTIVE}** |"
-      echo "| Last 30d / 90d | **${ACT_30}** / **${ACT_90}** |"
-      echo "| Busiest Day | **${ACT_BUSY_COUNT}** <sub>(${ACT_BUSY_DATE})</sub> |"
-      echo ''
-      echo '</td>'
-      echo '<td align="center">'
-      echo ''
-      echo '**🔀 Pull Requests** <sub>(all-time)</sub>'
-      echo ''
-      echo '| Metric | Value |'
-      echo '|:-------|------:|'
-      echo "| Opened | **${PR_OPENED}** |"
-      echo "| Merged | **${PR_MERGED}** |"
-      echo "| Merge Rate | **${PR_RATE}%** |"
-      echo ''
-      # Commit cadence + CI health only render when data is present.
-      if [ -n "${CP_HOUR}" ] || [ -n "${CP_WEEKDAY}" ]; then
-        echo '**🕒 Cadence**'
-        echo ''
-        echo '| Metric | Value |'
-        echo '|:-------|------:|'
-        [ -n "${CP_WEEKDAY}" ] && echo "| Busiest Day | **${CP_WEEKDAY}** |"
-        [ -n "${CP_HOUR}" ] && echo "| Busiest Hour | **${CP_HOUR}:00 UTC** |"
-        echo ''
-      fi
-      echo '</td>'
-      echo '</tr>'
-      echo '</table>'
-      echo ''
-      if [ -n "${CI_SUCCESS}" ] && [ "${CI_RUNS}" != "0" ]; then
-        echo "🔧 **CI/CD health** — ${CI_WFPCT}% of recent repos run GitHub Actions · **${CI_SUCCESS}%** run success over ${CI_RUNS} sampled runs"
-        echo ''
-      fi
-      echo '</div>'
-      echo ''
-      echo '---'
-      echo ''
-    } >> "$SECTION"
-  fi
-
-  # --- Languages ---------------------------------------------------------
-  LANG_COUNT="$(jq -r '(.languages // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
-  if [ "${LANG_COUNT:-0}" -gt 0 ]; then
-    {
-      echo '### 💻 Languages by Code Volume'
-      echo ''
-      echo '<div align="center">'
-      echo ''
-      echo '```mermaid'
-      echo '%%{init: {"theme": "base", "themeVariables": { "pie1": "#8b5cf6", "pie2": "#f59e0b", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f43f5e", "pie6": "#3b82f6", "pie7": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%'
-      echo 'pie showData'
-      echo '    title Code Distribution by Language'
-      jq -r '(.languages // [])[:6][] | "    \"\(.name)\" : \(.percentage)"' "$STATS_JSON" 2>/dev/null || true
-      echo '```'
-      echo ''
-      echo '</div>'
-      echo ''
-      echo '<details>'
-      echo '<summary><b>📋 Detailed Language Breakdown</b></summary>'
-      echo ''
-      echo '| Language | Percentage | Repositories |'
-      echo '|:---------|:----------:|:------------:|'
-      jq -r '(.languages // [])[] | "| \(.name) | \(.percentage)% | \(.repos) |"' "$STATS_JSON" 2>/dev/null || true
-      echo ''
-      echo '</details>'
-      echo ''
-      echo '---'
-      echo ''
-    } >> "$SECTION"
-  fi
-
-  # --- AI pair-programming usage ----------------------------------------
-  AI_ENABLED="$(jq -r '.ai.enabled // false' "$STATS_JSON" 2>/dev/null || echo false)"
-  AI_FAM_COUNT="$(jq -r '(.ai.families // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
-  if [ "$AI_ENABLED" = "true" ] && [ "${AI_FAM_COUNT:-0}" -gt 0 ]; then
-    AI_COMMITS="$(stat_get '.ai.totalAICommits' '0')"
-    AI_MENTIONS="$(stat_get '.ai.totalCoauthorMentions' '0')"
-    AI_SCANNED="$(stat_get '.ai.scannedCommits' '0')"
-    AI_RATE="$(stat_get '.ai.assistRate' '0')"
-    AI_TOP_FAMILY="$(stat_get '.ai.topFamily' 'Unknown')"
-    AI_TOP_MODEL="$(stat_get '.ai.topModel' 'Unknown')"
-    {
-      echo '### 🤖 AI Pair-Programming'
-      echo ''
-      echo 'Derived from `Co-authored-by:` trailers on my commits — which Anthropic'
-      echo 'model families and models actually helped write the code, and how that'
-      echo 'usage trends over time.'
-      echo ''
-      echo '<div align="center">'
-      echo ''
-      echo '| 🤝 AI-Assisted Commits | 📊 Assist Rate | 🧠 Top Family | ⭐ Top Model | 🔢 Co-Author Credits |'
-      echo '|:----------------------:|:--------------:|:-------------:|:------------:|:--------------------:|'
-      echo "| **${AI_COMMITS}** / ${AI_SCANNED} | **${AI_RATE}%** | **${AI_TOP_FAMILY}** | **${AI_TOP_MODEL}** | **${AI_MENTIONS}** |"
-      echo ''
-      echo '</div>'
-      echo ''
-    } >> "$SECTION"
-
-    # Pie: distribution by model family.
-    {
-      echo '<div align="center">'
-      echo ''
-      echo '```mermaid'
-      echo '%%{init: {"theme": "base", "themeVariables": { "pie1": "#d97757", "pie2": "#8b5cf6", "pie3": "#06b6d4", "pie4": "#22c55e", "pie5": "#f59e0b", "pie6": "#ec4899", "pieTextColor": "#ffffff", "pieLegendTextColor": "#e2e8f0", "pieSectionTextColor": "#ffffff", "pieStrokeColor": "#1e293b" }}}%%'
-      echo 'pie showData'
-      echo '    title AI Co-Authorship by Model Family'
-      jq -r '(.ai.families // [])[] | "    \"\(.family)\" : \(.count)"' "$STATS_JSON" 2>/dev/null || true
-      echo '```'
-      echo ''
-      echo '</div>'
-      echo ''
-    } >> "$SECTION"
-
-    # Bar + trend line: AI-assisted commits per month (last 12 months).
-    AI_MONTH_COUNT="$(jq -r '(.ai.monthly // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
-    if [ "${AI_MONTH_COUNT:-0}" -gt 1 ]; then
-      {
-        echo '<div align="center">'
-        echo ''
-        echo '```mermaid'
-        echo '%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #a78bfa"}}}}%%'
-        echo 'xychart-beta'
-        echo '    title "AI-Assisted Commits Per Month"'
-        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
-               | "    x-axis [" + ([$m[].month | "\"\(.)\""] | join(", ")) + "]"' \
-          "$STATS_JSON" 2>/dev/null || true
-        echo '    y-axis "Commits"'
-        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
-               | "    bar [" + ([$m[].total | tostring] | join(", ")) + "]"' \
-          "$STATS_JSON" 2>/dev/null || true
-        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
-               | "    line [" + ([$m[].total | tostring] | join(", ")) + "]"' \
-          "$STATS_JSON" 2>/dev/null || true
-        echo '```'
-        echo ''
-        echo '</div>'
-        echo ''
-      } >> "$SECTION"
-    fi
-
-    # Per-family trend over time (multi-line), shown when >1 family is present.
-    if [ "${AI_FAM_COUNT:-0}" -gt 1 ] && [ "${AI_MONTH_COUNT:-0}" -gt 1 ]; then
-      FAM_ORDER_CSV="$(jq -r '(.ai.familyOrder // []) | join(" · ")' "$STATS_JSON" 2>/dev/null || true)"
-      {
-        echo '<details>'
-        echo '<summary><b>📈 Model-family usage over time</b></summary>'
-        echo ''
-        echo "> Series order (by total volume): **${FAM_ORDER_CSV}**"
-        echo ''
-        echo '<div align="center">'
-        echo ''
-        echo '```mermaid'
-        echo '%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#d97757, #8b5cf6, #06b6d4, #22c55e, #f59e0b, #ec4899"}}}}%%'
-        echo 'xychart-beta'
-        echo '    title "Commits Per Month by Model Family"'
-        jq -r '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
-               | "    x-axis [" + ([$m[].month | "\"\(.)\""] | join(", ")) + "]"' \
-          "$STATS_JSON" 2>/dev/null || true
-        echo '    y-axis "Commits"'
-        # One line series per family, in familyOrder, zero-filled per month.
-        jq -r '(.ai.familyOrder // [])[]' "$STATS_JSON" 2>/dev/null | while IFS= read -r fam; do
-          [ -z "$fam" ] && continue
-          jq -r --arg fam "$fam" '(.ai.monthly // []) | (if length > 12 then .[length-12:] else . end) as $m
-                 | "    line [" + ([$m[] | ((.families[$fam] // 0) | tostring)] | join(", ")) + "]"' \
-            "$STATS_JSON" 2>/dev/null || true
-        done
-        echo '```'
-        echo ''
-        echo '</div>'
-        echo ''
-        echo '</details>'
-        echo ''
-      } >> "$SECTION"
-    fi
-
-    # Detailed model breakdown table.
-    {
-      echo '<details>'
-      echo '<summary><b>🧠 Detailed model breakdown</b></summary>'
-      echo ''
-      echo '| Model | Co-Author Credits |'
-      echo '|:------|------------------:|'
-      jq -r '(.ai.topModels // [])[] | "| \(.model) | \(.count) |"' "$STATS_JSON" 2>/dev/null || true
-      echo ''
-      echo '**By family**'
-      echo ''
-      echo '| Family | Credits |'
-      echo '|:-------|--------:|'
-      jq -r '(.ai.families // [])[] | "| \(.family) | \(.count) |"' "$STATS_JSON" 2>/dev/null || true
-      echo ''
-      echo '</details>'
-      echo ''
-      echo '---'
-      echo ''
-    } >> "$SECTION"
-  fi
-
-  # --- Notable public projects ------------------------------------------
-  TOP_COUNT="$(jq -r '[(.topStarred // [])[] | select(.stars > 0)] | length' "$STATS_JSON" 2>/dev/null || echo 0)"
-  ALL_TOP_COUNT="$(jq -r '(.topStarred // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
-  if [ "${ALL_TOP_COUNT:-0}" -gt 0 ]; then
-    {
-      echo '### ⭐ Notable Public Projects'
-      echo ''
-    } >> "$SECTION"
-    if [ "${TOP_COUNT:-0}" -gt 0 ]; then
-      # Repos that actually have stars: show with star count.
-      jq -r '(.topStarred // [])[] | select(.stars > 0) |
-              "- [**\(.name)**](\(.url)) — ⭐ \(.stars)" +
-              (if (.description // "") != "" then "\n  > \(.description)" else "" end)' \
-        "$STATS_JSON" >> "$SECTION" 2>/dev/null || true
-    else
-      # No stars yet — still surface the public projects so the section is useful.
-      jq -r '(.topStarred // [])[] |
-              "- [**\(.name)**](\(.url))" +
-              (if (.description // "") != "" then "\n  > \(.description)" else "" end)' \
-        "$STATS_JSON" >> "$SECTION" 2>/dev/null || true
-    fi
-    echo '' >> "$SECTION"
-  fi
-
-  # --- Recently updated --------------------------------------------------
-  RECENT_COUNT="$(jq -r '(.recentlyUpdated // []) | length' "$STATS_JSON" 2>/dev/null || echo 0)"
-  if [ "${RECENT_COUNT:-0}" -gt 0 ]; then
-    {
-      echo '<details>'
-      echo '<summary><b>🔄 Recently Updated (Public)</b></summary>'
-      echo ''
-      echo '| Repository | Last Updated |'
-      echo '|:-----------|:------------:|'
-      jq -r '(.recentlyUpdated // [])[:5][] | "| [\(.name)](\(.url)) | \(.pushedAt) |"' "$STATS_JSON" 2>/dev/null || true
-      echo ''
-      echo '</details>'
-      echo ''
-      echo '---'
-      echo ''
-    } >> "$SECTION"
-  fi
-
-  # --- Repository creation timeline -------------------------------------
-  YEARS="$(jq -r '(.reposByYear // {}) | keys | sort | .[]' "$STATS_JSON" 2>/dev/null || true)"
-  if [ -n "$YEARS" ]; then
-    {
-      echo '### 📅 Repository Creation Timeline'
-      echo ''
-      echo '<div align="center">'
-      echo ''
-      echo '```mermaid'
-      echo '%%{init: {"xyChart": {"titleColor": "#ffffff", "xAxisLabelColor": "#ffffff", "yAxisLabelColor": "#ffffff"}, "themeVariables": {"xyChart": {"titleColor": "#ffffff", "plotColorPalette": "#a78bfa"}}}}%%'
-      echo 'xychart-beta'
-      echo '    title "Repos Created Per Year"'
-      # x-axis: quoted years; bar: counts. Built with jq to stay safe.
-      jq -r '(.reposByYear // {}) as $y
-             | ($y | keys | sort) as $ks
-             | "    x-axis [" + ([$ks[] | "\"\(.)\""] | join(", ")) + "]"' \
-        "$STATS_JSON" 2>/dev/null || true
-      jq -r '(.reposByYear // {}) as $y
-             | ($y | keys | sort) as $ks
-             | "    bar [" + ([$ks[] | ($y[.] | tostring)] | join(", ")) + "]"' \
-        "$STATS_JSON" 2>/dev/null || true
-      echo '```'
-      echo ''
-      echo '</div>'
-      echo ''
-      echo '---'
-      echo ''
-    } >> "$SECTION"
-  fi
-
-  # --- Development focus (static mindmap) -------------------------------
-  {
-    echo '### 🎯 Development Focus'
-    echo ''
-    echo '<div align="center">'
-    echo ''
-    echo '```mermaid'
-    echo '%%{init: {"theme": "base", "themeVariables": { "primaryColor": "#6366f1", "primaryTextColor": "#ffffff", "primaryBorderColor": "#818cf8", "lineColor": "#a5b4fc", "secondaryColor": "#8b5cf6", "tertiaryColor": "#a78bfa" }}}%%'
-    echo 'mindmap'
-    echo '  root((🚀 My Projects))'
-    echo '    🖥️ Backend'
-    echo '      PHP'
-    echo '      C# .NET'
-    echo '      REST APIs'
-    echo '    ⚙️ DevOps'
-    echo '      Docker'
-    echo '      Linux'
-    echo '      CI/CD'
-    echo '      Python'
-    echo '      ML/AI'
-    echo '      IoT'
-    echo '```'
-    echo ''
-    echo '</div>'
-    echo ''
-    echo '---'
-    echo ''
-  } >> "$SECTION"
-
-  # --- Quick stats footer ------------------------------------------------
-  {
-    echo '<div align="center">'
-    echo ''
-    echo '| 📊 Quick Stats | |'
-    echo '|:---|:---|'
-    echo "| 📁 Total Repos | **${TOTAL_REPOS}** (${PUBLIC_REPOS} public, ${PRIVATE_REPOS} private) |"
-    echo "| 💾 Code Volume | **${TOTAL_SIZE_MB} MB** across ${ORIGINAL_REPOS} projects |"
-    echo "| 💻 Top Language | **${TOP_LANG}** |"
-    echo "| 📅 Last Updated | **${UPDATED_AT}** |"
-    echo ''
-    echo '</div>'
-    echo ''
-  } >> "$SECTION"
-fi
-
-# ---------------------------------------------------------------------------
-# 3. Self-bootstrap: ensure README.md exists and contains both markers.
-#    If not, start from the template.
-# ---------------------------------------------------------------------------
-needs_template=0
-if [ ! -f "$README" ]; then
-  log "ℹ️  $README does not exist; bootstrapping from template."
-  needs_template=1
-elif ! grep -qF "$START_MARKER" "$README" || ! grep -qF "$END_MARKER" "$README"; then
-  log "ℹ️  $README is missing the STATS markers; rebuilding from template."
-  needs_template=1
-fi
-
-if [ "$needs_template" -eq 1 ]; then
-  if [ ! -f "$TEMPLATE" ]; then
-    log "❌ Template not found at $TEMPLATE; cannot bootstrap README."
-    exit 1
-  fi
-  cp "$TEMPLATE" "$README"
-fi
-
-# ---------------------------------------------------------------------------
-# 4. Replace the region between the markers (inclusive of markers) with the
-#    freshly generated section, preserving everything outside the markers.
-#    Implemented in awk so it is portable and handles arbitrary content.
+# 4. Assemble: replace every GEN placeholder; unknown names fail the build.
 # ---------------------------------------------------------------------------
 NEW_README="$(mktemp)"
-trap 'rm -f "$SECTION" "${SECTION}.body" "$NEW_README" 2>/dev/null || true' EXIT
+trap 'rm -f "$NEW_README"' EXIT
 
-awk -v start="$START_MARKER" -v end="$END_MARKER" -v sectionfile="$SECTION" '
-  BEGIN { inblock = 0; replaced = 0 }
-  index($0, start) {
-    print start
-    # Stream the generated body between the markers.
-    while ((getline line < sectionfile) > 0) print line
-    close(sectionfile)
-    print end
-    inblock = 1
-    replaced = 1
-    next
-  }
-  index($0, end) {
-    if (inblock) { inblock = 0; next }
-  }
-  { if (!inblock) print }
-  END {
-    if (!replaced) {
-      # Should not happen (markers guaranteed above) but fail loudly.
-      exit 3
-    }
-  }
-' "$README" > "$NEW_README"
+replaced=0
+while IFS= read -r line || [ -n "$line" ]; do
+  if [[ "$line" =~ ^\<!--\ GEN:([a-z_]+)\ --\>$ ]]; then
+    name="${BASH_REMATCH[1]}"
+    declare -F "gen_${name}" >/dev/null || die "template references unknown block GEN:${name}"
+    "gen_${name}"
+    replaced=$((replaced + 1))
+  else
+    printf '%s\n' "$line"
+  fi
+done < "$TEMPLATE" > "$NEW_README"
 
-if [ "$(awk 'END{print NR}' "$NEW_README")" -eq 0 ]; then
-  log "❌ Generated README is empty; aborting without overwriting."
-  exit 1
+[ "$replaced" -gt 0 ] || die "template contains no <!-- GEN:name --> placeholders; nothing was generated"
+grep -Eq '^<!-- GEN:[a-z_]+ -->$' "$NEW_README" && die "unreplaced GEN placeholder left in output"
+[ "$(wc -c < "$NEW_README")" -gt 1000 ] || die "rendered README is implausibly small; aborting without overwriting"
+
+if [ -f "$README" ] && cmp -s "$NEW_README" "$README"; then
+  log "✅ README unchanged ($README)"
+else
+  mv "$NEW_README" "$README"
+  trap - EXIT
+  log "✅ README rendered at $README (${replaced} generated blocks)"
 fi
-
-mv "$NEW_README" "$README"
-# NEW_README consumed; reset trap target.
-trap 'rm -f "$SECTION" "${SECTION}.body" 2>/dev/null || true' EXIT
-
-log "✅ README assembled at $README"

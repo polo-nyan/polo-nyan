@@ -1,117 +1,65 @@
-<div align="center">
+<!--
+  GENERATED FILE — do not edit README.md by hand.
+  Source: scripts/templates/README.template.md, rendered daily by
+  scripts/build-readme.sh from stats.json (.github/workflows/update-stats.yml).
+  Every GEN placeholder line in the template is replaced by a generated block.
+-->
 
-<!-- Header Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,19,24,30&height=180&section=header&text=Marc&fontSize=70&fontColor=fff&animation=fadeIn&fontAlignY=35&desc=Self-taught%20Hobby%20Developer&descSize=20&descAlignY=55" width="100%"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img alt="polo-nyan — Marc, self-taught hobby developer from Germany" src="assets/banner-light.svg" width="100%">
+</picture>
 
-<br>
+Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany.
+I build backend services and the automation around them, keep a small fleet of
+self-hosted things alive, and poke at game dev, machine learning and IoT on the
+side. Most of my work lives in the [smol-kitten](https://github.com/smol-kitten)
+organisation; most of it is private, but the numbers below count it anyway.
 
-[![GitHub](https://img.shields.io/badge/polo--nyan-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/polo-nyan)
-[![Location](https://img.shields.io/badge/Germany-🇩🇪-black?style=for-the-badge)](https://github.com/polo-nyan)
-[![Profile Views](https://komarev.com/ghpvc/?username=polo-nyan&color=blueviolet&style=for-the-badge&label=Views)](https://github.com/polo-nyan)
+## Current projects
 
-</div>
+| Project | What it is | Stack |
+|:--|:--|:--|
+| [netpaw](https://github.com/smol-kitten/netpaw) · [site](https://netpaw.catboy.systems) | Static-IP profiles for Windows network admins: tray tool with hotkeys, multi-subnet secondaries, device presets, VLAN detection | C# |
+| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems IANA enterprise arc: OID registry, protocol specs and generated constants | Go templates |
+| [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | Frequently scanned URLs and malicious file names, usable as a blocklist | Shell |
+| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Switch Minecraft versions on a date schedule from a profile | C# |
+| [web-core](https://github.com/smol-kitten/web-core) | Base images for PHP 8.4 on nginx / Apache | Docker |
 
-## 👋 About Me
+<!-- GEN:recent -->
 
-```yaml
-name: ╲⧹ ⎛⎝ Marc ⎠⎞⧸╱
-location: Germany 🇩🇪
-role: Self-taught Hobby Developer
-interests:
-  - Backend Development
-  - DevOps & Automation
-  - Game Development
-  - Machine Learning
-currently_learning: [ML/AI, IoT]
-fun_fact: Cat lover 🐱
-```
+## By the numbers
 
----
+<!-- GEN:numbers -->
 
-## 🛠️ Tech Stack
+<!-- GEN:languages -->
 
-<div align="center">
+<!-- GEN:activity -->
 
-### 💪 Primary
+<!-- GEN:ai -->
 
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
-![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+## Toolbox
 
-### 🔧 Also Using
-
-![Unity](https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
-
-</div>
-
----
-
-## 📊 GitHub Statistics
-
-<!-- STATS:START -->
-<!-- The content between STATS:START and STATS:END is auto-generated by
-     scripts/build-readme.sh. Do not edit it by hand; edits will be overwritten.
-     Everything outside these markers is hand-written and is always preserved. -->
-<!-- STATS:END -->
-
----
-
-## 🔗 Connect
-
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-polo--nyan-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/polo-nyan)
-[![Organization](https://img.shields.io/badge/Org-smol--kitten-ff69b4?style=for-the-badge&logo=github&logoColor=white)](https://github.com/smol-kitten)
-
-</div>
-
----
+| | |
+|:--|:--|
+| **Languages** | C# / .NET, PHP, Python, TypeScript, Go, Bash |
+| **Data** | MariaDB, MySQL, Redis |
+| **Infra** | Linux, Docker, nginx, GitHub Actions on self-hosted runners, Grafana |
+| **Game & hardware** | Unity, Arduino |
+| **Learning** | ML / AI, IoT |
 
 <details>
-<summary><b>📋 Note on Profile Status</b></summary>
+<summary>Elsewhere</summary>
 
-<br>
-
-> **⚠️ Contingency Notice**
->
-> This GitHub profile is actively maintained using a self-hosted GitHub Actions runner.
-> In case of any of the following situations:
-> - Self-hosted runner costs
-> - Technical issues with the automation pipeline
-> - Changes to GitHub's API or policies
->
-> This profile may transition to become an **inactive mirror** of a private
-> [Gitea](https://gitea.io) instance where active development continues.
->
-> If you notice the stats haven't updated in a while, development is likely
-> continuing on the private instance. Feel free to reach out!
+- Organisation: [smol-kitten](https://github.com/smol-kitten)
+- Projects site: [netpaw.catboy.systems](https://netpaw.catboy.systems)
 
 </details>
 
 ---
 
-<div align="center">
+<sub>Rebuilt daily by GitHub Actions on a self-hosted runner. Private project
+names are never shown here; only counts. If the stats look stale, the pipeline
+is down, not the developer.</sub>
 
-<sub>🤖 Auto-generated daily via GitHub Actions on a self-hosted runner</sub>
-<br>
-<sub>🔒 Private project names are never exposed</sub>
-
-<br><br>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,19,24,30&height=100&section=footer" width="100%"/>
-
-</div>
+<!-- GEN:updated -->
