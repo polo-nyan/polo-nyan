@@ -101,13 +101,14 @@ spark() {
 
 # Recently pushed public repos (forks, archived repos and the profile repo
 # itself are excluded; the hand-picked "Current projects" table covers the rest).
+# Dates use non-breaking hyphens so the narrow column never wraps.
 gen_recent() {
   local rows
   rows="$(jq -r --arg self "$SELF_REPO" '
     (.recentlyUpdated // [])
     | map(select(.name != $self and ((.fork // false) | not) and ((.archived // false) | not)))
     | .[:6][]
-    | "| [\(.name)](\(.url)) | \(.description // "" | gsub("\\|"; "\\|") | if length > 90 then .[:87] + "…" else . end) | \(.language // "—") | \(.pushedAt) |"' \
+    | "| [\(.name)](\(.url)) | \(.description // "" | gsub("\\|"; "\\|") | if length > 90 then .[:87] + "…" else . end) | \(.language // "—") | \(.pushedAt | gsub("-"; "\u2011")) |"' \
     "$STATS_JSON")"
   [ -n "$rows" ] || { log "⚠️  no public repos left after filtering; skipping 'recent' block"; return 0; }
   cat <<EOF
