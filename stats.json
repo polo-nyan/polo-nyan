@@ -155,31 +155,24 @@
   ],
   "recentlyUpdated": [
     {
-      "name": "web-core",
-      "url": "https://github.com/smol-kitten/web-core",
-      "pushedAt": "2026-10-21",
-      "description": "Base images for php8.4 nginx/apache2",
-      "language": "HTML",
-      "fork": false,
-      "archived": false
-    },
-    {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
       "pushedAt": "2026-10-21",
       "description": "Config files for my GitHub profile.",
       "language": "Shell",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
-      "name": "honeypot-urls",
-      "url": "https://github.com/smol-kitten/honeypot-urls",
-      "pushedAt": "2026-10-20",
-      "description": "A list of often scanned urls and malicious files. Can be used to block bad actors.",
-      "language": "Shell",
+      "name": "web-core",
+      "url": "https://github.com/smol-kitten/web-core",
+      "pushedAt": "2026-10-21",
+      "description": "Base images for php8.4 nginx/apache2",
+      "language": "HTML",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "MinecraftThroughTime",
@@ -188,7 +181,8 @@
       "description": "Tool to change MC Versions at specific dates from a profile",
       "language": "C#",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "netpaw",
@@ -197,7 +191,8 @@
       "description": "Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet secondaries, reach-any-IP mode, device presets, VLAN detection. MIT.",
       "language": "C#",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "pawkit-docgen",
@@ -206,7 +201,8 @@
       "description": "Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirror — source of truth is private pawkit; do not edit here).",
       "language": "Python",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "netpaw-site",
@@ -215,7 +211,8 @@
       "description": "Static info + download site for NetPaw — modern parallax catbot landing, live releases, auto wiki",
       "language": "Python",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "common-ressources",
@@ -224,7 +221,8 @@
       "description": "Ressources i might or might not need more often",
       "language": "Lua",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "Twitch-Channel-Points-Miner-v2.1",
@@ -233,7 +231,8 @@
       "description": "[NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo.",
       "language": "Python",
       "fork": true,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "S1API",
@@ -242,7 +241,8 @@
       "description": "",
       "language": "C#",
       "fork": true,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "catboy-registry",
@@ -251,7 +251,8 @@
       "description": "Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID registry, protocol specs (X.509, CMS, SNMP, DHCP, syslog, DNS-SD, media types) and generated constants",
       "language": "Go Template",
       "fork": false,
-      "archived": false
+      "archived": false,
+      "private": false
     },
     {
       "name": "MinedMap",
@@ -260,7 +261,18 @@
       "description": "Minecraft map renderer and viewer",
       "language": "Rust",
       "fork": true,
-      "archived": false
+      "archived": false,
+      "private": false
+    },
+    {
+      "name": ".github",
+      "url": "https://github.com/smol-kitten/.github",
+      "pushedAt": "2026-09-23",
+      "description": "smol-kitten organisation profile and default community files",
+      "language": "",
+      "fork": false,
+      "archived": false,
+      "private": false
     }
   ],
   "activity": {

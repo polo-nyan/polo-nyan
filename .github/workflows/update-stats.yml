@@ -556,7 +556,7 @@ jobs:
               recentlyUpdated: recentlyUpdated.map(r => ({
                 name: r.name, url: r.html_url, pushedAt: r.pushed_at?.split('T')[0],
                 description: r.description || '', language: r.language || '',
-                fork: !!r.fork, archived: !!r.archived
+                fork: !!r.fork, archived: !!r.archived, private: !!r.private
               })),
               activity, prsAllTime, commitPatterns, ci,
               ai: aiStats,

@@ -6,11 +6,13 @@
 -->
 
 <picture>
+  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/banner-dark-mobile.svg">
+  <source media="(max-width: 600px)" srcset="assets/banner-light-mobile.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
   <img alt="polo-nyan — Marc, self-taught hobby developer from Germany" src="assets/banner-light.svg" width="100%">
 </picture>
 
-Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build backend services and the automation around them, keep a small fleet of self-hosted things alive, and poke at game dev, machine learning and IoT on the side. Most of my work lives in the [smol-kitten](https://github.com/smol-kitten) organisation; most of it is private, but the numbers below count it anyway.
+Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build backend services and the automation around them, run a small self-hosted fleet, and work on game development, machine learning and IoT on the side. Most of my code lives in the [smol-kitten](https://github.com/smol-kitten) organisation; the larger part of it is private, but the numbers below include it.
 
 ## Current projects
 
@@ -18,7 +20,6 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 |:--|:--|:--|
 | [netpaw](https://github.com/smol-kitten/netpaw) · [site](https://netpaw.catboy.systems) | Static-IP profiles for Windows network admins: tray tool with hotkeys, multi-subnet secondaries, device presets, VLAN detection | C# |
 | [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems IANA enterprise arc: OID registry, protocol specs and generated constants | Go templates |
-| [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | Frequently scanned URLs and malicious file names, usable as a blocklist | Shell |
 | [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Switch Minecraft versions on a date schedule from a profile | C# |
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for PHP 8.4 on nginx / Apache | Docker |
 
@@ -28,11 +29,11 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026‑10‑21 |
-| [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | A list of often scanned urls and malicious files. Can be used to block bad actors. | Shell | 2026‑10‑20 |
 | [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Tool to change MC Versions at specific dates from a profile | C# | 2026‑10‑20 |
 | [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑10‑19 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirr… | Python | 2026‑10‑16 |
 | [netpaw-site](https://github.com/smol-kitten/netpaw-site) | Static info + download site for NetPaw — modern parallax catbot landing, live releases,… | Python | 2026‑10‑15 |
+| [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑10‑15 |
 
 </details>
 
@@ -95,29 +96,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<details>
-<summary>AI pair-programming — <b>47.8%</b> of 3,967 recent commits carry an AI co-author trailer</summary>
-
-Derived from `Co-authored-by:` trailers on my commits: **1,897** of 3,967 scanned commits were written with an AI assistant in the loop.
-
-| Month | | AI-assisted commits |
-|:--|:--|--:|
-| 2026-05 | `█░░░░░░░░░░░` | 7 |
-| 2026-06 | `██████░░░░░░` | 273 |
-| 2026-07 | `████████████` | 589 |
-| 2026-08 | `█████░░░░░░░` | 248 |
-| 2026-09 | `███████░░░░░` | 362 |
-| 2026-10 | `█████████░░░` | 418 |
-
-| Co-author family | Credits |
-|:--|--:|
-| Opus | 1513 |
-| Claude | 326 |
-| Fable | 39 |
-| Sonnet | 18 |
-| Other AI | 1 |
-
-</details>
+<sub>AI pair-programming: **47.8%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## Toolbox
 
@@ -139,6 +118,6 @@ Derived from `Co-authored-by:` trailers on my commits: **1,897** of 3,967 scanne
 
 ---
 
-<sub>Rebuilt daily by GitHub Actions on a self-hosted runner. Private project names are never shown here, only counts. If the stats look stale, the pipeline is down, not the developer.</sub>
+<sub>Rebuilt daily by GitHub Actions on a self-hosted runner. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror. The cat is the only one allowed on the keyboard.</sub>
 
 <sub>Last updated 2026-10-21.</sub>

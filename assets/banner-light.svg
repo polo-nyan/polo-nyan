@@ -1,30 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200" role="img" aria-label="polo-nyan — Marc, self-taught hobby developer">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200" role="img" aria-label="polo-nyan — Marc, self-taught hobby developer from Germany">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#fff1f6"/>
-      <stop offset="1" stop-color="#eef0ff"/>
-    </linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1f6"/><stop offset="1" stop-color="#eef0ff"/></linearGradient>
     <clipPath id="r"><rect width="1200" height="200" rx="16"/></clipPath>
   </defs>
   <g clip-path="url(#r)">
     <rect width="1200" height="200" fill="url(#g)"/>
-    <!-- soft accent blobs -->
-    <circle cx="1040" cy="40" r="150" fill="#d85a8f" opacity="0.14"/>
-    <circle cx="140" cy="210" r="120" fill="#d85a8f" opacity="0.10"/>
-    <!-- cat: ears + face outline, right side -->
-    <g transform="translate(1010,52)" fill="none" stroke="#c2457d" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <path d="M18 62 L10 8 L48 34"/>
-      <path d="M122 62 L130 8 L92 34"/>
-      <path d="M18 62 C 8 110, 132 110, 122 62 C 118 36, 22 36, 18 62 Z"/>
-      <circle cx="50" cy="66" r="4" fill="#c2457d" stroke="none"/>
-      <circle cx="90" cy="66" r="4" fill="#c2457d" stroke="none"/>
-      <path d="M62 82 Q70 90 78 82"/>
-      <path d="M2 74 L34 76 M2 90 L34 84 M138 74 L106 76 M138 90 L106 84" stroke-width="3" opacity="0.8"/>
+    <circle cx="1060" cy="60" r="150" fill="#d85a8f" opacity="0.14"/><circle cx="140" cy="210" r="120" fill="#d85a8f" opacity="0.10"/>
+    <g transform="translate(1060,100) scale(1.0)" fill="none" stroke="#c2457d" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M-30 -27 L-38 -62 L-9 -38"/>
+      <path d="M30 -27 L38 -62 L9 -38"/>
+      <circle cx="0" cy="0" r="40"/>
+      <circle cx="-15" cy="-4" r="3.5" fill="#c2457d" stroke="none"/>
+      <circle cx="15" cy="-4" r="3.5" fill="#c2457d" stroke="none"/>
+      <path d="M-7 12 Q0 19 7 12"/>
+      <path d="M-62 2 L-42 4 M-62 14 L-42 10 M62 2 L42 4 M62 14 L42 10" stroke-width="3.5" opacity="0.85"/>
     </g>
   </g>
   <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
     <text x="64" y="92" font-size="56" font-weight="700" fill="#1f2328" letter-spacing="-1">polo-nyan</text>
     <text x="66" y="130" font-size="22" fill="#57606a">Marc · self-taught hobby developer · Germany</text>
-    <text x="66" y="162" font-size="16" fill="#57606a" opacity="0.85">backend · devops &amp; automation · game dev · a little ML and IoT · cats</text>
+    <text x="66" y="160" font-size="16" fill="#57606a" opacity="0.85">backend · devops &amp; automation · game dev · ML and IoT on the side</text>
   </g>
 </svg>
