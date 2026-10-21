@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200" role="img" aria-label="polo-nyan — Marc, self-taught hobby developer from Germany">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b1230"/><stop offset="0.55" stop-color="#1b1a3d"/><stop offset="1" stop-color="#0e2b2e"/></linearGradient>
+    <clipPath id="r"><rect width="1200" height="200" rx="16"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1200" height="200" fill="url(#g)"/>
+    <circle cx="1080" cy="40" r="170" fill="#f472b6" opacity="0.22"/>
+    <circle cx="900" cy="230" r="140" fill="#a78bfa" opacity="0.18"/>
+    <circle cx="120" cy="230" r="120" fill="#2dd4bf" opacity="0.16"/>
+  </g>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="64" y="92" font-size="56" font-weight="700" fill="#f3f4f6" letter-spacing="-1">polo-nyan</text>
+    <text x="66" y="130" font-size="22" fill="#b4bccb">Marc · self-taught hobby developer · Germany</text>
+    <text x="66" y="160" font-size="16" fill="#b4bccb" opacity="0.85">backend · devops &amp; automation · game dev · ML and IoT on the side</text>
+  </g>
+</svg>

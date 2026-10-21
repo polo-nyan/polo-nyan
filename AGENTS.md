@@ -22,4 +22,12 @@ These are kept fresh automatically — read them before grepping:
 <!-- agentsmd:custom:start -->
 <!-- Hand-written notes below are preserved across regeneration. -->
 
+- `README.md` is a build artifact. Edit `scripts/templates/README.template.md` and run
+  `scripts/build-readme.sh` (needs `jq`); the daily workflow overwrites any hand edit.
+- Hand-picked content (intro, "Current projects", toolbox) lives in the template; everything
+  data-driven comes from `stats.json` through `<!-- GEN:name -->` placeholders.
+- `AI-STATS.md` is generated the same way: `scripts/collect-ai-stats.mjs` (needs `GH_TOKEN`, Node 20)
+  writes `ai-stats.json`, `scripts/build-ai-stats.sh` renders it from `scripts/templates/AI-STATS.template.md`.
+- Screenshots of the 2026-10 redesign: `docs/redesign-2026-10/`.
+
 <!-- agentsmd:custom:end -->

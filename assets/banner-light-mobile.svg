@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" role="img" aria-label="polo-nyan — Marc, self-taught hobby developer from Germany">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe3ee"/><stop offset="0.55" stop-color="#ebe7ff"/><stop offset="1" stop-color="#dcf5f1"/></linearGradient>
+    <clipPath id="r"><rect width="720" height="200" rx="16"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="720" height="200" fill="url(#g)"/>
+    <circle cx="640" cy="30" r="140" fill="#f472b6" opacity="0.22"/>
+    <circle cx="520" cy="220" r="110" fill="#a78bfa" opacity="0.18"/>
+    <circle cx="60" cy="220" r="90" fill="#2dd4bf" opacity="0.16"/>
+  </g>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="36" y="86" font-size="54" font-weight="700" fill="#1f2328" letter-spacing="-1">polo-nyan</text>
+    <text x="38" y="122" font-size="22" fill="#4b5563">Marc · hobby developer</text>
+    <text x="38" y="152" font-size="22" fill="#4b5563">Germany</text>
+  </g>
+</svg>
