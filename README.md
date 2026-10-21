@@ -10,11 +10,7 @@
   <img alt="polo-nyan — Marc, self-taught hobby developer from Germany" src="assets/banner-light.svg" width="100%">
 </picture>
 
-Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany.
-I build backend services and the automation around them, keep a small fleet of
-self-hosted things alive, and poke at game dev, machine learning and IoT on the
-side. Most of my work lives in the [smol-kitten](https://github.com/smol-kitten)
-organisation; most of it is private, but the numbers below count it anyway.
+Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build backend services and the automation around them, keep a small fleet of self-hosted things alive, and poke at game dev, machine learning and IoT on the side. Most of my work lives in the [smol-kitten](https://github.com/smol-kitten) organisation; most of it is private, but the numbers below count it anyway.
 
 ## Current projects
 
@@ -143,8 +139,6 @@ Derived from `Co-authored-by:` trailers on my commits: **1,897** of 3,967 scanne
 
 ---
 
-<sub>Rebuilt daily by GitHub Actions on a self-hosted runner. Private project
-names are never shown here; only counts. If the stats look stale, the pipeline
-is down, not the developer.</sub>
+<sub>Rebuilt daily by GitHub Actions on a self-hosted runner. Private project names are never shown here, only counts. If the stats look stale, the pipeline is down, not the developer.</sub>
 
 <sub>Last updated 2026-10-21.</sub>
