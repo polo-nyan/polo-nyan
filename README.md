@@ -16,12 +16,12 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 ## Current projects
 
-| Project | What it is | Stack |
-|:--|:--|:--|
-| [netpaw](https://github.com/smol-kitten/netpaw) · [site](https://netpaw.catboy.systems) | Static-IP profiles for Windows network admins: tray tool with hotkeys, multi-subnet secondaries, device presets, VLAN detection | C# |
-| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems IANA enterprise arc: OID registry, protocol specs and generated constants | Go templates |
-| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Switch Minecraft versions on a date schedule from a profile | C# |
-| [web-core](https://github.com/smol-kitten/web-core) | Base images for PHP 8.4 on nginx / Apache | Docker |
+| Project | What it is |
+|:--|:--|
+| [netpaw](https://github.com/smol-kitten/netpaw) · [site](https://netpaw.catboy.systems) | Static-IP profiles for Windows network admins: tray tool, hotkeys, multi-subnet secondaries, device presets, VLAN detection <sub>C#</sub> |
+| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | OID registry, protocol specs and generated constants for the catboy.systems IANA enterprise arc <sub>Go templates</sub> |
+| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Switches Minecraft versions on a date schedule from a profile <sub>C#</sub> |
+| [web-core](https://github.com/smol-kitten/web-core) | Base images for PHP 8.4 on nginx and Apache <sub>Docker</sub> |
 
 <details>
 <summary>Recently pushed public repos</summary>

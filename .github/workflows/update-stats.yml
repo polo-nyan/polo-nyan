@@ -5,8 +5,9 @@
 # usage parsed from `Co-authored-by:` trailers (which Anthropic model families
 # and models assisted, and how that trends over time) — then renders
 # README.md from scripts/templates/README.template.md via scripts/build-readme.sh.
-# README.md is a build artifact: edit the template, not the README. The job
-# only commits when there is an actual diff.
+# README.md is a build artifact: edit the template, not the README. A second
+# collector (scripts/collect-ai-stats.mjs -> ai-stats.json) feeds AI-STATS.md
+# through scripts/build-ai-stats.sh. The job only commits on an actual diff.
 #
 # === TOKEN SETUP FOR SELF-HOSTED RUNNERS ===
 # Self-hosted runners (especially Docker containers) may not have access to
@@ -578,6 +579,36 @@ jobs:
           # on bad input so a broken fetch never ships a broken profile.
           ./scripts/build-readme.sh
 
+      - name: Set up Node for the AI-stats collector
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Collect AI pair-programming stats
+        id: aistats
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.FILE_TOKEN || secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Writes to a temp file first; a degraded run (fewer than half the
+          # commits of the last-good file) keeps the committed ai-stats.json.
+          node scripts/collect-ai-stats.mjs ai-stats.new.json
+          NEW="$(jq '.totals.commits' ai-stats.new.json)"
+          OLD="$(jq '.totals.commits // 0' ai-stats.json 2>/dev/null || echo 0)"
+          if [ "$NEW" -lt $(( OLD / 2 )) ]; then
+            echo "⚠️  Degraded AI-stats collection: $NEW commits vs last-good $OLD. Keeping existing ai-stats.json." >&2
+            rm -f ai-stats.new.json
+            exit 1
+          fi
+          mv ai-stats.new.json ai-stats.json
+
+      - name: Assemble AI-STATS.md
+        run: |
+          set -euo pipefail
+          chmod +x scripts/build-ai-stats.sh
+          ./scripts/build-ai-stats.sh
+
       - name: Commit and push (only on real diff)
         run: |
           set -euo pipefail
@@ -585,7 +616,7 @@ jobs:
           git config user.email "actions@github.com"
 
           # Stage only the generated artifacts.
-          git add README.md stats.json
+          git add README.md stats.json AI-STATS.md ai-stats.json
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
