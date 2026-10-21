@@ -31,10 +31,12 @@ organisation; most of it is private, but the numbers below count it anyway.
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
-| [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) |  | — | 2026-10-20 |
-| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) |  | — | 2026-10-20 |
-| [web-core](https://github.com/smol-kitten/web-core) |  | — | 2026-10-19 |
-| [netpaw](https://github.com/smol-kitten/netpaw) |  | — | 2026-10-19 |
+| [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026-10-21 |
+| [honeypot-urls](https://github.com/smol-kitten/honeypot-urls) | A list of often scanned urls and malicious files. Can be used to block bad actors. | Shell | 2026-10-20 |
+| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Tool to change MC Versions at specific dates from a profile | C# | 2026-10-20 |
+| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026-10-19 |
+| [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirr… | Python | 2026-10-16 |
+| [netpaw-site](https://github.com/smol-kitten/netpaw-site) | Static info + download site for NetPaw — modern parallax catbot landing, live releases,… | Python | 2026-10-15 |
 
 </details>
 

@@ -3,11 +3,10 @@
 # The job fetches comprehensive repo/language/commit stats for `polo-nyan`
 # (and the `smol-kitten` org) into stats.json — including AI pair-programming
 # usage parsed from `Co-authored-by:` trailers (which Anthropic model families
-# and models assisted, and how that trends over time) — then assembles
-# README.md from a template via scripts/build-readme.sh. Only the region between the
-# <!-- STATS:START --> / <!-- STATS:END --> markers is regenerated, so any
-# hand-written content in README.md is preserved. The job only commits when
-# there is an actual diff.
+# and models assisted, and how that trends over time) — then renders
+# README.md from scripts/templates/README.template.md via scripts/build-readme.sh.
+# README.md is a build artifact: edit the template, not the README. The job
+# only commits when there is an actual diff.
 #
 # === TOKEN SETUP FOR SELF-HOSTED RUNNERS ===
 # Self-hosted runners (especially Docker containers) may not have access to
@@ -271,8 +270,10 @@ jobs:
             const forkedRepos = allRepos.filter(r => r.fork).length;
             const originalRepos = allRepos.filter(r => !r.fork).length;
 
+            // Public repos by last push. Keep 12 candidates; build-readme.sh drops
+            // forks, archived repos and the profile repo itself before rendering.
             const recentlyUpdated = [...allRepos].filter(r => !r.private)
-              .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5);
+              .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 12);
 
             // --- AI pair-programming usage (Co-authored-by trailers) ------------
             // Scan commit messages authored by `owner` for AI co-author trailers
@@ -552,7 +553,11 @@ jobs:
                 return n ? { name: n.name, date: n.created_at?.split('T')[0] } : null;
               })(),
               topStarred: topStarred.map(r => ({ name: r.name, stars: r.stargazers_count, url: r.html_url, description: r.description || '' })),
-              recentlyUpdated: recentlyUpdated.map(r => ({ name: r.name, url: r.html_url, pushedAt: r.pushed_at?.split('T')[0] })),
+              recentlyUpdated: recentlyUpdated.map(r => ({
+                name: r.name, url: r.html_url, pushedAt: r.pushed_at?.split('T')[0],
+                description: r.description || '', language: r.language || '',
+                fork: !!r.fork, archived: !!r.archived
+              })),
               activity, prsAllTime, commitPatterns, ci,
               ai: aiStats,
               updatedAt: new Date().toISOString().split('T')[0]
@@ -569,8 +574,8 @@ jobs:
             exit 1
           fi
           chmod +x scripts/build-readme.sh
-          # The script is self-bootstrapping: it creates README.md from the
-          # template if missing, and only rewrites the STATS:START..END region.
+          # Renders README.md from the template + stats.json; exits non-zero
+          # on bad input so a broken fetch never ships a broken profile.
           ./scripts/build-readme.sh
 
       - name: Commit and push (only on real diff)
