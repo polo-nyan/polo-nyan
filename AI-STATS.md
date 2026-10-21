@@ -10,7 +10,7 @@ How much of my code is written together with an AI assistant, and whether that c
 
 | AI-assisted share | Commits scanned | Repositories | Lines added / removed |
 |:--:|:--:|:--:|:--:|
-| **62.7%** <sub>4,249 of 6,778 commits</sub> | **6,778** <sub>2025-10-21 → 2026-10-21</sub> | **140** <sub>with commits in the window</sub> | **+4,992,722** / **−616,287** |
+| **62.7%** <sub>4,250 of 6,779 commits</sub> | **6,779** <sub>2025-10-21 → 2026-10-21</sub> | **140** <sub>with commits in the window</sub> | **+4,995,015** / **−617,464** |
 
 ## Share of AI-assisted commits over time
 
@@ -39,7 +39,7 @@ Share of my commits per month that carry an AI co-author trailer (bars span 0–
 | 2026-07 | 61.1% | 1157 / 1895 |
 | 2026-08 | 79.5% | 586 / 737 |
 | 2026-09 | 89.3% | 1089 / 1220 |
-| 2026-10 | 78.9% | 1080 / 1369 |
+| 2026-10 | 78.9% | 1081 / 1370 |
 
 </details>
 
@@ -78,7 +78,7 @@ commits    ▁▁▁▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇
 | 2026-W40 | 367 / 442 | 83% |
 | 2026-W41 | 341 / 372 | 91.7% |
 | 2026-W42 | 401 / 518 | 77.4% |
-| 2026-W43 | 124 / 192 | 64.6% |
+| 2026-W43 | 125 / 193 | 64.8% |
 
 </details>
 
@@ -100,11 +100,11 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 ## Pull requests: with and without AI commits
 
-2,496 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
+2,497 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
 
 | | With AI commits | Without AI commits |
 |:--|--:|--:|
-| Pull requests | **1,721** | **775** |
+| Pull requests | **1,722** | **775** |
 | Median time to merge | **6 min** | **0 min** |
 | Mean time to merge | 8.6 h | 21.1 h |
 | Median commits per PR | 1 | 1 |
@@ -117,9 +117,9 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 | | AI-assisted commits | Human-only commits |
 |:--|--:|--:|
-| Commits | 4,249 | 2,529 |
-| Lines added | +2,483,580 | +2,509,142 |
-| Lines removed | −280,580 | −335,707 |
+| Commits | 4,250 | 2,529 |
+| Lines added | +2,485,873 | +2,509,142 |
+| Lines removed | −281,757 | −335,707 |
 | Lines changed per commit | **651** | **1,125** |
 
 <details>
@@ -138,7 +138,7 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | 2026-07 | `██████████░░░░░░░░░░` | 739,584 | 907,587 |
 | 2026-08 | `████░░░░░░░░░░░░░░░░` | 314,689 | 449,541 |
 | 2026-09 | `██████████████░░░░░░` | 966,600 | 1,424,048 |
-| 2026-10 | `████████░░░░░░░░░░░░` | 553,287 | 936,706 |
+| 2026-10 | `████████░░░░░░░░░░░░` | 556,757 | 940,176 |
 
 </details>
 

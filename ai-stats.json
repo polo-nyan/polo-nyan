@@ -8,11 +8,11 @@
   "reposScanned": 142,
   "reposWithCommits": 140,
   "totals": {
-    "commits": 6778,
-    "ai": 4249,
+    "commits": 6779,
+    "ai": 4250,
     "share": 62.7,
-    "additions": 4992722,
-    "deletions": 616287
+    "additions": 4995015,
+    "deletions": 617464
   },
   "monthly": [
     {
@@ -137,12 +137,12 @@
     },
     {
       "period": "2026-10",
-      "commits": 1369,
-      "ai": 1080,
-      "additions": 902416,
-      "deletions": 34290,
-      "aiAdditions": 530462,
-      "aiDeletions": 22825,
+      "commits": 1370,
+      "ai": 1081,
+      "additions": 904709,
+      "deletions": 35467,
+      "aiAdditions": 532755,
+      "aiDeletions": 24002,
       "share": 78.9
     }
   ],
@@ -639,13 +639,13 @@
     },
     {
       "period": "2026-W43",
-      "commits": 192,
-      "ai": 124,
-      "additions": 335026,
-      "deletions": 8591,
-      "aiAdditions": 165197,
-      "aiDeletions": 4416,
-      "share": 64.6
+      "commits": 193,
+      "ai": 125,
+      "additions": 337319,
+      "deletions": 9768,
+      "aiAdditions": 167490,
+      "aiDeletions": 5593,
+      "share": 64.8
     }
   ],
   "repos": {
@@ -714,11 +714,11 @@
         "name": "polo-nyan",
         "owner": "polo-nyan",
         "url": "https://github.com/polo-nyan/polo-nyan",
-        "commits": 18,
-        "ai": 10,
-        "share": 55.6,
-        "additions": 2210,
-        "deletions": 1106
+        "commits": 19,
+        "ai": 11,
+        "share": 57.9,
+        "additions": 4503,
+        "deletions": 2283
       },
       {
         "name": "netpaw-site",
@@ -751,11 +751,11 @@
     }
   },
   "prs": {
-    "sampled": 2496,
+    "sampled": 2497,
     "perRepoCap": 40,
     "truncatedCommitLists": 0,
     "ai": {
-      "count": 1721,
+      "count": 1722,
       "medianMergeHours": 0.1,
       "meanMergeHours": 8.6,
       "medianCommits": 1,
@@ -777,9 +777,9 @@
   },
   "lines": {
     "ai": {
-      "commits": 4249,
-      "additions": 2483580,
-      "deletions": 280580,
+      "commits": 4250,
+      "additions": 2485873,
+      "deletions": 281757,
       "perCommit": 651
     },
     "human": {
