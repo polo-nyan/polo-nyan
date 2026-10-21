@@ -90,3 +90,56 @@ render_template() {
   fi
   trap - EXIT
 }
+
+# svg_barchart OUT_PREFIX MAX < rows
+#   rows: "label<TAB>value<TAB>display<TAB>color" (one per line, in order).
+#   Writes OUT_PREFIX-{light,dark}.svg (720 wide) and OUT_PREFIX-{light,dark}-mobile.svg
+#   (360 wide, larger type) so a <picture> can pick theme and width. Bars are
+#   drawn in the given colour; text/track colours follow the theme. Output is
+#   deterministic for identical input.
+svg_barchart() {
+  local prefix="$1" max="$2" rows theme width
+  rows="$(cat)"
+  [ -n "$rows" ] || die "svg_barchart: no rows for $prefix"
+  for theme in light dark; do
+    for width in 720 360; do
+      local out="${prefix}-${theme}$([ "$width" = 360 ] && printf -- '-mobile').svg"
+      awk -v theme="$theme" -v W="$width" -v max="$max" -F'\t' '
+        BEGIN {
+          if (theme == "dark") { fg = "#e6edf3"; mute = "#9aa4b2"; track = "#21262d" }
+          else                 { fg = "#1f2328"; mute = "#57606a"; track = "#eaeef2" }
+          fs = (W < 500) ? 15 : 14; rh = (W < 500) ? 34 : 30
+          lw = int(W * 0.30); vw = int(W * 0.17); bx = lw + 8; bw = W - lw - vw - 16
+          n = 0
+        }
+        { n++; L[n] = $1; V[n] = $2 + 0; D[n] = $3; C[n] = $4 }
+        END {
+          H = n * rh + 8
+          printf "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\" role=\"img\">\n", W, H, W, H
+          printf "<g font-family=\"-apple-system, Segoe UI, Helvetica, Arial, sans-serif\" font-size=\"%d\">\n", fs
+          for (i = 1; i <= n; i++) {
+            y = (i - 1) * rh + 4; cy = y + rh / 2
+            w = (max > 0) ? int(bw * V[i] / max + 0.5) : 0; if (V[i] > 0 && w < 4) w = 4; if (w > bw) w = bw
+            printf "<text x=\"%d\" y=\"%.1f\" fill=\"%s\" dominant-baseline=\"middle\">%s</text>\n", 0, cy, fg, L[i]
+            printf "<rect x=\"%d\" y=\"%.1f\" width=\"%d\" height=\"%d\" rx=\"6\" fill=\"%s\"/>\n", bx, y + 6, bw, rh - 12, track
+            if (w > 0) printf "<rect x=\"%d\" y=\"%.1f\" width=\"%d\" height=\"%d\" rx=\"6\" fill=\"%s\"/>\n", bx, y + 6, w, rh - 12, C[i]
+            printf "<text x=\"%d\" y=\"%.1f\" fill=\"%s\" text-anchor=\"end\" dominant-baseline=\"middle\">%s</text>\n", W - 2, cy, mute, D[i]
+          }
+          print "</g>\n</svg>"
+        }' <<<"$rows" > "$out"
+    done
+  done
+}
+
+# picture_block ASSET_PREFIX ALT — <picture> that selects theme + width variants.
+picture_block() {
+  local p="$1" alt="$2"
+  cat <<EOF
+<picture>
+  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="${p}-dark-mobile.svg">
+  <source media="(max-width: 600px)" srcset="${p}-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="${p}-dark.svg">
+  <img alt="${alt}" src="${p}-light.svg">
+</picture>
+EOF
+}

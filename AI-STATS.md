@@ -14,22 +14,34 @@ How much of my code is written together with an AI assistant, and whether that c
 
 ## Share of AI-assisted commits over time
 
-Share of my commits per month that carry an AI co-author trailer (bar = 0–100 %).
+Share of my commits per month that carry an AI co-author trailer (bars span 0–100 %).
 
-| Month | Share | | AI / all commits |
-|:--|:--|--:|--:|
-| 2025-11 | `░░░░░░░░░░░░░░░░░░░░` | 0% | 0 / 107 |
-| 2025-12 | `░░░░░░░░░░░░░░░░░░░░` | 0% | 0 / 34 |
-| 2026-01 | `█░░░░░░░░░░░░░░░░░░░` | 0.4% | 1 / 273 |
-| 2026-02 | `░░░░░░░░░░░░░░░░░░░░` | 0% | 0 / 54 |
-| 2026-03 | `░░░░░░░░░░░░░░░░░░░░` | 0% | 0 / 232 |
-| 2026-04 | `░░░░░░░░░░░░░░░░░░░░` | 0% | 0 / 30 |
-| 2026-05 | `██░░░░░░░░░░░░░░░░░░` | 9.6% | 7 / 73 |
-| 2026-06 | `█████████░░░░░░░░░░░` | 45.3% | 329 / 726 |
-| 2026-07 | `████████████░░░░░░░░` | 61.1% | 1,157 / 1,895 |
-| 2026-08 | `████████████████░░░░` | 79.5% | 586 / 737 |
-| 2026-09 | `██████████████████░░` | 89.3% | 1,089 / 1,220 |
-| 2026-10 | `████████████████░░░░` | 78.9% | 1,080 / 1,369 |
+<picture>
+  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/charts/ai-share-dark-mobile.svg">
+  <source media="(max-width: 600px)" srcset="assets/charts/ai-share-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/charts/ai-share-dark.svg">
+  <img alt="AI-assisted share of commits per month" src="assets/charts/ai-share-light.svg">
+</picture>
+
+<details>
+<summary>As a table</summary>
+
+| Month | Share | AI / all commits |
+|:--|--:|--:|
+| 2025-11 | 0% | 0 / 107 |
+| 2025-12 | 0% | 0 / 34 |
+| 2026-01 | 0.4% | 1 / 273 |
+| 2026-02 | 0% | 0 / 54 |
+| 2026-03 | 0% | 0 / 232 |
+| 2026-04 | 0% | 0 / 30 |
+| 2026-05 | 9.6% | 7 / 73 |
+| 2026-06 | 45.3% | 329 / 726 |
+| 2026-07 | 61.1% | 1157 / 1895 |
+| 2026-08 | 79.5% | 586 / 737 |
+| 2026-09 | 89.3% | 1089 / 1220 |
+| 2026-10 | 78.9% | 1080 / 1369 |
+
+</details>
 
 <details>
 <summary>Weekly view (last 26 ISO weeks, 2026-W18 → 2026-W43)</summary>

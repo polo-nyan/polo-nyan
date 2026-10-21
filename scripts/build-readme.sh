@@ -21,6 +21,8 @@ OUT="${2:-${REPO_ROOT}/README.md}"
 TEMPLATE="${3:-${SCRIPT_DIR}/templates/README.template.md}"
 # The profile repo itself is never a "project"; it is filtered out of lists.
 SELF_REPO="${SELF_REPO:-polo-nyan}"
+CHART_DIR="${REPO_ROOT}/assets/charts"
+mkdir -p "$CHART_DIR"
 
 # shellcheck source=lib.sh
 . "${SCRIPT_DIR}/lib.sh"
@@ -80,31 +82,25 @@ EOF
 gen_languages() {
   local max rows all
   max="$(jq -r '[.languages[].percentage | tonumber] | max' "$STATS_JSON")"
-  rows="$(jq -r '.languages[:6][] | "\(.name)\t\(.percentage)\t\(.repos)"' "$STATS_JSON" \
-    | while IFS=$'\t' read -r name pct repos; do
-        printf '| %s | `%s` | %s%% | %s |\n' "$name" "$(bar "$pct" "$max")" "$pct" "$repos"
-      done)"
-  all="$(jq -r '.languages[6:][] | "| \(.name) | \(.percentage)% | \(.repos) |"' "$STATS_JSON")"
+  # Coloured bars (GitHub's linguist colours) as generated SVGs; the markdown
+  # table below carries the numbers for copy/paste and screen readers.
+  jq -r '.languages[:6][] | "\(.name)\t\(.percentage)\t\(.percentage)% · \(.repos) repos\t\(.color // "#8b5cf6")"' "$STATS_JSON" \
+    | svg_barchart "${CHART_DIR}/languages" "$max"
+  rows="$(jq -r '.languages[] | "| \(.name) | \(.percentage)% | \(.repos) |"' "$STATS_JSON")"
   cat <<EOF
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
-| Language | | Share | Repos |
-|:--|:--|--:|--:|
-${rows}
-EOF
-  if [ -n "$all" ]; then
-    cat <<EOF
+$(picture_block "assets/charts/languages" "Top languages by code volume")
 
 <details>
-<summary>All languages</summary>
+<summary>All languages as a table</summary>
 
 | Language | Share | Repos |
 |:--|--:|--:|
-${all}
+${rows}
 
 </details>
 EOF
-  fi
 }
 
 # Activity details: streaks, PR flow, cadence sparkline, repos per year.

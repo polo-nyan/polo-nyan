@@ -14,7 +14,7 @@
 
 Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build backend services and the automation around them, run a small self-hosted fleet, and work on game development, machine learning and IoT on the side. Most of my code lives in the [smol-kitten](https://github.com/smol-kitten) organisation; the larger part of it is private, but the numbers below include it.
 
-## Current projects
+## 🛠️ Current projects
 
 | Project | What it is |
 |:--|:--|
@@ -37,7 +37,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-## By the numbers
+## 📊 By the numbers
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
@@ -45,20 +45,24 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
-| Language | | Share | Repos |
-|:--|:--|--:|--:|
-| PHP | `████████████` | 19.7% | 39 |
-| Python | `██████████░░` | 16.8% | 57 |
-| C# | `██████████░░` | 16.6% | 37 |
-| HTML | `█████████░░░` | 15.2% | 51 |
-| TypeScript | `██████░░░░░░` | 10.2% | 15 |
-| JavaScript | `████░░░░░░░░` | 6.7% | 51 |
+<picture>
+  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/charts/languages-dark-mobile.svg">
+  <source media="(max-width: 600px)" srcset="assets/charts/languages-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/charts/languages-dark.svg">
+  <img alt="Top languages by code volume" src="assets/charts/languages-light.svg">
+</picture>
 
 <details>
-<summary>All languages</summary>
+<summary>All languages as a table</summary>
 
 | Language | Share | Repos |
 |:--|--:|--:|
+| PHP | 19.7% | 39 |
+| Python | 16.8% | 57 |
+| C# | 16.6% | 37 |
+| HTML | 15.2% | 51 |
+| TypeScript | 10.2% | 15 |
+| JavaScript | 6.7% | 51 |
 | Go | 3.5% | 6 |
 | Shell | 2.5% | 77 |
 | CSS | 2.1% | 46 |
@@ -98,7 +102,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>AI pair-programming: **47.8%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
-## Toolbox
+## 🧰 Toolbox
 
 | | |
 |:--|:--|
@@ -118,6 +122,6 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 ---
 
-<sub>Rebuilt daily by GitHub Actions on a self-hosted runner. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror. The cat is the only one allowed on the keyboard.</sub>
+<sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
 <sub>Last updated 2026-10-21.</sub>

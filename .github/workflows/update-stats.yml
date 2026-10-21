@@ -616,7 +616,7 @@ jobs:
           git config user.email "actions@github.com"
 
           # Stage only the generated artifacts.
-          git add README.md stats.json AI-STATS.md ai-stats.json
+          git add README.md stats.json AI-STATS.md ai-stats.json assets/charts
 
           if git diff --staged --quiet; then
             echo "No changes to commit."

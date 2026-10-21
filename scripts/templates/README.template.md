@@ -14,7 +14,7 @@
 
 Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build backend services and the automation around them, run a small self-hosted fleet, and work on game development, machine learning and IoT on the side. Most of my code lives in the [smol-kitten](https://github.com/smol-kitten) organisation; the larger part of it is private, but the numbers below include it.
 
-## Current projects
+## 🛠️ Current projects
 
 | Project | What it is |
 |:--|:--|
@@ -25,7 +25,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <!-- GEN:recent -->
 
-## By the numbers
+## 📊 By the numbers
 
 <!-- GEN:numbers -->
 
@@ -35,7 +35,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <!-- GEN:ai_link -->
 
-## Toolbox
+## 🧰 Toolbox
 
 | | |
 |:--|:--|
@@ -55,6 +55,6 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 ---
 
-<sub>Rebuilt daily by GitHub Actions on a self-hosted runner. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror. The cat is the only one allowed on the keyboard.</sub>
+<sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
 <!-- GEN:updated -->

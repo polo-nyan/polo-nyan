@@ -1,24 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" role="img" aria-label="polo-nyan — Marc, self-taught hobby developer from Germany">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1f6"/><stop offset="1" stop-color="#eef0ff"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe3ee"/><stop offset="0.55" stop-color="#ebe7ff"/><stop offset="1" stop-color="#dcf5f1"/></linearGradient>
     <clipPath id="r"><rect width="720" height="200" rx="16"/></clipPath>
   </defs>
   <g clip-path="url(#r)">
     <rect width="720" height="200" fill="url(#g)"/>
-    <circle cx="610" cy="60" r="130" fill="#d85a8f" opacity="0.14"/><circle cx="60" cy="210" r="90" fill="#d85a8f" opacity="0.10"/>
-    <g transform="translate(600,100) scale(1.05)" fill="none" stroke="#c2457d" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <path d="M-30 -27 L-38 -62 L-9 -38"/>
-      <path d="M30 -27 L38 -62 L9 -38"/>
-      <circle cx="0" cy="0" r="40"/>
-      <circle cx="-15" cy="-4" r="3.5" fill="#c2457d" stroke="none"/>
-      <circle cx="15" cy="-4" r="3.5" fill="#c2457d" stroke="none"/>
-      <path d="M-7 12 Q0 19 7 12"/>
-      <path d="M-62 2 L-42 4 M-62 14 L-42 10 M62 2 L42 4 M62 14 L42 10" stroke-width="3.5" opacity="0.85"/>
-    </g>
+    <circle cx="640" cy="30" r="140" fill="#f472b6" opacity="0.22"/>
+    <circle cx="520" cy="220" r="110" fill="#a78bfa" opacity="0.18"/>
+    <circle cx="60" cy="220" r="90" fill="#2dd4bf" opacity="0.16"/>
   </g>
   <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
     <text x="36" y="86" font-size="54" font-weight="700" fill="#1f2328" letter-spacing="-1">polo-nyan</text>
-    <text x="38" y="122" font-size="22" fill="#57606a">Marc · hobby developer</text>
-    <text x="38" y="152" font-size="22" fill="#57606a">Germany</text>
+    <text x="38" y="122" font-size="22" fill="#4b5563">Marc · hobby developer</text>
+    <text x="38" y="152" font-size="22" fill="#4b5563">Germany</text>
   </g>
 </svg>

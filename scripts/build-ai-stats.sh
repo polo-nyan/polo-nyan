@@ -17,6 +17,8 @@ OUT="${2:-${REPO_ROOT}/AI-STATS.md}"
 TEMPLATE="${3:-${SCRIPT_DIR}/templates/AI-STATS.template.md}"
 BAR_WIDTH=20
 CI_MIN_N=30   # minimum checked PRs per group before a CI pass rate is shown
+CHART_DIR="${REPO_ROOT}/assets/charts"
+mkdir -p "$CHART_DIR"
 # The profile repo is a stats artifact, not a project; it stays in the totals but is not named.
 SELF_REPO="${SELF_REPO:-polo-nyan}"
 
@@ -47,14 +49,23 @@ EOF
 
 gen_monthly() {
   local rows
-  rows="$(jq -r '.monthly[-12:][] | "\(.period)\t\(.share)\t\(.ai)\t\(.commits)"' "$STATS_JSON" \
-    | while IFS=$'\t' read -r p s a c; do printf '| %s | `%s` | %s%% | %s / %s |\n' "$p" "$(bar "$s" 100)" "$s" "$(num "$a")" "$(num "$c")"; done)"
+  # Bars run pink -> violet with the share so the chart reads at a glance.
+  jq -r '.monthly[-12:][] | "\(.period)\t\(.share)\t\(.share)% · \(.ai) of \(.commits)\t" + (if .share >= 75 then "#8b5cf6" elif .share >= 40 then "#c084fc" else "#f472b6" end)' "$STATS_JSON" \
+    | svg_barchart "${CHART_DIR}/ai-share" 100
+  rows="$(jq -r '.monthly[-12:][] | "| \(.period) | \(.share)% | \(.ai) / \(.commits) |"' "$STATS_JSON")"
   cat <<EOF
-Share of my commits per month that carry an AI co-author trailer (bar = 0–100 %).
+Share of my commits per month that carry an AI co-author trailer (bars span 0–100 %).
 
-| Month | Share | | AI / all commits |
-|:--|:--|--:|--:|
+$(picture_block "assets/charts/ai-share" "AI-assisted share of commits per month")
+
+<details>
+<summary>As a table</summary>
+
+| Month | Share | AI / all commits |
+|:--|--:|--:|
 ${rows}
+
+</details>
 EOF
 }
 
