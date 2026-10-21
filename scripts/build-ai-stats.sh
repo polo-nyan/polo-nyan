@@ -16,6 +16,8 @@ STATS_JSON="${1:-${REPO_ROOT}/ai-stats.json}"
 OUT="${2:-${REPO_ROOT}/AI-STATS.md}"
 TEMPLATE="${3:-${SCRIPT_DIR}/templates/AI-STATS.template.md}"
 BAR_WIDTH=20
+# The profile repo is a stats artifact, not a project; it stays in the totals but is not named.
+SELF_REPO="${SELF_REPO:-polo-nyan}"
 
 # shellcheck source=lib.sh
 . "${SCRIPT_DIR}/lib.sh"
@@ -83,13 +85,13 @@ EOF
 
 gen_repos() {
   local rows priv_n priv_c priv_a priv_s
-  rows="$(jq -r '.repos.public[] | "\(.name)\t\(.owner)\t\(.url)\t\(.commits)\t\(.ai)\t\(.share)"' "$STATS_JSON" \
+  rows="$(jq -r --arg self "$SELF_REPO" '.repos.public[] | select(.name != $self) | "\(.name)\t\(.owner)\t\(.url)\t\(.commits)\t\(.ai)\t\(.share)"' "$STATS_JSON" \
     | while IFS=$'\t' read -r name owner url c a s; do
         printf '| [%s](%s) <sub>%s</sub> | `%s` | %s%% | %s / %s |\n' "$name" "$url" "$owner" "$(bar "$s" 100)" "$s" "$(num "$a")" "$(num "$c")"
       done)"
   priv_n="$(sget .repos.private.repos 0)"; priv_c="$(sget .repos.private.commits 0)"; priv_a="$(sget .repos.private.ai 0)"; priv_s="$(sget .repos.private.share 0)"
   cat <<EOF
-Public repositories by name, ordered by commits in the window. Private, forked and archived repositories are rolled up into one row.
+Public repositories by name, ordered by commits in the window. Private, forked and archived repositories (and this profile repo) are rolled up into one row.
 
 | Repository | Share | | AI / all commits |
 |:--|:--|--:|--:|
