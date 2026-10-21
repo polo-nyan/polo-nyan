@@ -580,9 +580,9 @@ jobs:
           ./scripts/build-readme.sh
 
       - name: Set up Node for the AI-stats collector
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Collect AI pair-programming stats
         id: aistats

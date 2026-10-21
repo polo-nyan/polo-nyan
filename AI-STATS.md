@@ -97,7 +97,9 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | Mean time to merge | 8.6 h | 21.1 h |
 | Median commits per PR | 1 | 1 |
 | Median lines changed per PR | 67 | 18 |
-| CI pass rate <sub>head commit, PRs with checks</sub> | **80.9%** <sub>1215 of 1502</sub> | **33.7%** <sub>243 of 722</sub> |
+| CI pass rate of the head commit | 80.9% <sub>n = 1,502</sub> | 33.7% <sub>n = 722</sub> |
+
+<sub>CI pass rates describe different kinds of PRs (small manual fixes vs assisted feature work), not an effect of AI use; failures include infrastructure noise.</sub>
 
 ## Lines changed
 

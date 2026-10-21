@@ -16,6 +16,7 @@ STATS_JSON="${1:-${REPO_ROOT}/ai-stats.json}"
 OUT="${2:-${REPO_ROOT}/AI-STATS.md}"
 TEMPLATE="${3:-${SCRIPT_DIR}/templates/AI-STATS.template.md}"
 BAR_WIDTH=20
+CI_MIN_N=30   # minimum checked PRs per group before a CI pass rate is shown
 # The profile repo is a stats artifact, not a project; it stays in the totals but is not named.
 SELF_REPO="${SELF_REPO:-polo-nyan}"
 
@@ -120,8 +121,18 @@ $(num "$sampled") merged pull requests sampled (up to ${cap} most recent per rep
 | Mean time to merge | $(fmt_hours "${v[ai.mean]}") | $(fmt_hours "${v[human.mean]}") |
 | Median commits per PR | ${v[ai.mc]} | ${v[human.mc]} |
 | Median lines changed per PR | $(num "${v[ai.ml]}") | $(num "${v[human.ml]}") |
-| CI pass rate <sub>head commit, PRs with checks</sub> | **${v[ai.ci]}%** <sub>${v[ai.cip]} of ${v[ai.cic]}</sub> | **${v[human.ci]}%** <sub>${v[human.cip]} of ${v[human.cic]}</sub> |
 EOF
+  # CI pass rate only when both groups have enough checked PRs to mean anything,
+  # always with n, never as a causal claim.
+  if [ "${v[ai.cic]}" -ge "$CI_MIN_N" ] && [ "${v[human.cic]}" -ge "$CI_MIN_N" ]; then
+    cat <<EOF
+| CI pass rate of the head commit | ${v[ai.ci]}% <sub>n = $(num "${v[ai.cic]}")</sub> | ${v[human.ci]}% <sub>n = $(num "${v[human.cic]}")</sub> |
+
+<sub>CI pass rates describe different kinds of PRs (small manual fixes vs assisted feature work), not an effect of AI use; failures include infrastructure noise.</sub>
+EOF
+  else
+    printf '\n<sub>CI pass rate not shown: fewer than %s PRs with checks in one of the groups.</sub>\n' "$CI_MIN_N"
+  fi
   if [ "$trunc" -gt 0 ]; then
     printf '\n<sub>%s PRs had more commits than the per-PR scan limit; only their first commits were inspected for trailers.</sub>\n' "$trunc"
   fi
