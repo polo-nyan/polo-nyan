@@ -28,11 +28,11 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
-| [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑10‑22 |
+| [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑10‑23 |
+| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑10‑22 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑10‑22 |
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026‑10‑21 |
 | [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Tool to change MC Versions at specific dates from a profile | C# | 2026‑10‑20 |
-| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑10‑19 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirr… | Python | 2026‑10‑16 |
 
 </details>
@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **145** <sub>13 public · 132 private</sub> | **12,041** | **224** | **4,576** <sub>of 4,784 · 95.7%</sub> | **91.4%** <sub>of 406 runs</sub> |
+| **145** <sub>13 public · 132 private</sub> | **12,131** | **225** | **4,612** <sub>of 4,822 · 95.6%</sub> | **91.0%** <sub>of 435 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -57,9 +57,9 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Language | Share | Repos |
 |:--|--:|--:|
-| PHP | 19.6% | 39 |
-| Python | 16.9% | 58 |
-| C# | 16.5% | 37 |
+| PHP | 19.5% | 39 |
+| Python | 17.0% | 59 |
+| C# | 16.4% | 37 |
 | HTML | 15.3% | 51 |
 | TypeScript | 10.1% | 15 |
 | JavaScript | 6.7% | 52 |
@@ -75,15 +75,15 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,544** / **6,034** |
-| Current streak | **23 days** |
+| Last 30 / 90 days | **3,181** / **6,123** |
+| Current streak | **24 days** |
 | Longest streak | **50 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 3891 sampled commits · busiest: Wed around 22:00</sub>
+**Commit clock** <sub>UTC, 3532 sampled commits · busiest: Wed around 11:00</sub>
 
 ```
-00h ▂▂▁▁▂▃▃▃▃▃▄▄▃▃▃▃▂▂▂▃▃▃█▂ 23h
+00h ▄▃▂▂▄▆▆▅▇▇██▆▅▅▆▄▄▄▅▅▅▆▄ 23h
 ```
 
 **Repositories created per year**
@@ -100,7 +100,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<sub>AI pair-programming: **49.6%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **57.6%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-10-22.</sub>
+<sub>Last updated 2026-10-23.</sub>
