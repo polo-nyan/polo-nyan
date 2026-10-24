@@ -11,8 +11,8 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 197,
-  "totalSizeMB": "1673.9",
+  "totalOpenIssues": 196,
+  "totalSizeMB": "1674.7",
   "languages": [
     {
       "name": "PHP",
@@ -23,7 +23,7 @@
     },
     {
       "name": "Python",
-      "bytes": 14544543,
+      "bytes": 14550008,
       "percentage": "17.0",
       "repos": 59,
       "color": "#3572A5"
@@ -89,13 +89,13 @@
   "totalCommits": 1429,
   "avgCommitsPerRepo": "49.3",
   "medianCommits": 23,
-  "recentCommits": 49,
+  "recentCommits": 44,
   "avgRepoAge": "0.7",
   "estimatedTotalFiles": 24795,
   "avgFilesPerRepo": 171,
-  "estimatedTotalLines": 13779785,
-  "avgLinesPerRepo": 95033,
-  "avgLinesPerFile": 556,
+  "estimatedTotalLines": 13823865,
+  "avgLinesPerRepo": 95337,
+  "avgLinesPerFile": 558,
   "archivedRepos": 4,
   "activeRepos": 141,
   "forkedRepos": 3,
@@ -155,6 +155,16 @@
   ],
   "recentlyUpdated": [
     {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-10-23",
+      "description": "Config files for my GitHub profile.",
+      "language": "Shell",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
       "name": "fleet-actions",
       "url": "https://github.com/workcollection/fleet-actions",
       "pushedAt": "2026-10-23",
@@ -180,16 +190,6 @@
       "pushedAt": "2026-10-22",
       "description": "Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet secondaries, reach-any-IP mode, device presets, VLAN detection. MIT.",
       "language": "C#",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
-      "name": "polo-nyan",
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-10-22",
-      "description": "Config files for my GitHub profile.",
-      "language": "Shell",
       "fork": false,
       "archived": false,
       "private": false
@@ -277,11 +277,11 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 12131,
+    "totalContributions": 12141,
     "currentStreakDays": 24,
     "longestStreakDays": 50,
-    "last30d": 3181,
-    "last90d": 6123,
+    "last30d": 3032,
+    "last90d": 6129,
     "activeDays": 225,
     "busiestDay": {
       "date": "2026-09-23",
@@ -289,9 +289,9 @@
     }
   },
   "prsAllTime": {
-    "opened": 4822,
-    "merged": 4612,
-    "mergeRate": "95.6"
+    "opened": 4824,
+    "merged": 4615,
+    "mergeRate": "95.7"
   },
   "commitPatterns": {
     "byHour": [
@@ -301,8 +301,8 @@
       48,
       97,
       200,
-      186,
-      144,
+      187,
+      146,
       217,
       228,
       252,
@@ -317,16 +317,16 @@
       137,
       153,
       165,
-      167,
-      104
+      166,
+      102
     ],
     "byWeekday": [
       356,
-      529,
+      526,
       428,
       880,
       529,
-      386,
+      389,
       424
     ],
     "topHour": 11,
@@ -338,14 +338,14 @@
     "reposWithWorkflows": 29,
     "workflowsPct": "97",
     "runsSampled": 435,
-    "successRate": "91.0"
+    "successRate": "95.4"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 2033,
-    "totalCoauthorMentions": 7846,
+    "totalAICommits": 2030,
+    "totalCoauthorMentions": 7843,
     "scannedCommits": 3532,
-    "assistRate": "57.6",
+    "assistRate": "57.5",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -362,7 +362,7 @@
       },
       {
         "family": "Claude",
-        "count": 408
+        "count": 405
       },
       {
         "family": "Fable",
@@ -388,7 +388,7 @@
       },
       {
         "model": "Claude (unspecified)",
-        "count": 408
+        "count": 405
       },
       {
         "model": "Opus 5",
@@ -439,9 +439,9 @@
         "month": "2026-06",
         "total": 249,
         "families": {
+          "Claude": 71,
           "Opus": 174,
-          "Sonnet": 4,
-          "Claude": 71
+          "Sonnet": 4
         }
       },
       {
@@ -449,16 +449,16 @@
         "total": 601,
         "families": {
           "Opus": 570,
-          "Claude": 2,
-          "Fable": 29
+          "Fable": 29,
+          "Claude": 2
         }
       },
       {
         "month": "2026-08",
-        "total": 234,
+        "total": 231,
         "families": {
-          "Claude": 58,
           "Opus": 175,
+          "Claude": 55,
           "Fable": 1
         }
       },
@@ -483,5 +483,5 @@
       }
     ]
   },
-  "updatedAt": "2026-10-23"
+  "updatedAt": "2026-10-24"
 }

@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **145** <sub>13 public · 132 private</sub> | **12,131** | **225** | **4,612** <sub>of 4,822 · 95.6%</sub> | **91.0%** <sub>of 435 runs</sub> |
+| **145** <sub>13 public · 132 private</sub> | **12,141** | **225** | **4,615** <sub>of 4,824 · 95.7%</sub> | **95.4%** <sub>of 435 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -75,7 +75,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,181** / **6,123** |
+| Last 30 / 90 days | **3,032** / **6,129** |
 | Current streak | **24 days** |
 | Longest streak | **50 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
@@ -83,7 +83,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 **Commit clock** <sub>UTC, 3532 sampled commits · busiest: Wed around 11:00</sub>
 
 ```
-00h ▄▃▂▂▄▆▆▅▇▇██▆▅▅▆▄▄▄▅▅▅▆▄ 23h
+00h ▄▃▂▂▄▆▆▅▇▇██▆▅▅▆▄▄▄▅▅▅▅▄ 23h
 ```
 
 **Repositories created per year**
@@ -100,7 +100,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<sub>AI pair-programming: **57.6%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **57.5%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-10-23.</sub>
+<sub>Last updated 2026-10-24.</sub>
