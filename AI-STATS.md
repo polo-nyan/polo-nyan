@@ -10,7 +10,7 @@ How much of my code is written together with an AI assistant, and whether that c
 
 | AI-assisted share | Commits scanned | Repositories | Lines added / removed |
 |:--:|:--:|:--:|:--:|
-| **62.6%** <sub>4,311 of 6,885 commits</sub> | **6,885** <sub>2025-10-24 → 2026-10-24</sub> | **141** <sub>with commits in the window</sub> | **+5,015,734** / **−618,911** |
+| **62.6%** <sub>4,333 of 6,920 commits</sub> | **6,920** <sub>2025-10-25 → 2026-10-25</sub> | **142** <sub>with commits in the window</sub> | **+5,029,221** / **−619,236** |
 
 ## Share of AI-assisted commits over time
 
@@ -39,7 +39,7 @@ Share of my commits per month that carry an AI co-author trailer (bars span 0–
 | 2026-07 | 61.1% | 1157 / 1895 |
 | 2026-08 | 79.5% | 586 / 737 |
 | 2026-09 | 89.3% | 1089 / 1220 |
-| 2026-10 | 77.4% | 1142 / 1476 |
+| 2026-10 | 77% | 1164 / 1511 |
 
 </details>
 
@@ -78,7 +78,7 @@ commits    ▁▁▁▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇
 | 2026-W40 | 367 / 442 | 83% |
 | 2026-W41 | 341 / 372 | 91.7% |
 | 2026-W42 | 401 / 518 | 77.4% |
-| 2026-W43 | 186 / 299 | 62.2% |
+| 2026-W43 | 208 / 334 | 62.3% |
 
 </details>
 
@@ -96,20 +96,20 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) <sub>smol-kitten</sub> | `███████████████████░` | 95.8% | 23 / 24 |
 | [netpaw-site](https://github.com/smol-kitten/netpaw-site) <sub>smol-kitten</sub> | `████████████████████` | 100% | 8 / 8 |
 | [.github](https://github.com/smol-kitten/.github) <sub>smol-kitten</sub> | `█████░░░░░░░░░░░░░░░` | 25% | 1 / 4 |
-| *132 private / other repos* | `█████████████░░░░░░░` | 62.5% | 4,022 / 6,433 |
+| *133 private / other repos* | `█████████████░░░░░░░` | 62.5% | 4,044 / 6,468 |
 
 ## Pull requests: with and without AI commits
 
-2,512 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
+2,516 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
 
 | | With AI commits | Without AI commits |
 |:--|--:|--:|
-| Pull requests | **1,740** | **772** |
+| Pull requests | **1,744** | **772** |
 | Median time to merge | **6 min** | **0 min** |
-| Mean time to merge | 8.6 h | 21.1 h |
+| Mean time to merge | 8.5 h | 21.1 h |
 | Median commits per PR | 1 | 1 |
-| Median lines changed per PR | 66.5 | 18 |
-| CI pass rate of the head commit | 80.1% <sub>n = 1,499</sub> | 33.8% <sub>n = 719</sub> |
+| Median lines changed per PR | 67 | 18 |
+| CI pass rate of the head commit | 79.9% <sub>n = 1,492</sub> | 33.8% <sub>n = 719</sub> |
 
 <sub>CI pass rates describe different kinds of PRs (small manual fixes vs assisted feature work), not an effect of AI use; failures include infrastructure noise.</sub>
 
@@ -117,10 +117,10 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 | | AI-assisted commits | Human-only commits |
 |:--|--:|--:|
-| Commits | 4,311 | 2,574 |
-| Lines added | +2,498,123 | +2,517,611 |
-| Lines removed | −282,656 | −336,255 |
-| Lines changed per commit | **645** | **1,109** |
+| Commits | 4,333 | 2,587 |
+| Lines added | +2,501,807 | +2,527,414 |
+| Lines removed | −282,893 | −336,343 |
+| Lines changed per commit | **643** | **1,107** |
 
 <details>
 <summary>Lines changed per month (bar = AI-assisted share of the month's volume, scaled to the busiest month)</summary>
@@ -138,7 +138,7 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | 2026-07 | `██████████░░░░░░░░░░` | 739,584 | 907,587 |
 | 2026-08 | `████░░░░░░░░░░░░░░░░` | 314,689 | 449,541 |
 | 2026-09 | `██████████████░░░░░░` | 966,600 | 1,424,048 |
-| 2026-10 | `████████░░░░░░░░░░░░` | 569,906 | 962,342 |
+| 2026-10 | `████████░░░░░░░░░░░░` | 573,827 | 976,154 |
 
 </details>
 
@@ -153,4 +153,4 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 Numbers are rebuilt daily by [`update-stats.yml`](.github/workflows/update-stats.yml); the collector is [`scripts/collect-ai-stats.mjs`](scripts/collect-ai-stats.mjs) and the renderer [`scripts/build-ai-stats.sh`](scripts/build-ai-stats.sh). Back to the [profile](README.md).
 
-<sub>Last updated 2026-10-24.</sub>
+<sub>Last updated 2026-10-25.</sub>

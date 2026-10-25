@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **145** <sub>13 public · 132 private</sub> | **12,141** | **225** | **4,615** <sub>of 4,824 · 95.7%</sub> | **95.4%** <sub>of 435 runs</sub> |
+| **146** <sub>13 public · 133 private</sub> | **12,197** | **226** | **4,629** <sub>of 4,844 · 95.6%</sub> | **86.7%** <sub>of 390 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -58,14 +58,14 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 | Language | Share | Repos |
 |:--|--:|--:|
 | PHP | 19.5% | 39 |
-| Python | 17.0% | 59 |
+| Python | 17.2% | 60 |
 | C# | 16.4% | 37 |
-| HTML | 15.3% | 51 |
+| HTML | 15.3% | 52 |
 | TypeScript | 10.1% | 15 |
 | JavaScript | 6.7% | 52 |
 | Go | 3.6% | 6 |
-| Shell | 2.5% | 78 |
-| CSS | 2.1% | 46 |
+| Shell | 2.5% | 79 |
+| CSS | 2.1% | 47 |
 | Lua | 1.5% | 5 |
 
 </details>
@@ -75,15 +75,15 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,032** / **6,129** |
-| Current streak | **24 days** |
+| Last 30 / 90 days | **2,992** / **6,153** |
+| Current streak | **26 days** |
 | Longest streak | **50 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 3532 sampled commits · busiest: Wed around 11:00</sub>
+**Commit clock** <sub>UTC, 3686 sampled commits · busiest: Wed around 11:00</sub>
 
 ```
-00h ▄▃▂▂▄▆▆▅▇▇██▆▅▅▆▄▄▄▅▅▅▅▄ 23h
+00h ▄▃▂▂▃▆▆▅▇▇██▆▅▅▆▄▃▄▅▅▅▅▄ 23h
 ```
 
 **Repositories created per year**
@@ -96,11 +96,11 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 | 2023 | `█░░░░░░░░░░░` | 4 |
 | 2024 | `█░░░░░░░░░░░` | 8 |
 | 2025 | `████░░░░░░░░` | 29 |
-| 2026 | `████████████` | 92 |
+| 2026 | `████████████` | 93 |
 
 </details>
 
-<sub>AI pair-programming: **57.5%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **57.7%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-10-24.</sub>
+<sub>Last updated 2026-10-25.</sub>
