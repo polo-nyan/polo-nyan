@@ -11,19 +11,19 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 202,
-  "totalSizeMB": "1675.2",
+  "totalOpenIssues": 174,
+  "totalSizeMB": "1690.8",
   "languages": [
     {
       "name": "PHP",
-      "bytes": 16672101,
+      "bytes": 16747099,
       "percentage": "19.5",
       "repos": 39,
       "color": "#4F5D95"
     },
     {
       "name": "Python",
-      "bytes": 14675187,
+      "bytes": 14759791,
       "percentage": "17.2",
       "repos": 60,
       "color": "#3572A5"
@@ -31,27 +31,27 @@
     {
       "name": "C#",
       "bytes": 14014188,
-      "percentage": "16.4",
+      "percentage": "16.3",
       "repos": 37,
       "color": "#178600"
     },
     {
       "name": "HTML",
       "bytes": 13065450,
-      "percentage": "15.3",
+      "percentage": "15.2",
       "repos": 52,
       "color": "#e34c26"
     },
     {
       "name": "TypeScript",
-      "bytes": 8598870,
-      "percentage": "10.1",
+      "bytes": 8602575,
+      "percentage": "10.0",
       "repos": 15,
       "color": "#3178c6"
     },
     {
       "name": "JavaScript",
-      "bytes": 5708750,
+      "bytes": 5734096,
       "percentage": "6.7",
       "repos": 52,
       "color": "#f1e05a"
@@ -65,14 +65,14 @@
     },
     {
       "name": "Shell",
-      "bytes": 2112390,
+      "bytes": 2118601,
       "percentage": "2.5",
       "repos": 79,
       "color": "#89e051"
     },
     {
       "name": "CSS",
-      "bytes": 1767608,
+      "bytes": 1767804,
       "percentage": "2.1",
       "repos": 47,
       "color": "#563d7c"
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1431,
-  "avgCommitsPerRepo": "49.3",
+  "totalCommits": 1453,
+  "avgCommitsPerRepo": "50.1",
   "medianCommits": 23,
-  "recentCommits": 15,
+  "recentCommits": 32,
   "avgRepoAge": "0.7",
   "estimatedTotalFiles": 24966,
   "avgFilesPerRepo": 171,
-  "estimatedTotalLines": 13927816,
-  "avgLinesPerRepo": 95396,
-  "avgLinesPerFile": 558,
+  "estimatedTotalLines": 13961250,
+  "avgLinesPerRepo": 95625,
+  "avgLinesPerFile": 559,
   "archivedRepos": 4,
   "activeRepos": 142,
   "forkedRepos": 3,
@@ -155,29 +155,9 @@
   ],
   "recentlyUpdated": [
     {
-      "name": "Twitch-Channel-Points-Miner-v2.1",
-      "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
-      "pushedAt": "2026-10-25",
-      "description": "[NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo.",
-      "language": "Python",
-      "fork": true,
-      "archived": false,
-      "private": false
-    },
-    {
-      "name": "polo-nyan",
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-10-24",
-      "description": "Config files for my GitHub profile.",
-      "language": "Shell",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
       "name": "fleet-actions",
       "url": "https://github.com/workcollection/fleet-actions",
-      "pushedAt": "2026-10-23",
+      "pushedAt": "2026-10-26",
       "description": "Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), never @main.",
       "language": "Python",
       "fork": false,
@@ -187,10 +167,30 @@
     {
       "name": "netpaw",
       "url": "https://github.com/smol-kitten/netpaw",
-      "pushedAt": "2026-10-22",
+      "pushedAt": "2026-10-26",
       "description": "Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet secondaries, reach-any-IP mode, device presets, VLAN detection. MIT.",
       "language": "C#",
       "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-10-25",
+      "description": "Config files for my GitHub profile.",
+      "language": "Shell",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
+      "name": "Twitch-Channel-Points-Miner-v2.1",
+      "url": "https://github.com/polo-nyan/Twitch-Channel-Points-Miner-v2.1",
+      "pushedAt": "2026-10-25",
+      "description": "[NEW] A simple script that will watch a stream for you and earn the channel points. A successor of Tkd-Alex's original repo.",
+      "language": "Python",
+      "fork": true,
       "archived": false,
       "private": false
     },
@@ -277,74 +277,74 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 12197,
-    "currentStreakDays": 26,
+    "totalContributions": 12334,
+    "currentStreakDays": 27,
     "longestStreakDays": 50,
-    "last30d": 2992,
-    "last90d": 6153,
-    "activeDays": 226,
+    "last30d": 3030,
+    "last90d": 6261,
+    "activeDays": 227,
     "busiestDay": {
       "date": "2026-09-23",
       "count": 453
     }
   },
   "prsAllTime": {
-    "opened": 4844,
-    "merged": 4629,
-    "mergeRate": "95.6"
+    "opened": 4878,
+    "merged": 4670,
+    "mergeRate": "95.7"
   },
   "commitPatterns": {
     "byHour": [
-      101,
-      63,
-      46,
-      48,
-      93,
-      201,
-      192,
-      159,
-      250,
-      230,
-      272,
-      275,
-      196,
-      157,
-      163,
-      180,
-      102,
-      96,
-      107,
-      141,
-      176,
+      94,
+      66,
+      52,
+      44,
+      89,
+      211,
+      198,
+      166,
+      244,
+      229,
+      278,
+      276,
+      205,
+      153,
+      168,
+      193,
+      103,
+      97,
+      108,
+      151,
       174,
-      164,
-      100
+      177,
+      157,
+      101
     ],
     "byWeekday": [
-      422,
-      532,
-      416,
-      871,
+      435,
+      543,
+      412,
+      884,
       558,
-      429,
-      458
+      455,
+      447
     ],
-    "topHour": 11,
+    "topHour": 10,
     "topWeekday": "Wed",
-    "sampleSize": 3686
+    "sampleSize": 3734
   },
   "ci": {
     "reposScanned": 30,
-    "reposWithWorkflows": 27,
-    "workflowsPct": "90",
-    "runsSampled": 390,
-    "successRate": "86.7"
+    "reposWithWorkflows": 29,
+    "workflowsPct": "97",
+    "runsSampled": 423,
+    "successRate": "91.5"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 2126,
-    "totalCoauthorMentions": 7924,
-    "scannedCommits": 3686,
+    "totalAICommits": 2153,
+    "totalCoauthorMentions": 7984,
+    "scannedCommits": 3734,
     "assistRate": "57.7",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
@@ -358,15 +358,15 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1648
+        "count": 1670
       },
       {
         "family": "Claude",
-        "count": 394
+        "count": 391
       },
       {
         "family": "Fable",
-        "count": 63
+        "count": 71
       },
       {
         "family": "Sonnet",
@@ -380,23 +380,23 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 993
+        "count": 989
       },
       {
         "model": "Opus 5.5",
-        "count": 591
+        "count": 616
       },
       {
         "model": "Claude (unspecified)",
-        "count": 394
+        "count": 391
       },
       {
         "model": "Opus 5",
-        "count": 66
+        "count": 67
       },
       {
         "model": "Fable 5.1",
-        "count": 33
+        "count": 41
       },
       {
         "model": "Fable 5",
@@ -411,11 +411,11 @@
         "count": 9
       },
       {
-        "model": "Copilot",
+        "model": "GitHub Copilot",
         "count": 1
       },
       {
-        "model": "GitHub Copilot",
+        "model": "Copilot",
         "count": 1
       }
     ],
@@ -437,10 +437,10 @@
       },
       {
         "month": "2026-06",
-        "total": 248,
+        "total": 247,
         "families": {
+          "Opus": 174,
           "Claude": 69,
-          "Opus": 175,
           "Sonnet": 4
         }
       },
@@ -455,33 +455,33 @@
       },
       {
         "month": "2026-08",
-        "total": 237,
+        "total": 227,
         "families": {
-          "Claude": 43,
-          "Opus": 193,
+          "Opus": 192,
+          "Claude": 34,
           "Fable": 1
         }
       },
       {
         "month": "2026-09",
-        "total": 494,
+        "total": 493,
         "families": {
-          "Opus": 290,
-          "Claude": 197,
+          "Opus": 288,
+          "Claude": 198,
           "Fable": 7
         }
       },
       {
         "month": "2026-10",
-        "total": 526,
+        "total": 565,
         "families": {
-          "Opus": 408,
-          "Claude": 83,
-          "Sonnet": 9,
-          "Fable": 26
+          "Opus": 434,
+          "Claude": 88,
+          "Fable": 34,
+          "Sonnet": 9
         }
       }
     ]
   },
-  "updatedAt": "2026-10-25"
+  "updatedAt": "2026-10-26"
 }
