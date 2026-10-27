@@ -28,8 +28,8 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
+| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑10‑27 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑10‑26 |
-| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑10‑26 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑10‑22 |
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026‑10‑21 |
 | [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Tool to change MC Versions at specific dates from a profile | C# | 2026‑10‑20 |
@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **146** <sub>13 public · 133 private</sub> | **12,334** | **227** | **4,670** <sub>of 4,878 · 95.7%</sub> | **91.5%** <sub>of 423 runs</sub> |
+| **146** <sub>13 public · 133 private</sub> | **12,380** | **228** | **4,689** <sub>of 4,897 · 95.8%</sub> | **90.3%** <sub>of 435 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -57,7 +57,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Language | Share | Repos |
 |:--|--:|--:|
-| PHP | 19.5% | 39 |
+| PHP | 19.6% | 39 |
 | Python | 17.2% | 60 |
 | C# | 16.3% | 37 |
 | HTML | 15.2% | 52 |
@@ -75,15 +75,15 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,030** / **6,261** |
-| Current streak | **27 days** |
+| Last 30 / 90 days | **3,000** / **6,273** |
+| Current streak | **28 days** |
 | Longest streak | **50 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 3734 sampled commits · busiest: Wed around 10:00</sub>
+**Commit clock** <sub>UTC, 3704 sampled commits · busiest: Wed around 10:00</sub>
 
 ```
-00h ▃▃▂▂▃▆▆▅▇▇██▆▅▅▆▄▃▄▅▅▅▅▄ 23h
+00h ▄▃▂▂▃▆▆▅█▇██▆▅▅▆▄▄▄▅▆▆▅▄ 23h
 ```
 
 **Repositories created per year**
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-10-26.</sub>
+<sub>Last updated 2026-10-27.</sub>

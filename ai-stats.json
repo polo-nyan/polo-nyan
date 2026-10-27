@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-10-26",
+  "generatedAt": "2026-10-27",
   "window": {
-    "since": "2025-10-26",
-    "until": "2026-10-26",
+    "since": "2025-10-27",
+    "until": "2026-10-27",
     "days": 365
   },
   "reposScanned": 144,
   "reposWithCommits": 142,
   "totals": {
-    "commits": 7000,
-    "ai": 4382,
+    "commits": 7028,
+    "ai": 4401,
     "share": 62.6,
-    "additions": 5065893,
-    "deletions": 753903
+    "additions": 5076554,
+    "deletions": 754166
   },
   "monthly": [
     {
       "period": "2025-10",
-      "commits": 7,
+      "commits": 6,
       "ai": 0,
-      "additions": 2839,
-      "deletions": 338,
+      "additions": 2687,
+      "deletions": 311,
       "aiAdditions": 0,
       "aiDeletions": 0,
       "share": 0
@@ -137,26 +137,16 @@
     },
     {
       "period": "2026-10",
-      "commits": 1610,
-      "ai": 1212,
-      "additions": 976193,
-      "deletions": 172118,
-      "aiAdditions": 558841,
-      "aiDeletions": 26509,
-      "share": 75.3
+      "commits": 1639,
+      "ai": 1231,
+      "additions": 987006,
+      "deletions": 172408,
+      "aiAdditions": 564769,
+      "aiDeletions": 26704,
+      "share": 75.1
     }
   ],
   "weekly": [
-    {
-      "period": "2025-W43",
-      "commits": 1,
-      "ai": 0,
-      "additions": 152,
-      "deletions": 27,
-      "aiAdditions": 0,
-      "aiDeletions": 0,
-      "share": 0
-    },
     {
       "period": "2025-W44",
       "commits": 10,
@@ -649,13 +639,13 @@
     },
     {
       "period": "2026-W44",
-      "commits": 23,
-      "ai": 5,
-      "additions": 750,
-      "deletions": 115,
-      "aiAdditions": 191,
-      "aiDeletions": 25,
-      "share": 21.7
+      "commits": 52,
+      "ai": 24,
+      "additions": 11563,
+      "deletions": 405,
+      "aiAdditions": 6119,
+      "aiDeletions": 220,
+      "share": 46.2
     }
   ],
   "repos": {
@@ -664,11 +654,11 @@
         "name": "netpaw",
         "owner": "smol-kitten",
         "url": "https://github.com/smol-kitten/netpaw",
-        "commits": 190,
-        "ai": 136,
-        "share": 71.6,
-        "additions": 40292,
-        "deletions": 4039
+        "commits": 193,
+        "ai": 139,
+        "share": 72,
+        "additions": 40500,
+        "deletions": 4047
       },
       {
         "name": "common-ressources",
@@ -684,11 +674,11 @@
         "name": "web-core",
         "owner": "smol-kitten",
         "url": "https://github.com/smol-kitten/web-core",
-        "commits": 61,
+        "commits": 60,
         "ai": 14,
-        "share": 23,
-        "additions": 8611,
-        "deletions": 3899
+        "share": 23.3,
+        "additions": 8459,
+        "deletions": 3872
       },
       {
         "name": "MinecraftThroughTime",
@@ -753,50 +743,50 @@
     ],
     "private": {
       "repos": 133,
-      "commits": 6557,
-      "ai": 4093,
-      "additions": 4851241,
-      "deletions": 739145,
+      "commits": 6583,
+      "ai": 4109,
+      "additions": 4861846,
+      "deletions": 739427,
       "share": 62.4
     }
   },
   "prs": {
-    "sampled": 2521,
+    "sampled": 2527,
     "perRepoCap": 40,
     "truncatedCommitLists": 0,
     "ai": {
-      "count": 1751,
+      "count": 1760,
       "medianMergeHours": 0.1,
       "meanMergeHours": 9.8,
       "medianCommits": 1,
-      "ciChecked": 1491,
-      "ciPassed": 1191,
-      "ciPassRate": 79.9,
-      "medianLinesChanged": 64
+      "ciChecked": 1501,
+      "ciPassed": 1198,
+      "ciPassRate": 79.8,
+      "medianLinesChanged": 65
     },
     "human": {
-      "count": 770,
+      "count": 767,
       "medianMergeHours": 0,
-      "meanMergeHours": 23.2,
+      "meanMergeHours": 23.3,
       "medianCommits": 1,
-      "ciChecked": 718,
-      "ciPassed": 242,
+      "ciChecked": 715,
+      "ciPassed": 241,
       "ciPassRate": 33.7,
       "medianLinesChanged": 18
     }
   },
   "lines": {
     "ai": {
-      "commits": 4382,
-      "additions": 2511971,
-      "deletions": 284266,
-      "perCommit": 638
+      "commits": 4401,
+      "additions": 2517899,
+      "deletions": 284461,
+      "perCommit": 637
     },
     "human": {
-      "commits": 2618,
-      "additions": 2553922,
-      "deletions": 469637,
-      "perCommit": 1155
+      "commits": 2627,
+      "additions": 2558655,
+      "deletions": 469705,
+      "perCommit": 1153
     }
   }
 }
