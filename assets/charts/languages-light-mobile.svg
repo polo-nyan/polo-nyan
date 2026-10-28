@@ -3,23 +3,23 @@
 <text x="0" y="21.0" fill="#1f2328" dominant-baseline="middle">PHP</text>
 <rect x="116" y="10.0" width="175" height="22" rx="6" fill="#eaeef2"/>
 <rect x="116" y="10.0" width="175" height="22" rx="6" fill="#4F5D95"/>
-<text x="358" y="21.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">19.6% · 39 repos</text>
+<text x="358" y="21.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">19.5% · 39 repos</text>
 <text x="0" y="55.0" fill="#1f2328" dominant-baseline="middle">Python</text>
 <rect x="116" y="44.0" width="175" height="22" rx="6" fill="#eaeef2"/>
-<rect x="116" y="44.0" width="154" height="22" rx="6" fill="#3572A5"/>
-<text x="358" y="55.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">17.2% · 60 repos</text>
+<rect x="116" y="44.0" width="155" height="22" rx="6" fill="#3572A5"/>
+<text x="358" y="55.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">17.3% · 60 repos</text>
 <text x="0" y="89.0" fill="#1f2328" dominant-baseline="middle">C#</text>
 <rect x="116" y="78.0" width="175" height="22" rx="6" fill="#eaeef2"/>
-<rect x="116" y="78.0" width="146" height="22" rx="6" fill="#178600"/>
-<text x="358" y="89.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">16.3% · 37 repos</text>
+<rect x="116" y="78.0" width="148" height="22" rx="6" fill="#178600"/>
+<text x="358" y="89.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">16.5% · 37 repos</text>
 <text x="0" y="123.0" fill="#1f2328" dominant-baseline="middle">HTML</text>
 <rect x="116" y="112.0" width="175" height="22" rx="6" fill="#eaeef2"/>
 <rect x="116" y="112.0" width="136" height="22" rx="6" fill="#e34c26"/>
-<text x="358" y="123.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">15.2% · 52 repos</text>
+<text x="358" y="123.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">15.1% · 52 repos</text>
 <text x="0" y="157.0" fill="#1f2328" dominant-baseline="middle">TypeScript</text>
 <rect x="116" y="146.0" width="175" height="22" rx="6" fill="#eaeef2"/>
 <rect x="116" y="146.0" width="89" height="22" rx="6" fill="#3178c6"/>
-<text x="358" y="157.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">10.0% · 15 repos</text>
+<text x="358" y="157.0" fill="#57606a" text-anchor="end" dominant-baseline="middle">9.9% · 15 repos</text>
 <text x="0" y="191.0" fill="#1f2328" dominant-baseline="middle">JavaScript</text>
 <rect x="116" y="180.0" width="175" height="22" rx="6" fill="#eaeef2"/>
 <rect x="116" y="180.0" width="60" height="22" rx="6" fill="#f1e05a"/>
