@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-10-28",
+  "generatedAt": "2026-10-29",
   "window": {
-    "since": "2025-10-28",
-    "until": "2026-10-28",
+    "since": "2025-10-29",
+    "until": "2026-10-29",
     "days": 365
   },
   "reposScanned": 144,
   "reposWithCommits": 142,
   "totals": {
-    "commits": 7130,
-    "ai": 4482,
-    "share": 62.9,
-    "additions": 5092836,
-    "deletions": 756468
+    "commits": 7254,
+    "ai": 4591,
+    "share": 63.3,
+    "additions": 5115620,
+    "deletions": 758108
   },
   "monthly": [
     {
       "period": "2025-10",
-      "commits": 5,
+      "commits": 4,
       "ai": 0,
-      "additions": 1393,
-      "deletions": 216,
+      "additions": 1386,
+      "deletions": 111,
       "aiAdditions": 0,
       "aiDeletions": 0,
       "share": 0
@@ -137,22 +137,22 @@
     },
     {
       "period": "2026-10",
-      "commits": 1742,
-      "ai": 1312,
-      "additions": 1004582,
-      "deletions": 174805,
-      "aiAdditions": 578863,
-      "aiDeletions": 28219,
-      "share": 75.3
+      "commits": 1867,
+      "ai": 1421,
+      "additions": 1027373,
+      "deletions": 176550,
+      "aiAdditions": 599219,
+      "aiDeletions": 29858,
+      "share": 76.1
     }
   ],
   "weekly": [
     {
       "period": "2025-W44",
-      "commits": 9,
+      "commits": 8,
       "ai": 0,
-      "additions": 1477,
-      "deletions": 277,
+      "additions": 1470,
+      "deletions": 172,
       "aiAdditions": 0,
       "aiDeletions": 0,
       "share": 0
@@ -639,13 +639,13 @@
     },
     {
       "period": "2026-W44",
-      "commits": 151,
-      "ai": 102,
-      "additions": 28283,
-      "deletions": 2341,
-      "aiAdditions": 19429,
-      "aiDeletions": 1274,
-      "share": 67.5
+      "commits": 276,
+      "ai": 211,
+      "additions": 51074,
+      "deletions": 4086,
+      "aiAdditions": 39785,
+      "aiDeletions": 2913,
+      "share": 76.4
     }
   ],
   "repos": {
@@ -654,11 +654,11 @@
         "name": "netpaw",
         "owner": "smol-kitten",
         "url": "https://github.com/smol-kitten/netpaw",
-        "commits": 206,
-        "ai": 152,
-        "share": 73.8,
-        "additions": 42086,
-        "deletions": 4160
+        "commits": 209,
+        "ai": 155,
+        "share": 74.2,
+        "additions": 42486,
+        "deletions": 4170
       },
       {
         "name": "common-ressources",
@@ -694,11 +694,11 @@
         "name": "pawkit-docgen",
         "owner": "smol-kitten",
         "url": "https://github.com/smol-kitten/pawkit-docgen",
-        "commits": 27,
-        "ai": 26,
-        "share": 96.3,
-        "additions": 4441,
-        "deletions": 82
+        "commits": 30,
+        "ai": 29,
+        "share": 96.7,
+        "additions": 4461,
+        "deletions": 89
       },
       {
         "name": "catboy-registry",
@@ -743,26 +743,26 @@
     ],
     "private": {
       "repos": 133,
-      "commits": 6670,
-      "ai": 4174,
-      "additions": 4877799,
-      "deletions": 741708,
-      "share": 62.6
+      "commits": 6788,
+      "ai": 4277,
+      "additions": 4900163,
+      "deletions": 743331,
+      "share": 63
     }
   },
   "prs": {
-    "sampled": 2536,
+    "sampled": 2554,
     "perRepoCap": 40,
     "truncatedCommitLists": 0,
     "ai": {
-      "count": 1772,
+      "count": 1790,
       "medianMergeHours": 0.1,
-      "meanMergeHours": 9,
+      "meanMergeHours": 9.5,
       "medianCommits": 1,
-      "ciChecked": 1513,
-      "ciPassed": 1216,
-      "ciPassRate": 80.4,
-      "medianLinesChanged": 67
+      "ciChecked": 1531,
+      "ciPassed": 1235,
+      "ciPassRate": 80.7,
+      "medianLinesChanged": 68.5
     },
     "human": {
       "count": 764,
@@ -777,16 +777,16 @@
   },
   "lines": {
     "ai": {
-      "commits": 4482,
-      "additions": 2531993,
-      "deletions": 285976,
-      "perCommit": 629
+      "commits": 4591,
+      "additions": 2552349,
+      "deletions": 287615,
+      "perCommit": 619
     },
     "human": {
-      "commits": 2648,
-      "additions": 2560843,
-      "deletions": 470492,
-      "perCommit": 1145
+      "commits": 2663,
+      "additions": 2563271,
+      "deletions": 470493,
+      "perCommit": 1139
     }
   }
 }
