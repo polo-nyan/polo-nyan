@@ -11,61 +11,61 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 169,
-  "totalSizeMB": "1700.6",
+  "totalOpenIssues": 167,
+  "totalSizeMB": "1704.7",
   "languages": [
     {
       "name": "PHP",
       "bytes": 16945964,
-      "percentage": "19.4",
+      "percentage": "19.1",
       "repos": 39,
       "color": "#4F5D95"
     },
     {
       "name": "Python",
-      "bytes": 15346259,
-      "percentage": "17.6",
+      "bytes": 15460776,
+      "percentage": "17.5",
       "repos": 60,
       "color": "#3572A5"
     },
     {
       "name": "C#",
-      "bytes": 14284655,
-      "percentage": "16.4",
+      "bytes": 14348290,
+      "percentage": "16.2",
       "repos": 37,
       "color": "#178600"
     },
     {
       "name": "HTML",
-      "bytes": 13066703,
-      "percentage": "15.0",
+      "bytes": 13890846,
+      "percentage": "15.7",
       "repos": 52,
       "color": "#e34c26"
     },
     {
       "name": "TypeScript",
-      "bytes": 8603383,
-      "percentage": "9.9",
+      "bytes": 8629953,
+      "percentage": "9.8",
       "repos": 15,
       "color": "#3178c6"
     },
     {
       "name": "JavaScript",
-      "bytes": 5871463,
-      "percentage": "6.7",
+      "bytes": 5872279,
+      "percentage": "6.6",
       "repos": 52,
       "color": "#f1e05a"
     },
     {
       "name": "Go",
-      "bytes": 3269745,
-      "percentage": "3.7",
+      "bytes": 3380691,
+      "percentage": "3.8",
       "repos": 6,
       "color": "#00ADD8"
     },
     {
       "name": "Shell",
-      "bytes": 2146499,
+      "bytes": 2176149,
       "percentage": "2.5",
       "repos": 79,
       "color": "#89e051"
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1477,
-  "avgCommitsPerRepo": "50.9",
+  "totalCommits": 1480,
+  "avgCommitsPerRepo": "51.0",
   "medianCommits": 23,
-  "recentCommits": 55,
-  "avgRepoAge": "0.7",
+  "recentCommits": 54,
+  "avgRepoAge": "0.8",
   "estimatedTotalFiles": 24966,
   "avgFilesPerRepo": 171,
-  "estimatedTotalLines": 14243322,
-  "avgLinesPerRepo": 97557,
-  "avgLinesPerFile": 569,
+  "estimatedTotalLines": 14386256,
+  "avgLinesPerRepo": 98536,
+  "avgLinesPerFile": 575,
   "archivedRepos": 4,
   "activeRepos": 142,
   "forkedRepos": 3,
@@ -157,9 +157,29 @@
     {
       "name": "netpaw",
       "url": "https://github.com/smol-kitten/netpaw",
-      "pushedAt": "2026-10-29",
+      "pushedAt": "2026-10-30",
       "description": "Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet secondaries, reach-any-IP mode, device presets, VLAN detection. MIT.",
       "language": "C#",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
+      "name": "pawkit-docgen",
+      "url": "https://github.com/smol-kitten/pawkit-docgen",
+      "pushedAt": "2026-10-29",
+      "description": "Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirror — source of truth is private pawkit; do not edit here).",
+      "language": "Python",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
+      "name": "polo-nyan",
+      "url": "https://github.com/polo-nyan/polo-nyan",
+      "pushedAt": "2026-10-29",
+      "description": "Config files for my GitHub profile.",
+      "language": "Shell",
       "fork": false,
       "archived": false,
       "private": false
@@ -180,26 +200,6 @@
       "pushedAt": "2026-10-29",
       "description": "Ressources i might or might not need more often",
       "language": "Lua",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
-      "name": "pawkit-docgen",
-      "url": "https://github.com/smol-kitten/pawkit-docgen",
-      "pushedAt": "2026-10-28",
-      "description": "Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirror — source of truth is private pawkit; do not edit here).",
-      "language": "Python",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
-      "name": "polo-nyan",
-      "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-10-28",
-      "description": "Config files for my GitHub profile.",
-      "language": "Shell",
       "fork": false,
       "archived": false,
       "private": false
@@ -277,75 +277,75 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 12777,
-    "currentStreakDays": 30,
+    "totalContributions": 12892,
+    "currentStreakDays": 31,
     "longestStreakDays": 50,
-    "last30d": 3376,
-    "last90d": 6503,
-    "activeDays": 230,
+    "last30d": 3375,
+    "last90d": 6599,
+    "activeDays": 231,
     "busiestDay": {
       "date": "2026-09-23",
       "count": 453
     }
   },
   "prsAllTime": {
-    "opened": 5071,
-    "merged": 4855,
+    "opened": 5128,
+    "merged": 4908,
     "mergeRate": "95.7"
   },
   "commitPatterns": {
     "byHour": [
-      98,
-      71,
-      52,
-      36,
-      123,
+      92,
+      69,
+      47,
+      37,
+      124,
+      223,
       205,
-      179,
-      166,
-      258,
-      240,
+      181,
       268,
-      274,
-      224,
-      172,
-      170,
-      208,
-      138,
-      107,
-      126,
-      170,
-      173,
-      177,
-      160,
-      101
+      246,
+      299,
+      281,
+      223,
+      184,
+      186,
+      209,
+      144,
+      110,
+      111,
+      155,
+      165,
+      180,
+      168,
+      105
     ],
     "byWeekday": [
-      428,
-      567,
+      411,
+      549,
       511,
-      971,
-      529,
-      424,
-      466
+      1009,
+      654,
+      426,
+      452
     ],
-    "topHour": 11,
+    "topHour": 10,
     "topWeekday": "Wed",
-    "sampleSize": 3896
+    "sampleSize": 4012
   },
   "ci": {
     "reposScanned": 30,
-    "reposWithWorkflows": 29,
-    "workflowsPct": "97",
-    "runsSampled": 421,
-    "successRate": "90.3"
+    "reposWithWorkflows": 30,
+    "workflowsPct": "100",
+    "runsSampled": 436,
+    "successRate": "90.1"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 2250,
-    "totalCoauthorMentions": 5338,
-    "scannedCommits": 3896,
-    "assistRate": "57.8",
+    "totalAICommits": 2466,
+    "totalCoauthorMentions": 3919,
+    "scannedCommits": 4012,
+    "assistRate": "61.5",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -358,19 +358,19 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1783
+        "count": 1959
       },
       {
         "family": "Claude",
-        "count": 345
+        "count": 362
       },
       {
         "family": "Fable",
-        "count": 71
+        "count": 92
       },
       {
         "family": "Sonnet",
-        "count": 50
+        "count": 52
       },
       {
         "family": "Other AI",
@@ -380,30 +380,30 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1072
+        "count": 1166
       },
       {
         "model": "Opus 5.5",
-        "count": 675
+        "count": 776
       },
       {
         "model": "Claude (unspecified)",
-        "count": 345
+        "count": 362
       },
       {
         "model": "Fable 5.1",
-        "count": 52
-      },
-      {
-        "model": "Opus 5",
-        "count": 38
+        "count": 63
       },
       {
         "model": "Sonnet 5.5",
-        "count": 30
+        "count": 32
       },
       {
         "model": "Fable 5",
+        "count": 29
+      },
+      {
+        "model": "Opus 5",
         "count": 19
       },
       {
@@ -415,11 +415,11 @@
         "count": 9
       },
       {
-        "model": "Copilot",
+        "model": "GitHub Copilot",
         "count": 1
       },
       {
-        "model": "GitHub Copilot",
+        "model": "Copilot",
         "count": 1
       }
     ],
@@ -441,51 +441,50 @@
       },
       {
         "month": "2026-06",
-        "total": 235,
+        "total": 248,
         "families": {
-          "Claude": 54,
-          "Opus": 176,
+          "Claude": 68,
+          "Opus": 175,
           "Sonnet": 5
         }
       },
       {
         "month": "2026-07",
-        "total": 653,
+        "total": 760,
         "families": {
-          "Opus": 633,
-          "Fable": 18,
-          "Claude": 2
+          "Opus": 730,
+          "Fable": 29,
+          "Claude": 1
         }
       },
       {
         "month": "2026-08",
-        "total": 226,
+        "total": 230,
         "families": {
           "Claude": 18,
-          "Opus": 207,
-          "Fable": 1
+          "Opus": 212
         }
       },
       {
         "month": "2026-09",
-        "total": 396,
+        "total": 443,
         "families": {
-          "Opus": 227,
-          "Claude": 162,
+          "Opus": 278,
+          "Claude": 158,
           "Fable": 7
         }
       },
       {
         "month": "2026-10",
-        "total": 732,
+        "total": 777,
         "families": {
-          "Opus": 540,
-          "Claude": 109,
-          "Fable": 45,
-          "Sonnet": 39
+          "Opus": 564,
+          "Claude": 117,
+          "Sonnet": 41,
+          "Fable": 56
         }
       }
     ]
   },
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-30"
 }
