@@ -1,30 +1,20 @@
 {
-  "generatedAt": "2026-10-30",
+  "generatedAt": "2026-10-31",
   "window": {
-    "since": "2025-10-30",
-    "until": "2026-10-30",
+    "since": "2025-10-31",
+    "until": "2026-10-31",
     "days": 365
   },
   "reposScanned": 144,
   "reposWithCommits": 142,
   "totals": {
-    "commits": 7310,
-    "ai": 4648,
-    "share": 63.6,
-    "additions": 5132222,
-    "deletions": 759114
+    "commits": 7342,
+    "ai": 4660,
+    "share": 63.5,
+    "additions": 5132641,
+    "deletions": 759182
   },
   "monthly": [
-    {
-      "period": "2025-10",
-      "commits": 1,
-      "ai": 0,
-      "additions": 221,
-      "deletions": 106,
-      "aiAdditions": 0,
-      "aiDeletions": 0,
-      "share": 0
-    },
     {
       "period": "2025-11",
       "commits": 107,
@@ -137,22 +127,22 @@
     },
     {
       "period": "2026-10",
-      "commits": 1926,
-      "ai": 1478,
-      "additions": 1045140,
-      "deletions": 177561,
-      "aiAdditions": 616967,
-      "aiDeletions": 30857,
-      "share": 76.7
+      "commits": 1959,
+      "ai": 1490,
+      "additions": 1045780,
+      "deletions": 177735,
+      "aiAdditions": 617433,
+      "aiDeletions": 30917,
+      "share": 76.1
     }
   ],
   "weekly": [
     {
       "period": "2025-W44",
-      "commits": 5,
+      "commits": 4,
       "ai": 0,
-      "additions": 305,
-      "deletions": 167,
+      "additions": 84,
+      "deletions": 61,
       "aiAdditions": 0,
       "aiDeletions": 0,
       "share": 0
@@ -639,13 +629,13 @@
     },
     {
       "period": "2026-W44",
-      "commits": 335,
-      "ai": 268,
-      "additions": 68841,
-      "deletions": 5097,
-      "aiAdditions": 57533,
-      "aiDeletions": 3912,
-      "share": 80
+      "commits": 368,
+      "ai": 280,
+      "additions": 69481,
+      "deletions": 5271,
+      "aiAdditions": 57999,
+      "aiDeletions": 3972,
+      "share": 76.1
     }
   ],
   "repos": {
@@ -724,10 +714,10 @@
         "name": "netpaw-site",
         "owner": "smol-kitten",
         "url": "https://github.com/smol-kitten/netpaw-site",
-        "commits": 8,
-        "ai": 8,
+        "commits": 9,
+        "ai": 9,
         "share": 100,
-        "additions": 980,
+        "additions": 983,
         "deletions": 77
       },
       {
@@ -743,50 +733,50 @@
     ],
     "private": {
       "repos": 133,
-      "commits": 6830,
-      "ai": 4320,
-      "additions": 4915541,
-      "deletions": 744251,
-      "share": 63.3
+      "commits": 6861,
+      "ai": 4331,
+      "additions": 4915957,
+      "deletions": 744319,
+      "share": 63.1
     }
   },
   "prs": {
-    "sampled": 2563,
+    "sampled": 2575,
     "perRepoCap": 40,
     "truncatedCommitLists": 0,
     "ai": {
-      "count": 1800,
+      "count": 1795,
       "medianMergeHours": 0.1,
-      "meanMergeHours": 10.1,
+      "meanMergeHours": 10,
       "medianCommits": 1,
-      "ciChecked": 1537,
-      "ciPassed": 1243,
-      "ciPassRate": 80.9,
-      "medianLinesChanged": 65
+      "ciChecked": 1322,
+      "ciPassed": 1051,
+      "ciPassRate": 79.5,
+      "medianLinesChanged": 63
     },
     "human": {
-      "count": 763,
+      "count": 780,
       "medianMergeHours": 0,
-      "meanMergeHours": 23.4,
+      "meanMergeHours": 22.9,
       "medianCommits": 1,
-      "ciChecked": 712,
-      "ciPassed": 240,
-      "ciPassRate": 33.7,
-      "medianLinesChanged": 18
+      "ciChecked": 724,
+      "ciPassed": 254,
+      "ciPassRate": 35.1,
+      "medianLinesChanged": 16
     }
   },
   "lines": {
     "ai": {
-      "commits": 4648,
-      "additions": 2570097,
-      "deletions": 288614,
-      "perCommit": 615
+      "commits": 4660,
+      "additions": 2570563,
+      "deletions": 288674,
+      "perCommit": 614
     },
     "human": {
-      "commits": 2662,
-      "additions": 2562125,
-      "deletions": 470500,
-      "perCommit": 1139
+      "commits": 2682,
+      "additions": 2562078,
+      "deletions": 470508,
+      "perCommit": 1131
     }
   }
 }
