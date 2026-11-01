@@ -28,10 +28,10 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
+| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑11‑01 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑10‑30 |
 | [netpaw-site](https://github.com/smol-kitten/netpaw-site) | Static info + download site for NetPaw — modern parallax catbot landing, live releases,… | Python | 2026‑10‑30 |
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026‑10‑30 |
-| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑10‑30 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirr… | Python | 2026‑10‑29 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑10‑29 |
 
@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **146** <sub>13 public · 133 private</sub> | **12,970** | **232** | **4,942** <sub>of 5,168 · 95.6%</sub> | **92.4%** <sub>of 435 runs</sub> |
+| **146** <sub>13 public · 133 private</sub> | **12,992** | **227** | **4,952** <sub>of 5,179 · 95.6%</sub> | **93.4%** <sub>of 411 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -75,15 +75,15 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,153** / **6,658** |
-| Current streak | **32 days** |
+| Last 30 / 90 days | **3,008** / **6,653** |
+| Current streak | **33 days** |
 | Longest streak | **50 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 3866 sampled commits · busiest: Wed around 10:00</sub>
+**Commit clock** <sub>UTC, 4185 sampled commits · busiest: Wed around 10:00</sub>
 
 ```
-00h ▃▃▂▂▃▆▆▅▇▇██▆▅▅▆▅▄▃▅▅▅▅▄ 23h
+00h ▃▃▂▂▃▆▆▆█▇██▆▅▆▇▅▄▄▅▅▆▅▄ 23h
 ```
 
 **Repositories created per year**
@@ -100,7 +100,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<sub>AI pair-programming: **60.1%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **58.7%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-10-31.</sub>
+<sub>Last updated 2026-11-01.</sub>
