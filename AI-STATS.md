@@ -10,7 +10,7 @@ How much of my code is written together with an AI assistant, and whether that c
 
 | AI-assisted share | Commits scanned | Repositories | Lines added / removed |
 |:--:|:--:|:--:|:--:|
-| **63.6%** <sub>4,733 of 7,443 commits</sub> | **7,443** <sub>2025-11-02 → 2026-11-02</sub> | **143** <sub>with commits in the window</sub> | **+5,153,886** / **−760,342** |
+| **63.7%** <sub>4,756 of 7,468 commits</sub> | **7,468** <sub>2025-11-03 → 2026-11-03</sub> | **143** <sub>with commits in the window</sub> | **+5,155,803** / **−760,469** |
 
 ## Share of AI-assisted commits over time
 
@@ -39,7 +39,7 @@ Share of my commits per month that carry an AI co-author trailer (bars span 0–
 | 2026-08 | 79.4% | 586 / 738 |
 | 2026-09 | 89.3% | 1090 / 1221 |
 | 2026-10 | 76.1% | 1497 / 1967 |
-| 2026-11 | 68% | 66 / 97 |
+| 2026-11 | 73% | 89 / 122 |
 
 </details>
 
@@ -47,8 +47,8 @@ Share of my commits per month that carry an AI co-author trailer (bars span 0–
 <summary>Weekly view (last 26 ISO weeks, 2026-W20 → 2026-W45)</summary>
 
 ```
-AI share   ▁▃▁▂▁▂▅▆▆▃▅██▆▇▇██▇▇▇█▇▅▇▄
-commits    ▁▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆▆▁
+AI share   ▁▃▁▂▁▂▅▆▆▃▅██▆▇▇██▇▇▇█▇▅▇▅
+commits    ▁▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆▆▂
 ```
 
 | Week | AI / all | Share |
@@ -78,7 +78,7 @@ commits    ▁▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█
 | 2026-W42 | 407 / 524 | 77.7% |
 | 2026-W43 | 246 / 406 | 60.6% |
 | 2026-W44 | 341 / 439 | 77.7% |
-| 2026-W45 | 12 / 34 | 35.3% |
+| 2026-W45 | 35 / 59 | 59.3% |
 
 </details>
 
@@ -88,28 +88,28 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 | Repository | Share | | AI / all commits |
 |:--|:--|--:|--:|
-| [netpaw](https://github.com/smol-kitten/netpaw) <sub>smol-kitten</sub> | `███████████████░░░░░` | 75.7% | 168 / 222 |
+| [netpaw](https://github.com/smol-kitten/netpaw) <sub>smol-kitten</sub> | `███████████████░░░░░` | 75.9% | 170 / 224 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) <sub>smol-kitten</sub> | `████████████████░░░░` | 78.9% | 60 / 76 |
 | [web-core](https://github.com/smol-kitten/web-core) <sub>smol-kitten</sub> | `██████░░░░░░░░░░░░░░` | 27.6% | 16 / 58 |
 | [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) <sub>smol-kitten</sub> | `████████████░░░░░░░░` | 58.3% | 21 / 36 |
-| [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) <sub>smol-kitten</sub> | `███████████████████░` | 97% | 32 / 33 |
+| [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) <sub>smol-kitten</sub> | `███████████████████░` | 97.1% | 33 / 34 |
 | [catboy-registry](https://github.com/smol-kitten/catboy-registry) <sub>smol-kitten</sub> | `████████████░░░░░░░░` | 57.7% | 15 / 26 |
 | [netpaw-site](https://github.com/smol-kitten/netpaw-site) <sub>smol-kitten</sub> | `████████████████████` | 100% | 9 / 9 |
 | [.github](https://github.com/smol-kitten/.github) <sub>smol-kitten</sub> | `█████░░░░░░░░░░░░░░░` | 25% | 1 / 4 |
-| *134 private / other repos* | `█████████████░░░░░░░` | 63.2% | 4,400 / 6,960 |
+| *134 private / other repos* | `█████████████░░░░░░░` | 63.3% | 4,420 / 6,982 |
 
 ## Pull requests: with and without AI commits
 
-2,599 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
+2,589 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
 
 | | With AI commits | Without AI commits |
 |:--|--:|--:|
-| Pull requests | **1,796** | **803** |
+| Pull requests | **1,792** | **797** |
 | Median time to merge | **6 min** | **0 min** |
-| Mean time to merge | 14.2 h | 2.3 d |
+| Mean time to merge | 15.1 h | 2.3 d |
 | Median commits per PR | 1 | 1 |
-| Median lines changed per PR | 59.5 | 22 |
-| CI pass rate of the head commit | 80% <sub>n = 1,240</sub> | 35.6% <sub>n = 725</sub> |
+| Median lines changed per PR | 59 | 22 |
+| CI pass rate of the head commit | 80% <sub>n = 1,232</sub> | 35.7% <sub>n = 720</sub> |
 
 <sub>CI pass rates describe different kinds of PRs (small manual fixes vs assisted feature work), not an effect of AI use; failures include infrastructure noise.</sub>
 
@@ -117,10 +117,10 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 | | AI-assisted commits | Human-only commits |
 |:--|--:|--:|
-| Commits | 4,733 | 2,710 |
-| Lines added | +2,578,283 | +2,575,603 |
-| Lines removed | −289,895 | −470,447 |
-| Lines changed per commit | **606** | **1,124** |
+| Commits | 4,756 | 2,712 |
+| Lines added | +2,580,106 | +2,575,697 |
+| Lines removed | −290,022 | −470,447 |
+| Lines changed per commit | **603** | **1,123** |
 
 <details>
 <summary>Lines changed per month (bar = AI-assisted share of the month's volume, scaled to the busiest month)</summary>
@@ -138,7 +138,7 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | 2026-08 | `████░░░░░░░░░░░░░░░░` | 314,689 | 449,545 |
 | 2026-09 | `██████████████░░░░░░` | 966,614 | 1,424,062 |
 | 2026-10 | `█████████░░░░░░░░░░░` | 649,239 | 1,230,666 |
-| 2026-11 | `█░░░░░░░░░░░░░░░░░░░` | 8,052 | 15,399 |
+| 2026-11 | `█░░░░░░░░░░░░░░░░░░░` | 10,002 | 17,443 |
 
 </details>
 
@@ -153,4 +153,4 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 Numbers are rebuilt daily by [`update-stats.yml`](.github/workflows/update-stats.yml); the collector is [`scripts/collect-ai-stats.mjs`](scripts/collect-ai-stats.mjs) and the renderer [`scripts/build-ai-stats.sh`](scripts/build-ai-stats.sh). Back to the [profile](README.md).
 
-<sub>Last updated 2026-11-02.</sub>
+<sub>Last updated 2026-11-03.</sub>
