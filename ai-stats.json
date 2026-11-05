@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-11-04",
+  "generatedAt": "2026-11-05",
   "window": {
-    "since": "2025-11-04",
-    "until": "2026-11-04",
+    "since": "2025-11-05",
+    "until": "2026-11-05",
     "days": 365
   },
-  "reposScanned": 144,
-  "reposWithCommits": 143,
+  "reposScanned": 147,
+  "reposWithCommits": 146,
   "totals": {
-    "commits": 7547,
-    "ai": 4812,
-    "share": 63.8,
-    "additions": 5158085,
-    "deletions": 761317
+    "commits": 7646,
+    "ai": 4895,
+    "share": 64,
+    "additions": 5230514,
+    "deletions": 765790
   },
   "monthly": [
     {
       "period": "2025-11",
-      "commits": 101,
+      "commits": 95,
       "ai": 0,
-      "additions": 64537,
-      "deletions": 20133,
+      "additions": 53707,
+      "deletions": 20060,
       "aiAdditions": 0,
       "aiDeletions": 0,
       "share": 0
@@ -137,22 +137,22 @@
     },
     {
       "period": "2026-11",
-      "commits": 203,
-      "ai": 145,
-      "additions": 22402,
-      "deletions": 2108,
-      "aiAdditions": 14560,
-      "aiDeletions": 1895,
-      "share": 71.4
+      "commits": 308,
+      "ai": 228,
+      "additions": 105661,
+      "deletions": 6654,
+      "aiAdditions": 50384,
+      "aiDeletions": 4865,
+      "share": 74
     }
   ],
   "weekly": [
     {
       "period": "2025-W45",
-      "commits": 41,
+      "commits": 35,
       "ai": 0,
-      "additions": 21830,
-      "deletions": 3988,
+      "additions": 11000,
+      "deletions": 3915,
       "aiAdditions": 0,
       "aiDeletions": 0,
       "share": 0
@@ -639,13 +639,13 @@
     },
     {
       "period": "2026-W45",
-      "commits": 140,
-      "ai": 91,
-      "additions": 10104,
-      "deletions": 1046,
-      "aiAdditions": 8189,
-      "aiDeletions": 833,
-      "share": 65
+      "commits": 245,
+      "ai": 174,
+      "additions": 93363,
+      "deletions": 5592,
+      "aiAdditions": 44013,
+      "aiDeletions": 3803,
+      "share": 71
     }
   ],
   "repos": {
@@ -742,51 +742,51 @@
       }
     ],
     "private": {
-      "repos": 134,
-      "commits": 7052,
-      "ai": 4468,
-      "additions": 4939463,
-      "deletions": 746293,
-      "share": 63.4
+      "repos": 137,
+      "commits": 7151,
+      "ai": 4551,
+      "additions": 5011892,
+      "deletions": 750766,
+      "share": 63.6
     }
   },
   "prs": {
-    "sampled": 2617,
+    "sampled": 2641,
     "perRepoCap": 40,
     "truncatedCommitLists": 0,
     "ai": {
-      "count": 1806,
+      "count": 1838,
       "medianMergeHours": 0.1,
-      "meanMergeHours": 15,
+      "meanMergeHours": 14.8,
       "medianCommits": 1,
-      "ciChecked": 1252,
-      "ciPassed": 1008,
+      "ciChecked": 1253,
+      "ciPassed": 1009,
       "ciPassRate": 80.5,
-      "medianLinesChanged": 55
+      "medianLinesChanged": 57.5
     },
     "human": {
-      "count": 811,
+      "count": 803,
       "medianMergeHours": 0,
-      "meanMergeHours": 54.1,
+      "meanMergeHours": 54.6,
       "medianCommits": 1,
-      "ciChecked": 723,
-      "ciPassed": 267,
-      "ciPassRate": 36.9,
+      "ciChecked": 714,
+      "ciPassed": 264,
+      "ciPassRate": 37,
       "medianLinesChanged": 22
     }
   },
   "lines": {
     "ai": {
-      "commits": 4812,
-      "additions": 2585906,
-      "deletions": 290675,
-      "perCommit": 598
+      "commits": 4895,
+      "additions": 2621730,
+      "deletions": 293645,
+      "perCommit": 596
     },
     "human": {
-      "commits": 2735,
-      "additions": 2572179,
-      "deletions": 470642,
-      "perCommit": 1113
+      "commits": 2751,
+      "additions": 2608784,
+      "deletions": 472145,
+      "perCommit": 1120
     }
   }
 }
