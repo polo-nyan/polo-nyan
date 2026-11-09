@@ -11,8 +11,8 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 143,
-  "totalSizeMB": "1777.3",
+  "totalOpenIssues": 146,
+  "totalSizeMB": "1778.5",
   "languages": [
     {
       "name": "PHP",
@@ -23,7 +23,7 @@
     },
     {
       "name": "Python",
-      "bytes": 15597721,
+      "bytes": 15600766,
       "percentage": "17.3",
       "repos": 60,
       "color": "#3572A5"
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1508,
-  "avgCommitsPerRepo": "50.3",
+  "totalCommits": 1511,
+  "avgCommitsPerRepo": "50.4",
   "medianCommits": 24,
-  "recentCommits": 56,
+  "recentCommits": 45,
   "avgRepoAge": "0.7",
   "estimatedTotalFiles": 26100,
   "avgFilesPerRepo": 174,
-  "estimatedTotalLines": 14869950,
-  "avgLinesPerRepo": 99133,
-  "avgLinesPerFile": 569,
+  "estimatedTotalLines": 14980650,
+  "avgLinesPerRepo": 99871,
+  "avgLinesPerFile": 573,
   "archivedRepos": 4,
   "activeRepos": 146,
   "forkedRepos": 3,
@@ -157,7 +157,7 @@
     {
       "name": "catboy-registry",
       "url": "https://github.com/smol-kitten/catboy-registry",
-      "pushedAt": "2026-11-07",
+      "pushedAt": "2026-11-08",
       "description": "Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID registry, protocol specs (X.509, CMS, SNMP, DHCP, syslog, DNS-SD, media types) and generated constants",
       "language": "Go Template",
       "fork": false,
@@ -165,9 +165,19 @@
       "private": false
     },
     {
+      "name": "common-ressources",
+      "url": "https://github.com/smol-kitten/common-ressources",
+      "pushedAt": "2026-11-08",
+      "description": "Ressources i might or might not need more often",
+      "language": "Lua",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-11-07",
+      "pushedAt": "2026-11-08",
       "description": "Config files for my GitHub profile.",
       "language": "Shell",
       "fork": false,
@@ -180,16 +190,6 @@
       "pushedAt": "2026-11-05",
       "description": "Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), never @main.",
       "language": "Python",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
-      "name": "common-ressources",
-      "url": "https://github.com/smol-kitten/common-ressources",
-      "pushedAt": "2026-11-05",
-      "description": "Ressources i might or might not need more often",
-      "language": "Lua",
       "fork": false,
       "archived": false,
       "private": false
@@ -277,75 +277,75 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 13553,
-    "currentStreakDays": 39,
+    "totalContributions": 13526,
+    "currentStreakDays": 41,
     "longestStreakDays": 50,
-    "last30d": 3056,
-    "last90d": 7101,
-    "activeDays": 228,
+    "last30d": 2855,
+    "last90d": 6967,
+    "activeDays": 230,
     "busiestDay": {
       "date": "2026-09-23",
       "count": 453
     }
   },
   "prsAllTime": {
-    "opened": 5422,
-    "merged": 5232,
-    "mergeRate": "96.5"
+    "opened": 5429,
+    "merged": 5235,
+    "mergeRate": "96.4"
   },
   "commitPatterns": {
     "byHour": [
-      100,
-      74,
+      107,
+      72,
+      33,
       28,
-      23,
-      76,
-      180,
-      170,
-      191,
-      238,
-      215,
-      294,
-      295,
-      218,
-      159,
-      181,
-      195,
-      134,
-      109,
-      99,
-      123,
-      126,
-      159,
-      120,
-      117
+      102,
+      186,
+      175,
+      202,
+      249,
+      223,
+      312,
+      311,
+      224,
+      175,
+      199,
+      211,
+      145,
+      112,
+      105,
+      140,
+      147,
+      176,
+      139,
+      119
     ],
     "byWeekday": [
-      381,
-      596,
-      523,
-      874,
-      509,
-      376,
-      365
+      432,
+      622,
+      581,
+      890,
+      538,
+      428,
+      401
     ],
-    "topHour": 11,
+    "topHour": 10,
     "topWeekday": "Wed",
-    "sampleSize": 3624
+    "sampleSize": 3892
   },
   "ci": {
     "reposScanned": 30,
     "reposWithWorkflows": 30,
     "workflowsPct": "100",
-    "runsSampled": 396,
-    "successRate": "93.9"
+    "runsSampled": 404,
+    "successRate": "93.6"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 2390,
-    "totalCoauthorMentions": 3808,
-    "scannedCommits": 3624,
-    "assistRate": "65.9",
+    "totalAICommits": 2530,
+    "totalCoauthorMentions": 3945,
+    "scannedCommits": 3892,
+    "assistRate": "65.0",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -358,19 +358,19 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1747
+        "count": 1880
       },
       {
         "family": "Claude",
-        "count": 427
+        "count": 426
       },
       {
         "family": "Sonnet",
-        "count": 121
+        "count": 127
       },
       {
         "family": "Fable",
-        "count": 95
+        "count": 97
       },
       {
         "family": "Other AI",
@@ -380,15 +380,15 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1164
+        "count": 1207
       },
       {
         "model": "Opus 5.5",
-        "count": 526
+        "count": 617
       },
       {
         "model": "Claude (unspecified)",
-        "count": 427
+        "count": 426
       },
       {
         "model": "Sonnet 5.5",
@@ -396,23 +396,23 @@
       },
       {
         "model": "Fable 5.1",
-        "count": 65
+        "count": 68
       },
       {
         "model": "Opus 5",
-        "count": 57
+        "count": 56
       },
       {
         "model": "Fable 5",
-        "count": 30
+        "count": 29
       },
       {
         "model": "Sonnet 4.6",
-        "count": 10
+        "count": 11
       },
       {
         "model": "Sonnet 5",
-        "count": 3
+        "count": 8
       },
       {
         "model": "Copilot",
@@ -430,60 +430,59 @@
       },
       {
         "month": "2026-06",
-        "total": 247,
+        "total": 246,
         "families": {
+          "Opus": 182,
           "Claude": 59,
-          "Opus": 184,
-          "Sonnet": 4
+          "Sonnet": 5
         }
       },
       {
         "month": "2026-07",
-        "total": 752,
+        "total": 800,
         "families": {
-          "Opus": 720,
+          "Opus": 769,
           "Fable": 29,
-          "Claude": 3
+          "Claude": 2
         }
       },
       {
         "month": "2026-08",
-        "total": 326,
+        "total": 321,
         "families": {
-          "Claude": 102,
-          "Opus": 223,
-          "Fable": 1
+          "Opus": 218,
+          "Claude": 103
         }
       },
       {
         "month": "2026-09",
-        "total": 399,
+        "total": 403,
         "families": {
-          "Opus": 178,
-          "Claude": 171,
+          "Opus": 186,
+          "Claude": 167,
           "Fable": 50
         }
       },
       {
         "month": "2026-10",
-        "total": 534,
+        "total": 623,
         "families": {
-          "Opus": 390,
-          "Claude": 86,
-          "Sonnet": 44,
-          "Fable": 15
+          "Opus": 469,
+          "Claude": 88,
+          "Sonnet": 49,
+          "Fable": 18
         }
       },
       {
         "month": "2026-11",
-        "total": 125,
+        "total": 130,
         "families": {
-          "Opus": 52,
-          "Sonnet": 67,
-          "Claude": 6
+          "Claude": 7,
+          "Opus": 56,
+          "Sonnet": 67
         }
       }
     ]
   },
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-09"
 }

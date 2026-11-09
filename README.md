@@ -28,9 +28,9 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
-| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑07 |
+| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑08 |
+| [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑11‑08 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑11‑05 |
-| [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑11‑05 |
 | [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑11‑03 |
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026‑11‑03 |
 | [netpaw-site](https://github.com/smol-kitten/netpaw-site) | Static info + download site for NetPaw — modern parallax catbot landing, live releases,… | Python | 2026‑11‑03 |
@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **150** <sub>13 public · 137 private</sub> | **13,553** | **228** | **5,232** <sub>of 5,422 · 96.5%</sub> | **93.9%** <sub>of 396 runs</sub> |
+| **150** <sub>13 public · 137 private</sub> | **13,526** | **230** | **5,235** <sub>of 5,429 · 96.4%</sub> | **93.6%** <sub>of 404 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -75,12 +75,12 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,056** / **7,101** |
-| Current streak | **39 days** |
+| Last 30 / 90 days | **2,855** / **6,967** |
+| Current streak | **41 days** |
 | Longest streak | **50 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 3624 sampled commits · busiest: Wed around 11:00</sub>
+**Commit clock** <sub>UTC, 3892 sampled commits · busiest: Wed around 10:00</sub>
 
 ```
 00h ▃▃▂▂▃▅▅▆▇▆██▆▅▅▆▄▄▃▄▄▅▄▄ 23h
@@ -100,7 +100,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<sub>AI pair-programming: **65.9%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **65.0%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-11-08.</sub>
+<sub>Last updated 2026-11-09.</sub>
