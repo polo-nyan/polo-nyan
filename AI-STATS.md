@@ -10,7 +10,7 @@ How much of my code is written together with an AI assistant, and whether that c
 
 | AI-assisted share | Commits scanned | Repositories | Lines added / removed |
 |:--:|:--:|:--:|:--:|
-| **64.4%** <sub>4,956 of 7,691 commits</sub> | **7,691** <sub>2025-11-10 → 2026-11-10</sub> | **149** <sub>with commits in the window</sub> | **+5,247,373** / **−763,333** |
+| **64.5%** <sub>4,977 of 7,712 commits</sub> | **7,712** <sub>2025-11-11 → 2026-11-11</sub> | **149** <sub>with commits in the window</sub> | **+5,249,938** / **−763,683** |
 
 ## Share of AI-assisted commits over time
 
@@ -39,7 +39,7 @@ Share of my commits per month that carry an AI co-author trailer (bars span 0–
 | 2026-08 | 79.4% | 586 / 738 |
 | 2026-09 | 89.3% | 1090 / 1221 |
 | 2026-10 | 76.1% | 1497 / 1967 |
-| 2026-11 | 74.5% | 289 / 388 |
+| 2026-11 | 75.6% | 310 / 410 |
 
 </details>
 
@@ -48,7 +48,7 @@ Share of my commits per month that carry an AI co-author trailer (bars span 0–
 
 ```
 AI share   ▃▁▂▁▂▅▆▆▃▅██▆▇▇██▇▇▇█▇▅▇▆▇
-commits    ▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆▆▅▁
+commits    ▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆▆▅▂
 ```
 
 | Week | AI / all | Share |
@@ -78,7 +78,7 @@ commits    ▁▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆
 | 2026-W43 | 246 / 406 | 60.6% |
 | 2026-W44 | 341 / 439 | 77.7% |
 | 2026-W45 | 217 / 304 | 71.4% |
-| 2026-W46 | 18 / 21 | 85.7% |
+| 2026-W46 | 39 / 43 | 90.7% |
 
 </details>
 
@@ -96,7 +96,7 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | [catboy-registry](https://github.com/smol-kitten/catboy-registry) <sub>smol-kitten</sub> | `███████████░░░░░░░░░` | 55.6% | 15 / 27 |
 | [netpaw-site](https://github.com/smol-kitten/netpaw-site) <sub>smol-kitten</sub> | `████████████████████` | 100% | 9 / 9 |
 | [.github](https://github.com/smol-kitten/.github) <sub>smol-kitten</sub> | `█████░░░░░░░░░░░░░░░` | 25% | 1 / 4 |
-| *140 private / other repos* | `█████████████░░░░░░░` | 64.1% | 4,612 / 7,196 |
+| *140 private / other repos* | `█████████████░░░░░░░` | 64.2% | 4,633 / 7,217 |
 
 ## Pull requests: with and without AI commits
 
@@ -109,7 +109,7 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | Mean time to merge | 15.0 h | 2.3 d |
 | Median commits per PR | 1 | 1 |
 | Median lines changed per PR | 59 | 22 |
-| CI pass rate of the head commit | 81% <sub>n = 1,287</sub> | 37.2% <sub>n = 713</sub> |
+| CI pass rate of the head commit | 81.1% <sub>n = 1,294</sub> | 37.2% <sub>n = 713</sub> |
 
 <sub>CI pass rates describe different kinds of PRs (small manual fixes vs assisted feature work), not an effect of AI use; failures include infrastructure noise.</sub>
 
@@ -117,10 +117,10 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 | | AI-assisted commits | Human-only commits |
 |:--|--:|--:|
-| Commits | 4,956 | 2,735 |
-| Lines added | +2,635,978 | +2,611,395 |
-| Lines removed | −294,714 | −468,619 |
-| Lines changed per commit | **591** | **1,126** |
+| Commits | 4,977 | 2,735 |
+| Lines added | +2,638,910 | +2,611,028 |
+| Lines removed | −295,095 | −468,588 |
+| Lines changed per commit | **590** | **1,126** |
 
 <details>
 <summary>Lines changed per month (bar = AI-assisted share of the month's volume, scaled to the busiest month)</summary>
@@ -138,7 +138,7 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | 2026-08 | `████░░░░░░░░░░░░░░░░` | 314,689 | 449,545 |
 | 2026-09 | `██████████████░░░░░░` | 966,614 | 1,424,062 |
 | 2026-10 | `█████████░░░░░░░░░░░` | 649,239 | 1,230,666 |
-| 2026-11 | `█░░░░░░░░░░░░░░░░░░░` | 70,566 | 141,632 |
+| 2026-11 | `█░░░░░░░░░░░░░░░░░░░` | 73,879 | 145,304 |
 
 </details>
 
@@ -153,4 +153,4 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 Numbers are rebuilt daily by [`update-stats.yml`](.github/workflows/update-stats.yml); the collector is [`scripts/collect-ai-stats.mjs`](scripts/collect-ai-stats.mjs) and the renderer [`scripts/build-ai-stats.sh`](scripts/build-ai-stats.sh). Back to the [profile](README.md).
 
-<sub>Last updated 2026-11-10.</sub>
+<sub>Last updated 2026-11-11.</sub>
