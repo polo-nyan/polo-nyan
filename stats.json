@@ -1,36 +1,36 @@
 {
-  "totalRepos": 152,
+  "totalRepos": 153,
   "publicRepos": 13,
-  "privateRepos": 139,
+  "privateRepos": 140,
   "personalRepos": 41,
-  "orgRepos": 109,
+  "orgRepos": 110,
   "personalPublic": 3,
   "personalPrivate": 38,
   "orgPublic": 9,
-  "orgPrivate": 100,
+  "orgPrivate": 101,
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 165,
-  "totalSizeMB": "1779.3",
+  "totalOpenIssues": 172,
+  "totalSizeMB": "1782.4",
   "languages": [
     {
       "name": "PHP",
-      "bytes": 17002995,
-      "percentage": "18.8",
+      "bytes": 17053159,
+      "percentage": "18.7",
       "repos": 39,
       "color": "#4F5D95"
     },
     {
       "name": "Python",
-      "bytes": 15731464,
+      "bytes": 15799577,
       "percentage": "17.4",
       "repos": 60,
       "color": "#3572A5"
     },
     {
       "name": "C#",
-      "bytes": 15131889,
+      "bytes": 15159936,
       "percentage": "16.7",
       "repos": 39,
       "color": "#178600"
@@ -38,42 +38,42 @@
     {
       "name": "HTML",
       "bytes": 13911370,
-      "percentage": "15.4",
+      "percentage": "15.3",
       "repos": 55,
       "color": "#e34c26"
     },
     {
       "name": "TypeScript",
-      "bytes": 8960826,
+      "bytes": 8968049,
       "percentage": "9.9",
       "repos": 17,
       "color": "#3178c6"
     },
     {
       "name": "JavaScript",
-      "bytes": 6173138,
+      "bytes": 6176596,
       "percentage": "6.8",
       "repos": 55,
       "color": "#f1e05a"
     },
     {
       "name": "Go",
-      "bytes": 3413774,
+      "bytes": 3430797,
       "percentage": "3.8",
       "repos": 6,
       "color": "#00ADD8"
     },
     {
       "name": "Shell",
-      "bytes": 2226676,
+      "bytes": 2239217,
       "percentage": "2.5",
       "repos": 81,
       "color": "#89e051"
     },
     {
       "name": "CSS",
-      "bytes": 1861969,
-      "percentage": "2.1",
+      "bytes": 1864461,
+      "percentage": "2.0",
       "repos": 50,
       "color": "#563d7c"
     },
@@ -86,20 +86,20 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1518,
-  "avgCommitsPerRepo": "50.6",
+  "totalCommits": 1522,
+  "avgCommitsPerRepo": "50.7",
   "medianCommits": 24,
-  "recentCommits": 48,
+  "recentCommits": 21,
   "avgRepoAge": "0.7",
-  "estimatedTotalFiles": 26600,
+  "estimatedTotalFiles": 26775,
   "avgFilesPerRepo": 175,
-  "estimatedTotalLines": 15310504,
-  "avgLinesPerRepo": 100727,
-  "avgLinesPerFile": 576,
+  "estimatedTotalLines": 15504867,
+  "avgLinesPerRepo": 101339,
+  "avgLinesPerFile": 580,
   "archivedRepos": 5,
-  "activeRepos": 147,
+  "activeRepos": 148,
   "forkedRepos": 3,
-  "originalRepos": 149,
+  "originalRepos": 150,
   "reposByYear": {
     "2020": 1,
     "2021": 6,
@@ -107,7 +107,7 @@
     "2023": 4,
     "2024": 8,
     "2025": 29,
-    "2026": 99
+    "2026": 100
   },
   "licenses": {
     "MIT": 8,
@@ -155,29 +155,9 @@
   ],
   "recentlyUpdated": [
     {
-      "name": "common-ressources",
-      "url": "https://github.com/smol-kitten/common-ressources",
-      "pushedAt": "2026-11-12",
-      "description": "Ressources i might or might not need more often",
-      "language": "Lua",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
-      "name": "web-core",
-      "url": "https://github.com/smol-kitten/web-core",
-      "pushedAt": "2026-11-11",
-      "description": "Base images for php8.4 nginx/apache2",
-      "language": "HTML",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
       "name": "catboy-registry",
       "url": "https://github.com/smol-kitten/catboy-registry",
-      "pushedAt": "2026-11-11",
+      "pushedAt": "2026-11-12",
       "description": "Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID registry, protocol specs (X.509, CMS, SNMP, DHCP, syslog, DNS-SD, media types) and generated constants",
       "language": "Go Template",
       "fork": false,
@@ -185,11 +165,31 @@
       "private": false
     },
     {
+      "name": "web-core",
+      "url": "https://github.com/smol-kitten/web-core",
+      "pushedAt": "2026-11-12",
+      "description": "Base images for php8.4 nginx/apache2",
+      "language": "HTML",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-11-11",
+      "pushedAt": "2026-11-12",
       "description": "Config files for my GitHub profile.",
       "language": "Shell",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
+      "name": "common-ressources",
+      "url": "https://github.com/smol-kitten/common-ressources",
+      "pushedAt": "2026-11-12",
+      "description": "Ressources i might or might not need more often",
+      "language": "Lua",
       "fork": false,
       "archived": false,
       "private": false
@@ -277,75 +277,75 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 13635,
-    "currentStreakDays": 44,
+    "totalContributions": 13736,
+    "currentStreakDays": 45,
     "longestStreakDays": 50,
-    "last30d": 2595,
-    "last90d": 6919,
-    "activeDays": 233,
+    "last30d": 2551,
+    "last90d": 7011,
+    "activeDays": 234,
     "busiestDay": {
       "date": "2026-09-23",
       "count": 453
     }
   },
   "prsAllTime": {
-    "opened": 5488,
-    "merged": 5278,
-    "mergeRate": "96.2"
+    "opened": 5529,
+    "merged": 5312,
+    "mergeRate": "96.1"
   },
   "commitPatterns": {
     "byHour": [
-      100,
-      77,
-      40,
-      15,
-      91,
-      170,
-      130,
-      155,
-      192,
-      179,
-      253,
-      258,
-      199,
-      162,
-      174,
-      200,
-      122,
-      98,
-      104,
-      125,
-      138,
-      169,
-      122,
-      100
+      90,
+      84,
+      33,
+      19,
+      62,
+      140,
+      167,
+      173,
+      216,
+      207,
+      273,
+      279,
+      208,
+      159,
+      164,
+      194,
+      121,
+      97,
+      94,
+      115,
+      136,
+      153,
+      121,
+      114
     ],
     "byWeekday": [
-      403,
-      531,
-      566,
-      719,
       409,
-      343,
-      402
+      527,
+      463,
+      787,
+      500,
+      388,
+      345
     ],
     "topHour": 11,
     "topWeekday": "Wed",
-    "sampleSize": 3373
+    "sampleSize": 3419
   },
   "ci": {
     "reposScanned": 30,
     "reposWithWorkflows": 30,
     "workflowsPct": "100",
-    "runsSampled": 431,
-    "successRate": "94.7"
+    "runsSampled": 439,
+    "successRate": "93.8"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 2116,
-    "totalCoauthorMentions": 3513,
-    "scannedCommits": 3373,
-    "assistRate": "62.7",
+    "totalAICommits": 2222,
+    "totalCoauthorMentions": 3457,
+    "scannedCommits": 3419,
+    "assistRate": "65.0",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -358,19 +358,19 @@
     "families": [
       {
         "family": "Opus",
-        "count": 1525
+        "count": 1620
       },
       {
         "family": "Claude",
-        "count": 381
+        "count": 383
       },
       {
         "family": "Sonnet",
-        "count": 125
+        "count": 126
       },
       {
         "family": "Fable",
-        "count": 84
+        "count": 91
       },
       {
         "family": "Other AI",
@@ -380,42 +380,42 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1147
-      },
-      {
-        "model": "Claude (unspecified)",
-        "count": 381
+        "count": 897
       },
       {
         "model": "Opus 5.5",
-        "count": 323
+        "count": 670
+      },
+      {
+        "model": "Claude (unspecified)",
+        "count": 383
       },
       {
         "model": "Sonnet 5.5",
-        "count": 111
+        "count": 115
       },
       {
         "model": "Fable 5.1",
-        "count": 66
+        "count": 65
       },
       {
         "model": "Opus 5",
-        "count": 55
+        "count": 53
       },
       {
         "model": "Fable 5",
-        "count": 18
+        "count": 26
       },
       {
         "model": "Sonnet 4.6",
-        "count": 11
-      },
-      {
-        "model": "Sonnet 5",
-        "count": 3
+        "count": 10
       },
       {
         "model": "Copilot",
+        "count": 1
+      },
+      {
+        "model": "Sonnet 5",
         "count": 1
       },
       {
@@ -441,60 +441,60 @@
       },
       {
         "month": "2026-06",
-        "total": 282,
+        "total": 89,
         "families": {
-          "Opus": 208,
-          "Claude": 69,
-          "Sonnet": 5
+          "Opus": 56,
+          "Sonnet": 4,
+          "Claude": 29
         }
       },
       {
         "month": "2026-07",
-        "total": 718,
+        "total": 627,
         "families": {
-          "Opus": 698,
-          "Fable": 18,
-          "Claude": 2
+          "Opus": 599,
+          "Claude": 2,
+          "Fable": 26
         }
       },
       {
         "month": "2026-08",
-        "total": 300,
+        "total": 303,
         "families": {
-          "Claude": 104,
-          "Opus": 196
+          "Opus": 203,
+          "Claude": 100
         }
       },
       {
         "month": "2026-09",
-        "total": 331,
+        "total": 463,
         "families": {
-          "Opus": 151,
-          "Claude": 130,
+          "Opus": 268,
+          "Claude": 145,
           "Fable": 50
         }
       },
       {
         "month": "2026-10",
-        "total": 352,
+        "total": 530,
         "families": {
-          "Opus": 221,
-          "Claude": 73,
-          "Fable": 15,
-          "Sonnet": 44
+          "Opus": 395,
+          "Claude": 80,
+          "Fable": 14,
+          "Sonnet": 41
         }
       },
       {
         "month": "2026-11",
-        "total": 125,
+        "total": 202,
         "families": {
-          "Opus": 51,
-          "Sonnet": 70,
-          "Claude": 3,
+          "Claude": 27,
+          "Opus": 99,
+          "Sonnet": 75,
           "Fable": 1
         }
       }
     ]
   },
-  "updatedAt": "2026-11-12"
+  "updatedAt": "2026-11-13"
 }
