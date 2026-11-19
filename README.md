@@ -28,12 +28,12 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
+| [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑11‑19 |
+| [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑11‑19 |
+| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑18 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirr… | Python | 2026‑11‑18 |
-| [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑11‑17 |
-| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑17 |
 | [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Tool to change MC Versions at specific dates from a profile | C# | 2026‑11‑17 |
 | [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑11‑16 |
-| [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑11‑14 |
 
 </details>
 
@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **154** <sub>13 public · 141 private</sub> | **14,715** | **232** | **5,674** <sub>of 5,910 · 96.0%</sub> | **90.6%** <sub>of 449 runs</sub> |
+| **154** <sub>13 public · 141 private</sub> | **14,914** | **233** | **5,763** <sub>of 5,998 · 96.1%</sub> | **92.2%** <sub>of 450 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -57,12 +57,12 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Language | Share | Repos |
 |:--|--:|--:|
-| PHP | 19.3% | 39 |
-| Python | 17.4% | 63 |
-| C# | 15.9% | 39 |
-| HTML | 14.5% | 55 |
+| PHP | 19.2% | 39 |
+| Python | 17.3% | 63 |
+| C# | 16.0% | 39 |
+| HTML | 14.4% | 55 |
 | TypeScript | 9.4% | 17 |
-| JavaScript | 6.5% | 55 |
+| JavaScript | 6.8% | 55 |
 | Go | 3.8% | 6 |
 | Shell | 2.7% | 83 |
 | Java | 2.5% | 2 |
@@ -75,15 +75,15 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **2,982** / **7,824** |
-| Current streak | **50 days** |
-| Longest streak | **50 days** |
+| Last 30 / 90 days | **3,166** / **8,023** |
+| Current streak | **51 days** |
+| Longest streak | **51 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 4141 sampled commits · busiest: Wed around 11:00</sub>
+**Commit clock** <sub>UTC, 4199 sampled commits · busiest: Wed around 11:00</sub>
 
 ```
-00h ▃▃▂▁▃▅▅▅▆▆██▇▆▆▇▅▄▄▅▅▆▄▄ 23h
+00h ▄▃▂▁▃▅▅▆▆▆██▆▅▅▆▅▄▄▅▅▅▄▄ 23h
 ```
 
 **Repositories created per year**
@@ -100,7 +100,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<sub>AI pair-programming: **64.3%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **66.9%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-11-18.</sub>
+<sub>Last updated 2026-11-19.</sub>
