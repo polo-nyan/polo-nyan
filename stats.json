@@ -11,8 +11,8 @@
   "totalStars": 0,
   "totalForks": 0,
   "totalWatchers": 0,
-  "totalOpenIssues": 150,
-  "totalSizeMB": "1797.6",
+  "totalOpenIssues": 153,
+  "totalSizeMB": "1794.0",
   "languages": [
     {
       "name": "PHP",
@@ -86,16 +86,16 @@
     }
   ],
   "topLanguage": "PHP",
-  "totalCommits": 1671,
-  "avgCommitsPerRepo": "55.7",
+  "totalCommits": 1673,
+  "avgCommitsPerRepo": "55.8",
   "medianCommits": 26,
-  "recentCommits": 46,
+  "recentCommits": 54,
   "avgRepoAge": "0.7",
   "estimatedTotalFiles": 27720,
   "avgFilesPerRepo": 180,
-  "estimatedTotalLines": 15407854,
-  "avgLinesPerRepo": 100051,
-  "avgLinesPerFile": 556,
+  "estimatedTotalLines": 15447586,
+  "avgLinesPerRepo": 100309,
+  "avgLinesPerFile": 557,
   "archivedRepos": 6,
   "activeRepos": 148,
   "forkedRepos": 3,
@@ -155,9 +155,19 @@
   ],
   "recentlyUpdated": [
     {
+      "name": "netpaw",
+      "url": "https://github.com/smol-kitten/netpaw",
+      "pushedAt": "2026-11-23",
+      "description": "Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet secondaries, reach-any-IP mode, device presets, VLAN detection. MIT.",
+      "language": "C#",
+      "fork": false,
+      "archived": false,
+      "private": false
+    },
+    {
       "name": "catboy-registry",
       "url": "https://github.com/smol-kitten/catboy-registry",
-      "pushedAt": "2026-11-21",
+      "pushedAt": "2026-11-22",
       "description": "Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID registry, protocol specs (X.509, CMS, SNMP, DHCP, syslog, DNS-SD, media types) and generated constants",
       "language": "Go Template",
       "fork": false,
@@ -167,7 +177,7 @@
     {
       "name": "polo-nyan",
       "url": "https://github.com/polo-nyan/polo-nyan",
-      "pushedAt": "2026-11-21",
+      "pushedAt": "2026-11-22",
       "description": "Config files for my GitHub profile.",
       "language": "Shell",
       "fork": false,
@@ -225,16 +235,6 @@
       "private": false
     },
     {
-      "name": "netpaw",
-      "url": "https://github.com/smol-kitten/netpaw",
-      "pushedAt": "2026-11-16",
-      "description": "Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet secondaries, reach-any-IP mode, device presets, VLAN detection. MIT.",
-      "language": "C#",
-      "fork": false,
-      "archived": false,
-      "private": false
-    },
-    {
       "name": "netpaw-site",
       "url": "https://github.com/smol-kitten/netpaw-site",
       "pushedAt": "2026-11-03",
@@ -277,12 +277,12 @@
   ],
   "activity": {
     "window": "past 12 months",
-    "totalContributions": 15272,
-    "currentStreakDays": 53,
-    "longestStreakDays": 53,
-    "last30d": 3262,
-    "last90d": 8145,
-    "activeDays": 234,
+    "totalContributions": 15266,
+    "currentStreakDays": 54,
+    "longestStreakDays": 54,
+    "last30d": 3212,
+    "last90d": 8048,
+    "activeDays": 235,
     "busiestDay": {
       "date": "2026-09-23",
       "count": 453
@@ -295,57 +295,57 @@
   },
   "commitPatterns": {
     "byHour": [
-      132,
-      105,
-      47,
-      27,
-      78,
-      198,
-      184,
-      216,
-      247,
-      236,
-      318,
-      348,
-      237,
-      201,
-      212,
-      242,
+      115,
+      86,
+      36,
+      22,
+      72,
       171,
-      140,
-      138,
-      162,
-      166,
-      187,
-      132,
-      145
+      147,
+      163,
+      223,
+      202,
+      267,
+      278,
+      200,
+      175,
+      185,
+      207,
+      145,
+      105,
+      106,
+      119,
+      137,
+      168,
+      126,
+      119
     ],
     "byWeekday": [
-      482,
-      619,
-      655,
-      934,
-      651,
-      509,
-      419
+      393,
+      543,
+      649,
+      839,
+      439,
+      357,
+      354
     ],
     "topHour": 11,
     "topWeekday": "Wed",
-    "sampleSize": 4269
+    "sampleSize": 3574
   },
   "ci": {
     "reposScanned": 30,
     "reposWithWorkflows": 30,
     "workflowsPct": "100",
     "runsSampled": 449,
-    "successRate": "94.9"
+    "successRate": "95.3"
   },
   "ai": {
     "enabled": true,
-    "totalAICommits": 2931,
-    "totalCoauthorMentions": 5054,
-    "scannedCommits": 4269,
-    "assistRate": "68.7",
+    "totalAICommits": 2432,
+    "totalCoauthorMentions": 4195,
+    "scannedCommits": 3574,
+    "assistRate": "68.0",
     "topFamily": "Opus",
     "topModel": "Opus 4.8",
     "familyOrder": [
@@ -358,19 +358,19 @@
     "families": [
       {
         "family": "Opus",
-        "count": 2122
+        "count": 1675
       },
       {
         "family": "Claude",
-        "count": 528
+        "count": 487
       },
       {
         "family": "Fable",
-        "count": 158
+        "count": 148
       },
       {
         "family": "Sonnet",
-        "count": 126
+        "count": 122
       },
       {
         "family": "Other AI",
@@ -380,27 +380,23 @@
     "topModels": [
       {
         "model": "Opus 4.8",
-        "count": 1150
-      },
-      {
-        "model": "Opus 5.5",
-        "count": 917
+        "count": 1167
       },
       {
         "model": "Claude (unspecified)",
-        "count": 528
+        "count": 487
+      },
+      {
+        "model": "Opus 5.5",
+        "count": 455
+      },
+      {
+        "model": "Fable 5.1",
+        "count": 124
       },
       {
         "model": "Sonnet 5.5",
         "count": 108
-      },
-      {
-        "model": "Fable 5.1",
-        "count": 71
-      },
-      {
-        "model": "Fable 5.2",
-        "count": 69
       },
       {
         "model": "Opus 5",
@@ -415,8 +411,12 @@
         "count": 10
       },
       {
+        "model": "Fable 5.2",
+        "count": 6
+      },
+      {
         "model": "Sonnet 5",
-        "count": 8
+        "count": 4
       },
       {
         "model": "Copilot",
@@ -445,10 +445,10 @@
       },
       {
         "month": "2026-06",
-        "total": 248,
+        "total": 250,
         "families": {
+          "Opus": 184,
           "Claude": 62,
-          "Opus": 182,
           "Sonnet": 4
         }
       },
@@ -463,42 +463,42 @@
       },
       {
         "month": "2026-08",
-        "total": 317,
+        "total": 322,
         "families": {
-          "Claude": 103,
-          "Opus": 214
+          "Opus": 219,
+          "Claude": 103
         }
       },
       {
         "month": "2026-09",
-        "total": 322,
+        "total": 351,
         "families": {
-          "Opus": 148,
-          "Claude": 124,
+          "Opus": 145,
+          "Claude": 156,
           "Fable": 50
         }
       },
       {
         "month": "2026-10",
-        "total": 615,
+        "total": 405,
         "families": {
-          "Opus": 462,
-          "Claude": 87,
-          "Sonnet": 49,
-          "Fable": 18
+          "Opus": 232,
+          "Claude": 69,
+          "Fable": 61,
+          "Sonnet": 45
         }
       },
       {
         "month": "2026-11",
-        "total": 683,
+        "total": 358,
         "families": {
-          "Opus": 398,
-          "Claude": 150,
-          "Fable": 72,
+          "Fable": 19,
+          "Opus": 177,
+          "Claude": 95,
           "Sonnet": 67
         }
       }
     ]
   },
-  "updatedAt": "2026-11-22"
+  "updatedAt": "2026-11-23"
 }

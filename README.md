@@ -28,12 +28,12 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
-| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑21 |
+| [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑11‑23 |
+| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑22 |
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026‑11‑19 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑11‑19 |
 | [common-ressources](https://github.com/smol-kitten/common-ressources) | Ressources i might or might not need more often | Lua | 2026‑11‑19 |
 | [pawkit-docgen](https://github.com/smol-kitten/pawkit-docgen) | Deterministic code-index + wiki generators for the pawkit agent toolkit (public CI mirr… | Python | 2026‑11‑18 |
-| [MinecraftThroughTime](https://github.com/smol-kitten/MinecraftThroughTime) | Tool to change MC Versions at specific dates from a profile | C# | 2026‑11‑17 |
 
 </details>
 
@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **154** <sub>13 public · 141 private</sub> | **15,272** | **234** | **5,943** <sub>of 6,176 · 96.2%</sub> | **94.9%** <sub>of 449 runs</sub> |
+| **154** <sub>13 public · 141 private</sub> | **15,266** | **235** | **5,943** <sub>of 6,176 · 96.2%</sub> | **95.3%** <sub>of 449 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -75,15 +75,15 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,262** / **8,145** |
-| Current streak | **53 days** |
-| Longest streak | **53 days** |
+| Last 30 / 90 days | **3,212** / **8,048** |
+| Current streak | **54 days** |
+| Longest streak | **54 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 4269 sampled commits · busiest: Wed around 11:00</sub>
+**Commit clock** <sub>UTC, 3574 sampled commits · busiest: Wed around 11:00</sub>
 
 ```
-00h ▄▃▂▂▃▅▅▅▆▆▇█▆▅▅▆▄▄▄▄▄▅▄▄ 23h
+00h ▄▃▂▂▃▅▅▅▇▆██▆▅▆▆▅▄▄▄▄▅▄▄ 23h
 ```
 
 **Repositories created per year**
@@ -100,7 +100,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<sub>AI pair-programming: **68.7%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **68.0%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-11-22.</sub>
+<sub>Last updated 2026-11-23.</sub>
