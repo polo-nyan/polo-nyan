@@ -10,7 +10,7 @@ How much of my code is written together with an AI assistant, and whether that c
 
 | AI-assisted share | Commits scanned | Repositories | Lines added / removed |
 |:--:|:--:|:--:|:--:|
-| **68.3%** <sub>5,914 of 8,665 commits</sub> | **8,665** <sub>2025-11-23 → 2026-11-23</sub> | **151** <sub>with commits in the window</sub> | **+5,582,174** / **−800,073** |
+| **68.3%** <sub>5,922 of 8,673 commits</sub> | **8,673** <sub>2025-11-24 → 2026-11-24</sub> | **151** <sub>with commits in the window</sub> | **+5,582,334** / **−800,119** |
 
 ## Share of AI-assisted commits over time
 
@@ -39,21 +39,20 @@ Share of my commits per month that carry an AI co-author trailer (bars span 0–
 | 2026-08 | 79.4% | 586 / 738 |
 | 2026-09 | 89.3% | 1090 / 1221 |
 | 2026-10 | 76.1% | 1497 / 1967 |
-| 2026-11 | 87.9% | 1247 / 1419 |
+| 2026-11 | 87.9% | 1255 / 1427 |
 
 </details>
 
 <details>
-<summary>Weekly view (last 26 ISO weeks, 2026-W22 → 2026-W47)</summary>
+<summary>Weekly view (last 26 ISO weeks, 2026-W23 → 2026-W48)</summary>
 
 ```
-AI share   ▁▂▁▂▅▆▆▃▅██▆▇▇██▇▇▇█▇▅▇▆██
-commits    ▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆▆▅█▇
+AI share   ▂▁▂▅▆▆▃▅██▆▆▇██▆▇▇▇▆▅▆▆█▇█
+commits    ▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆▆▅█▇▁
 ```
 
 | Week | AI / all | Share |
 |:--|--:|--:|
-| 2026-W22 | 0 / 20 | 0% |
 | 2026-W23 | 8 / 39 | 20.5% |
 | 2026-W24 | 2 / 34 | 5.9% |
 | 2026-W25 | 14 / 166 | 8.4% |
@@ -79,6 +78,7 @@ commits    ▁▁▁▃▇▄▇▇█▄▂▄▃▄▂▂▅█▇▆█▆▆
 | 2026-W45 | 217 / 304 | 71.4% |
 | 2026-W46 | 519 / 556 | 93.3% |
 | 2026-W47 | 457 / 496 | 92.1% |
+| 2026-W48 | 8 / 8 | 100% |
 
 </details>
 
@@ -96,20 +96,20 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | [catboy-registry](https://github.com/smol-kitten/catboy-registry) <sub>smol-kitten</sub> | `███████████░░░░░░░░░` | 55.6% | 15 / 27 |
 | [netpaw-site](https://github.com/smol-kitten/netpaw-site) <sub>smol-kitten</sub> | `████████████████████` | 100% | 9 / 9 |
 | [.github](https://github.com/smol-kitten/.github) <sub>smol-kitten</sub> | `█████░░░░░░░░░░░░░░░` | 25% | 1 / 4 |
-| *142 private / other repos* | `██████████████░░░░░░` | 68.1% | 5,561 / 8,164 |
+| *142 private / other repos* | `██████████████░░░░░░` | 68.1% | 5,569 / 8,172 |
 
 ## Pull requests: with and without AI commits
 
-2,852 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
+2,849 merged pull requests sampled (up to 40 most recent per repository, bot authors excluded). A PR counts as "with AI" when at least one of its commits is AI-assisted.
 
 | | With AI commits | Without AI commits |
 |:--|--:|--:|
-| Pull requests | **2,070** | **782** |
+| Pull requests | **2,069** | **780** |
 | Median time to merge | **6 min** | **0 min** |
 | Mean time to merge | 14.9 h | 2.1 d |
 | Median commits per PR | 1 | 1 |
-| Median lines changed per PR | 70 | 18 |
-| CI pass rate of the head commit | 82.4% <sub>n = 1,373</sub> | 35.9% <sub>n = 688</sub> |
+| Median lines changed per PR | 69 | 18 |
+| CI pass rate of the head commit | 82.4% <sub>n = 1,368</sub> | 36% <sub>n = 686</sub> |
 
 <sub>CI pass rates describe different kinds of PRs (small manual fixes vs assisted feature work), not an effect of AI use; failures include infrastructure noise.</sub>
 
@@ -119,10 +119,10 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 | | AI-assisted commits | Human-only commits |
 |:--|--:|--:|
-| Commits | 5,914 | 2,751 |
-| Lines added | +2,857,247 | +2,724,927 |
-| Lines removed | −316,781 | −483,292 |
-| Lines changed per commit | **537** | **1,166** |
+| Commits | 5,922 | 2,751 |
+| Lines added | +2,857,407 | +2,724,927 |
+| Lines removed | −316,827 | −483,292 |
+| Lines changed per commit | **536** | **1,166** |
 
 <details>
 <summary>Lines changed per month (bar = AI-assisted share of the month's volume, scaled to the busiest month)</summary>
@@ -140,7 +140,7 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 | 2026-08 | `████░░░░░░░░░░░░░░░░` | 314,689 | 449,545 |
 | 2026-09 | `██████████████░░░░░░` | 966,614 | 1,424,062 |
 | 2026-10 | `█████████░░░░░░░░░░░` | 649,239 | 1,230,666 |
-| 2026-11 | `████░░░░░░░░░░░░░░░░` | 313,902 | 565,384 |
+| 2026-11 | `████░░░░░░░░░░░░░░░░` | 314,108 | 565,590 |
 
 </details>
 
@@ -155,4 +155,4 @@ Public repositories by name, ordered by commits in the window. Private, forked a
 
 Numbers are rebuilt daily by [`update-stats.yml`](.github/workflows/update-stats.yml); the collector is [`scripts/collect-ai-stats.mjs`](scripts/collect-ai-stats.mjs) and the renderer [`scripts/build-ai-stats.sh`](scripts/build-ai-stats.sh). Back to the [profile](README.md).
 
-<sub>Last updated 2026-11-23.</sub>
+<sub>Last updated 2026-11-24.</sub>
