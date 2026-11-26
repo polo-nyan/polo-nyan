@@ -28,7 +28,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repository | Description | Language | Last push |
 |:--|:--|:--|:--|
-| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑24 |
+| [catboy-registry](https://github.com/smol-kitten/catboy-registry) | Source of truth for the catboy.systems / m-schneider.cc IANA enterprise arc: OID regist… | Go Template | 2026‑11‑25 |
 | [netpaw](https://github.com/smol-kitten/netpaw) | Static-IP profiles for Windows network admins — tray tool with hotkeys, multi-subnet se… | C# | 2026‑11‑23 |
 | [web-core](https://github.com/smol-kitten/web-core) | Base images for php8.4 nginx/apache2 | HTML | 2026‑11‑19 |
 | [fleet-actions](https://github.com/workcollection/fleet-actions) | Shared composite actions + reusable workflows for the fleet. Consume by tag (@v1), neve… | Python | 2026‑11‑19 |
@@ -41,7 +41,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Repositories | Contributions <sub>12 mo</sub> | Active days <sub>12 mo</sub> | PRs merged | CI success |
 |:--:|:--:|:--:|:--:|:--:|
-| **154** <sub>13 public · 141 private</sub> | **15,316** | **238** | **5,977** <sub>of 6,211 · 96.2%</sub> | **92.7%** <sub>of 450 runs</sub> |
+| **154** <sub>13 public · 141 private</sub> | **15,430** | **239** | **6,041** <sub>of 6,276 · 96.3%</sub> | **94.4%** <sub>of 450 runs</sub> |
 
 **Languages** <sub>by bytes across all repos, incl. private</sub>
 
@@ -58,14 +58,14 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 | Language | Share | Repos |
 |:--|--:|--:|
 | PHP | 18.9% | 39 |
-| Python | 17.4% | 63 |
+| Python | 17.5% | 64 |
 | C# | 15.7% | 39 |
 | HTML | 14.1% | 55 |
 | TypeScript | 9.2% | 17 |
 | JavaScript | 7.0% | 55 |
 | Go | 3.8% | 6 |
 | Java | 3.2% | 2 |
-| Shell | 2.7% | 83 |
+| Shell | 2.7% | 84 |
 | CSS | 1.9% | 51 |
 
 </details>
@@ -75,15 +75,15 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 | Contributions <sub>past 12 months, incl. private</sub> | |
 |:--|--:|
-| Last 30 / 90 days | **3,089** / **8,008** |
-| Current streak | **57 days** |
-| Longest streak | **57 days** |
+| Last 30 / 90 days | **3,030** / **8,122** |
+| Current streak | **58 days** |
+| Longest streak | **58 days** |
 | Busiest day | **453** <sub>2026-09-23</sub> |
 
-**Commit clock** <sub>UTC, 4073 sampled commits · busiest: Wed around 11:00</sub>
+**Commit clock** <sub>UTC, 4296 sampled commits · busiest: Wed around 11:00</sub>
 
 ```
-00h ▄▃▂▁▃▅▅▅▆▆██▆▅▅▆▅▄▄▅▅▅▄▄ 23h
+00h ▃▃▂▁▃▅▅▅▆▆▇█▆▅▆▆▅▄▄▅▅▅▄▄ 23h
 ```
 
 **Repositories created per year**
@@ -100,7 +100,7 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 </details>
 
-<sub>AI pair-programming: **67.9%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
+<sub>AI pair-programming: **67.8%** of recent commits carry an AI co-author trailer. Full analysis in [AI-STATS.md](AI-STATS.md).</sub>
 
 ## 🧰 Toolbox
 
@@ -124,4 +124,4 @@ Hi, I'm Marc (`polo-nyan`), a self-taught hobby developer from Germany. I build 
 
 <sub>Rebuilt every morning by a self-hosted runner, usually before I have had coffee. Private project names are never shown here, only counts. If the stats look stale the pipeline is down and development continues on a private Gitea mirror.</sub>
 
-<sub>Last updated 2026-11-25.</sub>
+<sub>Last updated 2026-11-26.</sub>
